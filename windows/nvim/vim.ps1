@@ -35,6 +35,124 @@ function Err
 
 
 
+function CreateDir
+{
+
+    param([String] $Path,
+        [String] $Description)
+
+    $ConfigExists = Test-Path $ConfigPath
+    if ($ConfigExists)
+    {
+        Warn "`t`tThe $Description directory already exists."
+
+    }
+    else
+    {
+        New-Item -Type Directory -Path $ConfigPath
+        Log "`t`tSince the $Description directory did not exist, it was created."
+
+    }
+
+
+}
+
+
+function CreateHardLink
+{
+
+
+    param([String]$Source,
+        [String]$Target)
+
+
+    Log "`tStarting the creation of an hardlink: $DestinationPath -> $VersionedScript"
+
+    $SourceExists = Test-Path $Source
+    if ($SourceExists)
+    {
+
+        Warn "`t`tThe symbolic link path already exists, and won't be created."
+        return
+    }
+
+    Try
+    {
+        New-Item -Type HardLink -Path $Source -Target $Target -ErrorAction Stop
+        Log "`t`tCreation of the link succeeded."
+    }
+    catch [System.IO.IOException]
+    {
+
+        $Message = FullMessage $_.Exception
+        Err "`t`tAn error occurred during the creation of the symbolic link: $Message"
+
+    }
+
+}
+function CreateJunction
+{
+
+
+    param([String]$Source,
+        [String]$Target)
+
+
+    Log "`tStarting the creation of an junction: $Source -> $Target"
+
+    $SourceExists = Test-Path $Source
+    if ($SourceExists)
+    {
+
+        Warn "`t`tThe junction path already exists, and won't be created."
+        return
+    }
+
+    Try
+    {
+        New-Item -Type HardLink -Path $Source -Target $Target -ErrorAction Stop
+        Log "`t`tCreation of the Junction succeeded."
+    }
+    catch [System.IO.IOException]
+    {
+
+        $Message = FullMessage $_.Exception
+        Err "`t`tAn error occurred during the creation of the junction: $Message"
+
+    }
+
+}
+
+function FindSingleInDir
+{
+
+    param([String]$Haystack,
+        [String]$Needle
+    )
+
+
+    $PossibleScripts = Get-ChildItem -Path $Haystack -Filter $Needle -Recurse
+    if ($PossibleScripts.Count -gt 1)
+    {
+        Err "`t`tAn error occured. More than one candidate '$Needle' was found inside $Haystack"
+        return
+    }
+    if ($PossibleScripts.Count -eq 0) {
+        Err "An error occured. No candidate $Needle was found inside $Haystack"
+    }
+    return $PossibleScripts[0].FullName
+
+}
+
+function GetParentDir
+{
+
+    $ScriptDirectory = Resolve-Path $PSScriptRoot
+    $ParentDirectory = Split-Path $ScriptDirectory -Parent
+    Log "`tThe script directory was determined as $ScriptDirectory, with parent as $ParentDirectory"
+    return $ParentDirectory
+}
+###
 
 function Get-VimDir
 {
@@ -44,25 +162,16 @@ function Get-VimDir
 
     return $ConfigPath
 }
+
 function Create-VimDir
 {
-
-    Log "Starting the creation of the vim directory."
-
+    $Description = "Nvim Config"
+    Log "Starting the creation of the $Description directory."
     $ConfigPath = Get-VimDir
-    Log "`tThe Nvim config directory was resolved as $ConfigPath"
-    $ConfigExists = Test-Path $ConfigPath
-    if ($ConfigExists)
-    {
-        Warn "`t`tThe Nvim config directory already exists."
+    Log "`tThe $Description directory was resolved as $ConfigPath"
+    CreateDir $ConfigPath $Description
 
-    }
-    else
-    {
-        New-Item -Type Directory -Path $ConfigPath
-        Log "`t`tSince the Nvim config directory did not exist, it was created."
 
-    }
 }
 
 function Link-InitVim
@@ -70,98 +179,46 @@ function Link-InitVim
 
 
     $FileName = "init.vim"
-    Log "Starting the process of linking the versioned $FileName configuration file."
-
-    $ScriptDirectory = Resolve-Path $PSScriptRoot
-    $ParentDirectory = Split-Path $ScriptDirectory -Parent
-    Log "`tThe script directory was determined as $ScriptDirectory, with parent as $ParentDirectory"
-
-    $PossibleScripts = Get-ChildItem -Path $ParentDirectory -Filter "$FileName" -Recurse
-    if ($PossibleScripts.Count -gt 1)
-    {
-        Err "`t`tAn error occured. More than one candidate '$FileName' file was found inside $ParentDirectory"
-        return
-    }
-
-    $InitScript = $PossibleScripts[0].FullName
     $ConfigPath = Get-VimDir
-    $QualifiedConfigPath = Join-Path $ConfigPath "$FileName"
+    $DestinationPath = Join-Path $ConfigPath $FileName
 
-    Log "`tStarting the creation of an symbolic link: $QualifiedConfigPath -> $InitScript"
+    Log "Starting the process of linking the versioned $FileName configuration file."
+    $ParentDirectory = GetParentDir
+    $VersionedScript = FindSingleInDir  $ParentDirectory $FileName
 
-    $QualifiedExists = Test-Path $QualifiedConfigPath
-    if ($QualifiedExists)
-    {
 
-        Warn "`t`tThe symbolic link path already exists, and won't be created."
-        return
-    }
-
-    Try
-    {
-        New-Item -Type HardLink -Path $QualifiedConfigPath -Target $InitScript -ErrorAction Stop
-        Log "`t`tCreation of the link succeeded."
-    }
-    catch [System.IO.IOException]
-    {
-
-        $Message = FullMessage $_.Exception
-        Err "`t`tAn error occurred during the creation of the symbolic link: $Message"
-
-    }
+    CreateHardLink $DestinationPath $VersionedScript
 
 
 }
 function Link-InitLua
 {
-
-
     $FileName = "init.lua"
-    Log "Starting the process of linking the versioned $FileName configuration file."
-    $ScriptDirectory = Resolve-Path $PSScriptRoot
-    $ParentDirectory = Split-Path $ScriptDirectory -Parent
-
-    Log "`tThe script directory was determined as $ScriptDirectory, with parent as $ParentDirectory"
-
-    $PossibleScripts = Get-ChildItem -Path $ParentDirectory -Filter "$FileName" -Recurse
-
-    if ($PossibleScripts.Count -gt 1)
-    {
-        Err "`t`tAn error occured. More than one candidate '$FileName' file was found inside $ParentDirectory"
-        return
-    }
-
-    $InitScript = $PossibleScripts[0].FullName
     $ConfigPath = Get-VimDir
-    $QualifiedConfigPath = Join-Path $ConfigPath "$FileName"
+    $DestinationPath = Join-Path $ConfigPath $FileName
+
+    Log "Starting the process of linking the versioned $FileName configuration file."
+    $ParentDirectory = GetParentDir
+    $VersionedScript = FindSingleInDir  $ParentDirectory $FileName
 
 
+    CreateHardLink $DestinationPath $VersionedScript
+
+}
+
+function Link-LuaDir
+{
 
 
-    Log "`tStarting the creation of an symbolic link: $QualifiedConfigPath -> $InitScript"
+    $DirName = "lua"
+    $ConfigPath = Get-VimDir
+    $DestinationPath = Join-Path $ConfigPath $DirName
 
-    $QualifiedExists = Test-Path $QualifiedConfigPath
-    if ($QualifiedExists)
-    {
+    Log "Starting the process of linking the versioned $DirName directory."
+    $ParentDirectory = GetParentDir
+    $JunctionedDir = FindSingleInDir $ParentDirectory $DirName
 
-        Warn "`t`tThe symbolic link path already exists, and won't be created."
-        return
-    }
-
-
-    Try
-    {
-        New-Item -Type HardLink -Path $QualifiedConfigPath -Target $InitScript -ErrorAction Stop
-        Log "`t`tCreation of the link succeeded."
-    }
-    catch [System.IO.IOException]
-    {
-
-        $Message = FullMessage $_.Exception
-        Err "`t`tAn error occurred during the creation of the symbolic link: $Message"
-
-    }
-
+    CreateJunction $DestinationPath $JunctionedDir
 
 }
 
@@ -205,4 +262,5 @@ function Install-VimPlug
 Create-VimDir
 Link-InitVim
 Link-InitLua
+Link-LuaDir
 Install-VimPlug
