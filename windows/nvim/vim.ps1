@@ -41,15 +41,15 @@ function CreateDir
     param([String] $Path,
         [String] $Description)
 
-    $ConfigExists = Test-Path $ConfigPath
-    if ($ConfigExists)
+    $PathExists = Test-Path $Path
+    if ($PathExists)
     {
         Warn "`t`tThe $Description directory already exists."
 
     }
     else
     {
-        New-Item -Type Directory -Path $ConfigPath
+        New-Item -Type Directory -Path $Path
         Log "`t`tSince the $Description directory did not exist, it was created."
 
     }
@@ -226,20 +226,8 @@ function Install-VimPlug
 {
     $VimDirectory = Get-VimDir
     $AutoLoadDirectory = Join-Path $VimDirectory "autoload"
+    CreateDir $AutoLoadDirectory "Autoload Directory"
 
-    $DirectoryExists = Test-Path $AutoLoadDirectory
-
-    if ($DirectoryExists)
-    {
-        Warn "Vim Plug Directory '$AutoLoadDirectory' already Exists."
-    }
-    else
-    {
-        Log "Vim Plug Directory '$AutoLoadDirectory' does not exists, and will be created."
-
-        New-Item -Type Directory $AutoLoadDirectory
-
-    }
 
     $GitPlug = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     $PlugFile = Join-Path $AutoLoadDirectory "plug.vim"
