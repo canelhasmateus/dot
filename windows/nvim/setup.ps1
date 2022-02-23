@@ -53,7 +53,7 @@ function Link-VimConfig
 
     $PossibleScripts = Get-ChildItem -Path $ParentDirectory -Filter "init.vim" -Recurse
 
-    if ($PossibleScripts.Length -gt 1)
+    if ($PossibleScripts.Count -gt 1)
     {
         Write-Host "`t`tAn error occured. More than one candidate 'init.vim' file was found inside $ParentDirectory"
         return
