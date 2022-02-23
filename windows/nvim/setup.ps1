@@ -81,5 +81,19 @@ function Link-VimConfig
 
 }
 
+function Install-VimPlug
+{
+    $VimDirectory = Get-VimDir
+    $AutoLoadDirectory = Join-Path $VimDirectory "autoload"
+    New-Item -Type Directory $AutoLoadDirectory
+
+    $GitPlug = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    $PlugFile = Join-Path $AutoLoadDirectory "plug.vim"
+
+    Invoke-RestMethod -Uri $GitPlug -OutFile $PlugFile
+
+}
+
 Create-VimDir
 Link-VimConfig
+Install-VimPlug
