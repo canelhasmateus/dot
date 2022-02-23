@@ -57,7 +57,6 @@ function CreateDir
 
 }
 
-
 function CreateHardLink
 {
 
@@ -90,7 +89,7 @@ function CreateHardLink
     }
 
 }
-function CreateJunction
+function CreateSymLink
 {
 
 
@@ -110,7 +109,7 @@ function CreateJunction
 
     Try
     {
-        New-Item -Type HardLink -Path $Source -Target $Target -ErrorAction Stop
+        New-Item -Type SymbolicLink -Path $Source -Target $Target -ErrorAction Stop
         Log "`t`tCreation of the Junction succeeded."
     }
     catch [System.IO.IOException]
@@ -137,7 +136,8 @@ function FindSingleInDir
         Err "`t`tAn error occured. More than one candidate '$Needle' was found inside $Haystack"
         return
     }
-    if ($PossibleScripts.Count -eq 0) {
+    if ($PossibleScripts.Count -eq 0)
+    {
         Err "An error occured. No candidate $Needle was found inside $Haystack"
     }
     return $PossibleScripts[0].FullName
@@ -218,7 +218,7 @@ function Link-LuaDir
     $ParentDirectory = GetParentDir
     $JunctionedDir = FindSingleInDir $ParentDirectory $DirName
 
-    CreateJunction $DestinationPath $JunctionedDir
+    CreateSymLink $DestinationPath $JunctionedDir
 
 }
 
@@ -259,8 +259,8 @@ function Install-VimPlug
 
 }
 
+
 Create-VimDir
-Link-InitVim
 Link-InitLua
 Link-LuaDir
 Install-VimPlug

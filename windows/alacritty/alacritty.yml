@@ -40,7 +40,8 @@ window:
   # - none: neither borders nor title bar
   # - transparent: title bar, transparent background and title bar buttons
   # - buttonless: title bar, transparent background, but no title bar buttons
-  decorations: buttonless
+  decorations: full
+#  decorations: buttonless
 
   # Startup Mode (changes require restart)
   #
@@ -52,6 +53,8 @@ window:
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
   startup_mode: Windowed
+  opacity: 1.0
+
 
 scrolling:
   # maximum number of lines in the scrollback buffer. Specifying '0' will
@@ -68,7 +71,7 @@ font:
   # Style can be specified to pick a specific face.
   normal:
     family: MesloLGS NF
-    style: Light
+#    style: Light
     # family: "Fira Code"
     # family: "Source Code Pro"
     # style: Retina
@@ -229,7 +232,6 @@ bell:
   duration: 0
 
 # Background opacity
-background_opacity: 1.0
 
 # Key bindings
 #
