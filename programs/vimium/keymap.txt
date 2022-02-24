@@ -75,9 +75,11 @@ map <a-m><a-d> moveTabRight
 map <a-m><a-h> moveTabLeft
 map <a-m><a-l> moveTabRight
 map <a-m><a-r> reload
-map <a-m>m Marks.activateCreateMode
-map <a-m><a-m> Marks.activateCreateMode
-map <a-n> Marks.activateGotoMode
+
+# Todo:
+# map <a-m>m Marks.activateCreateMode
+# map <a-m><a-m> Marks.activateCreateMode
+# map <a-n> Marks.activateGotoMode
 
 map < goPrevious
 map > goNext
