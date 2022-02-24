@@ -1,0 +1,85 @@
+
+##############################
+
+unmapAll
+
+# Jump
+map nn LinkHints.activateMode
+map np LinkHints.activateModeWithQueue
+map ni LinkHints.activateModeToOpenIncognito
+map NN LinkHints.activateModeToOpenInNewTab
+map nN LinkHints.activateModeToOpenInNewTab
+map nq LinkHints.activateModeToOpenInNewForegroundTab
+map nc LinkHints.activateModeToCopyLinkUrl
+
+#Todo: find out how to select word, paragraph etcf
+map <a-f>f enterFindMode
+map <a-f>l performFind
+map <a-f>j performBackwardsFind
+map <a-f>v enterVisualMode
+map <a-f>V enterVisualLineMode
+map <a-f>i focusInput
+# Inside Insert Mode, we skip vimium keymapping.
+map I enterInsertMode
+
+#Vim scrolling
+map k scrollUp
+map j scrollDown
+map h scrollLeft
+map l scrollRight
+map <a-K> scrollToTop
+map <a-J> scrollToBottom
+map <c-d> scrollPageDown
+map <c-u> scrollPageUp
+
+#Normie Scrolling
+map w scrollUp
+map s scrollDown
+map a scrollLeft
+map d scrollRight
+map <a-W> scrollToTop
+map <a-S> scrollToBottom
+map <a-s> scrollPageDown
+map <a-w> scrollPageUp
+
+# History
+map A goBack
+map D goForward
+
+
+#Omnibar / tab
+map <a-o>n Vomnibar.activate
+map <a-o>N Vomnibar.activateInNewTab
+map <a-o>f Vomnibar.activateTabSelection
+map <a-o>r visitPreviousTab
+map <a-o>m Vomnibar.activateBookmarks
+map <a-o>M Vomnibar.activateBookmarksInNewTab
+map <a-o>q createTab
+map <a-o><a-q> restoreTab
+map <a-o>d duplicateTab
+map <a-o>w removeTab
+map <a-o>x moveTabToNewWindow
+
+#Rando
+
+map <a-a> previousTab
+map <a-d> nextTab
+map <a-h> previousTab
+map <a-l> nextTab
+
+map MM toggleMuteTab
+
+map <a-m><a-a> moveTabLeft
+map <a-m><a-d> moveTabRight
+map <a-m><a-h> moveTabLeft
+map <a-m><a-l> moveTabRight
+map <a-m><a-r> reload
+map <a-m>m Marks.activateCreateMode
+map <a-m><a-m> Marks.activateCreateMode
+map <a-n> Marks.activateGotoMode
+
+map < goPrevious
+map > goNext
+# map <a-s>a nextFrame
+# map <a-s>s mainFrame
+

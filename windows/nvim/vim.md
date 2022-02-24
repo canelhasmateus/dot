@@ -10,3 +10,6 @@ study
     
     noremap?  
     LocalLeader?
+    packer features
+    auto-commands
+    lazy loading
