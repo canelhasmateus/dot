@@ -49,6 +49,7 @@ map D goForward
 
 #Omnibar / tab
 map <a-o>n Vomnibar.activate
+map <a-o>e Vomnibar.activateEditUrl
 map <a-o>N Vomnibar.activateInNewTab
 map <a-o>f Vomnibar.activateTabSelection
 map <a-o>r visitPreviousTab
