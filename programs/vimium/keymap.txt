@@ -56,7 +56,7 @@ map <a-o>r visitPreviousTab
 map <a-o>m Vomnibar.activateBookmarks
 map <a-o>M Vomnibar.activateBookmarksInNewTab
 map <a-o>q createTab
-map <a-o><a-q> restoreTab
+map <a-o><a-w> restoreTab
 map <a-o>d duplicateTab
 map <a-o>w removeTab
 map <a-o>x moveTabToNewWindow
