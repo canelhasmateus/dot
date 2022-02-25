@@ -19,6 +19,7 @@ map <a-f>j performBackwardsFind
 map <a-f>v enterVisualMode
 map <a-f>V enterVisualLineMode
 map <a-f>i focusInput
+map <a-f><a-i> focusInput
 # Inside Insert Mode, we skip vimium keymapping.
 map I enterInsertMode
 
