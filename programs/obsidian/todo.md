@@ -124,9 +124,7 @@ plugins:
     https://github.com/ozntel/oz-image-in-editor-obsidian
     https://github.com/phibr0/cycle-through-panes
     https://github.com/phibr0/obsidian-charts
-    https://github.com/phibr0/obsidian-customizable-sidebar
     https://github.com/phibr0/obsidian-macros
-    https://github.com/pjeby/quick-explorer
     https://github.com/platers/obsidian-linter
     https://github.com/pyrochlore/obsidian-tracker
     https://github.com/renmu123/obsidian-markdown-index
