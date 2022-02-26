@@ -127,6 +127,7 @@ workflow Add-Programs {
             choco install autohotkey -y ;
             choco install git.install -y ; 
             choco install spotify -y ;
+            choco install obsidian -y ;
         }
 
         Add-Path "C:\Program Files\Sublime Text 3";
