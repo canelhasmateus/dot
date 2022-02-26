@@ -49,19 +49,19 @@ map D goForward
 
 
 #Omnibar / tab
-map <a-o>n Vomnibar.activate
-map <a-o>e Vomnibar.activateEditUrl
-map <a-o>N Vomnibar.activateInNewTab
-map <a-o>f Vomnibar.activateTabSelection
-map <a-o>r visitPreviousTab
-map <a-o>m Vomnibar.activateBookmarks
-map <a-o>M Vomnibar.activateBookmarksInNewTab
-map <a-o>q createTab
-map <a-o><a-w> restoreTab
-map <a-o>d duplicateTab
-map <a-o>w removeTab
-map <a-o>x moveTabToNewWindow
-map <a-o>c copyCurrentUrl
+map on Vomnibar.activate
+map oe Vomnibar.activateEditUrl
+map oN Vomnibar.activateInNewTab
+map of Vomnibar.activateTabSelection
+map or visitPreviousTab
+map om Vomnibar.activateBookmarks
+map oM Vomnibar.activateBookmarksInNewTab
+map oq createTab
+map ot restoreTab
+map od duplicateTab
+map ow removeTab
+map ox moveTabToNewWindow
+map oc copyCurrentUrl
 
 #Rando
 
