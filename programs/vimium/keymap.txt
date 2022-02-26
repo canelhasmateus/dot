@@ -61,6 +61,7 @@ map <a-o><a-w> restoreTab
 map <a-o>d duplicateTab
 map <a-o>w removeTab
 map <a-o>x moveTabToNewWindow
+map <a-o>c copyCurrentUrl
 
 #Rando
 
