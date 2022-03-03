@@ -103,15 +103,16 @@ workflow Remove-Bloat {
 }
 
 workflow Add-Programs {
-    
+
     param ()
 
 
     Sequential {
 
-        Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
-        Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'));
-        
+        Set-ExecutionPolicy Bypass -Scope Process -Force
+        [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
+
+
         Parallel {
             # choco install afedteated -y ;
             choco install iobit-uninstaller -y;
@@ -125,7 +126,7 @@ workflow Add-Programs {
             choco install insomnia-rest-api-client -y;
             choco install krita -y;
             choco install autohotkey -y ;
-            choco install git.install -y ; 
+            choco install git.install -y ;
             choco install spotify -y ;
             choco install obsidian -y ;
         }
@@ -156,8 +157,8 @@ workflow Set-Privacy {
     Set-ItemProperty -Path HKLM:\Software\Microsoft\PolicyManager\default\WiFi\AllowAutoConnectToWiFiSenseHotspots -Name value -Type DWord -Value 0
 
     # Activity Tracking: Disable
-    @('EnableActivityFeed', 'PublishUserActivities', 'UploadUserActivities') | ForEach-Object { 
-        Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\System -Name $_ -Type DWord -Value 0 
+    @('EnableActivityFeed', 'PublishUserActivities', 'UploadUserActivities') | ForEach-Object {
+        Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\System -Name $_ -Type DWord -Value 0
     }
 
     Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search -Name BingSearchEnabled -Type DWord -Value 0
@@ -209,13 +210,13 @@ workflow Set-UI {
 
 }
 workflow Add-Customizations {
-    
+
     Set-Privacy
 
     #TODO Unclutter
     $Wallpaper = (Get-ChildItem -Path $PSScriptRoot -Recurse -Include *.jpg, *.png )[0]
     Set-Wallpaper -Image  $Wallpaper
-    
+
 
     InlineScript {
 
@@ -239,7 +240,7 @@ workflow Set-Environment {
     param ( )
 
     Remove-Bloat
-    Add-Programs    
+    Add-Programs
     Add-Customizations
 
     Restart-Computer;
