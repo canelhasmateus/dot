@@ -6,6 +6,7 @@ sudo apt-get install cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev 
 sudo apt install libxcb-composite0-dev -y
 sudo apt install libjsoncpp-dev -y
 sudo ln -s /usr/include/jsoncpp/json/ /usr/include/json
+sudo apt install python3-sphinx
 
 
 git clone https://github.com/jaagr/polybar.git
