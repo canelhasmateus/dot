@@ -1,0 +1,42 @@
+# Dotbot configuration installation
+
+- defaults:
+    link:
+      # Remove old target symlink if it exists
+      relink: true
+      # Create parent directories for link targets as needed
+      create: true
+
+- clean: ['~']
+
+- link:
+    # Shell configuration
+    ~/.elvish/rc.elv: shell/elvish.elv
+
+    # Allows to use multiple emacs profiles at once
+    ~/.emacs-profiles.el: emacs/emacs-profiles.el
+
+    # Doom emacs configuration
+    ~/.doom.d: doom
+
+    # music player settings
+    ~/.ncmpcpp/config: cli/ncmpcpp.conf
+
+    # TAGS file construction configuration
+    ~/.config/ctags/default.ctags: cli/default.ctags
+
+    # My user scripts
+    ~/hax-scripts: scripts
+
+    # Directory with files that need to be accessed via absolute location
+    # for one reason or another.
+    ~/.config/hax-absolute: absolute
+
+- create:
+    - ~/defaultdirs
+    - ~/defaultdirs/input
+    - ~/defaultdirs/documents
+    - ~/defaultdirs/images
+    - ~/defaultdirs/images/wallpapers
+    - ~/defaultdirs/notes
+    - ~/defaultdirs/pdf
