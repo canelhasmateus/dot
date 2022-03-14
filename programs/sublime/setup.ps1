@@ -7,4 +7,11 @@ $SUBLIME_KEYBIND = Join-Path $SUBLIME_DIR "Default (Windows).sublime-keymap"
 
 $VersionedScript = Resolve-Path "$PSScriptRoot/keybinds.json"
 
+
 CreateHardLink $SUBLIME_KEYBIND $VersionedScript
+
+
+$SUBLIME_AMOUNT = Join-Path $SUBLIME_DIR "move_amount.py"
+$VersionedAmount = Resolve-Path "$PSScriptRoot/move_amount.py"
+
+CreateHardLink $SUBLIME_AMOUNT $VersionedAmount
