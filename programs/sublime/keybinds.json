@@ -106,38 +106,7 @@
       "forward": true
     }
   },
-  {
-    "keys": [
-      "ctrl+shift+alt+j"
-    ],
-    "command": "move",
-    "args": {
-      "by": "words",
-      "forward": false,
-      "extend": true
-    }
-  },
-  {
-    "keys": [
-      "ctrl+shift+alt+l"
-    ],
-    "command": "move",
-    "args": {
-      "by": "word_ends",
-      "forward": true,
-      "extend": true
-    }
-  },
-  {
-    "keys": [
-      "alt+h"
-    ],
-    "command": "move_to",
-    "args": {
-      "to": "bol",
-      "extend": false
-    }
-  },
+ 
   {
     "keys": [
       "ctrl+alt+h"
@@ -150,14 +119,15 @@
   },
   {
     "keys": [
-      "alt+"
+      "ctrl+alt+shift+h"
     ],
     "command": "move_to",
     "args": {
-      "to": "eol",
-      "extend": false
+      "to": "bol",
+      "extend": true
     }
   },
+
   {
     "keys": [
       "ctrl+alt+;"
@@ -170,14 +140,15 @@
   },
   {
     "keys": [
-      "shift+alt+;"
+      "shift+ctrl+alt+;"
     ],
     "command": "move_to",
     "args": {
-      "to": "bol",
+      "to": "eol",
       "extend": true
     }
   },
+
   {
     "keys": [
       "ctrl+alt+i"
