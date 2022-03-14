@@ -11,6 +11,7 @@
       "forward": false
     }
   },
+
   {
     "keys": [
       "alt+l"
@@ -181,23 +182,30 @@
     "keys": [
       "ctrl+alt+i"
     ],
-    "command": "move_am",
+    "command": "partial_pager",
     "args": {
-      "by": "lines",
-      "amount": 1.0,
-      "forward": true
+      "amount": -0.5
     }
   },
   {
     "keys": [
       "ctrl+alt+k"
     ],
-    "command": "move",
+    "command": "partial_pager",
     "args": {
-      "by": "lines",
-      "amount": 1.0
+      "amount": 0.5
     }
   },
+  {
+    "keys": [
+      "escape"
+    ],
+    "command": "clear_selections",
+    "context": [
+      { "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true }
+    ]
+  },
+
   {
     "keys": [
       "ctrl+alt+shift+i"
@@ -207,6 +215,14 @@
       "to": "scope"
     }
   },
+
+  { "keys": ["alt+e" , "alt+j"], "command": "move", "args": {"by": "subwords", "forward": false} },
+  { "keys": ["alt+e" , "alt+l"], "command": "move", "args": {"by": "subword_ends", "forward": true} },
+  { "keys": ["alt+e" , "shift+alt+j"], "command": "move", "args": {"by": "subwords", "forward": false, "extend": true} },
+  { "keys": ["alt+e" , "shift+alt+l"], "command": "move", "args": {"by": "subword_ends", "forward": true, "extend": true} },
+
+
+
   {
     "keys": [
       "ctrl+alt+backspace"
@@ -216,57 +232,16 @@
       "file": "res://Packages/Default/Delete Line.sublime-macro"
     }
   },
+  
+  
   {
     "keys": [
-      "ctrl+d"
-    ],
-    "command": "find_under_expand"
-  },
-  {
-    "keys": [
-      "ctrl+k",
-      "ctrl+d"
-    ],
-    "command": "find_under_expand_skip"
-  },
-  {
-    "keys": [
-      "ctrl+shift+space"
-    ],
-    "command": "expand_selection",
-    "args": {
-      "to": "scope"
-    }
-  },
-  {
-    "keys": [
-      "ctrl+shift+m"
-    ],
-    "command": "expand_selection",
-    "args": {
-      "to": "brackets"
-    }
-  },
-  {
-    "keys": [
-      "ctrl+m"
+      "ctrl+["
     ],
     "command": "move_to",
     "args": {
       "to": "brackets"
     }
-  },
-  {
-    "keys": [
-      "shift+f12"
-    ],
-    "command": "goto_reference"
-  },
-  {
-    "keys": [
-      "ctrl+shift+r"
-    ],
-    "command": "goto_symbol_in_project"
   },
   {
     "keys": [
@@ -560,96 +535,8 @@
     ],
     "command": "focus_neighboring_group"
   },
-  {
-    "keys": [
-      "alt+1"
-    ],
-    "command": "select_by_index",
-    "args": {
-      "index": 0
-    }
-  },
-  {
-    "keys": [
-      "alt+2"
-    ],
-    "command": "select_by_index",
-    "args": {
-      "index": 1
-    }
-  },
-  {
-    "keys": [
-      "alt+3"
-    ],
-    "command": "select_by_index",
-    "args": {
-      "index": 2
-    }
-  },
-  {
-    "keys": [
-      "alt+4"
-    ],
-    "command": "select_by_index",
-    "args": {
-      "index": 3
-    }
-  },
-  {
-    "keys": [
-      "alt+5"
-    ],
-    "command": "select_by_index",
-    "args": {
-      "index": 4
-    }
-  },
-  {
-    "keys": [
-      "alt+6"
-    ],
-    "command": "select_by_index",
-    "args": {
-      "index": 5
-    }
-  },
-  {
-    "keys": [
-      "alt+7"
-    ],
-    "command": "select_by_index",
-    "args": {
-      "index": 6
-    }
-  },
-  {
-    "keys": [
-      "alt+8"
-    ],
-    "command": "select_by_index",
-    "args": {
-      "index": 7
-    }
-  },
-  {
-    "keys": [
-      "alt+9"
-    ],
-    "command": "select_by_index",
-    "args": {
-      "index": 8
-    }
-  },
-  {
-    "keys": [
-      "alt+0"
-    ],
-    "command": "select_by_index",
-    "args": {
-      "index": 9
-    }
-  },
+  
+  
   {
     "keys": [
       "alt+q",
@@ -664,10 +551,20 @@
     ],
     "command": "fold"
   },
+  { "keys": [ "alt+q", "alt+," ], "command": "fold"
+  },
+  
   {
     "keys": [
       "alt+q",
       "."
+    ],
+    "command": "unfold"
+  },
+  {
+    "keys": [
+      "alt+q",
+      "alt+."
     ],
     "command": "unfold"
   },
@@ -701,8 +598,23 @@
     "args": {
       "panel": "replace",
       "reverse": false
-    }
+    },
+
   },
+    { "keys": ["alt+e" , "ctrl+enter"], "command": "split_selection_into_lines" },
+  { "keys": ["alt+w","ctrl+alt+i"], "command": "toggle_distraction_free" },
+  { "keys": ["alt+a" , "a"], "command": "redo_or_repeat" },
+
+
+
+
+
+
+
+
+
+
+
   //  todo
   {
     "keys": [
@@ -734,4 +646,5 @@
     ],
     "command": "select_all_bookmarks"
   }
+
 ]

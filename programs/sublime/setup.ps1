@@ -15,3 +15,8 @@ $SUBLIME_AMOUNT = Join-Path $SUBLIME_DIR "move_amount.py"
 $VersionedAmount = Resolve-Path "$PSScriptRoot/move_amount.py"
 
 CreateHardLink $SUBLIME_AMOUNT $VersionedAmount
+
+$SUBLIME_SELECTION = Join-Path $SUBLIME_DIR "clear_selection.py"
+$VersionedSelection = Resolve-Path "$PSScriptRoot/clear_selection.py"
+
+CreateHardLink $SUBLIME_SELECTION $VersionedSelection
