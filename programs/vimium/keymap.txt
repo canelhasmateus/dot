@@ -62,7 +62,7 @@ map od duplicateTab
 map ow removeTab
 map ox moveTabToNewWindow
 map oc copyCurrentUrl
-
+map oy openCopiedUrlInCurrentTab
 #Rando
 
 map <a-a> previousTab
