@@ -95,6 +95,16 @@
       "by": "words",
       "forward": false
     }
+  },{
+    "keys": [
+      "ctrl+alt+shift+j"
+    ],
+    "command": "move",
+    "args": {
+      "by": "words",
+      "forward": false,
+      "extend": true
+    }
   },
   {
     "keys": [
@@ -104,6 +114,17 @@
     "args": {
       "by": "word_ends",
       "forward": true
+    }
+  },
+  {
+    "keys": [
+      "ctrl+alt+shift+l"
+    ],
+    "command": "move",
+    "args": {
+      "by": "word_ends",
+      "forward": true,
+      "extend": true
     }
   },
  
@@ -287,11 +308,7 @@
       "alt+w",
       "t"
     ],
-    "command": "show_panel",
-    "args": {
-      "panel": "console",
-      "toggle": true
-    }
+    "command": "toggle_terminus_panel",
   },
   {
     "keys": [
@@ -575,6 +592,11 @@
     { "keys": ["alt+e" , "ctrl+enter"], "command": "split_selection_into_lines" },
   { "keys": ["alt+w","ctrl+alt+i"], "command": "toggle_distraction_free" },
   { "keys": ["alt+a" , "a"], "command": "redo_or_repeat" },
+  { "keys": ["alt+f" , "alt+l"], "command": "ace_jump_word" },
+  { "keys": ["alt+f" , "l"], "command": "ace_jump_line" },
+  { "keys": ["alt+f" , "alt+j"], "command": "ace_jump_word" },
+  { "keys": ["alt+f" , "alt+shift+l"], "command": "ace_jump_select" },
+  { "keys": ["alt+f" , "alt+e"], "command": "ace_jump_select" },
 
 
 
@@ -617,5 +639,6 @@
     ],
     "command": "select_all_bookmarks"
   }
+
 
 ]
