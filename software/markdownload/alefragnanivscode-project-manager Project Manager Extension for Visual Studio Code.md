@@ -1,0 +1,4 @@
+-   `roject Manager: Save Project` Save the current folder/workspace as a new project
+-   `Project Manager: Edit Project` Edit your projects manually (`projects.json`)
+-   `Project Manager: List Projects to Open` List all saved/detected projects and pick one
+-   `Project Manager: List Projects to Open in New Window` List all saved/detected projects and pick one to be opened in New Window
