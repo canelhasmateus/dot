@@ -33,6 +33,7 @@ Space & ~o::
             send { BackSpace}
             send { BackSpace}
             switchDesktopByNumber( pressedKey)
+            send {alt down}{tab}{alt up}
 
         } 
 
@@ -42,6 +43,7 @@ Space & ~o::
             send { BackSpace}
             send { BackSpace}
             switchDesktopToLastOpened()
+            send {alt down}{tab}{alt up}
         }
         else {
             send %pressedKey%
@@ -90,11 +92,13 @@ Space & ~w::
             send { BackSpace}
             send { BackSpace}
             switchDesktopToRight()
+            send {alt down}{tab}{alt up}
         }
         else if ( pressedKey== "j") {
             send { BackSpace}
             send { BackSpace}
             switchDesktopToLeft()
+            send {alt down}{tab}{alt up}
         }
         else {
             send %pressedKey%
