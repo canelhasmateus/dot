@@ -4,13 +4,11 @@
 #NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases
 SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
 
-#Include %A_ScriptDir%\workspaces.ahk
+; #Include %A_ScriptDir%\workspaces.ahk
+#Include %A_ScriptDir%\extend-qwerty.ahk
+; #Include %A_ScriptDir%\trackball.ahk
 
-GetNext() 
-{
-    Input pressedKey , L1 T3 B, {Esc}{BackSpace}
-    return pressedKey
-}
+; Basic Alt-GR to \ and |.
 
 <^>!a:: 
     {
@@ -24,90 +22,33 @@ GetNext()
         return
     }
 
-Space & ~o::
-    {
-
-        pressedKey := GetNext()
-        if pressedKey is number 
-        {
-            send { BackSpace}
-            send { BackSpace}
-            switchDesktopByNumber( pressedKey)
-            send {alt down}{tab}{alt up}
-
-        } 
-
-        else if ( pressedKey == "r") 
-        {
-
-            send { BackSpace}
-            send { BackSpace}
-            switchDesktopToLastOpened()
-            send {alt down}{tab}{alt up}
-        }
-        else {
-            send %pressedKey%
-        }
-
-        return
-    }
     
-SC073::
+
+; remaps / ? to Shift
+*SC073::
     {
 
-        send { SHIFT DOWN}
+        send {blind}{ SHIFT DOWN}
         return
 
     }
 
-SC073 up::
+*SC073 up::
 {
     
-    send {SHIFT UP}
+    send {BLIND}{SHIFT UP}
     return
 }
 
-Space & ~s:: 
-    {
+; remaps \ | to Ctrl
+*SC056::
+{   
+    send {BLIND}{CtrlDown}
+    return
+}
 
-        pressedKey := GetNext()
-
-        if (pressedKey == "s" ) {
-            send { BackSpace}
-            send { BackSpace}
-            Reload
-        }
-        else {
-            send %pressedKey%
-        }
-
-    }
-
-Space & ~w::
-    {
-
-        pressedKey := GetNext()
-
-        if ( pressedKey == "l"){
-            send { BackSpace}
-            send { BackSpace}
-            switchDesktopToRight()
-            send {alt down}{tab}{alt up}
-        }
-        else if ( pressedKey== "j") {
-            send { BackSpace}
-            send { BackSpace}
-            switchDesktopToLeft()
-            send {alt down}{tab}{alt up}
-        }
-        else {
-            send %pressedKey%
-        }
-
-    }
-
-~Space::
-    {
-        ; Send {Space}
-    }
-
+*SC056 up::
+{ 
+    send {BLIND}{CtrlUp}
+    return
+} 

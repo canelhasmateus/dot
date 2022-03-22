@@ -122,7 +122,15 @@ switchDesktopByNumber(targetDesktop)
 {
     global CurrentDesktop, DesktopCount
     updateGlobalVariables()
+
+    same := (targetDesktop == CurrentDesktop)
     _switchDesktopToTarget(targetDesktop)
+    if same
+    {
+    }
+    else {
+        send {AltDown}{Tab}{AltUp}
+    }
 }
 
 switchDesktopToLastOpened()
@@ -180,13 +188,20 @@ MoveCurrentWindowToDesktop(desktopNumber) {
     switchDesktopByNumber(desktopNumber)
 }
 
-MoveCurrentWindowToRightDesktop()
+MoveCurrentWindowToDesktopNumber( desktopNumber )
 {
+    
     global CurrentDesktop, DesktopCount
     updateGlobalVariables()
     WinGet, activeHwnd, ID, A
-    DllCall(MoveWindowToDesktopNumberProc, UInt, activeHwnd, UInt, (CurrentDesktop == DesktopCount ? 1 : CurrentDesktop + 1) - 1)
-    _switchDesktopToTarget(CurrentDesktop == DesktopCount ? 1 : CurrentDesktop + 1)
+    
+    if desktopNumber > DesktopCount 
+    {
+        desktopNumber := DesktopCount
+    }
+
+    DllCall(MoveWindowToDesktopNumberProc, UInt, activeHwnd, UInt, desktopNumber - 1)
+    _switchDesktopToTarget(desktopNumber)
 }
 
 MoveCurrentWindowToLeftDesktop()

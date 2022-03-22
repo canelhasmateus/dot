@@ -60,10 +60,12 @@ function CreateHardLink
 
 
     param([String]$Source,
-        [String]$Target)
+        [String]$Target )
 
 
     Log "`tStarting the creation of an hardlink: $Source -> $Target"
+    
+    -ErrorAction Stop
 
     $SourceExists = Test-Path $Source
     if ($SourceExists)

@@ -8,3 +8,4 @@ $Roaming = [Environment]::GetFolderPath('ApplicationData')
 $KritaWorkspace = Join-Path $Roaming "/krita/workspaces"
 $StartupLink = Join-Path $KritaWorkspace $Name
 CreateHardLink $StartupLink $VersionedScript
+ 
