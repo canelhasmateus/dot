@@ -63,7 +63,7 @@ function CreateHardLink
         [String]$Target)
 
 
-    Log "`tStarting the creation of an hardlink: $DestinationPath -> $VersionedScript"
+    Log "`tStarting the creation of an hardlink: $Source -> $Target"
 
     $SourceExists = Test-Path $Source
     if ($SourceExists)
