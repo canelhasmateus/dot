@@ -4,19 +4,18 @@
 #NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases
 SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
 
-; #Include %A_ScriptDir%\workspaces.ahk
+
 #Include %A_ScriptDir%\extend-qwerty.ahk
-; #Include %A_ScriptDir%\trackball.ahk
 
 ; Basic Alt-GR to \ and |.
 
-<^>!a:: 
+<^>!SC01E:: 
     {
         Send {\}
         return
     }
-
-<^>!s:: 
+    
+<^>!SC01F:: 
     {
         Send {|}
         return
