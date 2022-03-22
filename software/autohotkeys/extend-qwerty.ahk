@@ -257,10 +257,9 @@ sendOrSwitch( desktopNumber )
 
   }
   else {
-    MsgBox "Alt is down"
+    
     MoveCurrentWindowToDesktopNumber( 1 )
-  }
-  
+  }  
   return
 }
 
