@@ -5,7 +5,7 @@ SetWorkingDir, %A_ScriptDir%
 
 GetNextKey() 
 {
-  Input pressedKey, M L1 T2 B, {Escape}{Tab}
+  Input pressedKey, M L1 T2 B, {Escape}{Tab}{Backspace}
   return pressedKey
 }
 

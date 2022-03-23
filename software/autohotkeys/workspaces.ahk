@@ -83,7 +83,7 @@ _switchDesktopToTarget(targetDesktop)
 
     ; Don't attempt to switch to an invalid desktop
     if (targetDesktop > DesktopCount || targetDesktop < 1 || targetDesktop == CurrentDesktop) {
-        OutputDebug, [invalid] target: %targetDesktop% current: %CurrentDesktop%
+        ; OutputDebug, [invalid] target: %targetDesktop% current: %CurrentDesktop%
         return
     }
 
@@ -234,7 +234,6 @@ deleteVirtualDesktop()
     CurrentDesktop--
     OutputDebug, [delete] desktops: %DesktopCount% current: %CurrentDesktop%
 }
-
 
 
 
