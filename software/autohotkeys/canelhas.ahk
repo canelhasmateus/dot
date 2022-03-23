@@ -4,24 +4,8 @@
 #NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases
 SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
 
-
-#Include %A_ScriptDir%\extend-qwerty.ahk
-
-; Basic Alt-GR to \ and |.
-
-<^>!SC01E:: 
-    {
-        Send {\}
-        return
-    }
-    
-<^>!SC01F:: 
-    {
-        Send {|}
-        return
-    }
-
-    
+#Include %A_ScriptDir%\qwerty-extend.ahk
+#Include %A_ScriptDir%\qwerty-altgr.ahk
 
 ; remaps / ? to Shift
 *SC073::
@@ -33,24 +17,24 @@ SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
     }
 
 *SC073 up::
-{
-    
-    send {BLIND}{SHIFT UP}
-    return
-}
+    {
 
-; remaps \ | to Ctrl
+        send {BLIND}{SHIFT UP}
+        return
+    }
+
+    ; remaps \ | to Ctrl
 *SC056::
-{   
-    send {BLIND}{CtrlDown}
-    return
-}
+    { 
+        send {BLIND}{CtrlDown}
+        return
+    }
 
 *SC056 up::
-{ 
-    send {BLIND}{CtrlUp}
-    return
-} 
+    { 
+        send {BLIND}{CtrlUp}
+        return
+    } 
 
-; https://forum.colemak.com/topic/2675-share-your-favorite-extend-tricks/
-; https://dreymar.colemak.org/layers-extend.html
+    ; https://forum.colemak.com/topic/2675-share-your-favorite-extend-tricks/
+    ; https://dreymar.colemak.org/layers-extend.html

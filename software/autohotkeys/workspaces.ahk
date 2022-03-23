@@ -90,25 +90,20 @@ _switchDesktopToTarget(targetDesktop)
     LastOpenedDesktop := CurrentDesktop
 
     ; Fixes the issue of active windows in intermediate desktops capturing the switch shortcut and therefore delaying or stopping the switching sequence. This also fixes the flashing window button after switching in the taskbar. More info: https://github.com/pmb6tz/windows-desktop-switcher/pull/19
-    WinActivate, ahk_class Shell_TrayWnd
+    ; WinActivate, ahk_class Shell_TrayWnd
 
     ; Go right until we reach the desktop we want
     while(CurrentDesktop < targetDesktop) {
         Send {LWin down}{LCtrl down}{Right down}{LWin up}{LCtrl up}{Right up}
         CurrentDesktop++
-        OutputDebug, [right] target: %targetDesktop% current: %CurrentDesktop%
     }
 
     ; Go left until we reach the desktop we want
     while(CurrentDesktop > targetDesktop) {
         Send {LWin down}{LCtrl down}{Left down}{Lwin up}{LCtrl up}{Left up}
         CurrentDesktop--
-        OutputDebug, [left] target: %targetDesktop% current: %CurrentDesktop%
     }
 
-    ; Makes the WinActivate fix less intrusive
-    Sleep, 50
-    focusTheForemostWindow(targetDesktop)
 }
 
 updateGlobalVariables()
@@ -124,13 +119,11 @@ switchDesktopByNumber(targetDesktop)
     updateGlobalVariables()
 
     same := (targetDesktop == CurrentDesktop)
-    _switchDesktopToTarget(targetDesktop)
-    if same
-    {
+
+    if ( !same ) {
+        _switchDesktopToTarget(targetDesktop)
     }
-    else {
-        send {AltDown}{Tab}{AltUp}
-    }
+    
 }
 
 switchDesktopToLastOpened()
@@ -156,9 +149,10 @@ switchDesktopToLeft()
 
 focusTheForemostWindow(targetDesktop) {
     foremostWindowId := getForemostWindowIdOnDesktop(targetDesktop)
-    if isWindowNonMinimized(foremostWindowId) {
-        WinActivate, ahk_id %foremostWindowId%
-    }
+    WinActivate, ahk_id %foremostWindowId%
+
+    ; if isWindowNonMinimized(foremostWindowId) {
+    ; }
 }
 
 isWindowNonMinimized(windowId) {
@@ -183,9 +177,10 @@ getForemostWindowIdOnDesktop(n)
 }
 
 MoveCurrentWindowToDesktop(desktopNumber) {
+    
     WinGet, activeHwnd, ID, A
     DllCall(MoveWindowToDesktopNumberProc, UInt, activeHwnd, UInt, desktopNumber - 1)
-    switchDesktopByNumber(desktopNumber)
+    ; switchDesktopByNumber(desktopNumber)
 }
 
 MoveCurrentWindowToDesktopNumber( desktopNumber )
@@ -239,3 +234,9 @@ deleteVirtualDesktop()
     CurrentDesktop--
     OutputDebug, [delete] desktops: %DesktopCount% current: %CurrentDesktop%
 }
+
+
+
+
+;;;;
+
