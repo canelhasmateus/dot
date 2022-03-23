@@ -103,9 +103,6 @@ SetCapsLockState, AlwaysOff
 ; ; middle row
 
 ;  Left hand goodies
-F24 & SC01E::
-  Send {CtrlDown}{a}{CtrlUp}
-return
 
 ; F24 & SC01F::
 ;   Send {Blind}{Tab}
@@ -244,50 +241,3 @@ return
 ;     SetCapsLockState, AlwaysOff
 ;   } 
 ; Return
-
-; Workspace
-
-sendOrSwitch( desktopNumber ) 
-{
-
-  if GetKeyState("Alt" , "P") = 0
-  { 
-    
-    switchDesktopByNumber(1)
-
-  }
-  else {
-    
-    MoveCurrentWindowToDesktopNumber( 1 )
-  }  
-  return
-}
-
-#Include %A_ScriptDir%\workspaces.ahk
-F24 & SC007::
-
-  sendOrSwitch( 1 )
-
-return
-
-F24 & SC008::
-  switchDesktopByNumber(2)
-return
-
-F24 & SC009::
-  switchDesktopByNumber(3)
-
-return
-F24 & SC00A::
-  switchDesktopByNumber(4)
-return
-
-F24 & SC00B::
-  switchDesktopByNumber(5)
-return
-
-F24 & SC013::
-  switchDesktopToLastOpened()
-  send {AltDown}{Tab}{AltUp}
-return
-
