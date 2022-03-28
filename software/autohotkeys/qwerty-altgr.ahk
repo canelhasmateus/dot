@@ -2,6 +2,7 @@
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
 #Include %A_ScriptDir%\workspaces.ahk
+#Include %A_ScriptDir%\utilities.ahk
 
 GetNextKey() 
 {
@@ -49,6 +50,10 @@ sendDesktopOrSwitchDesktop( desktopNumber )
     else if (pressedkey = "r")
     {
       switchDesktopToLastOpened()
+    }
+    else if ( pressedKey = "f")
+    {
+      OpenHighlighted()
     }
     
     return
