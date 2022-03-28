@@ -2,7 +2,7 @@
 OpenHighlighted()
 {
 	MyClipboard := "" ; Clears variable
-
+	previousClip :=  clipboard
 	Send, {ctrl down}c{ctrl up} ; More secure way to Copy things
 	ClipWait 1
 	MyClipboard := RegexReplace( clipboard, "^\s+|\s+$" ) ; Trim additional spaces and line return
@@ -20,5 +20,6 @@ OpenHighlighted()
 
 	TrayTip,, %Desc%: "%MyClipboard%" ;
 	Run, %Target%
+	Clipboard := previousClip
 	Return
 }
