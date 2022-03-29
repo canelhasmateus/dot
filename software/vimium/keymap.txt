@@ -60,6 +60,7 @@ map oq createTab
 map ot restoreTab
 map od duplicateTab
 map ow removeTab
+map o<a-w> closeOtherTabs
 map ox moveTabToNewWindow
 map oc copyCurrentUrl
 map oy openCopiedUrlInCurrentTab
