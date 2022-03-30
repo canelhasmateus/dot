@@ -45,6 +45,8 @@ GetAccData(WinId:="A") { ;by RRR based on atnbueno's https://www.autohotkey.com/
 }
 
 ParseAccData(accObj, accData:="") {
+    
+    
     try accData? "": accData:= [accObj.accName(0)]
     try if accObj.accRole(0) = 42 && accObj.accName(0) && accObj.accValue(0)
         accData.2:= SubStr(u:=accObj.accValue(0), 1, 4)="http"? u: "http://" u, accData.3:= accObj
@@ -59,6 +61,7 @@ GetAccInit() {
 
 GetAccObjectFromWindow(hWnd, idObject = 0) {
     SendMessage, WM_GETOBJECT := 0x003D, 0, 1, Chrome_RenderWidgetHostHWND1, % "ahk_id " WinExist("A") ; by malcev
+    
     While DllCall("oleacc\AccessibleObjectFromWindow", "Ptr", hWnd, "UInt", idObject&=0xFFFFFFFF, "Ptr"
             , -VarSetCapacity(IID, 16)+NumPut(idObject==0xFFFFFFF0? 0x46000000000000C0: 0x719B3800AA000C81
         , NumPut(idObject==0xFFFFFFF0? 0x0000000000020400: 0x11CF3C3D618736E0, IID, "Int64"), "Int64"), "Ptr*", pacc)!=0

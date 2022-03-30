@@ -31,7 +31,8 @@ SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
     }
 
 *SC056 up::
-
-
-
+    { 
+        send {BLIND}{CtrlUp}
+        return
+    }
 
