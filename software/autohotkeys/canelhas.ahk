@@ -31,10 +31,7 @@ SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
     }
 
 *SC056 up::
-    { 
-        send {BLIND}{CtrlUp}
-        return
-    } 
 
-    ; https://forum.colemak.com/topic/2675-share-your-favorite-extend-tricks/
-    ; https://dreymar.colemak.org/layers-extend.html
+
+
+

@@ -1,8 +1,9 @@
 #SingleInstance, Force
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
-#Include %A_ScriptDir%\workspaces.ahk
-#Include %A_ScriptDir%\utilities.ahk
+#Include %A_ScriptDir%\lib\workspaces.ahk
+#Include %A_ScriptDir%\lib\random.ahk
+#Include %A_ScriptDir%\lib\accData.ahk
 
 GetNextKey() 
 {
@@ -60,5 +61,10 @@ sendDesktopOrSwitchDesktop( desktopNumber )
   } 
 
 
+*F8:: ; using Hotkey with asterisk so Ctrl+Hotkey will reset Obj history
+    st:= A_TickCount
+    accData:= GetAccData() ; parameter: "A" (default), "WinTitle", "ahk_class IEFrame", "ahk_exe chrome.exe", etc.
+    MsgBox % A_TickCount-st "`n`n" accData.1 "`n`n" accData.2
+Return
 
 
