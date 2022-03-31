@@ -5,26 +5,6 @@ SetWorkingDir, %A_ScriptDir%
 #Include %A_ScriptDir%\lib\random.ahk
 #Include %A_ScriptDir%\lib\accData.ahk
 
-GetNextKey() 
-{
-  Input pressedKey, M L1 T2 B, {Escape}{Tab}{Backspace}
-  return pressedKey
-}
-
-sendDesktopOrSwitchDesktop( desktopNumber ) 
-{
-  if GetKeyState("LAlt", "P") = 1
-  {
-    
-    ; Todo: Send current window to another desktop.
-  
-  }
-  else
-  {
-    switchDesktopByNumber( desktopNumber)
-  }
-
-}
 
 <^>!SC01E:: 
   {
@@ -59,12 +39,40 @@ sendDesktopOrSwitchDesktop( desktopNumber )
     
     return
   } 
+<^>!SC022::
+  {
+    pressedKey := GetNextKey()
+    url := GetBrowserUrl()
+    if ( url ) {
+      
+      file := ""
+
+      if (pressedKey = "i") {
+        file := "urlsGood.txt"
+      }
+      else if (pressedKey = "k") {
+        file := "urlsBad.txt"
+      }
+      else if (pressedKey = "j") {
+        file := "urlsBase.txt"
+      }
+      else if (pressedKey = "l") {
+        file := "urlsUnsure.txt"
+      }
+      
+      if (file) {
+        myFileName := "C:\Users\Mateus\OneDrive\vault\Canelhas\others\scratchpads\" file
+    
+        FileAppend, `n %url%, %myFileName%
+        TrayTip ,, %url% "->" %myFileName%
+      }
+       
 
 
-*F8:: ; using Hotkey with asterisk so Ctrl+Hotkey will reset Obj history
-    st:= A_TickCount
-    accData:= GetAccData() ; parameter: "A" (default), "WinTitle", "ahk_class IEFrame", "ahk_exe chrome.exe", etc.
-    MsgBox % A_TickCount-st "`n`n" accData.1 "`n`n" accData.2
-Return
+
+    }
+   
+    return
+  } 
 
 
