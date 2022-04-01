@@ -59,12 +59,19 @@ SetWorkingDir, %A_ScriptDir%
       else if (pressedKey = "l") {
         file := "urlsUnsure.txt"
       }
+      else if (pressedKey = "t") {
+        file := "urlsTools.txt"
+      }
+      else if (pressedKey = "q") {
+        file := "urlsQueue.txt"
+      }
       
       if (file) {
-        myFileName := "C:\Users\Mateus\OneDrive\vault\Canelhas\others\scratchpads\" file
+        myFileName := "C:\Users\Mateus\OneDrive\vault\Canelhas\others\lists\" file
     
         FileAppend, `n%A_YYYY%-%A_MM%-%A_DD% %url%, %myFileName%
-        TrayTip , Saved Url, %file%
+        SoundPlay %A_ScriptDir%\blob\xylo.wav
+        
       }
        
 
