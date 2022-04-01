@@ -65,6 +65,9 @@ SetWorkingDir, %A_ScriptDir%
       else if (pressedKey = "q") {
         file := "urlsQueue.txt"
       }
+      else if (pressedKey = "e") {
+        file := "urlsExplored.txt"
+      }
       
       if (file) {
         myFileName := "C:\Users\Mateus\OneDrive\vault\Canelhas\others\lists\" file
