@@ -64,7 +64,7 @@ SetWorkingDir, %A_ScriptDir%
         myFileName := "C:\Users\Mateus\OneDrive\vault\Canelhas\others\scratchpads\" file
     
         FileAppend, `n %url%, %myFileName%
-        TrayTip ,, %url% "->" %myFileName%
+        TrayTip ,, Saved to %file%
       }
        
 
