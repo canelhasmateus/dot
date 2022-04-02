@@ -56,6 +56,9 @@ SetWorkingDir, %A_ScriptDir%
       else if (pressedKey = "k") {
         file := "articlesBad.txt"
       }
+      else if (pressedKey = "l") {
+        file := "articlesUnsure.txt"
+      }
 
       else if (pressedKey = "q") {
         file := "articlesPreviewQueue.txt"
