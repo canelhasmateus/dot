@@ -48,16 +48,14 @@ SetWorkingDir, %A_ScriptDir%
       file := ""
 
       if (pressedKey = "i") {
-        file := "urlsGood.txt"
+        file := "articlesGood.txt"
       }
       else if (pressedKey = "k") {
-        file := "urlsBad.txt"
+        file := "articlesBad.txt"
       }
-      else if (pressedKey = "j") {
-        file := "urlsBase.txt"
-      }
+
       else if (pressedKey = "l") {
-        file := "urlsUnsure.txt"
+        file := "articlesUnsure.txt"
       }
       else if (pressedKey = "t") {
         file := "urlsTools.txt"
