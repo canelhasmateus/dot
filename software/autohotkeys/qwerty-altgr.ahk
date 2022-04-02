@@ -77,6 +77,9 @@ SetWorkingDir, %A_ScriptDir%
       else if (pressedKey = "b") {
         file := "urlsBookmark.txt"
       }
+      else if (pressedKey = "u") {
+        file := "urlsUtilities.txt"
+      }
       
       if (file) {
         myFileName := "C:\Users\Mateus\OneDrive\vault\Canelhas\others\lists\" file
