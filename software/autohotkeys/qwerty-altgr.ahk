@@ -68,6 +68,12 @@ SetWorkingDir, %A_ScriptDir%
       else if (pressedKey = "e") {
         file := "urlsExplored.txt"
       }
+      else if (pressedKey = "r") {
+        file := "urlsReservoir.txt"
+      }
+      else if (pressedKey = "p") {
+        file := "urlsPremium.txt"
+      }
       
       if (file) {
         myFileName := "C:\Users\Mateus\OneDrive\vault\Canelhas\others\lists\" file
