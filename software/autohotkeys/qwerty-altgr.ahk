@@ -61,7 +61,7 @@ SetWorkingDir, %A_ScriptDir%
       }
 
       else if (pressedKey = "q") {
-        file := "articlesPreviewQueue.txt"
+        file := "articlesReadQueue.txt"
       }
 
       ; Page Related
