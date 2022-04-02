@@ -69,7 +69,7 @@ SetWorkingDir, %A_ScriptDir%
         file := "urlsExplored.txt"
       }
       else if (pressedKey = "r") {
-        file := "urlsReservoir.txt"
+        file := "urlsResources.txt"
       }
       else if (pressedKey = "p") {
         file := "urlsPremium.txt"
