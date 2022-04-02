@@ -5,7 +5,6 @@ SetWorkingDir, %A_ScriptDir%
 #Include %A_ScriptDir%\lib\random.ahk
 #Include %A_ScriptDir%\lib\accData.ahk
 
-
 <^>!SC01E:: 
   {
     Send {\}
@@ -18,12 +17,10 @@ SetWorkingDir, %A_ScriptDir%
     return
   }
 
-
-
 <^>!SC018::
   {
     pressedKey := GetNextKey()
-    
+
     if pressedKey is number
     {
       sendDesktopOrSwitchDesktop( pressedKey )
@@ -36,7 +33,7 @@ SetWorkingDir, %A_ScriptDir%
     {
       OpenHighlighted()
     }
-    
+
     return
   } 
 <^>!SC022::
@@ -44,55 +41,56 @@ SetWorkingDir, %A_ScriptDir%
     pressedKey := GetNextKey()
     url := GetBrowserUrl()
     if ( url ) {
-      
+
       file := ""
 
-      if (pressedKey = "i") {
+      ; Article Related
+      if (pressedKey = "p") {
+        file := "articlesPremium.txt"
+      }
+
+      else if (pressedKey = "i") {
         file := "articlesGood.txt"
       }
+
       else if (pressedKey = "k") {
         file := "articlesBad.txt"
       }
 
-      else if (pressedKey = "l") {
-        file := "articlesUnsure.txt"
-      }
-      else if (pressedKey = "t") {
-        file := "urlsTools.txt"
-      }
       else if (pressedKey = "q") {
-        file := "urlsQueue.txt"
+        file := "articlesPreviewQueue.txt"
       }
-      else if (pressedKey = "e") {
-        file := "urlsExplored.txt"
-      }
-      else if (pressedKey = "r") {
-        file := "urlsResources.txt"
-      }
-      else if (pressedKey = "p") {
-        file := "urlsPremium.txt"
-      }
-      else if (pressedKey = "b") {
-        file := "urlsBookmark.txt"
+
+      ; Page Related
+      else if (pressedKey = "t") {
+        file := "pageTools.txt"
       }
       else if (pressedKey = "u") {
-        file := "urlsUtilities.txt"
+        file := "pageUtilities.txt"
+      }
+      else if (pressedKey = "b") {
+        file := "pageBookmark.txt"
+      }
+
+
+      ; Explore Related
+      else if (pressedKey = "e") {
+        file := "urlsExploreQueue.txt"
+      }
+      else if (pressedKey = "d") {
+        file := "urlsExploreDone.txt"
       }
       
       if (file) {
         myFileName := "C:\Users\Mateus\OneDrive\vault\Canelhas\others\lists\" file
-    
+
         FileAppend, `n%A_YYYY%-%A_MM%-%A_DD% %url%, %myFileName%
         SoundPlay %A_ScriptDir%\blob\xylo.wav
-        
+
       }
-       
-
-
 
     }
-   
+
     return
   } 
-
 
