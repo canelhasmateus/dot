@@ -171,6 +171,8 @@ workflow Set-Privacy {
     Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection -Name AllowTelemetry -Type DWord -Value 0
     Get-Service DiagTrack, Dmwappushservice | Stop-Service | Set-Service -StartupType Disabled
 
+    New-NetFirewallRule -DisplayName "Block SSDP" -Direction Outbound -RemotePort 1900 -Protocol UDP -Action Block
+
 }
 
 workflow Set-UI {
