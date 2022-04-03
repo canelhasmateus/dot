@@ -39,56 +39,62 @@ SetWorkingDir, %A_ScriptDir%
 <^>!SC022::
   {
     pressedKey := GetNextKey()
-    url := GetBrowserUrl()
-    if ( url ) {
+    if (pressedKey = "s") {
+      run python C:/Users/Mateus/Desktop/workspace/dot/software/scripting/daily_reads.py
 
-      file := ""
+    } else {
 
-      ; Article Related
-      if (pressedKey = "p") {
-        file := "articlesPremium.txt"
-      }
+      url := GetBrowserUrl()
+      if ( url ) {
 
-      else if (pressedKey = "i") {
-        file := "articlesGood.txt"
-      }
+        file := ""
 
-      else if (pressedKey = "k") {
-        file := "articlesBad.txt"
-      }
-      else if (pressedKey = "l") {
-        file := "articlesUnsure.txt"
-      }
+        ; Article Related
+        if (pressedKey = "p") {
+          file := "articlesPremium.txt"
+        }
 
-      else if (pressedKey = "q") {
-        file := "articlesQueue.txt"
-      }
+        else if (pressedKey = "i") {
+          file := "articlesGood.txt"
+        }
 
-      ; Page Related
-      else if (pressedKey = "t") {
-        file := "pageTools.txt"
-      }
-      else if (pressedKey = "u") {
-        file := "pageUtilities.txt"
-      }
-      else if (pressedKey = "b") {
-        file := "pageBookmark.txt"
-      }
+        else if (pressedKey = "k") {
+          file := "articlesBad.txt"
+        }
+        else if (pressedKey = "l") {
+          file := "articlesUnsure.txt"
+        }
 
+        else if (pressedKey = "q") {
+          file := "articlesQueue.txt"
+        }
 
-      ; Explore Related
-      else if (pressedKey = "e") {
-        file := "urlsExploreQueue.txt"
-      }
-      else if (pressedKey = "d") {
-        file := "urlsExploreDone.txt"
-      }
-      
-      if (file) {
-        myFileName := "C:\Users\Mateus\OneDrive\vault\Canelhas\others\lists\" file
+        ; Page Related
+        else if (pressedKey = "t") {
+          file := "pageTools.txt"
+        }
+        else if (pressedKey = "u") {
+          file := "pageUtilities.txt"
+        }
+        else if (pressedKey = "b") {
+          file := "pageBookmark.txt"
+        }
 
-        FileAppend, `n%A_YYYY%-%A_MM%-%A_DD% %url%, %myFileName%
-        SoundPlay %A_ScriptDir%\blob\xylo.wav
+        ; Explore Related
+        else if (pressedKey = "e") {
+          file := "urlsExploreQueue.txt"
+        }
+        else if (pressedKey = "d") {
+          file := "urlsExploreDone.txt"
+        }
+
+        if (file) {
+          myFileName := "C:\Users\Mateus\OneDrive\vault\Canelhas\others\lists\" file
+
+          FileAppend, `n%A_YYYY%-%A_MM%-%A_DD% %url%, %myFileName%
+          SoundPlay %A_ScriptDir%\blob\xylo.wav
+
+        }
 
       }
 

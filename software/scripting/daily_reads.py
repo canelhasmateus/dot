@@ -1,8 +1,11 @@
 import json
 import pathlib
 import sys
+import time
 from typing import Mapping
 from tqdm import tqdm
+import random
+import subprocess
 
 sys.path.append( "." )
 
@@ -27,8 +30,10 @@ def parse_article_line( line ):
 		return article.strip()
 
 
-def iter_articles( *files_to_iter ):
+def iter_articles( files_to_iter ):
 	for filename in files_to_iter:
+		filename = str( filename )
+		print( "Yielding", filename )
 		with open( filename, "r" ) as current_file:
 			for line in current_file:
 				article = parse_article_line( line )
@@ -36,32 +41,13 @@ def iter_articles( *files_to_iter ):
 					yield article.strip( "/" )
 
 
-def iter_all_but_queue( lists_path ):
-	for filename in pathlib.Path( lists_path ).glob( "*.txt" ):
-
-		if str( filename.name ) not in { "articlesQueue.txt" }:
-
-
-def iter_read_queue( lists_path ):
-	for filename in pathlib.Path( lists_path ).glob( "articlesQueue.txt" ):
-		with open( filename, "r" ) as file:
-			for line in file:
-				yield parse_article_line( line )
-
-
-def iter_all_articles( lists_path ):
-	for filename in pathlib.Path( lists_path ).glob( "articles*.txt" ):
-		print( "Yielding", filename )
-		with open( str( filename ), "r" ) as article_list:
-			for line in article_list:
-				yield parse_article_line( line )
-
-
 def download_missing_previews( previews_path ) -> Mapping[ str, object ]:
 	print( "Downloading Missing Previews" )
 	previews: Mapping[ str, object ] = json.load( open( previews_path, "r" ) )
 	downloaded = 0
-	for i, article_url in enumerate( tqdm( iter_all_articles( VAULT_LISTS ) ) ):
+	files = [ i for i in pathlib.Path( previews_path ).glob( "articles*.txt" ) ]
+
+	for i, article_url in enumerate( tqdm( iter_articles( files ) ) ):
 		if article_url not in previews:
 			downloaded += 1
 			previews[ article_url ] = getPreviewFromUrl( article_url )
@@ -74,34 +60,61 @@ def download_missing_previews( previews_path ) -> Mapping[ str, object ]:
 def remove_already_read( lists_path: pathlib.Path ):
 	print( "Removing read articles from the read list" )
 
-	all_but_queue = [ file for file in lists_path.glob( "article*.txt" ) if file.name not in { "articlesQueue.txt" } ]
+	all_but_queue = [ str( file ) for file in lists_path.glob( "article*.txt" ) if file.name not in { "articlesQueue.txt" } ]
 	already_read = set( iter_articles( all_but_queue ) )
 
+	article_queue = pathlib.Path( lists_path ) / "articlesQueue.txt"
 	seen = set()
+
 	removed = 0
 	temp_aux = lists_path / "temp_aux.txt"
-
 	with open( str( temp_aux ), "w" ) as temp_file:
 
-		for article_to_read in iter_read_queue( lists_path ):
+		for queued_article in iter_articles( [ article_queue ] ):
 
-			if article_to_read:
-				article_to_read = article_to_read.strip( "/" )
-				if article_to_read in seen or article_to_read in already_read:
+			if queued_article:
+				queued_article = queued_article.strip( "/" )
+				if queued_article in seen or queued_article in already_read:
 					removed += 1
 				else:
-					temp_file.writelines( article_to_read + "\n" )
-					seen.add( article_to_read )
+					temp_file.writelines( queued_article + "\n" )
+					seen.add( queued_article )
 
-	temp_aux.replace( list_archive / "articlesQueue.txt" )
+	temp_aux.replace( str( article_queue ) )
 	print( f"Removed {removed} articles from the read queue." )
 
 
-def generate_js_list( lists_path ):
+def generate_js_list( previews, lists_path ):
+	print( f"Generating ts file." )
 	queue = pathlib.Path( lists_path ) / "articlesQueue.txt"
+	queued_articles = [ i for i in iter_articles( [ queue ] ) ]
+	choosen_articles = random.choices( queued_articles, k = 300 )
+	results = [ ]
+	for article in choosen_articles:
+		try:
 
+			article_preview = previews[ article ]
+			results.append( article_preview )
 
+		except KeyError:
+			continue
+
+	preview_contents = json.dumps( results, indent = 4, sort_keys = True )
+	preview_contents = """
+	import type { Preview } from "./interface";
+	
+	export const list : Array< Preview > = """ + preview_contents
+
+	project = r"C:\Users\Mateus\Desktop\workspace\canHome"
+	ts_loc = pathlib.Path( r"C:\Users\Mateus\Desktop\workspace\canHome\src\lists\readlistA.ts" )
+	with open( str( ts_loc ), "w" ) as ts_file:
+		ts_file.write( preview_contents )
+
+	process = subprocess.run( f"npm run --prefix {project} deploy" ,
+	                          universal_newlines = True , shell = True)
+
+	print( f"Generated HTML." )
 if __name__ == '__main__':
 	previews = download_missing_previews( PREVIEW_ASSETS )
 	remove_already_read( VAULT_LISTS )
-	generate_js_list( previews, )
+	generate_js_list( previews, VAULT_LISTS )
