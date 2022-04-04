@@ -7,7 +7,7 @@
 ; e.g. to use CapsLock, define:
 #InputLevel 1
 CapsLock::F24
-#InputLevel 0
+#InputLevel 
 
 #Persistent
 SetCapsLockState, AlwaysOff
@@ -187,57 +187,59 @@ return
 F24 & SC02B::
   Reload
 return
-; ; bottom row
 
-; F24 & SC056::
-;   Send {CtrlDown}{y}{CtrlUp}
-; return
 
-; F24 & SC02C::
-;   Send {CtrlDown}{z}{CtrlUp}
-; return
+  ; ; bottom row
 
-; F24 & SC02D::
-;   Send {CtrlDown}{x}{CtrlUp}
-; return
+  ; F24 & SC056::
+  ;   Send {CtrlDown}{y}{CtrlUp}
+  ; return
 
-; F24 & SC02E::
-;   Send {CtrlDown}{c}{CtrlUp}
-; return
+  ; F24 & SC02C::
+  ;   Send {CtrlDown}{z}{CtrlUp}
+  ; return
 
-; F24 & SC02F::
-;   Send {CtrlDown}{v}{CtrlUp}
-; return
+  ; F24 & SC02D::
+  ;   Send {CtrlDown}{x}{CtrlUp}
+  ; return
 
-; F24 & SC030::
-; return
+  ; F24 & SC02E::
+  ;   Send {CtrlDown}{c}{CtrlUp}
+  ; return
 
-; F24 & SC031::
-;   mouseclick, left
-; return
+  ; F24 & SC02F::
+  ;   Send {CtrlDown}{v}{CtrlUp}
+  ; return
 
-; F24 & SC033::
-;   Send {Blind}{F13}
-; return
+  ; F24 & SC030::
+  ; return
 
-; F24 & SC034::
-;   Send {Blind}{F14}
-; return
+  ; F24 & SC031::
+  ;   mouseclick, left
+  ; return
 
-; F24 & SC035::
-;   Send {LWin}
-; return
+  ; F24 & SC033::
+  ;   Send {Blind}{F13}
+  ; return
 
-; ; RAlt cancel caps / nav layer
+  ; F24 & SC034::
+  ;   Send {Blind}{F14}
+  ; return
 
-; RAlt::
-;   GetKeyState, cp, CapsLock, T
-;   if navLayer 
-;   {
-;     navLayer := 0
-;   } 
-;   else if cp = D
-;   {
-;     SetCapsLockState, AlwaysOff
-;   } 
-; Return
+  ; F24 & SC035::
+  ;   Send {LWin}
+  ; return
+
+  ; ; RAlt cancel caps / nav layer
+
+  ; RAlt::
+  ;   GetKeyState, cp, CapsLock, T
+  ;   if navLayer 
+  ;   {
+  ;     navLayer := 0
+  ;   } 
+  ;   else if cp = D
+  ;   {
+  ;     SetCapsLockState, AlwaysOff
+  ;   } 
+  ; Return

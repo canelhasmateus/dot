@@ -1,0 +1,59 @@
+" ------------ Example ------------
+" Virtual command line options
+
+set shell = alacritty
+set cmd_fontname = JetBrainsMono Nerd Font
+set cmd_fontsize = 56
+set cmd_roughpos = LowerLeft
+set cmd_maxchar = 100
+set cmd_fadeout = 10
+set cmd_xmargin = 5
+set cmd_ymargin = 105
+
+
+
+" Enable block style caret
+set blockstylecaret
+set blockstylecaret_mode = solid
+
+
+
+
+set easyclick_fontname = JetBrainsMono Nerd Font
+set easyclick_fontsize = 16
+
+
+
+inoremap <ralt-'> to_gui_normal
+
+inoremap <ralt-e> to_editor_normal
+inoremap <ralt-v> to_gui_visual
+
+
+gnnoremap <ralt-space> to_command
+gvnoremap <ralt-space> to_command
+ennoremap <ralt-space> to_command
+evnoremap <ralt-space> to_command
+inoremap <ralt-space> to_command
+rnoremap <ralt-space> to_command
+cnoremap <ralt-space> to_command
+
+
+
+
+
+
+inoremap <ralt-,> easy_click_left
+inoremap <ralt-h> easy_click_hover
+
+
+
+" gnoremap wi to_insert
+" gnoremap ' to_command"
+" inoremap <lalt-'> to_instant_gui_normal"        
+
+
+
+
+
+

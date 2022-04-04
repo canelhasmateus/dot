@@ -36,22 +36,26 @@ def iter_articles( files_to_iter ):
 		print( "Yielding", filename )
 		with open( filename, "r" ) as current_file:
 			for line in current_file:
-				article = parse_article_line( line )
-				if article:
-					yield article.strip( "/" )
-
+				try:
+					article = parse_article_line( line )
+					if article:
+						yield article.strip( "/" )
+				except Exception as e:
+					print("Error parsing")
 
 def download_missing_previews( previews_path ) -> Mapping[ str, object ]:
 	print( "Downloading Missing Previews" )
 	previews: Mapping[ str, object ] = json.load( open( previews_path, "r" ) )
 	downloaded = 0
-	files = [ i for i in pathlib.Path( previews_path ).glob( "articles*.txt" ) ]
+	files = [ i for i in pathlib.Path( VAULT_LISTS ).glob( "*.txt" ) ]
 
 	for i, article_url in enumerate( tqdm( iter_articles( files ) ) ):
 		if article_url not in previews:
 			downloaded += 1
 			previews[ article_url ] = getPreviewFromUrl( article_url )
-
+			if (downloaded % 100) == 0:
+				json.dump( previews, open( previews_path, "w" ) )
+		
 	print( f"Downloaded {downloaded} urls" )
 	json.dump( previews, open( previews_path, "w" ) )
 	return previews
@@ -60,7 +64,7 @@ def download_missing_previews( previews_path ) -> Mapping[ str, object ]:
 def remove_already_read( lists_path: pathlib.Path ):
 	print( "Removing read articles from the read list" )
 
-	all_but_queue = [ str( file ) for file in lists_path.glob( "article*.txt" ) if file.name not in { "articlesQueue.txt" } ]
+	all_but_queue = [ str( file ) for file in lists_path.glob( "*.txt" ) if file.name not in { "articlesQueue.txt" } ]
 	already_read = set( iter_articles( all_but_queue ) )
 
 	article_queue = pathlib.Path( lists_path ) / "articlesQueue.txt"
