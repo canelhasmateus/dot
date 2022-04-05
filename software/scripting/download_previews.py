@@ -34,6 +34,13 @@ def first( *args ):
 	return ""
 
 
+def getDuration(html : etree._Element):
+	duration = toAttrib( "content",
+	                      html.xpath( "//meta[@name='duration']" ) )
+
+
+	return first( duration )
+
 def getTitle( html: etree._Element ) -> String:
 	ogTitle = toAttrib( "content",
 	                    html.xpath( "//meta[@name='og:title']" ) )

@@ -23,13 +23,6 @@ set easyclick_fontname = JetBrainsMono Nerd Font
 set easyclick_fontsize = 16
 
 
-
-inoremap <ralt-'> to_gui_normal
-
-inoremap <ralt-e> to_editor_normal
-inoremap <ralt-v> to_gui_visual
-
-
 gnnoremap <ralt-space> to_command
 gvnoremap <ralt-space> to_command
 ennoremap <ralt-space> to_command
@@ -38,13 +31,30 @@ inoremap <ralt-space> to_command
 rnoremap <ralt-space> to_command
 cnoremap <ralt-space> to_command
 
+gnnoremap <ralt-esc> to_insert
+gnnoremap <esc> to_insert
+gvnoremap <ralt-esc> to_insert
+gvnoremap <esc> to_insert
+ennoremap <ralt-esc> to_insert
+ennoremap <esc> to_insert
+evnoremap <ralt-esc> to_insert
+evnoremap <esc> to_insert
+inoremap <ralt-esc> to_insert
+inoremap <esc> to_insert
+rnoremap <ralt-esc> to_insert
+rnoremap <esc> to_insert
+cnoremap <ralt-esc> to_insert
+cnoremap <esc> to_insert
 
 
 
-
+inoremap <ralt-'> to_instant_gui_normal
+inoremap <ralt-'> to_gui_normal
+inoremap <ralt-v> to_gui_visual
+inoremap <ralt-e> to_editor_normal
 
 inoremap <ralt-,> easy_click_left
-inoremap <ralt-h> easy_click_hover
+inoremap <ralt-,> easy_click_left
 
 
 

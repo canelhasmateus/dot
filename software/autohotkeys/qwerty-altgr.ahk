@@ -57,6 +57,9 @@ SetWorkingDir, %A_ScriptDir%
         else if (pressedKey = "i") {
           file := "articlesGood.txt"
         }
+        else if (pressedKey = "h") {
+          file := "articlesHistory.txt"
+        }
 
         else if (pressedKey = "k") {
           file := "articlesBad.txt"
@@ -103,3 +106,8 @@ SetWorkingDir, %A_ScriptDir%
     return
   } 
 
+
+<^>!SC021::
+{
+OpenHighlighted()  
+}

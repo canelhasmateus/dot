@@ -4,24 +4,30 @@
 unmapAll
 
 # Jump
-map nn LinkHints.activateMode
-map np LinkHints.activateModeWithQueue
-map ni LinkHints.activateModeToOpenIncognito
-map NN LinkHints.activateModeToOpenInNewTab
-map nN LinkHints.activateModeToOpenInNewTab
-map nq LinkHints.activateModeToOpenInNewForegroundTab
 map nc LinkHints.activateModeToCopyLinkUrl
+map nd LinkHints.activateModeToDownloadLink
+map ni LinkHints.activateModeToOpenIncognito
+map nn LinkHints.activateMode
+map nN LinkHints.activateModeToOpenInNewTab
+map NN LinkHints.activateModeToOpenInNewTab
+map np LinkHints.activateModeWithQueue
+map nq LinkHints.activateModeToOpenInNewForegroundTab
 
 #Todo: find out how to select word, paragraph etcf
-map <a-f>f enterFindMode
+map / enterFindMode
 map <a-f>l performFind
+map <a-f><a-l> performFind
 map <a-f>j performBackwardsFind
-map <a-f>v enterVisualMode
-map <a-f>V enterVisualLineMode
+map <a-f><a-j> performBackwardsFind
+
+map vi enterVisualMode
+map VI enterVisualLineMode
+
+
 map <a-f>i focusInput
 map <a-f><a-i> focusInput
 # Inside Insert Mode, we skip vimium keymapping.
-map I enterInsertMode
+map II enterInsertMode
 
 #Vim scrolling
 map k scrollUp
