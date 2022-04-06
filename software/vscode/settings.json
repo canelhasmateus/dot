@@ -1,0 +1,99 @@
+{
+    "sync.gist": "54c7cc41f7b5c4d5ed1653cf0945064a",
+    "yaml.schemas": {
+        "file:///c%3A/Users/Lity/.vscode/extensions/atlassian.atlascode-2.8.5/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    },
+    "typescript.disableAutomaticTypeAcquisition": true,
+    "typescript.check.npmIsInstalled": false,
+    "typescript.tsserver.maxTsServerMemory": 0,
+    "typescript.tsserver.useSyntaxServer": "always",
+    "workbench.enableExperiments": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
+    "editor.fontSize": 18,
+    "editor.fontLigatures": true,
+    "editor.letterSpacing": 0.4,
+    "editor.smoothScrolling": true,
+    "editor.parameterHints.cycle": true,
+    "editor.scrollBeyondLastLine": false,
+    "editor.semanticHighlighting.enabled": true,
+    "editor.showFoldingControls": "always",
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorWidth": 3,
+    "editor.formatOnPaste": true,
+    "editor.minimap.scale": 2,
+    "editor.bracketPairColorization.enabled": true,
+    "workbench.colorCustomizations": {
+        "editorBracketHighlight.foreground1": "#E8BA36",
+        "editorBracketHighlight.foreground2": "#54A857",
+        "editorBracketHighlight.foreground3": "#82AAFF",
+        "editorBracketHighlight.foreground4": "#5060BB",
+        "editorBracketHighlight.foreground5": "#179387",
+        "editorBracketHighlight.unexpectedBracket.foreground": "#ff0000",
+    },
+    "editor.minimap.showSlider": "always",
+    "editor.quickSuggestions": true,
+    "editor.suggest.localityBonus": true,
+    "editor.suggest.shareSuggestSelections": true,
+    "editor.suggestSelection": "first",
+    "diffEditor.codeLens": true,
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "workbench.list.openMode": "doubleClick",
+    "workbench.startupEditor": "none",
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "search.maintainFileSearchCache": true,
+    "debug.inlineValues": true,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.cursorWidth": 3,
+    "editor.inlineSuggest.enabled": true,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "reason.codelens.enabled": true,
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "julia.symbolCacheDownload": true,
+    "julia.enableTelemetry": false,
+    "settingsSync.keybindingsPerPlatform": false,
+    "workbench.editor.languageDetection": false,
+    "redhat.telemetry.enabled": true,
+    "zenMode.hideTabs": false,
+    "zenMode.hideLineNumbers": false,
+    "calva.keybindingsEnabled": false,
+    "calva.paredit.defaultKeyMap": "none",
+    "[julia]": {
+        "editor.defaultFormatter": "singularitti.vscode-julia-formatter"
+    },
+    "[ocaml]": {
+        "editor.defaultFormatter": "badochov.ocaml-formatter"
+    },
+    "files.watcherExclude": {
+        "**/.bloop": true,
+        "**/.metals": true,
+        "**/.ammonite": true
+    },
+    "gitlens.keymap": "none",
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": false,
+        "nim": false
+    },
+    "svelte.enable-ts-plugin": true,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+    "typescript.format.insertSpaceAfterTypeAssertion": true,
+    "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "files.autoSave": "afterDelay",
+    "workbench.colorTheme": "Jewel",
+    // "terminal.integrated.shell.windows": "C:\\Program Files\\Alacritty\\alacritty.exe"
+    //
+}

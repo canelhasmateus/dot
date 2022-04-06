@@ -1,0 +1,23 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20220410100055
+Username: DESKTOP-UPO5MKK\Mateus
+RunAs User: DESKTOP-UPO5MKK\Mateus
+Configuration Name: 
+Machine: DESKTOP-UPO5MKK (Microsoft Windows NT 10.0.19044.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -command Set-Location -literalPath 'C:\Users\Mateus\OneDrive\dot\windows'
+Process ID: 9756
+PSVersion: 5.1.19041.1320
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.1320
+BuildVersion: 10.0.19041.1320
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Users\Mateus\OneDrive\dot\windows\blob\transcript.txt
+**********************
+Windows PowerShell transcript end
+End time: 20220410100055
+**********************

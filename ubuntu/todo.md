@@ -1,6 +1,5 @@
-
 Lean Away from autohotkey:
-https://github.com/autokey/autokey
+install xkeyboard
 
 
 https://github.com/iamabhas/dotfiles

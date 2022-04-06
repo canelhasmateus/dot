@@ -1,0 +1,95 @@
+{
+    "steps": [
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/alacritty/alacritty.yml",
+            "type": "hard",
+            "targetRoot": "",
+            "targetName": "/software/alacritty/alacritty.yml"
+        },
+        {
+            "destinationRoot": "UserProfile",
+            "destinationName": "/.win-vind/.vindrc",
+            "type": "hard",
+            "targetRoot": "",
+            "targetName": "/software/winvind/.vindrc"
+        },
+        {
+            "destinationRoot": "LocalApplicationData",
+            "destinationName": "/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json",
+            "type": "hard",
+            "targetRoot": "",
+            "targetName": "/software/windows_terminal/settings.json"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+            "type": "hard",
+            "targetRoot": "",
+            "targetName": "/software/windows_terminal/settings.json"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/Sublime Text/Packages/User/Default (Windows).sublime-keymap",
+            "type": "hard",
+            "targetRoot": "",
+            "targetName": "/software/sublime/keybinds.json"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/Code/User/keybindings.json",
+            "type": "hard",
+            "targetRoot": "",
+            "targetName": "/software/vscode/keybindings.json"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/Code/User/settings.json",
+            "type": "hard",
+            "targetRoot": "",
+            "targetName": "/software/vscode/settings.json"
+        },
+        {
+            "destinationRoot": "Startup",
+            "destinationName": "/canelhas.lnk",
+            "type": "shortcut",
+            "targetRoot": "",
+            "targetName": "/software/autohotkeys/canelhas.ahk"
+        },
+        {
+            "destinationRoot": "Startup",
+            "destinationName": "/win-vind.lnk",
+            "type": "shortcut",
+            "targetName": "/bin/win-vind.exe",
+            "targetRoot": "$env:ChocolateyInstall"
+        },
+        {
+            "destinationRoot": "Startup",
+            "destinationName": "/MarbleScroll.exe",
+            "type": "copy",
+            "targetRoot": "",
+            "targetName": "/windows/blob/MarbleScroll.exe"
+        },
+        {
+            "destinationRoot": "LocalApplicationData",
+            "destinationName": "/nvim/init.lua",
+            "type": "hard",
+            "targetRoot": "",
+            "targetName": "/software/nvim/init.lua"
+        },
+        {
+            "destinationRoot": "LocalApplicationData",
+            "destinationName": "/nvim/lua",
+            "type": "sym",
+            "targetRoot" : "",
+            "targetName": "/software/nvim/lua"
+        },
+        {
+            "destinationRoot": "Desktop",
+            "destinationName": "/workspace/dot",
+            "type": "sym",
+            "targetRoot" : "",
+            "targetName": ""
+        }
+    ]
+}

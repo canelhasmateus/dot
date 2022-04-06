@@ -1,0 +1,101 @@
+
+
+AntispywareEnabled
+AntivirusEnabled
+BehaviorMonitorEnabled
+IoavProtectionEnabled
+IsTamperProtected
+NISEnabled
+TDTMode
+OnAccessProtectionEnabled
+RealTimeProtectionEnabled
+TDTStatus
+TDTTelemetry
+
+$Param = @{
+DisableDatagramProcessing = $true
+MAPSReporting = $false
+SubmitSamplesConsent = $false
+DisableAutoExclusions = $true
+DisablePrivacyMode = $true
+DisableBehaviorMonitoring = $true
+DisableRealtimeMonitoring = $true
+DisableScriptScanning = $true
+DisableArchiveScanning = $true
+DisableCatchupFullScan = $true
+DisableCatchupQuickScan = $true
+DisableEmailScanning = $true
+DisableRemovableDriveScanning = $true
+DisableRestorePoint = $true
+DisableScanningMappedNetworkDrivesForFullScan = $true
+DisableScanningNetworkFiles = $true
+Force = $true
+DisableBlockAtFirstSeen = $true
+PUAProtection = $false
+CloudBlockLevel = $true
+EnableNetworkProtection = $false
+EnableControlledFolderAccess = $false
+EnableLowCpuPriority = $true
+DisableTlsParsing = $false
+DisableHttpParsing = $false
+DisableDnsParsing = $false
+DisableDnsOverTcpParsing = $false
+DisableSshParsing = $false
+DisableGradualRelease = $false
+EnableDnsSinkhole = $true
+DisableRdpParsing = $false
+
+
+
+}
+
+Set-MpPreference -DisableIntrusionPreventionSystem $true -DisableIOAVProtection $true -DisableRealtimeMonitoring $true -DisableScriptScanning $true -EnableControlledFolderAccess Disabled -EnableNetworkProtection AuditMode -Force -MAPSReporting Disabled -SubmitSamplesConsent NeverSend
+
+Remove-WindowsFeature Windows-Defender, Windows-Defender-GUI
+
+Get-Service WinDefend | Stop-Service -PassThru | Set-Service -StartupType Disabled
+
+Set-MpPreference $Param -Force 
+
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" -Name DisableAntiSpyware -Value 1 -PropertyType DWORD -Force
+
+https://docs.microsoft.com/en-us/powershell/module/defender/set-mppreference?view=windowsserver2022-ps&viewFallbackFrom=win10-ps
+https://bidouillesecurity.com/disable-windows-defender-in-powershell/
+https://github.com/jeremybeaume/tools/blob/master/disable-defender.ps1
+
+
+
+
+67..90|foreach-object{
+    $drive = [char]$_
+    Add-MpPreference -ExclusionPath "$($drive):\" -ErrorAction SilentlyContinue
+    Add-MpPreference -ExclusionProcess "$($drive):\*" -ErrorAction SilentlyContinue
+}
+
+Set-MpPreference -DisableArchiveScanning 1 -ErrorAction SilentlyContinue
+Set-MpPreference -DisableBehaviorMonitoring 1 -ErrorAction SilentlyContinue
+Set-MpPreference -DisableIntrusionPreventionSystem 1 -ErrorAction SilentlyContinue
+Set-MpPreference -DisableIOAVProtection 1 -ErrorAction SilentlyContinue
+Set-MpPreference -DisableRemovableDriveScanning 1 -ErrorAction SilentlyContinue
+Set-MpPreference -DisableBlockAtFirstSeen 1 -ErrorAction SilentlyContinue
+Set-MpPreference -DisableScanningMappedNetworkDrivesForFullScan 1 -ErrorAction SilentlyContinue
+Set-MpPreference -DisableScanningNetworkFiles 1 -ErrorAction SilentlyContinue
+Set-MpPreference -DisableScriptScanning 1 -ErrorAction SilentlyContinue
+Set-MpPreference -DisableRealtimeMonitoring 1 -ErrorAction SilentlyContinue
+
+
+
+
+
+HKLM\SOFTWARE\Microsoft\Windows Defender\Real-Time Protection\DisableRealtimeMonitoring
+HKLM\SOFTWARE\Microsoft\Windows Defender\SpyNet\SpyNetReporting
+HKLM\SOFTWARE\Microsoft\Windows Defender\SpyNet\SubmitSampleConsent
+HKLM\SOFTWARE\Microsoft\Windows Defender\Features\TamperProtection (4 when disabled) 
+HKLM\SOFTWARE\Microsoft\Windows Defender\Features\TamperProtectionSource (2 when disabled)
+HKLM\SOFTWARE\Microsoft\Windows Defender\Exclusions
+
+But, and that’s what we’re going to use : we can edit (at least for now) the registry keys associated to those services and drivers, in HKLM\SYSTEM\CurrentControlSet\Services\. We set they Start value to 4, meaning “Disabled”, and after next reboot, the services and driver will not be loaded / started, and so Defender will not be working anymore ! And indeed, after the reboot :
+
+
+I put everything in a convenient script that disables what it can directly in defender (Set-MpPreference), then modify the registry to disable the services, and set itself up to run again after reboot, to complete the removal. I’ll break it down below.
+
