@@ -72,7 +72,7 @@ SetWorkingDir, %A_ScriptDir%
           file := "articlesQueue.txt"
         }
 
-        ; Page Related
+        ; lPage Related
         else if (pressedKey = "t") {
           file := "pageTools.txt"
         }

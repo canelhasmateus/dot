@@ -13,7 +13,7 @@ from tqdm import tqdm
 RESULT_PATH = pathlib.Path( __file__ ).parent.joinpath( "content.json" )
 
 myList = [
-
+"https://blog.acolyer.org/2015/03/20/out-of-the-tar-pit/"
 		]
 String = str
 regex = re.compile( r"(.+?)(?=/|$)" )
