@@ -50,7 +50,7 @@ function Flatten ( $Array ) {
 }
 function Disable-Tasks( $List ) {
     $List = Flatten $List
-    Update-Privileges
+    
 
     $List | ForEach-Object {
         $Name = $_.Name
@@ -80,8 +80,41 @@ function Disable-Tasks( $List ) {
 
     } | Format-Table -AutoSize
 }
-function Optimize-BackgroundTasks {
+
+function Enable-Tasks( $List ) {
+    $List = Flatten $List
     
+
+    $List | ForEach-Object {
+        $Name = $_.Name
+        $Path = $_.Path
+
+        $Task = Get-ScheduledTask -TaskName $Name  -TaskPath $Path -ErrorAction SilentlyContinue
+        $PreviousStatus = $Task.State
+        
+        if ( $PreviousStatus -eq 'Disabled') {
+            
+            $Task | Enable-ScheduledTask -ErrorAction SilentlyContinue *> $null
+            $Task = Get-ScheduledTask -TaskName $Name  -TaskPath $Path -ErrorAction SilentlyContinue
+            Start-Sleep -Milliseconds 200
+
+        }
+        
+        $CurrentStatus = $Task.State
+
+
+        return [PSCustomObject]@{
+            Success        = $CurrentStatus -ne 'Disabled'
+            PreviousStatus = $PreviousStatus
+            CurrentStatus  = $CurrentStatus
+            Name           = $Name
+            Path           = $Path
+        }
+
+    } | Format-Table -AutoSize
+}
+function Optimize-BackgroundTasks {
+    Update-Privileges
     $NoPermission = @( 
         @{
             path = "\Microsoft\Windows\BitLocker\"
@@ -195,9 +228,21 @@ function Optimize-BackgroundTasks {
             path = "\Microsoft\Windows\Wininet\"
             name = "CacheTask"
         }
-
+        @{
+            path = "\Microsoft\Windows\Application Experience\"
+            name = "ProgramDataUpdater"
+        }
+        
     )
     
+    $Using = @( 
+        @{
+            path = "\Microsoft\Windows\TextServicesFramework\"
+            name = "MsCtfMonitor"
+            obs  = "Needed for search"
+        }
+
+    )
     $Investigate = @( 
         @{
             path = "\"
@@ -280,10 +325,7 @@ function Optimize-BackgroundTasks {
             path = "\Microsoft\Windows\InstallService\"
             name = "SmartRetry"
         }
-        @{
-            path = "\Microsoft\Windows\MUI\"
-            name = "LPRemove"
-        }
+        
         @{
             path = "\Microsoft\Windows\Multimedia\"
             name = "SystemSoundsService"
@@ -336,10 +378,67 @@ function Optimize-BackgroundTasks {
             path = "\Microsoft\Windows\WDI\"
             name = "ResolutionHost"
         }
+        @{
+            path = "\Microsoft\Windows\Application Experience\"
+            name = "StartupAppTask"
+        }
+        @{
+            path = "\Microsoft\Windows\MUI\"
+            name = "LPRemove"
+        }
+        @{
+            path = "\Microsoft\Windows\ApplicationData\"
+            name = "CleanupTemporaryState"
+        }
+        @{
+            path = "\Microsoft\Windows\Maintenance\"
+            name = "WinSAT"
+        }
+        @{
+            path = "\Microsoft\Windows\Management\Provisioning\"
+            name = "Cellular"
+        }
+        @{
+            path = "\Microsoft\Windows\Management\Provisioning\"
+            name = "Logon"
+        }
+        @{
+            path = "\Microsoft\Windows\Servicing\"
+            name = "StartComponentCleanup"
+        }
 
+        @{
+            path = "\Microsoft\Windows\Shell\"
+            name = "CreateObjectTask"
+        }        
+        @{
+            path = "\Microsoft\Windows\SoftwareProtectionPlatform\"
+            name = "SvcRestartTask"
+        }
+        @{
+            path = "\Microsoft\Windows\SpacePort\"
+            name = "SpaceAgentTask"
+        }
+        @{
+            path = "\Microsoft\Windows\SpacePort\"
+            name = "SpaceManagerTask"
+        }
+        @{
+            path = "\Microsoft\Windows\StateRepository\"
+            name = "MaintenanceTasks"
+        }
+        @{
+            path = "\Microsoft\Windows\Task Manager\"
+            name = "Interactive"
+        }
+        
+        @{
+            path = "\Microsoft\Windows\WlanSvc\"
+            name = "CDSSync"
+        }
     )
     
-    $Tasks = @(
+    $Killable = @(
         @{
             path = "\"
             name = "MicrosoftEdgeShadowStackRollbackTask"
@@ -370,22 +469,7 @@ function Optimize-BackgroundTasks {
             path = "\Microsoft\Windows\AppID\"
             name = "VerifiedPublisherCertStoreCheck"
         }
-        @{
-            path = "\Microsoft\Windows\Application Experience\"
-            name = "Microsoft Compatibility Appraiser"
-        }
-        @{
-            path = "\Microsoft\Windows\Application Experience\"
-            name = "PcaPatchDbTask"
-        }
-        @{
-            path = "\Microsoft\Windows\Application Experience\"
-            name = "ProgramDataUpdater"
-        }
-        @{
-            path = "\Microsoft\Windows\Application Experience\"
-            name = "StartupAppTask"
-        }
+
         @{
             path = "\Microsoft\Windows\ApplicationData\"
             name = "appuriverifierdaily"
@@ -394,33 +478,17 @@ function Optimize-BackgroundTasks {
             path = "\Microsoft\Windows\ApplicationData\"
             name = "appuriverifierinstall"
         }
-        @{
-            path = "\Microsoft\Windows\ApplicationData\"
-            name = "CleanupTemporaryState"
-        }
-        @{
-            path = "\Microsoft\Windows\ApplicationData\"
-            name = "DsSvcCleanup"
-        }
+
         @{
             path = "\Microsoft\Windows\AppListBackup\"
             name = "Backup"
         }
-        @{
-            path = "\Microsoft\Windows\Autochk\"
-            name = "Proxy"
-        }
+        
         
         @{
             path = "\Microsoft\Windows\Bluetooth\"
             name = "UninstallDeviceTask"
         }
-        
-        @{
-            path = "\Microsoft\Windows\Chkdsk\"
-            name = "ProactiveScan"
-        }
-        
         @{
             path = "\Microsoft\Windows\CloudExperienceHost\"
             name = "CreateObjectTask"
@@ -433,6 +501,8 @@ function Optimize-BackgroundTasks {
             path = "\Microsoft\Windows\Customer Experience Improvement Program\"
             name = "UsbCeip"
         }
+        
+        
         @{
             path = "\Microsoft\Windows\Data Integrity Scan\"
             name = "Data Integrity Check And Scan"
@@ -467,23 +537,6 @@ function Optimize-BackgroundTasks {
             name = "DXGIAdapterCache"
         }
         
-        @{
-            path = "\Microsoft\Windows\DiskDiagnostic\"
-            name = "Microsoft-Windows-DiskDiagnosticDataCollector"
-        }
-        @{
-            path = "\Microsoft\Windows\DiskFootprint\"
-            name = "Diagnostics"
-        }
-        @{
-            path = "\Microsoft\Windows\DiskFootprint\"
-            name = "StorageSense"
-        }
-        @{
-            path = "\Microsoft\Windows\DUSM\"
-            name = "dusmtask"
-        }
-        
         
         @{
             path = "\Microsoft\Windows\ExploitGuard\"
@@ -497,10 +550,7 @@ function Optimize-BackgroundTasks {
             path = "\Microsoft\Windows\Feedback\Siuf\"
             name = "DmClientOnScenarioDownload"
         }
-        @{
-            path = "\Microsoft\Windows\FileHistory\"
-            name = "File History (maintenance mode)"
-        }
+        
         @{
             path = "\Microsoft\Windows\Flighting\FeatureConfig\"
             name = "ReconcileFeatures"
@@ -546,21 +596,71 @@ function Optimize-BackgroundTasks {
             path = "\Microsoft\Windows\Location\"
             name = "WindowsActionDialog"
         }
-        @{
-            path = "\Microsoft\Windows\Maintenance\"
-            name = "WinSAT"
-        }
-        @{
-            path = "\Microsoft\Windows\Management\Provisioning\"
-            name = "Cellular"
-        }
-        @{
-            path = "\Microsoft\Windows\Management\Provisioning\"
-            name = "Logon"
-        }
+        
         @{
             path = "\Microsoft\Windows\Maps\"
             name = "MapsToastTask"
+        }
+        @{
+            path = "\Microsoft\Windows\Application Experience\"
+            name = "Microsoft Compatibility Appraiser"
+        }
+        @{
+            path = "\Microsoft\Windows\Application Experience\"
+            name = "PcaPatchDbTask"
+        }
+        
+        @{
+            path = "\Microsoft\Windows\ApplicationData\"
+            name = "DsSvcCleanup"
+        }
+        @{
+            path = "\Microsoft\Windows\Autochk\"
+            name = "Proxy"
+        }
+        
+        @{
+            path = "\Microsoft\Windows\Chkdsk\"
+            name = "ProactiveScan"
+        }
+        
+        @{
+            path = "\Microsoft\Windows\DiskDiagnostic\"
+            name = "Microsoft-Windows-DiskDiagnosticDataCollector"
+        }
+        @{
+            path = "\Microsoft\Windows\DiskFootprint\"
+            name = "Diagnostics"
+        }
+        @{
+            path = "\Microsoft\Windows\DiskFootprint\"
+            name = "StorageSense"
+        }
+        @{
+            path = "\Microsoft\Windows\DUSM\"
+            name = "dusmtask"
+        }
+        
+        @{
+            path = "\Microsoft\Windows\FileHistory\"
+            name = "File History (maintenance mode)"
+        }
+        @{
+            path = "\Microsoft\Windows\Work Folders\"
+            name = "Work Folders Logon Synchronization"
+        }
+        @{
+            path = "\Microsoft\Windows\Work Folders\"
+            name = "Work Folders Maintenance Work"
+        }
+        
+        @{
+            path = "\Microsoft\Windows\Storage Tiers Management\"
+            name = "Storage Tiers Management Initialization"
+        }
+        @{
+            path = "\Microsoft\Windows\Windows Filtering Platform\"
+            name = "BfeOnServiceStartTypeChange"
         }
         @{
             path = "\Microsoft\Windows\MemoryDiagnostic\"
@@ -628,19 +728,12 @@ function Optimize-BackgroundTasks {
             path = "\Microsoft\Windows\RetailDemo\"
             name = "CleanupOfflineContent"
         }
-        @{
-            path = "\Microsoft\Windows\Servicing\"
-            name = "StartComponentCleanup"
-        }
         
         @{
             path = "\Microsoft\Windows\SettingSync\"
             name = "NetworkStateChangeTask"
         }
-        @{
-            path = "\Microsoft\Windows\Shell\"
-            name = "CreateObjectTask"
-        }
+
         @{
             path = "\Microsoft\Windows\Shell\"
             name = "FamilySafetyMonitor"
@@ -651,54 +744,8 @@ function Optimize-BackgroundTasks {
         }
         
         @{
-            path = "\Microsoft\Windows\SoftwareProtectionPlatform\"
-            name = "SvcRestartTask"
-        }
-        @{
-            path = "\Microsoft\Windows\SpacePort\"
-            name = "SpaceAgentTask"
-        }
-        @{
-            path = "\Microsoft\Windows\SpacePort\"
-            name = "SpaceManagerTask"
-        }
-        @{
             path = "\Microsoft\Windows\Speech\"
             name = "SpeechModelDownloadTask"
-        }
-        @{
-            path = "\Microsoft\Windows\StateRepository\"
-            name = "MaintenanceTasks"
-        }
-        @{
-            path = "\Microsoft\Windows\Storage Tiers Management\"
-            name = "Storage Tiers Management Initialization"
-        }
-        @{
-            path = "\Microsoft\Windows\Subscription\"
-            name = "EnableLicenseAcquisition"
-        }
-        @{
-            path = "\Microsoft\Windows\Sysmain\"
-            name = "ResPriStaticDbSync"
-        }
-        
-        @{
-            path = "\Microsoft\Windows\Task Manager\"
-            name = "Interactive"
-        }
-        @{
-            path = "\Microsoft\Windows\TextServicesFramework\"
-            name = "MsCtfMonitor"
-        }
-        
-        @{
-            path = "\Microsoft\Windows\TPM\"
-            name = "Tpm-HASCertRetr"
-        }
-        @{
-            path = "\Microsoft\Windows\TPM\"
-            name = "Tpm-Maintenance"
         }
         
         @{
@@ -727,38 +774,14 @@ function Optimize-BackgroundTasks {
             name = "QueueReporting"
         }
         @{
-            path = "\Microsoft\Windows\Windows Filtering Platform\"
-            name = "BfeOnServiceStartTypeChange"
-        }
-        @{
-            path = "\Microsoft\Windows\Windows Media Sharing\"
-            name = "UpdateLibrary"
-        }
-        @{
-            path = "\Microsoft\Windows\WindowsColorSystem\"
-            name = "Calibration Loader"
+            path = "\Microsoft\Windows\Subscription\"
+            name = "EnableLicenseAcquisition"
         }
         @{
             path = "\Microsoft\Windows\WindowsUpdate\"
             name = "Scheduled Start"
         }
-        
-        @{
-            path = "\Microsoft\Windows\WlanSvc\"
-            name = "CDSSync"
-        }
-        @{
-            path = "\Microsoft\Windows\WOF\"
-            name = "WIM-Hash-Management"
-        }
-        @{
-            path = "\Microsoft\Windows\Work Folders\"
-            name = "Work Folders Logon Synchronization"
-        }
-        @{
-            path = "\Microsoft\Windows\Work Folders\"
-            name = "Work Folders Maintenance Work"
-        }
+
         @{
             path = "\Microsoft\Windows\WwanSvc\"
             name = "NotificationTask"
@@ -768,10 +791,45 @@ function Optimize-BackgroundTasks {
             name = "OobeDiscovery"
         }
 
+        @{
+            path = "\Microsoft\Windows\Windows Media Sharing\"
+            name = "UpdateLibrary"
+        }
+        
+        @{
+            path = "\Microsoft\Windows\WindowsColorSystem\"
+            name = "Calibration Loader"
+        }
+
+
+        @{
+            path = "\Microsoft\Windows\TPM\"
+            name = "Tpm-HASCertRetr"
+        }
+        @{
+            path = "\Microsoft\Windows\TPM\"
+            name = "Tpm-Maintenance"
+        }
+
+        
+        @{
+            path = "\Microsoft\Windows\WOF\"
+            name = "WIM-Hash-Management"
+        }
+        
+        @{
+            path = "\Microsoft\Windows\Sysmain\"
+            name = "ResPriStaticDbSync"
+        }
+    
     )
 
     
-    Disable-Tasks $Tasks
+    
+    
+    Disable-Tasks $Killable
+    Enable-Tasks $Investigate
+    
     
     # @(
             
@@ -809,3 +867,7 @@ function Optimize-BackgroundTasks {
     # }
 
 }
+
+
+
+
