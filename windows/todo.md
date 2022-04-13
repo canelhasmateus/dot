@@ -3,7 +3,8 @@ Set up Console Host
 
 Set up terminal ( colors, profiles, aliases, Z )
     https://www.youtube.com/watch?v=5-aK2_WwrmM
-Set up Intelli-J hardlinks
+
+Set up Intelli-J linkage
 
 Windows Look and feels
     Set up Windows Night Light
@@ -18,14 +19,24 @@ Windows Look and feels
 
 
 
-    
-
-Optimize-BackgroundTasks
+Better Tuning
+    Optimize-Services
+    Optimize-WindowsDefender
+    Optimize-BackgroundTasks
+    Better Hosts File     
 
 
 Chrome
-    Extensions
+    Install Extensions
+        NewTab-Redirect
+        MarkDownload
+        PoperBlocker
+
         Vimium
+        Time Your Web Tracker
+        Dashlane
+        JsonViewer
+        uBlock Origin
         New Tab Update
             file://C:\Users\Mateus\Downloads\home\index.html
             
