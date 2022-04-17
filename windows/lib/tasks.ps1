@@ -241,9 +241,6 @@ function Optimize-BackgroundTasks {
             name = "MsCtfMonitor"
             obs  = "Needed for search"
         }
-
-    )
-    $Investigate = @( 
         @{
             path = "\"
             name = "OneDrive Reporting Task-S-1-5-21-1131998382-2623026393-1346818710-1001"
@@ -252,6 +249,11 @@ function Optimize-BackgroundTasks {
             path = "\"
             name = "OneDrive Standalone Update Task-S-1-5-21-1131998382-2623026393-1346818710-"
         }
+
+    )
+
+    $Investigate = @( 
+        
         @{
             path = "\Microsoft\Windows\BrokerInfrastructure\"
             name = "BgTaskRegistrationMaintenanceTask"
@@ -823,9 +825,6 @@ function Optimize-BackgroundTasks {
         }
     
     )
-
-    
-    
     
     Disable-Tasks $Killable
     Enable-Tasks $Investigate

@@ -10,7 +10,6 @@ import requests
 from lxml import etree
 from tqdm import tqdm
 
-
 String = str
 regex = re.compile( r"(.+?)(?=/|$)" )
 

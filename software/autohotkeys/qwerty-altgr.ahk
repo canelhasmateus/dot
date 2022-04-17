@@ -47,57 +47,49 @@ SetWorkingDir, %A_ScriptDir%
       url := GetBrowserUrl()
       if ( url ) {
 
-        file := ""
+        comment := ""
 
         ; Article Related
         if (pressedKey = "p") {
-          file := "articlesPremium.txt"
+          comment := "Premium"
         }
 
         else if (pressedKey = "i") {
-          file := "articlesGood.txt"
+          comment := "Good"
         }
         else if (pressedKey = "h") {
-          file := "articlesHistory.txt"
+          comment := "History"
         }
 
         else if (pressedKey = "k") {
-          file := "articlesBad.txt"
+          comment := "Bad"
         }
         else if (pressedKey = "l") {
-          file := "articlesUnsure.txt"
+          comment := "Revisit"
         }
 
         else if (pressedKey = "q") {
-          file := "articlesQueue.txt"
+          comment := "Queue"
         }
 
-        ; lPage Related
         else if (pressedKey = "t") {
-          file := "pageTools.txt"
+          comment := "Tool"
         }
         else if (pressedKey = "u") {
-          file := "pageUtilities.txt"
+          comment := "Utility"
         }
         else if (pressedKey = "b") {
-          file := "pageBookmark.txt"
+          comment := "Bookmark"
         }
 
-        ; Explore Related
-        else if (pressedKey = "e") {
-          file := "urlsExploreQueue.txt"
-        }
-        else if (pressedKey = "d") {
-          file := "urlsExploreDone.txt"
-        }
+        if (comment) {
 
-        if (file) {
-          myFileName := "C:\Users\Mateus\OneDrive\vault\Canelhas\others\lists\" file
 
-          FileAppend, `n%A_YYYY%-%A_MM%-%A_DD% %url%, %myFileName%
+          articleStream := "C:\Users\Mateus\OneDrive\vault\Canelhas\others\lists\articlesStream.txt"
+          FileAppend, `n%A_YYYY%-%A_MM%-%A_DD%`t%A_Hour%:%A_Min%:%A_Sec%`t%comment%`t%url%, %articleStream%
           SoundPlay %A_ScriptDir%\blob\xylo.wav
-
         }
+      
 
       }
 

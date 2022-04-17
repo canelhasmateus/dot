@@ -164,7 +164,6 @@ function Set-AppearanceTaskbar {
 
 }
 
-
 function Set-AppearanceSystem {
     
     
