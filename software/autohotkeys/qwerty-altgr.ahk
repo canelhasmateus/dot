@@ -33,8 +33,12 @@ SetWorkingDir, %A_ScriptDir%
     {
       OpenHighlighted()
     }
-
-    return
+    else if ( pressedKey = "w") 
+    {
+    
+      send {LWinDown}{ShiftDown}{ Right}{LWinUp}{ShiftUp}
+    }
+    return 
   } 
 <^>!SC022::
   {
