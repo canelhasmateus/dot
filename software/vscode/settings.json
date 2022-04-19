@@ -95,6 +95,7 @@
     "files.autoSave": "afterDelay",
     "workbench.colorTheme": "Jewel",
     "explorer.autoReveal": false,
+    "terminal.external.windowsExec": "C:\\Program Files\\Alacritty\\alacritty.exe",
     // "terminal.integrated.shell.windows": "C:\\Program Files\\Alacritty\\alacritty.exe"
     //
 }

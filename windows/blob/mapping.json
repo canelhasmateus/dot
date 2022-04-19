@@ -100,11 +100,12 @@
         },
         {
             "destinationRoot": "MyDocuments",
-            "destinationName": "/WindowsPowerShell/Microsoft.VSCode_profile.ps1",
-            "type": "hard",
+            "destinationName": "/WindowsPowerShell/lib",
+            "type": "sym",
             "targetRoot": "",
-            "targetName": "/software/powershell/profile.ps1"
+            "targetName": "/software/powershell/lib"
         },
+        
         {
             "destinationRoot": "ApplicationData",
             "destinationName": "/JetBrains/IntelliJIdea2021.3/jba_config/codestyles",
