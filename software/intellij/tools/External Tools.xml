@@ -2,7 +2,7 @@
   <tool name="Ref" showInMainMenu="false" showInEditor="false" showInProject="false" showInSearchPopup="false" disabled="false" useConsole="true" showConsoleOnStdOut="true" showConsoleOnStdErr="true" synchronizeAfterRun="true">
     <exec>
       <option name="COMMAND" value="powershell" />
-      <option name="PARAMETERS" value="C:\Users\Mateus\Desktop\workspace\dot\software\intellij\external\teste.ps1 $ModuleSdkPath$ $FilePath$ $Prompt$" />
+      <option name="PARAMETERS" value="C:\Users\Mateus\Desktop\workspace\dot\software\intellij\external\teste.ps1 $ModuleSdkPath$ $FilePath$" />
       <option name="WORKING_DIRECTORY" value="$ProjectFileDir$" />
     </exec>
   </tool>

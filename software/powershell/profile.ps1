@@ -1,7 +1,9 @@
-function Git-Ammend {
-    git commit --amend --no-edit
-}
+$Aliases = Join-Path $PSScriptRoot "/lib/aliases"
+. $Aliases
+
+# set PowerShell to UTF-8
+[console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 
 
-New-Alias -Name gammend -Value Git-Ammend
-# C:\Users\Mateus\AppData\Roaming\JetBrains\IntelliJIdea2021.3
+
+# $env:GIT_SSH = "C:\Windows\system32\OpenSSH\ssh.exe"

@@ -68,17 +68,7 @@ function Add-Choco {
 
     $Script = { 
 
-        function Add-Path {
-
-            param ( $INCLUDE )
-
-            $OLDPATH = [System.Environment]::GetEnvironmentVariable('PATH', 'machine')
-            $NEWPATH = "$OLDPATH;$INCLUDE"
-            [Environment]::SetEnvironmentVariable("PATH", "$NEWPATH", "Machine")
-
-
-        }
-
+        
         $ChocoUrl = 'https://community.chocolatey.org/install.ps1'
         [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
         Invoke-RestMethod -Uri $ChocoUrl | Invoke-Expression    
@@ -93,7 +83,7 @@ function Add-Choco {
         )
         
         choco install $Installs -y 
-        Add-Path "C:\Program Files\Sublime Text"
+        
 
     } 
 

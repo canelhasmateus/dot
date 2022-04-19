@@ -10,7 +10,7 @@
       <i c="35" l="1650374186562" />
     </e>
     <e n="$Undo">
-      <i c="66" l="1650378554213" />
+      <i c="67" l="1650378933659" />
     </e>
     <e n="AceWordBackwardsAction">
       <i c="9" l="1650377401995" />
@@ -79,7 +79,7 @@
       <i c="85" l="1650373728383" />
     </e>
     <e n="EditorDown">
-      <i c="683" l="1650372937782" />
+      <i c="685" l="1650378988302" />
     </e>
     <e n="EditorDownWithSelection">
       <i c="85" l="1650301010299" />
@@ -91,13 +91,13 @@
       <i c="237" l="1650368092335" />
     </e>
     <e n="EditorEscape">
-      <i c="102" l="1650373517268" />
+      <i c="103" l="1650378946916" />
     </e>
     <e n="EditorIncreaseFontSize">
       <i c="5" l="1650368445424" />
     </e>
     <e n="EditorIndentLineOrSelection">
-      <i c="98" l="1650373573406" />
+      <i c="99" l="1650378933052" />
     </e>
     <e n="EditorIndentSelection">
       <i c="9" l="1650299931155" />
@@ -262,7 +262,7 @@
       <i c="116" l="1650372408130" />
     </e>
     <e n="QuickList.Random">
-      <i c="26" l="1650378563609" />
+      <i c="28" l="1650378973589" />
     </e>
     <e n="ReformatCode">
       <i c="22" l="1650300486781" />
@@ -274,7 +274,7 @@
       <i c="1" l="1650297237977" />
     </e>
     <e n="RestartIde">
-      <i c="4" l="1649812838870" />
+      <i c="6" l="1650378989814" />
     </e>
     <e n="RevealIn">
       <i c="1" l="1649813100699" />
@@ -286,7 +286,7 @@
       <i c="3" l="1650295675962" />
     </e>
     <e n="RunMenu">
-      <i c="16" l="1650378277782" />
+      <i c="17" l="1650378972236" />
     </e>
     <e n="SaveAll">
       <i c="16" l="1650374095674" />
@@ -307,7 +307,7 @@
       <i c="1" l="1650295098380" />
     </e>
     <e n="ShowSettings">
-      <i c="40" l="1650378814223" />
+      <i c="41" l="1650378939365" />
     </e>
     <e n="StartStopMacroRecording">
       <i c="2" l="1650377408112" />
@@ -328,7 +328,7 @@
       <i c="10" l="1650374201674" />
     </e>
     <e n="Tool_External Tools_Ref">
-      <i c="12" l="1650378565436" />
+      <i c="14" l="1650378974411" />
     </e>
     <e n="Tree-selectChild">
       <i c="30" l="1650376552490" />
@@ -382,13 +382,13 @@
       <i c="1" l="1650368043895" />
     </e>
     <e n="com.intellij.openapi.ui.DialogWrapper$4">
-      <i c="19" l="1650367956404" />
+      <i c="21" l="1650378990282" />
     </e>
     <e n="com.intellij.openapi.ui.MasterDetailsComponent$MyDeleteAction">
       <i c="1" l="1650368055198" />
     </e>
     <e n="com.intellij.openapi.ui.impl.DialogWrapperPeerImpl$AnCancelAction">
-      <i c="19" l="1650378616547" />
+      <i c="20" l="1650378945071" />
     </e>
     <e n="com.intellij.openapi.wm.impl.ToolWindowHeader$HideAction">
       <i c="1" l="1649812374227" />
