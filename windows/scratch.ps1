@@ -1,34 +1,11 @@
-function Optimize-Bloat {
 
-    $ServicesModule = Join-Path $PSScriptRoot "/lib/services.ps1"
-    . $ServicesModule
+$LinksModule = Join-Path $PSScriptRoot "/lib/linking.ps1"
+.$LinksModule
+
+
     
-    Optimize-Services
-    Optimize-WindowsDefender
-
-    $PackagesModule = Join-Path $PSScriptRoot "/lib/packages.ps1"
-    . $PackagesModule
-
-    Optimize-AppxPackages
+$Root = Split-Path $PSScriptRoot -Parent
     
-    
-
-    $TasksModule = Join-Path $PSScriptRoot "/lib/tasks.ps1"
-    . $TasksModule
-
-    Optimize-BackgroundTasks
-
-    $NetworkModule = Join-Path $PSScriptRoot "/lib/network.ps1"
-    . $NetworkModule
-    Optimize-Privacy
-    Optimize-NetworkTraffic
-    
-    #Optimize-Others    
-    #$Reg = Join-Path $PSScriptRoot "lib/ram.reg"
-    #reg import $Reg 
-    
-    
-}
-
-
-Optimize-Bloat
+$MappingFile = "/windows/blob/mapping.json"
+Set-Mappings $Root $MappingFile
+        

@@ -1,0 +1,5 @@
+<application>
+  <component name="AceConfig">
+    <option name="allowedChars" value="qwerasdfzxcvuipojklnm" />
+  </component>
+</application>

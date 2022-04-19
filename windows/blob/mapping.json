@@ -81,15 +81,85 @@
             "destinationRoot": "LocalApplicationData",
             "destinationName": "/nvim/lua",
             "type": "sym",
-            "targetRoot" : "",
+            "targetRoot": "",
             "targetName": "/software/nvim/lua"
         },
         {
             "destinationRoot": "Desktop",
             "destinationName": "/workspace/dot",
             "type": "sym",
-            "targetRoot" : "",
+            "targetRoot": "",
             "targetName": ""
+        },
+        {
+            "destinationRoot": "MyDocuments",
+            "destinationName": "/WindowsPowerShell/Microsoft.PowerShell_profile.ps1",
+            "type": "hard",
+            "targetRoot": "",
+            "targetName": "/software/powershell/profile.ps1"
+        },
+        {
+            "destinationRoot": "MyDocuments",
+            "destinationName": "/WindowsPowerShell/Microsoft.VSCode_profile.ps1",
+            "type": "hard",
+            "targetRoot": "",
+            "targetName": "/software/powershell/profile.ps1"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/JetBrains/IntelliJIdea2021.3/jba_config/codestyles",
+            "type": "sym",
+            "targetRoot": "",
+            "targetName": "/software/intellij/codestyles"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/JetBrains/IntelliJIdea2021.3/jba_config/colors",
+            "type": "sym",
+            "targetRoot": "",
+            "targetName": "/software/intellij/colors"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/JetBrains/IntelliJIdea2021.3/jba_config/templates",
+            "type": "sym",
+            "targetRoot": "",
+            "targetName": "/software/intellij/templates"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/JetBrains/IntelliJIdea2021.3/jba_config/win.keymaps",
+            "type": "sym",
+            "targetRoot": "",
+            "targetName": "/software/intellij/keymaps"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/JetBrains/IntelliJIdea2021.3/options",
+            "type": "sym",
+            "targetRoot": "",
+            "targetName": "/software/intellij/options"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/JetBrains/IntelliJIdea2021.3/tools",
+            "type": "sym",
+            "targetRoot": "",
+            "targetName": "/software/intellij/tools"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/JetBrains/IntelliJIdea2021.3/quicklists",
+            "type": "sym",
+            "targetRoot": "",
+            "targetName": "/software/intellij/quicklists"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/JetBrains/IntelliJIdea2021.3/jba_config/installed_plugins.txt",
+            "type": "hard",
+            "targetRoot": "",
+            "targetName": "/software/intellij/installed_plugins.txt"
         }
     ]
 }

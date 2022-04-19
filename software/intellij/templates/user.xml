@@ -1,0 +1,157 @@
+<templateSet group="user">
+  <template name="sof" value="public static $class$ of ( $var$ input ) {&#10;&#10;    return $class$.builder().build();&#10;}" description="Static Constructor Of" toReformat="false" toShortenFQNames="true" useStaticImport="true">
+    <variable name="class" expression="" defaultValue="className()" alwaysStopAt="false" />
+    <variable name="var" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="some" value="java.util.Optional.ofNullable( $value$ );" description="Optional of Nullable" toReformat="false" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="souf" value="System.out.printf(&quot;$END$&quot;);" description="Prints a formatted string to System.out" toReformat="true" toShortenFQNames="true" useStaticImport="true">
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="thr" value="throw new " description="throw new" toReformat="false" toShortenFQNames="false">
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="atq" value="@org.springframework.data.jpa.repository.Query( value = &quot;&quot; + &#10;                &quot;$VALUE$&quot; +&#10;        &quot;&quot;, nativeQuery = true)" description="spring @Query" toReformat="false" toShortenFQNames="true">
+    <variable name="VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="do" value="#TODO  $DATE$ $COMMENT$" description="todo" toReformat="false" toShortenFQNames="true">
+    <variable name="DATE" expression="" defaultValue="date()" alwaysStopAt="false" />
+    <variable name="COMMENT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="fi" value="for $ITEM$ in $ITERABLE$:" description="for item" toReformat="false" toShortenFQNames="true">
+    <variable name="ITEM" expression="" defaultValue="item" alwaysStopAt="true" />
+    <variable name="ITERABLE" expression="iterableVariable()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="fme" value="//FIXME : $TEXT$" description="fixme" toReformat="false" toShortenFQNames="true">
+    <variable name="TEXT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="fun" value="public static void $ARG$( $END$ ) {&#10;    &#10;} " description="a function" toReformat="true" toShortenFQNames="false">
+    <variable name="ARG" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="ifn" value="if $variable$ is None:&#10;    " description="if none" toReformat="false" toShortenFQNames="true">
+    <variable name="variable" expression="suggestVariableName()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="jcom" value="/**&#10;* $COMMENT$&#10;* &#10;* $DATE$&#10; */" description="Java doc commentary" toReformat="false" toShortenFQNames="true">
+    <variable name="COMMENT" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DATE" expression="" defaultValue="date()" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="jdep" value="/**@deprecated $message$ **/&#10;@Deprecated" description="Java doc deprecated" toReformat="false" toShortenFQNames="true">
+    <variable name="message" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="max" value="Math.max($VAR$, $VAR2$)$END$;" description="Sets greater value to a variable" toReformat="true" toShortenFQNames="true">
+    <variable name="VAR" expression="variableOfType(&quot;double&quot;)" defaultValue="" alwaysStopAt="true" />
+    <variable name="VAR2" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="min" value="Math.min($VAR$, $VAR2$)$END$;" description="Sets lesser value to a variable" toReformat="true" toShortenFQNames="true">
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VAR2" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="jof" value="@com.fasterxml.jackson.annotation.JsonCreator( mode = JsonCreator.Mode.PROPERTIES)&#10;public static $class$ of ( @com.fasterxml.jackson.annotation.JsonProperty( )  String input ) {&#10;&#10;return $class$.builder().build();&#10;}" description="Static Constructor Jackson" toReformat="false" toShortenFQNames="true" useStaticImport="true">
+    <variable name="class" expression="" defaultValue="className()" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="just" value="java.util.Optional.of( $value$ );" description="Optional of" toReformat="false" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="leetCmp" value="public static final &lt; T &gt; void compare( T actual, T expected ) {&#10;&#10;    if ( !expected.equals( actual ) ) {&#10;&#10;        throw new RuntimeException( &quot;Error!\nexpected:\n\t\t&quot; +&#10;                                    expected +&#10;                                    &quot;\ngotten:\n\t\t&quot; +&#10;                                    actual );&#10;&#10;    }&#10;}" description="Compare implementation for leet code" toReformat="true" toShortenFQNames="true" useStaticImport="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="leetRevPtr" value="public static void twoPointerReverse( $ARG$[] array) {&#10;        int p1 = 0;&#10;        int p2 = array.length - 1;&#10;&#10;&#10;        while ( p1 &lt; p2 ) {&#10;&#10;            var left  = array[ p1 ];&#10;            var right = array[ p2 ];&#10;            array[ p1 ] = right;&#10;            array[ p2 ] = left;&#10;            p1++;&#10;            p2++;&#10;&#10;&#10;        }&#10;    }&#10;   " description="Reverse in place using two pointers approach" toReformat="true" toShortenFQNames="true" useStaticImport="true">
+    <variable name="ARG" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="lrec" value="@lombok.Builder( toBuilder = true )&#10;@lombok.With&#10;@lombok.Getter" description="Lombok Immutable Record" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="psvm" value="public static void main(String[] args){&#10;  $END$&#10;}" description="main() method declaration" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="if" value="if ($ARG$) {&#10;    $END$&#10;    }" description="" toReformat="true" toShortenFQNames="true">
+    <variable name="ARG" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="leetCumsum" value="var cumsum = Arrays.copyOf( $ARG$, $ARG$.length );&#10;for ( int i = 1; i &lt; $ARG$.length; i++ ) {&#10;    cumsum[ i ] = cumsum[ i ] + cumsum[ i - 1 ];&#10;    $END$&#10;}" description="Prefix sum of the last array" toReformat="true" toShortenFQNames="true">
+    <variable name="ARG" expression="arrayVariable()" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="leetEdge" value="// Iterate Edges&#10;int maxRow = $VAR$.length;&#10;        int maxCol = $VAR$[ 0 ].length;&#10;        for ( int row = 0; row &lt; maxRow; row++ ) {&#10;            for ( int col = 0; col &lt; maxCol; col++ ) {&#10;                if ( row == 0 || row == maxRow - 1 ||&#10;                     col == 0 || col == maxCol - 1 ) {&#10;                        $VAR$[row][col]$END$&#10;                }&#10;            }&#10;        }" description="iterate through the edges of an array" toReformat="true" toShortenFQNames="true">
+    <variable name="VAR" expression="arrayVariable()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_EXPRESSION" value="true" />
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="leetDFS" value="public static void depthFirst( int row, int col, int[][] grid ) {&#10;        &#10;    //region Edge Checking&#10;        if ( row &lt; 0 || row &gt;= grid.length ) {&#10;            return;&#10;        }&#10;&#10;        if ( col &lt; 0 || col &gt;= grid[ 0 ].length ) {&#10;            return;&#10;        }&#10;    &#10;        //endregion &#10;    &#10;        // region Action&#10;    &#10;        grid[ row ][ col ] = 0;&#10;        $END$&#10;        // endregion&#10;        &#10;        //region recurse&#10;        depthFirst( row - 1, col, grid );&#10;        depthFirst( row + 1, col, grid );&#10;        depthFirst( row, col - 1, grid );&#10;        depthFirst( row, col + 1, grid );&#10;        //endregion&#10;    &#10;    }" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="leetSortCyclic" value="public static void cyclicSort( int[] nums ) {&#10;&#10;        int currIndex = 0;&#10;        while ( currIndex &lt; nums.length ) {&#10;            int actualValIndex = nums[ currIndex ] - 1;&#10;            if ( nums[ currIndex ] != nums[ actualValIndex ] ) {&#10;                int temp = nums[ currIndex ];&#10;                nums[ currIndex ] = nums[ actualValIndex ];&#10;                nums[ actualValIndex ] = temp;&#10;            }&#10;            else {&#10;                currIndex++;&#10;            }&#10;&#10;        }&#10;    }" description="cyclic sort for arrays." toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="leetMaxDuration" value="public static void timeLimit( java.lang.Runnable action, java.time.Duration maximumDuration ) {&#10;&#10;        java.time.Instant start = java.time.Instant.now();&#10;        action.run();&#10;        java.time.Instant  finish         = java.time.Instant.now();&#10;        java.time.Duration neededDuration = java.time.Duration.between( start, finish );&#10;        int      acceptable     = neededDuration.compareTo( maximumDuration );&#10;&#10;        if ( acceptable &gt;= 0 ) {&#10;            throw new java.lang.RuntimeException( &quot;Exceeded duration! &quot; + neededDuration.toMillis() + &quot;ms is greater than the maximum of &quot; + maximumDuration.toMillis() + &quot;ms.&quot;);&#10;        }&#10;&#10;    }" description="Creates a time limit test." toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+</templateSet>

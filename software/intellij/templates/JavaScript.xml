@@ -1,0 +1,9 @@
+<templateSet group="JavaScript">
+  <template name="lambda" value="( $params$ ) =&gt; { $definition$ }" description="anonymous function" toReformat="false" toShortenFQNames="true">
+    <variable name="params" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="definition" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+</templateSet>

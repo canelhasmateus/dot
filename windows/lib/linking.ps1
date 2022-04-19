@@ -46,26 +46,11 @@ function CreateSymLink {
     param([String]$Source,
         [String]$Target)
 
-
-    Write-Information "`tStarting the creation of an symlink: $Source -> $Target"
-
-    $SourceExists = Test-Path $Source
-    if ($SourceExists) {
-
-        Write-Information "`t`tThe symlink path already exists, and won't be created."
-        return
-    }
-
-    Try {
-        New-Item -Type SymbolicLink -Path $Source -Target $Target -ErrorAction Stop -Force
-        Write-Information "`t`tCreation of the symlink succeeded."
-    }
-    catch [System.IO.IOException] {
-
-        $Message = FullMessage $_.Exception
-        Write-Error "`t`tAn error occurred during the creation of the symlink $Message"
-
-    }
+    
+ 
+    Remove-Item $Source -Recurse -Force
+    New-Item -Type SymbolicLink -Path $Source -Target $Target -Force
+    
 
 }
 function FindSingleInDir {

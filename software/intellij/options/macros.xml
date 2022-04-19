@@ -1,0 +1,7 @@
+<application>
+  <component name="ActionMacroManager">
+    <macro name="temp">
+      <shortuct text="ESCAPE" />
+    </macro>
+  </component>
+</application>

@@ -155,7 +155,11 @@ function Set-Workspace {
 
     git config --global user.email "mateus.canelhas@gmail.com"
     git config --global user.name "Mateus Canelhas"
-    
+
+    git clone https://github.com/canelhasmateus/canhome
+    git clone https://github.com/canelhasmateus/canalhaclub
+    git clone https://github.com/canelhasmateus/environments
+    git clone https://github.com/canelhasmateus/leet
     # todo Git profiles https://deepsource.io/blog/managing-different-git-profiles/
 }
 

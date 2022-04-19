@@ -1,0 +1,8 @@
+<templateSet group="Personal">
+  <template name="singleton" value="//region singleton&#10;&#10;private static final $CLASS$ instance = new $CLASS$();&#10;&#10;public static $CLASS$ getInstance() {&#10;return instance;&#10;}&#10;&#10;private $CLASS$(){}&#10;//endregion" description="" toReformat="false" toShortenFQNames="true" useStaticImport="true">
+    <variable name="CLASS" expression="" defaultValue="className()" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+</templateSet>
