@@ -10,7 +10,7 @@
       <i c="35" l="1650374186562" />
     </e>
     <e n="$Undo">
-      <i c="65" l="1650373574020" />
+      <i c="66" l="1650378554213" />
     </e>
     <e n="AceWordBackwardsAction">
       <i c="9" l="1650377401995" />
@@ -22,10 +22,10 @@
       <i c="1" l="1649812833857" />
     </e>
     <e n="ActivateProjectToolWindow">
-      <i c="28" l="1650368080033" />
+      <i c="29" l="1650378546830" />
     </e>
     <e n="ActivateTerminalToolWindow">
-      <i c="11" l="1650375616476" />
+      <i c="13" l="1650378554735" />
     </e>
     <e n="Back">
       <i c="1" l="1650295132816" />
@@ -52,7 +52,7 @@
       <i c="4" l="1650300444103" />
     </e>
     <e n="EditorBackSpace">
-      <i c="348" l="1650374122846" />
+      <i c="351" l="1650378562655" />
     </e>
     <e n="EditorBackwardParagraph">
       <i c="1" l="1649812387467" />
@@ -219,6 +219,9 @@
     <e n="List-selectNextRow">
       <i c="38" l="1650373764151" />
     </e>
+    <e n="List-selectPreviousColumn">
+      <i c="1" l="1650378564408" />
+    </e>
     <e n="List-selectPreviousRow">
       <i c="14" l="1650373764955" />
     </e>
@@ -259,7 +262,7 @@
       <i c="116" l="1650372408130" />
     </e>
     <e n="QuickList.Random">
-      <i c="25" l="1650374200999" />
+      <i c="26" l="1650378563609" />
     </e>
     <e n="ReformatCode">
       <i c="22" l="1650300486781" />
@@ -283,7 +286,7 @@
       <i c="3" l="1650295675962" />
     </e>
     <e n="RunMenu">
-      <i c="15" l="1650372566770" />
+      <i c="16" l="1650378277782" />
     </e>
     <e n="SaveAll">
       <i c="16" l="1650374095674" />
@@ -304,7 +307,7 @@
       <i c="1" l="1650295098380" />
     </e>
     <e n="ShowSettings">
-      <i c="36" l="1650376548671" />
+      <i c="40" l="1650378814223" />
     </e>
     <e n="StartStopMacroRecording">
       <i c="2" l="1650377408112" />
@@ -325,13 +328,13 @@
       <i c="10" l="1650374201674" />
     </e>
     <e n="Tool_External Tools_Ref">
-      <i c="11" l="1650373137982" />
+      <i c="12" l="1650378565436" />
     </e>
     <e n="Tree-selectChild">
       <i c="30" l="1650376552490" />
     </e>
     <e n="Tree-selectNext">
-      <i c="312" l="1650376553664" />
+      <i c="320" l="1650378548290" />
     </e>
     <e n="Tree-selectNextExtendSelection">
       <i c="1" l="1650295493768" />
@@ -358,7 +361,7 @@
       <i c="1" l="1650367876955" />
     </e>
     <e n="com.intellij.openapi.actionSystem.EmptyAction$MyDelegatingAction">
-      <i c="1" l="1650372839260" />
+      <i c="2" l="1650378787571" />
     </e>
     <e n="com.intellij.openapi.fileEditor.impl.tabActions.CloseTab">
       <i c="3" l="1650286352442" />
@@ -368,6 +371,9 @@
     </e>
     <e n="com.intellij.openapi.keymap.impl.ui.KeymapPanel$RemoveShortcutAction">
       <i c="2" l="1650372872873" />
+    </e>
+    <e n="com.intellij.openapi.keymap.impl.ui.QuickListPanel$1">
+      <i c="1" l="1650378821338" />
     </e>
     <e n="com.intellij.openapi.project.DumbAwareAction$SimpleDumbAwareAction">
       <i c="8" l="1650297907158" />
@@ -382,7 +388,7 @@
       <i c="1" l="1650368055198" />
     </e>
     <e n="com.intellij.openapi.ui.impl.DialogWrapperPeerImpl$AnCancelAction">
-      <i c="18" l="1650376555854" />
+      <i c="19" l="1650378616547" />
     </e>
     <e n="com.intellij.openapi.wm.impl.ToolWindowHeader$HideAction">
       <i c="1" l="1649812374227" />
@@ -391,7 +397,7 @@
       <i c="2" l="1650368041995" />
     </e>
     <e n="com.intellij.ui.CommonActionsPanel$AddButton">
-      <i c="13" l="1650373388769" />
+      <i c="14" l="1650378282386" />
     </e>
     <e n="com.intellij.ui.CommonActionsPanel$EditButton">
       <i c="12" l="1650374184428" />
@@ -400,10 +406,13 @@
       <i c="2" l="1650373022377" />
     </e>
     <e n="com.intellij.ui.ScrollingUtil$ListMoveDownAction">
-      <i c="20" l="1650372417733" />
+      <i c="21" l="1650378564400" />
     </e>
     <e n="com.intellij.ui.ScrollingUtil$ListMoveUpAction">
-      <i c="13" l="1650372418496" />
+      <i c="14" l="1650378564941" />
+    </e>
+    <e n="editRunConfigurations">
+      <i c="1" l="1650378280514" />
     </e>
     <e n="git4idea.rebase.interactive.dialog.SquashAction">
       <i c="2" l="1649811820662" />

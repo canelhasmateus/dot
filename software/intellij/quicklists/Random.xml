@@ -1,4 +1,5 @@
 <list display="Random">
   <action id="Tool_External Tools_Ref" />
   <action id="Tool_External Tools_Code" />
+  <action id="QuickList.$Separator$" />
 </list>

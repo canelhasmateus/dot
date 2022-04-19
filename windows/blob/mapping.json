@@ -160,6 +160,20 @@
             "type": "hard",
             "targetRoot": "",
             "targetName": "/software/intellij/installed_plugins.txt"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/JetBrains/IntelliJIdea2021.3/jba_config/disabled_plugins.txt",
+            "type": "hard",
+            "targetRoot": "",
+            "targetName": "/software/intellij/disabled_plugins.txt"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/JetBrains/IntelliJIdea2021.3/jba_config/idea64.exe.vmoptions",
+            "type": "hard",
+            "targetRoot": "",
+            "targetName": "/software/intellij/idea64.exe.vmoptions"
         }
     ]
 }
