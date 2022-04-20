@@ -1,8 +1,6 @@
-param(
-    $ProjectDir, 
-    $FilePath,
-    $LineNumber,
-    $ColumnNumber
+param( 
+    $ProjectDir, $FilePath, 
+    $LineNumber, $ColumnNumber 
 )
 
 $Destination = "${FilePath}:${LineNumber}:${ColumnNumber}"

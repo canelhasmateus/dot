@@ -1,4 +1,4 @@
-function which ($command) {
+function Find-Command ($command) {
     Get-Command -Name $command -ErrorAction SilentlyContinue |
     Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
 }
@@ -11,9 +11,8 @@ Set-Alias -Name vim -Value nvim
 Set-Alias -Name grep -Value findstr
 Set-Alias -Name tig -Value 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias -Name less -Value 'C:\Program Files\Git\usr\bin\less.exe'
-Set-Alias -Name gammend -Value Git-Ammend
 Set-Alias -Name sublime -Value "C:\Program Files\Sublime Text\sublime_text.exe"
 
 
-
-
+Set-Alias -Name gammend -Value Git-Ammend
+Set-Alias -Name which -Value Find-Command
