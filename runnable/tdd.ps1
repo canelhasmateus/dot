@@ -232,15 +232,21 @@ function DoIt {
     
     
     SaveState $globalState $newState
-    Display $globalState
+
 
     if ( $newState["Success"]) {
-        exit 0
+        git add . 2>&1 3>&1 > $null
+        $currentStageName = $StageNames[ $newState["currentIndex"] ] 
+        git commit -m "auto: Tdd $currentStageName" 2>&1 3>&1 > $null
+        $code = 0
     }
     else {
-        exit 1 
+        $code = 1
     }
+    
 
+    Display $globalState
+    exit $code
 }
 
 DoIt

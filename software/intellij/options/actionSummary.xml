@@ -16,7 +16,7 @@
       <i c="9" l="1650377401995" />
     </e>
     <e n="AceWordForwardAction">
-      <i c="20" l="1650377399698" />
+      <i c="21" l="1650466510484" />
     </e>
     <e n="AceWordStartAction">
       <i c="1" l="1649812833857" />
@@ -28,7 +28,7 @@
       <i c="2" l="1650460017045" />
     </e>
     <e n="ActivateTerminalToolWindow">
-      <i c="19" l="1650460015162" />
+      <i c="20" l="1650467103817" />
     </e>
     <e n="Back">
       <i c="1" l="1650295132816" />
@@ -58,7 +58,7 @@
       <i c="1" l="1650394265129" />
     </e>
     <e n="EditorBackSpace">
-      <i c="370" l="1650415856622" />
+      <i c="377" l="1650467099852" />
     </e>
     <e n="EditorBackwardParagraph">
       <i c="1" l="1649812387467" />
@@ -79,13 +79,13 @@
       <i c="1" l="1650297135907" />
     </e>
     <e n="EditorDeleteLine">
-      <i c="49" l="1650300965237" />
+      <i c="50" l="1650466509576" />
     </e>
     <e n="EditorDeleteToWordStart">
-      <i c="91" l="1650415855334" />
+      <i c="93" l="1650467097625" />
     </e>
     <e n="EditorDown">
-      <i c="727" l="1650463537339" />
+      <i c="730" l="1650466509039" />
     </e>
     <e n="EditorDownWithSelection">
       <i c="86" l="1650397639362" />
@@ -94,10 +94,10 @@
       <i c="8" l="1650300799001" />
     </e>
     <e n="EditorEnter">
-      <i c="257" l="1650397757648" />
+      <i c="258" l="1650466506358" />
     </e>
     <e n="EditorEscape">
-      <i c="117" l="1650460003159" />
+      <i c="120" l="1650466886122" />
     </e>
     <e n="EditorIncreaseFontSize">
       <i c="5" l="1650368445424" />
@@ -118,13 +118,13 @@
       <i c="19" l="1650300560710" />
     </e>
     <e n="EditorLineEnd">
-      <i c="942" l="1650463676436" />
+      <i c="964" l="1650466879003" />
     </e>
     <e n="EditorLineEndWithSelection">
-      <i c="66" l="1650415939782" />
+      <i c="67" l="1650466796795" />
     </e>
     <e n="EditorLineStart">
-      <i c="989" l="1650463676483" />
+      <i c="1009" l="1650466853538" />
     </e>
     <e n="EditorLineStartWithSelection">
       <i c="22" l="1650397640695" />
@@ -142,7 +142,7 @@
       <i c="493" l="1650394075678" />
     </e>
     <e n="EditorPreviousWordWithSelection">
-      <i c="93" l="1650463537796" />
+      <i c="98" l="1650467020652" />
     </e>
     <e n="EditorRight">
       <i c="11" l="1650300190484" />
@@ -157,7 +157,7 @@
       <i c="13" l="1650398858441" />
     </e>
     <e n="EditorTextStart">
-      <i c="38" l="1650397758646" />
+      <i c="39" l="1650466505125" />
     </e>
     <e n="EditorToggleCase">
       <i c="1" l="1650297218844" />
@@ -172,7 +172,7 @@
       <i c="8" l="1650300803770" />
     </e>
     <e n="EditorUp">
-      <i c="569" l="1650416151918" />
+      <i c="573" l="1650465613591" />
     </e>
     <e n="EditorUpWithSelection">
       <i c="34" l="1650397643207" />
@@ -271,7 +271,7 @@
       <i c="124" l="1650459941606" />
     </e>
     <e n="QuickList.Random">
-      <i c="136" l="1650465575642" />
+      <i c="143" l="1650467012718" />
     </e>
     <e n="ReformatCode">
       <i c="22" l="1650300486781" />
@@ -292,7 +292,7 @@
       <i c="100" l="1650463620487" />
     </e>
     <e n="RunAnything">
-      <i c="7" l="1650463714528" />
+      <i c="9" l="1650467013894" />
     </e>
     <e n="RunMenu">
       <i c="34" l="1650465574307" />
@@ -346,7 +346,7 @@
       <i c="23" l="1650394054921" />
     </e>
     <e n="Tool_External Tools_tdd">
-      <i c="89" l="1650465576101" />
+      <i c="110" l="1650467102210" />
     </e>
     <e n="Tree-selectChild">
       <i c="39" l="1650398847908" />
@@ -400,7 +400,7 @@
       <i c="1" l="1650378821338" />
     </e>
     <e n="com.intellij.openapi.project.DumbAwareAction$SimpleDumbAwareAction">
-      <i c="14" l="1650463715133" />
+      <i c="16" l="1650467014451" />
     </e>
     <e n="com.intellij.openapi.roots.ui.configuration.projectRoot.ProjectSdksModel$2">
       <i c="1" l="1650368043895" />
