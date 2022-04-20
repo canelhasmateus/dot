@@ -1137,6 +1137,9 @@
   <action id="Tool_External Tools_SingleJava">
     <keyboard-shortcut first-keystroke="alt a" second-keystroke="s" />
   </action>
+  <action id="Tool_External Tools_tdd">
+    <keyboard-shortcut first-keystroke="alt s" second-keystroke="t" />
+  </action>
   <action id="Tree-selectFirst">
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="ctrl alt i" />
   </action>

@@ -91,9 +91,9 @@ function PassesTests( $File ) {
 function RunTest( $currentState ) {
     
     $stages = @( 
-    "CheckRed"
-    "CheckGreen"
-    "CheckRefactor"
+        "CheckRed"
+        "CheckGreen"
+        "CheckRefactor"
     )
 
     $Success = PassesTests $FilePath 
@@ -104,6 +104,7 @@ function RunTest( $currentState ) {
     $Status = Invoke-Expression "$Checker $CurrentState $Success"
     
     $status["currentIndex"] = $CurrentIndex
+    $status["id"] = $currentState["id"]
     if ($Status["Success"] -eq $true) {
         $Status["nextIndex"] = ($CurrentIndex + 1 ) % 3 
     }
@@ -125,7 +126,7 @@ function SaveState( $globalState , $newState  ) {
     # New-Item $stateFile -Force -ItemType File *> $null
     $LastRuns = $globalState[$FilePath] 
     
-    if  ( $LastRuns ) {
+    if ( $LastRuns ) {
         # ConvertTo-StringData $LastRuns
         $LastRuns = @( $LastRuns , $newState )
     }
@@ -140,26 +141,31 @@ function SaveState( $globalState , $newState  ) {
 
 }
 
+function GetLastRun( $globalState ) {
 
-function GetCurrentState( $Contents ) {
-    
-    $CurrentRun = @{
-        currentIndex = 0
-        nextIndex = 0
+    $LastRuns = $globalState[ $FilePath ]
+    if ($LastRuns ) {
+        return $LastRuns[ $LastRuns.Count - 1]
     }
     
-    $LastRuns = $Contents[ $FilePath ]
-    
-    
-    if ( $LastRuns) {
-        
-        
-        $LastRun = $LastRuns[ $LastRuns.Count - 1]
+    return $null
 
-        
-        Write-Host (ConvertTo-StringData $LastRun)            
+}
+function CreateCurrentState( $globalState ) {
+    
+    $CurrentRun = @{
+        id           = 0
+        currentIndex = 0
+        nextIndex    = 0
+    }
+    
+    $LastRun = GetLastRun $globalState
+    if ( $LastRun ) {
+    
+        $CurrentRun["id"] = $LastRun["id"] + 1 
         $CurrentRun["currentIndex"] = $LastRun["nextIndex"]    
         $CurrentRun["nextIndex"] = $CurrentRun["currentIndex"]
+        
     }
     
     return $CurrentRun
@@ -172,33 +178,61 @@ function GetGlobalState {
     
     
     $A = $Content | ConvertFrom-Json -AsHashtable
-    if (-not $A){
+    if (-not $A) {
         $A = New-Object System.Collections.Hashtable
     }
     
+    
+
     return $A
     
 }
 
-function Display( $obj ) {
-    $obj["currentStage"] = $StageNames[ $obj.currentIndex ] 
+
+function colorize( $color , $content) {
+    $ColorSequence = "`e[38;2;${color}m"
+    return $ColorSequence + $content
+
+}
+
+function conditional( $cond , $ifTrue , $ifFalse ) {
+    if ( $cond ) {
+        return $ifTrue
+    }
+    return $ifFalse
+}
+function Display( $globalState ) {
+    
+    $obj = GetLastRun $globalState
+    $obj["currentStage"] = $StageNames[ $obj["currentIndex"] ] 
             
+    $color = conditional $obj["Success"] "0;255;0"  "255;0;0" 
+
+
     @( $obj ) | ForEach-Object {
         return [PSCustomObject]$_
-    } | Format-Table 
+    } 
+    | Format-Table -Auto @( 
+        @{ Label = "Id"; Expression = { colorize $color $_.id } }
+        @{ Label = "Stage" ; Expression = { colorize $color $_.currentStage } }
+        @{ Label = "Expected" ; Expression = {  colorize $color $_.Expected } } 
+        @{ Label = "Gotten" ; Expression = {  colorize $color $_.Gotten } } 
+    )
+    
+    
     
 }
 
 function DoIt {
 
     $globalState = GetGlobalState
-    $currentState = GetCurrentState  $globalState 
+    $currentState = CreateCurrentState  $globalState 
     $newState = RunTest $currentState
 
     
     
     SaveState $globalState $newState
-    Display $newState
+    Display $globalState
 
     if ( $newState["Success"]) {
         exit 0

@@ -10,7 +10,7 @@
       <i c="38" l="1650415837075" />
     </e>
     <e n="$Undo">
-      <i c="75" l="1650416036012" />
+      <i c="77" l="1650463619551" />
     </e>
     <e n="AceWordBackwardsAction">
       <i c="9" l="1650377401995" />
@@ -25,10 +25,10 @@
       <i c="41" l="1650397916070" />
     </e>
     <e n="ActivateRunToolWindow">
-      <i c="1" l="1650403568802" />
+      <i c="2" l="1650460017045" />
     </e>
     <e n="ActivateTerminalToolWindow">
-      <i c="18" l="1650415775900" />
+      <i c="19" l="1650460015162" />
     </e>
     <e n="Back">
       <i c="1" l="1650295132816" />
@@ -85,7 +85,7 @@
       <i c="91" l="1650415855334" />
     </e>
     <e n="EditorDown">
-      <i c="723" l="1650415976977" />
+      <i c="727" l="1650463537339" />
     </e>
     <e n="EditorDownWithSelection">
       <i c="86" l="1650397639362" />
@@ -97,13 +97,13 @@
       <i c="257" l="1650397757648" />
     </e>
     <e n="EditorEscape">
-      <i c="116" l="1650415894773" />
+      <i c="117" l="1650460003159" />
     </e>
     <e n="EditorIncreaseFontSize">
       <i c="5" l="1650368445424" />
     </e>
     <e n="EditorIndentLineOrSelection">
-      <i c="102" l="1650397615122" />
+      <i c="103" l="1650463618924" />
     </e>
     <e n="EditorIndentSelection">
       <i c="9" l="1650299931155" />
@@ -112,19 +112,19 @@
       <i c="1" l="1650298416432" />
     </e>
     <e n="EditorLeft">
-      <i c="62" l="1650397600769" />
+      <i c="63" l="1650463536811" />
     </e>
     <e n="EditorLeftWithSelection">
       <i c="19" l="1650300560710" />
     </e>
     <e n="EditorLineEnd">
-      <i c="921" l="1650415978156" />
+      <i c="942" l="1650463676436" />
     </e>
     <e n="EditorLineEndWithSelection">
       <i c="66" l="1650415939782" />
     </e>
     <e n="EditorLineStart">
-      <i c="967" l="1650415849361" />
+      <i c="989" l="1650463676483" />
     </e>
     <e n="EditorLineStartWithSelection">
       <i c="22" l="1650397640695" />
@@ -142,7 +142,7 @@
       <i c="493" l="1650394075678" />
     </e>
     <e n="EditorPreviousWordWithSelection">
-      <i c="91" l="1650415853020" />
+      <i c="93" l="1650463537796" />
     </e>
     <e n="EditorRight">
       <i c="11" l="1650300190484" />
@@ -265,13 +265,13 @@
       <i c="1" l="1650297472739" />
     </e>
     <e n="PartialPageNav.PageDown">
-      <i c="93" l="1650397730725" />
+      <i c="95" l="1650459942454" />
     </e>
     <e n="PartialPageNav.PageUp">
-      <i c="121" l="1650416150452" />
+      <i c="124" l="1650459941606" />
     </e>
     <e n="QuickList.Random">
-      <i c="70" l="1650416017236" />
+      <i c="136" l="1650465575642" />
     </e>
     <e n="ReformatCode">
       <i c="22" l="1650300486781" />
@@ -289,13 +289,13 @@
       <i c="3" l="1650397764189" />
     </e>
     <e n="Run">
-      <i c="99" l="1650397853748" />
+      <i c="100" l="1650463620487" />
     </e>
     <e n="RunAnything">
-      <i c="4" l="1650394249892" />
+      <i c="7" l="1650463714528" />
     </e>
     <e n="RunMenu">
-      <i c="30" l="1650415659765" />
+      <i c="34" l="1650465574307" />
     </e>
     <e n="SaveAll">
       <i c="19" l="1650415837026" />
@@ -319,7 +319,7 @@
       <i c="1" l="1650295098380" />
     </e>
     <e n="ShowSettings">
-      <i c="45" l="1650394124884" />
+      <i c="46" l="1650465578895" />
     </e>
     <e n="StartStopMacroRecording">
       <i c="2" l="1650377408112" />
@@ -337,7 +337,7 @@
       <i c="2" l="1650297171825" />
     </e>
     <e n="ToggleZenMode">
-      <i c="3" l="1650368446391" />
+      <i c="5" l="1650460012704" />
     </e>
     <e n="Tool_External Tools_Code">
       <i c="11" l="1650394081924" />
@@ -346,7 +346,7 @@
       <i c="23" l="1650394054921" />
     </e>
     <e n="Tool_External Tools_tdd">
-      <i c="24" l="1650416007616" />
+      <i c="89" l="1650465576101" />
     </e>
     <e n="Tree-selectChild">
       <i c="39" l="1650398847908" />
@@ -361,7 +361,7 @@
       <i c="54" l="1650398843881" />
     </e>
     <e n="Tree-selectPrevious">
-      <i c="143" l="1650398845907" />
+      <i c="154" l="1650465585532" />
     </e>
     <e n="WelcomeScreen.OpenProject">
       <i c="1" l="1649811248560" />
@@ -391,7 +391,7 @@
       <i c="4" l="1650397859365" />
     </e>
     <e n="com.intellij.openapi.keymap.impl.ui.KeymapPanel$AddKeyboardShortcutAction">
-      <i c="2" l="1650372915950" />
+      <i c="3" l="1650465591559" />
     </e>
     <e n="com.intellij.openapi.keymap.impl.ui.KeymapPanel$RemoveShortcutAction">
       <i c="2" l="1650372872873" />
@@ -400,13 +400,13 @@
       <i c="1" l="1650378821338" />
     </e>
     <e n="com.intellij.openapi.project.DumbAwareAction$SimpleDumbAwareAction">
-      <i c="9" l="1650394250484" />
+      <i c="14" l="1650463715133" />
     </e>
     <e n="com.intellij.openapi.roots.ui.configuration.projectRoot.ProjectSdksModel$2">
       <i c="1" l="1650368043895" />
     </e>
     <e n="com.intellij.openapi.ui.DialogWrapper$4">
-      <i c="30" l="1650415743951" />
+      <i c="31" l="1650416286693" />
     </e>
     <e n="com.intellij.openapi.ui.MasterDetailsComponent$MyDeleteAction">
       <i c="1" l="1650368055198" />
