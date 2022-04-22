@@ -1,0 +1,8 @@
+<list display="New">
+  <action id="NewDir" />
+  <action id="NewPythonFile" />
+  <action id="NewJavaScriptFile" />
+  <action id="NewClass" />
+  <action id="NewScratchFile" />
+  <action id="NewFile" />
+</list>

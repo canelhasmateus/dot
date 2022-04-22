@@ -1,0 +1,25 @@
+## others ##
+
+.wrap : wrap err
+	ERROR      →  errors.Wrap($expr$, "$end$")
+	
+.wrapf : fmt wrap err (go 1.13)
+	ERROR      →  fmt.Errorf("$VAR0$: %w", $expr$)
+
+.marshal : json marshal
+	ANY        →  $VAR0$, $VAR1$ := json.Marshal($expr$)
+
+.unmarshal : json unmarshal
+	BYTESLICE  →  $VAR1$ := json.Unmarshal($expr$, $VAR0$)
+
+.now : now unix
+	INT64      →  $expr$ = time.Now().Unix()
+
+.split : split string
+	STRING     →  strings.Split($expr$, "$VAR0$")
+
+.ret : return value
+    ANY →  return $expr$
+
+.retn : return value, nil
+    ANY →  return $expr$, nil

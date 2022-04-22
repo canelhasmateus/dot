@@ -35,8 +35,9 @@ SetWorkingDir, %A_ScriptDir%
     }
     else if ( pressedKey = "w") 
     {
-    
-      send {LWinDown}{ShiftDown}{ Right}{LWinUp}{ShiftUp}
+      
+      alternateWindowMonitor()
+      
     }
     return 
   } 

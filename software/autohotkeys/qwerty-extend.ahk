@@ -128,10 +128,10 @@ F24 & SC022::
   Send {Blind}{AltDown}
 return
 
-; F24 & SC022 Up::
-;   Send {AltUp}
-; return
-
+F24 & SC022 Up::
+  Send {AltUp}
+return
+; 
 ;; Directionals
 
 F24 & SC023::

@@ -1,5 +1,6 @@
 <application>
   <component name="AceConfig">
     <option name="allowedChars" value="qwerasdfzxcvuipojklnm" />
+    <option name="searchWholeFile" value="false" />
   </component>
 </application>

@@ -1,0 +1,9 @@
+<application>
+  <component name="AdvancedSettings">
+    <option name="settings">
+      <map>
+        <entry key="documentation.components.enable.inline.code.highlighting" value="true" />
+      </map>
+    </option>
+  </component>
+</application>

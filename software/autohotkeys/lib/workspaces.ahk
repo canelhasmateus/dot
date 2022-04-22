@@ -236,6 +236,9 @@ deleteVirtualDesktop()
 }
 
 
-
+alternateWindowMonitor() 
+{
+    send {LWinDown}{ShiftDown}{ Right}{LWinUp}{ShiftUp}
+}
 ;;;;
 

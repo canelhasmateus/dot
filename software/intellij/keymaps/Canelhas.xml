@@ -113,7 +113,9 @@
   <action id="ChangesView.GroupBy.Module" />
   <action id="ChangesView.Move" />
   <action id="ChangesView.Rename" />
-  <action id="ChangesView.Revert" />
+  <action id="ChangesView.Revert">
+    <keyboard-shortcut first-keystroke="alt g" second-keystroke="k" />
+  </action>
   <action id="ChangesView.SetDefault" />
   <action id="CheckinProject">
     <keyboard-shortcut first-keystroke="alt g" second-keystroke="ctrl enter" />
@@ -556,6 +558,7 @@
     <keyboard-shortcut first-keystroke="alt r" second-keystroke="f" />
   </action>
   <action id="FileChooser.GotoModule" />
+  <action id="FileChooser.NewFolder" />
   <action id="FileChooser.TogglePathShowing" />
   <action id="FileStructurePopup" />
   <action id="Find">
@@ -624,6 +627,7 @@
   <action id="GotoBookmark7" />
   <action id="GotoBookmark8" />
   <action id="GotoBookmark9" />
+  <action id="GotoClass" />
   <action id="GotoDeclaration">
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="up" />
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="ctrl down" />
@@ -712,6 +716,10 @@
   <action id="JumpToLastChange" />
   <action id="Kotlin.RunScratch" />
   <action id="KotlinShellExecute" />
+  <action id="LivePlugin.RunPlugin">
+    <keyboard-shortcut first-keystroke="alt s" second-keystroke="p" />
+  </action>
+  <action id="LivePlugin.TestPlugin" />
   <action id="Macro.StickyJump">
     <keyboard-shortcut first-keystroke="alt f" second-keystroke="shift space" />
   </action>
@@ -852,6 +860,7 @@
   </action>
   <action id="QuickList.New">
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="tab" />
+    <keyboard-shortcut first-keystroke="alt m" second-keystroke="ctrl n" />
   </action>
   <action id="QuickList.New File">
     <keyboard-shortcut first-keystroke="alt m" second-keystroke="ctrl n" />
@@ -1225,6 +1234,9 @@
   <action id="hg4idea.QFold" />
   <action id="hg4idea.QGotoFromPatches" />
   <action id="hg4idea.QPushAction" />
+  <action id="symbolizeKeyWords">
+    <keyboard-shortcut first-keystroke="shift ctrl alt 0" />
+  </action>
   <action id="tasks.close" />
   <action id="tasks.goto" />
   <action id="tasks.open.in.browser" />

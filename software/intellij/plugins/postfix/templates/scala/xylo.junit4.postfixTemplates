@@ -1,0 +1,49 @@
+## Templates for JUnit 4 ##
+
+## Assert
+
+.fail : fail
+	java.lang.String [org.junit.Assert]  →  Assert.fail($expr$)
+
+.assertNotSame : assertNotSame
+	java.lang.String [org.junit.Assert]  →  Assert.assertNotSame($expr$, $arg$)
+	java.lang.Object [org.junit.Assert]  →  Assert.assertNotSame($expr$, $arg$)
+
+.assertThrows : assertThrows
+	java.lang.String [org.junit.Assert]  →  Assert.assertThrows($expr$, $arg$)
+	java.lang.Class [org.junit.Assert]  →  Assert.assertThrows($expr$, $arg$)
+
+.assertArrayEquals : assertArrayEquals
+	scala.Array [org.junit.Assert]  →  Assert.assertArrayEquals($expr$, $arg$)
+	java.lang.String [org.junit.Assert]  →  Assert.assertArrayEquals($expr$, $arg$)
+
+.assertEquals : assertEquals
+	FLOAT [org.junit.Assert]  →  Assert.assertEquals($expected$, $expr$, $arg$)
+	DOUBLE [org.junit.Assert]  →  Assert.assertEquals($expected$, $expr$, $arg$)
+	NON_VOID  →  Assert.assertEquals($expected$, $expr$)
+
+.assertTrue : assertTrue
+	java.lang.String [org.junit.Assert]  →  Assert.assertTrue($expr$, $arg$)
+	BOOLEAN [org.junit.Assert]  →  Assert.assertTrue($expr$)
+
+.assertFalse : assertFalse
+	java.lang.String [org.junit.Assert]  →  Assert.assertFalse($expr$, $arg$)
+	BOOLEAN [org.junit.Assert]  →  Assert.assertFalse($expr$)
+
+.assertNotEquals : assertNotEquals
+	FLOAT [org.junit.Assert]  →  Assert.assertNotEquals($expected$, $expr$, $arg$)
+	DOUBLE [org.junit.Assert]  →  Assert.assertNotEquals($expected$, $expr$, $arg$)
+	NON_VOID  →  Assert.assertNotEquals($expected$, $expr$)
+
+.assertSame : assertSame
+	java.lang.String [org.junit.Assert]  →  Assert.assertSame($expr$, $arg$)
+	java.lang.Object [org.junit.Assert]  →  Assert.assertSame($expr$, $arg$)
+
+.assertNotNull : assertNotNull
+	java.lang.String [org.junit.Assert]  →  Assert.assertNotNull($expr$, $arg$)
+	java.lang.Object [org.junit.Assert]  →  Assert.assertNotNull($expr$)
+
+.assertNull : assertNull
+	java.lang.String [org.junit.Assert]  →  Assert.assertNull($expr$, $arg$)
+	java.lang.Object [org.junit.Assert]  →  Assert.assertNull($expr$)
+

@@ -1,0 +1,31 @@
+## zap operations ##
+
+.zapInfo : zap info
+    STRING     →  zap.L().Info($expr$)
+
+.zapDebug : zap debug
+    STRING     →  zap.L().Debug($expr$)
+
+.zapWarn : zap warn
+    STRING     →  zap.L().Warn($expr$)
+
+.zapError : zap error
+    ERROR      →  zap.L().Error("$end$", zap.Error($expr$))
+
+.zapFatal : zap fatal
+    STRING     →  zap.L().Fatal($expr$)
+
+.zapPanic : zap panic
+    STRING     →  zap.L().Panic($expr$)
+
+.zapDebugInt : zap debug int
+    INT        →  zap.L().Debug("$VAR0$", zap.Int("$VAR1$", $expr$))
+
+.zapDebugStr : zap debug string
+    STRING     →  zap.L().Debug("$VAR0$", zap.String("$VAR1$", $expr$))
+
+.zapDebugFloat : zap debug float
+    FLOAT      →  zap.L().Debug("$VAR0$", zap.Float64("$VAR1$", $expr$))
+
+.zapDebugBs : zap debug byte slice
+    BYTESLICE  →  zap.L().Debug("$VAR0$", zap.ByteString("$VAR1$", $expr$))

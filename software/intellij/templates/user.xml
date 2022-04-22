@@ -154,9 +154,16 @@
       <option name="JAVA_DECLARATION" value="true" />
     </context>
   </template>
-  <template name="leetPy" value="def solution( param1 , param2):&#10;&#9;...&#10;&#10;if __name__ == '__main__':&#10;&#10;&#9;import unittest&#10;&#9;&#10;&#9;&#10;&#9;class TestSolution( unittest.TestCase):&#10;&#9;&#9;&#10;&#9;&#9;def test1( self ): &#10;&#9;&#9;&#9;assert solution&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#10;&#9;&#10;&#9;&#10;&#9;&#10;&#9;unittest.main()" description="" toReformat="true" toShortenFQNames="true">
+  <template name="leetPy" value="def solution( param1 , param2):&#10;&#9;...&#10;&#10;if __name__ == '__main__':&#10;&#10;&#9;import unittest&#10;&#9;&#10;&#9;&#10;&#9;class TestSolution( unittest.TestCase):&#10;&#9;&#9;&#10;&#9;&#9;def test1( self ): &#10;&#9;&#9;&#9;self.assertEquals( False, True )&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#10;&#9;&#10;&#9;&#10;&#9;&#10;&#9;unittest.main()" description="" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="Python_Top_Level" value="true" />
+    </context>
+  </template>
+  <template name="leettime" value="import time&#10;&#9;start = time.time()&#10;&#9;for _ in range( 100000):&#10;&#9;&#9;$END$()&#10;&#9;elapsed = time.time() - start&#10;&#9;print( elapsed)" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+      <option name="Python_Top_Level" value="false" />
     </context>
   </template>
 </templateSet>

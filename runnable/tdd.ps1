@@ -201,22 +201,22 @@ function conditional( $cond , $ifTrue , $ifFalse ) {
     }
     return $ifFalse
 }
-function Display( $globalState ) {
-    
-    $obj = GetLastRun $globalState
-    $obj["currentStage"] = $StageNames[ $obj["currentIndex"] ] 
+function Display( $globalState , $newState ) {
             
-    $color = conditional $obj["Success"] "0;255;0"  "255;0;0" 
+    $color = conditional $newState["Success"] "0;255;0"  "255;0;0" 
 
 
-    @( $obj ) | ForEach-Object {
+    @( $newState ) | ForEach-Object {
         return [PSCustomObject]$_
     } 
     | Format-Table -Auto @( 
         @{ Label = "Id"; Expression = { colorize $color $_.id } }
-        @{ Label = "Stage" ; Expression = { colorize $color $_.currentStage } }
-        @{ Label = "Expected" ; Expression = {  colorize $color $_.Expected } } 
-        @{ Label = "Gotten" ; Expression = {  colorize $color $_.Gotten } } 
+        @{ Label = "Stage" ; Expression = { 
+                $name = $StageNames[ $_.currentIndex ]  ; 
+                colorize $color $name } 
+        }
+        @{ Label = "Expected" ; Expression = { colorize $color $_.Expected } } 
+        @{ Label = "Gotten" ; Expression = { colorize $color $_.Gotten } } 
     )
     
     
@@ -235,9 +235,10 @@ function DoIt {
 
 
     if ( $newState["Success"]) {
+        $FileName = Split-Path $FilePath -Leaf
         git add . 2>&1 3>&1 > $null
         $currentStageName = $StageNames[ $newState["currentIndex"] ] 
-        git commit -m "auto: Tdd $currentStageName" 2>&1 3>&1 > $null
+        git commit -m "auto: Tdd $FileName $currentStageName" 2>&1 3>&1 > $null
         $code = 0
     }
     else {
@@ -245,7 +246,7 @@ function DoIt {
     }
     
 
-    Display $globalState
+    Display $globalState $newState
     exit $code
 }
 

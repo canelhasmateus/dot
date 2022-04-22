@@ -49,9 +49,10 @@
     "editor.inlineSuggest.enabled": true,
     "files.exclude": {
         "**/.classpath": true,
+        "**/.factorypath": true,
         "**/.project": true,
         "**/.settings": true,
-        "**/.factorypath": true
+        "**/*.jar": true
     },
     "reason.codelens.enabled": true,
     "terminal.integrated.commandsToSkipShell": [
@@ -96,6 +97,42 @@
     "workbench.colorTheme": "Jewel",
     "explorer.autoReveal": false,
     "terminal.external.windowsExec": "C:\\Program Files\\Alacritty\\alacritty.exe",
+    "cSpell.ignorePaths": [
+        "package-lock.json",
+        "node_modules",
+        "vscode-extension",
+        ".git/objects",
+        ".vscode",
+        ".vscode-insiders",
+        "**/vault/journal/*"
+    ],
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash"
+        },
+        "Windows PowerShell": {
+            "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
+    "cSpell.userWords": [
+        "codestyles",
+        "intellij",
+        "keymaps",
+        "quicklists"
+    ],
     // "terminal.integrated.shell.windows": "C:\\Program Files\\Alacritty\\alacritty.exe"
     //
 }

@@ -4,7 +4,6 @@ Set up Console Host
 Set up terminal ( colors, profiles, aliases, Z )
     https://www.youtube.com/watch?v=5-aK2_WwrmM
 
-Set up Intelli-J linkage
 
 Windows Look and feels
     Set up Windows Night Light

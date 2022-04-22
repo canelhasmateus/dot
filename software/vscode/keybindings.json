@@ -30,7 +30,7 @@
         "when": "editorTextFocus && !editorReadonly"
     },
     {
-        "key": "alt+f f",
+        "key": "alt+f d",
         "command": "editor.action.addSelectionToNextFindMatch",
         "when": "editorFocus && editorHasSelection"
     },
@@ -270,7 +270,8 @@
     },
     {
         "key": "ctrl+s",
-        "command": "-workbench.action.files.save"
+        "command": "-workbench.action.files.save",
+        
     },
     {
         "key": "ctrl+k s",
@@ -290,7 +291,7 @@
     },
     {
         "key": "ctrl+f",
-        "command": "-actions.find"
+        "command": "actions.find"
     },
     {
         "key": "ctrl+k ctrl+shift+c",
@@ -1237,10 +1238,6 @@
         "when": "inSearchEditor"
     },
     {
-        "key": "numpad_add",
-        "command": "workbench.action.findInFiles"
-    },
-    {
         "key": "ctrl+shift+f",
         "command": "-workbench.action.findInFiles"
     },
@@ -1263,7 +1260,7 @@
         "command": "-workbench.action.replaceInFiles"
     },
     {
-        "key": "numpad_add",
+        "key": "alt+f y",
         "command": "editor.action.selectHighlights",
         "when": "editorFocus"
     },
@@ -2371,7 +2368,7 @@
     {
         "key": "alt+f f",
         "command": "editor.action.extensioneditor.showfind",
-        "when": "!editorFocus && activeEditor == 'workbench.editor.extension'"
+        "when": "editorFocus && activeEditor == 'workbench.editor.extension'"
     },
     {
         "key": "ctrl+f",
@@ -2676,7 +2673,7 @@
     },
     {
         "key": "ctrl+shift+left",
-        "command": "-cursorWordAccessibilityLeftSelect",
+        "command": "cursorWordAccessibilityLeftSelect",
         "when": "accessibilityModeEnabled && textInputFocus"
     },
     {
@@ -2708,7 +2705,7 @@
     },
     {
         "key": "ctrl+shift+left",
-        "command": "-cursorWordLeftSelect",
+        "command": "cursorWordLeftSelect",
         "when": "textInputFocus"
     },
     {
@@ -2738,7 +2735,7 @@
     },
     {
         "key": "ctrl+shift+right",
-        "command": "-cursorWordAccessibilityRightSelect",
+        "command": "cursorWordAccessibilityRightSelect",
         "when": "accessibilityModeEnabled && textInputFocus"
     },
     {
@@ -3236,15 +3233,20 @@
         "when": "breadcrumbsActive"
     },
     {
-        "key": "alt+w w",
-        "command": "workbench.action.closeSidebar",
-        "when": "sideBarFocus"
+        "key": "alt+w backspace",
+        "command": "extension.multiCommand.execute",
+        "args": {
+            "sequence": [
+                "workbench.action.closeSidebar",
+                "workbench.action.closeAuxiliaryBar"
+            ]
+        }
     },
     {
-        "key": "alt+w w",
-        "command": "workbench.action.focusSideBar",
-        "when": "!sideBarFocus"
+        "key": "alt+w m",
+        "command": "extension.multiCommand.execute",
     },
+    
     {
         "key": "alt+w s",
         "command": "workbench.view.debug"
@@ -3714,7 +3716,7 @@
     },
     {
         "key": "ctrl+shift+right",
-        "command": "-cursorWordEndRightSelect",
+        "command": "cursorWordEndRightSelect",
         "when": "textInputFocus && !accessibilityModeEnabled"
     },
     {
@@ -4520,14 +4522,7 @@
         "key": "alt+w ctrl+alt+w",
         "command": "workbench.action.closeAllGroups"
     },
-    {
-        "key": "alt+w backspace",
-        "command": "workbench.action.maximizeEditor"
-    },
-    {
-        "key": "alt+w backspace",
-        "command": "workbench.action.closePanel"
-    },
+    
     {
         "key": "ctrl+enter",
         "command": "calva.evaluateEnclosingForm",
@@ -5303,12 +5298,12 @@
     },
     {
         "key": "ctrl+right",
-        "command": "-cursorWordEndRight",
+        "command": "cursorWordEndRight",
         "when": "textInputFocus && !accessibilityModeEnabled"
     },
     {
         "key": "ctrl+left",
-        "command": "-cursorWordLeft",
+        "command": "cursorWordLeft",
         "when": "textInputFocus && !accessibilityModeEnabled"
     },
     {
@@ -6132,10 +6127,7 @@
         "command": "-testing.toggleTestingPeekHistory",
         "when": "testing.isPeekVisible"
     },
-    {
-        // "key": "a a",
-        // "command": "workbench.action.togglePanel"
-    },
+    
     {
         "key": "ctrl+b",
         "command": "-markdown.extension.editing.toggleBold",
@@ -6215,7 +6207,40 @@
         "key": "ctrl+space",
         "command": "-toggleSuggestionDetails",
         "when": "suggestWidgetVisible && textInputFocus"
-    }
-    ,
-
+    },
+    {
+        "key": "escape escape",
+        "command": "-workbench.action.exitZenMode",
+        "when": "inZenMode"
+    },
+    {
+        "key": "f3",
+        "command": "-workbench.action.terminal.findNext",
+        "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "shift+f3",
+        "command": "-workbench.action.terminal.findPrevious",
+        "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "-workbench.action.terminal.focusFind",
+        "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    
+    {
+        "key": "alt+x c",
+        "command": "toggleFindCaseSensitive",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+x r",
+        "command": "toggleFindRegex",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+x s",
+        "command": "actions.findWithSelection"
+    },
 ]

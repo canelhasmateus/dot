@@ -105,7 +105,6 @@
             "targetRoot": "",
             "targetName": "/software/powershell/lib"
         },
-        
         {
             "destinationRoot": "ApplicationData",
             "destinationName": "/JetBrains/IntelliJIdea2021.3/jba_config/codestyles",
@@ -154,6 +153,20 @@
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/quicklists"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/JetBrains/IntelliJIdea2021.3/plugins/live-plugins",
+            "type": "sym",
+            "targetRoot": "",
+            "targetName": "/software/intellij/plugins/live-plugins"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/JetBrains/IntelliJIdea2021.3/plugins/intellij-postfix-templates_templates",
+            "type": "sym",
+            "targetRoot": "",
+            "targetName": "/software/intellij/plugins/postfix"
         },
         {
             "destinationRoot": "ApplicationData",
