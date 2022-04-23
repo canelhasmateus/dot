@@ -36,8 +36,9 @@ function GitShoveWorkspace( $Message ) {
     foreach ($currentWorkspace in $Workspaces) {
         $Config = Get-Content $currentWorkspace | ConvertFrom-Json
         foreach ($currentFolder in $Config.folders) {
-            $ResolvedFolder = Resolve-Path $currentFolder
-            Write-Information "Saving " $ResolvedFolder
+            
+            $ResolvedFolder = Resolve-Path $currentFolder.path
+            Write-Host "Saving " $ResolvedFolder
             
             Set-Location  $ResolvedFolder
             GitShove "." $Message
