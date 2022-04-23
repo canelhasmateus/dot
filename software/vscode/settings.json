@@ -68,7 +68,7 @@
     "calva.keybindingsEnabled": false,
     "calva.paredit.defaultKeyMap": "none",
     "[julia]": {
-        "editor.defaultFormatter": "singularitti.vscode-julia-formatter"
+        "editor.defaultFormatter": "julialang.language-julia"
     },
     "[ocaml]": {
         "editor.defaultFormatter": "badochov.ocaml-formatter"

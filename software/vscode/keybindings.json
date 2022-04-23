@@ -6243,4 +6243,8 @@
         "key": "alt+x s",
         "command": "actions.findWithSelection"
     },
+    {
+        "key": "alt+o d",
+        "command": "workbench.action.files.openFolderViaWorkspace"
+    },
 ]
