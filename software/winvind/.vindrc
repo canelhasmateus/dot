@@ -3,12 +3,12 @@
 
 set shell = alacritty
 set cmd_fontname = JetBrainsMono Nerd Font
-set cmd_fontsize = 56
+set cmd_fontsize = 28
 set cmd_roughpos = LowerLeft
 set cmd_maxchar = 100
 set cmd_fadeout = 10
-set cmd_xmargin = 5
-set cmd_ymargin = 105
+set cmd_xmargin = 25
+set cmd_ymargin = 100
 
 
 
@@ -39,8 +39,8 @@ ennoremap <ralt-esc> to_insert
 ennoremap <esc> to_insert
 evnoremap <ralt-esc> to_insert
 evnoremap <esc> to_insert
-inoremap <ralt-esc> to_insert
-inoremap <esc> to_insert
+
+
 rnoremap <ralt-esc> to_insert
 rnoremap <esc> to_insert
 cnoremap <ralt-esc> to_insert
@@ -61,9 +61,5 @@ inoremap <ralt-,> easy_click_left
 " gnoremap wi to_insert
 " gnoremap ' to_command"
 " inoremap <lalt-'> to_instant_gui_normal"        
-
-
-
-
 
 

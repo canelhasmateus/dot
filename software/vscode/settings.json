@@ -94,8 +94,6 @@
     "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
     "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
     "files.autoSave": "afterDelay",
-    "workbench.colorTheme": "Jewel",
-    "explorer.autoReveal": false,
     "terminal.external.windowsExec": "C:\\Program Files\\Alacritty\\alacritty.exe",
     "cSpell.ignorePaths": [
         "package-lock.json",
@@ -133,6 +131,24 @@
         "keymaps",
         "quicklists"
     ],
+    "workbench.colorTheme": "Jewel",
+    "files.associations": {
+        "*.kws": "xml"
+    },
+    "workbench.activityBar.visible": false,
+    "explorer.autoReveal": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.experimental.fileNesting.enabled": true,
+    "julia.additionalArgs": [],
+    "julia.cellDelimiters": [
+        "^##(?!#)",
+        "^#(\\s?)%%",
+        "^#-"
+    ],
+    "julia.environmentPath": "",
+    "julia.execution.inlineResults.colors": {},
+    "julia.runtimeCompletions": true,
     // "terminal.integrated.shell.windows": "C:\\Program Files\\Alacritty\\alacritty.exe"
     //
 }

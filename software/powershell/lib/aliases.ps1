@@ -62,3 +62,5 @@ Set-Alias -Name gammend -Value GitAmmend
 Set-Alias -Name gshove -Value GitShove
 Set-Alias -Name gshoveall -Value GitShoveWorkspace
 Set-Alias -Name which -Value FindCommand
+
+
