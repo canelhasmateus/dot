@@ -1557,7 +1557,8 @@
     },
     {
         "key": "alt+w left",
-        "command": "workbench.action.focusPreviousPart"
+        "command": "workbench.action.focusPreviousPart",
+        
     },
     {
         "key": "shift+f6",
@@ -3701,7 +3702,8 @@
     },
     {
         "key": "alt+w ctrl+alt+i",
-        "command": "workbench.action.toggleZenMode"
+        "command": "workbench.action.toggleZenMode",
+        "when": "!terminalFocus"
     },
     {
         "key": "ctrl+shift+i",
@@ -5866,7 +5868,7 @@
     {
         "key": "alt+o r",
         "command": "extension.intellijRecentFiles",
-        "when": "editorFocus"
+        
     },
     {
         "key": "alt+o ctrl+f",
@@ -6278,32 +6280,32 @@
     {
         "key": "ctrl+w",
         "command": "workbench.action.terminal.kill",
-        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+        "when": "terminalFocus"
     },
     {
         "key": "alt+w l",
         "command": "workbench.action.terminal.focusNextPane",
-        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+        "when": "terminalFocus"
     },
     {
         "key": "alt+w j",
         "command": "workbench.action.terminal.focusPreviousPane",
-        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+        "when": "terminalFocus"
     },
     {
         "key": "alt+n alt+i",
         "command": "workbench.action.terminal.scrollToPreviousCommand",
-        "when": "terminalFocus && terminalHasBeenCreated && !accessibilityModeEnabled || terminalFocus && terminalProcessSupported && !accessibilityModeEnabled"
+        "when": "terminalFocus"
     },
     {
         "key": "alt+n alt+k",
         "command": "workbench.action.terminal.scrollToNextCommand",
-        "when": "terminalFocus && terminalHasBeenCreated && !accessibilityModeEnabled || terminalFocus && terminalProcessSupported && !accessibilityModeEnabled"
+        "when": "terminalFocus"
     },
     {
         "key": "alt+n shift+alt+k",
         "command": "workbench.action.terminal.selectToNextCommand",
-        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+        "when": "terminalFocus"
     },
     {
             "key": "alt+a up",
@@ -6373,5 +6375,48 @@
         "key": "alt+w ctrl+backspace",
         "command": "workbench.action.terminal.killAll",
         "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "alt+w ctrl+alt+i",
+        "command": "workbench.action.toggleMaximizedPanel",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+j alt+r",
+        "command": "-language-julia.restartREPL"
+    },
+    {
+        "key": "alt+j alt+m",
+        "command": "-language-julia.chooseModule",
+        "when": "editorLangId == 'juliamarkdown' || editorTextFocus && editorLangId == 'julia' && activeEditor != 'workbench.editor.notebook'"
+    },
+    {
+        "key": "alt+j alt+d",
+        "command": "-language-julia.show-documentation",
+        "when": "editorLangId == 'juliamarkdown' || editorTextFocus && editorLangId == 'julia' && activeEditor != 'workbench.editor.notebook'"
+    },
+    {
+        "key": "alt+j alt+p",
+        "command": "-language-julia.show-plotpane"
+    },
+    {
+        "key": "alt+n alt+k",
+        "command": "paragraphjump.down",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "alt+n shift+alt+k",
+        "command": "paragraphjump.selectdown",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "alt+n shift+alt+i",
+        "command": "paragraphjump.selectup",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "alt+n alt+i",
+        "command": "paragraphjump.up",
+        "when": "!terminalFocus"
     },
 ]

@@ -1,154 +1,140 @@
 {
-    "sync.gist": "54c7cc41f7b5c4d5ed1653cf0945064a",
-    "yaml.schemas": {
-        "file:///c%3A/Users/Lity/.vscode/extensions/atlassian.atlascode-2.8.5/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-    },
-    "typescript.disableAutomaticTypeAcquisition": true,
-    "typescript.check.npmIsInstalled": false,
-    "typescript.tsserver.maxTsServerMemory": 0,
-    "typescript.tsserver.useSyntaxServer": "always",
-    "workbench.enableExperiments": false,
-    "workbench.iconTheme": "material-icon-theme",
-    "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
-    "editor.fontSize": 18,
-    "editor.fontLigatures": true,
-    "editor.letterSpacing": 0.4,
-    "editor.smoothScrolling": true,
-    "editor.parameterHints.cycle": true,
-    "editor.scrollBeyondLastLine": false,
-    "editor.semanticHighlighting.enabled": true,
-    "editor.showFoldingControls": "always",
-    "editor.cursorSmoothCaretAnimation": true,
-    "editor.cursorWidth": 3,
-    "editor.formatOnPaste": true,
-    "editor.minimap.scale": 2,
-    "editor.bracketPairColorization.enabled": true,
-    "workbench.colorCustomizations": {
-        "editorBracketHighlight.foreground1": "#E8BA36",
-        "editorBracketHighlight.foreground2": "#54A857",
-        "editorBracketHighlight.foreground3": "#82AAFF",
-        "editorBracketHighlight.foreground4": "#5060BB",
-        "editorBracketHighlight.foreground5": "#179387",
-        "editorBracketHighlight.unexpectedBracket.foreground": "#ff0000",
-    },
-    "editor.minimap.showSlider": "always",
-    "editor.quickSuggestions": true,
-    "editor.suggest.localityBonus": true,
-    "editor.suggest.shareSuggestSelections": true,
-    "editor.suggestSelection": "first",
-    "diffEditor.codeLens": true,
-    "files.eol": "\n",
-    "files.insertFinalNewline": true,
-    "workbench.list.openMode": "doubleClick",
-    "workbench.startupEditor": "none",
-    "workbench.settings.enableNaturalLanguageSearch": false,
-    "search.maintainFileSearchCache": true,
-    "debug.inlineValues": true,
-    "terminal.integrated.cursorStyle": "line",
-    "terminal.integrated.cursorWidth": 3,
-    "editor.inlineSuggest.enabled": true,
-    "files.exclude": {
-        "**/.classpath": true,
-        "**/.factorypath": true,
-        "**/.project": true,
-        "**/.settings": true,
-        "**/*.jar": true
-    },
-    "reason.codelens.enabled": true,
-    "terminal.integrated.commandsToSkipShell": [
-        "language-julia.interrupt"
-    ],
-    "julia.symbolCacheDownload": true,
-    "julia.enableTelemetry": false,
-    "settingsSync.keybindingsPerPlatform": false,
-    "workbench.editor.languageDetection": false,
-    "redhat.telemetry.enabled": true,
-    "zenMode.hideTabs": false,
-    "zenMode.hideLineNumbers": false,
-    "calva.keybindingsEnabled": false,
-    "calva.paredit.defaultKeyMap": "none",
     "[julia]": {
         "editor.defaultFormatter": "julialang.language-julia"
     },
-    "[ocaml]": {
-        "editor.defaultFormatter": "badochov.ocaml-formatter"
-    },
-    "files.watcherExclude": {
-        "**/.bloop": true,
-        "**/.metals": true,
-        "**/.ammonite": true
-    },
-    "gitlens.keymap": "none",
-    "github.copilot.enable": {
-        "*": true,
-        "yaml": false,
-        "plaintext": false,
-        "markdown": false,
-        "nim": false
-    },
-    "svelte.enable-ts-plugin": true,
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
-    "typescript.format.insertSpaceAfterTypeAssertion": true,
-    "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
-    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-    "files.autoSave": "afterDelay",
-    "terminal.external.windowsExec": "C:\\Program Files\\Alacritty\\alacritty.exe",
     "cSpell.ignorePaths": [
-        "package-lock.json",
-        "node_modules",
-        "vscode-extension",
+        "**/vault/journal/*",
         ".git/objects",
         ".vscode",
         ".vscode-insiders",
-        "**/vault/journal/*"
+        "node_modules",
+        "package-lock.json",
+        "vscode-extension"
     ],
-    "terminal.integrated.profiles.windows": {
-        "PowerShell": {
-            "source": "PowerShell",
-            "icon": "terminal-powershell"
-        },
-        "Command Prompt": {
-            "path": [
-                "${env:windir}\\Sysnative\\cmd.exe",
-                "${env:windir}\\System32\\cmd.exe"
-            ],
-            "args": [],
-            "icon": "terminal-cmd"
-        },
-        "Git Bash": {
-            "source": "Git Bash"
-        },
-        "Windows PowerShell": {
-            "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
-        }
-    },
-    "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
     "cSpell.userWords": [
         "codestyles",
         "intellij",
         "keymaps",
         "quicklists"
     ],
-    "workbench.colorTheme": "Jewel",
-    "files.associations": {
-        "*.kws": "xml"
-    },
-    "workbench.activityBar.visible": false,
+    "debug.inlineValues": true,
+    "diffEditor.codeLens": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorWidth": 3,
+    "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 18,
+    "editor.formatOnPaste": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.letterSpacing": 0.4,
+    "editor.minimap.scale": 2,
+    "editor.minimap.showSlider": "always",
+    "editor.parameterHints.cycle": true,
+    "editor.quickSuggestions": true,
+    "editor.scrollBeyondLastLine": false,
+    "editor.semanticHighlighting.enabled": true,
+    "editor.showFoldingControls": "always",
+    "editor.smoothScrolling": true,
+    "editor.suggest.localityBonus": true,
+    "editor.suggest.shareSuggestSelections": true,
+    "editor.suggestSelection": "first",
     "explorer.autoReveal": false,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.experimental.fileNesting.enabled": true,
+    "files.associations": {
+        "*.kws": "xml"
+    },
+    "files.autoSave": "afterDelay",
+    "files.eol": "\n",
+    "files.exclude": {
+        "**/*.jar": true,
+        "**/.classpath": true,
+        "**/.factorypath": true,
+        "**/.project": true,
+        "**/.settings": true
+    },
+    "files.watcherExclude": {
+        "**/.ammonite": true,
+        "**/.bloop": true,
+        "**/.metals": true
+    },
+    "github.copilot.enable": {
+        "*": true,
+        "markdown": false,
+        "nim": false,
+        "plaintext": false,
+        "yaml": false
+    },
+    "gitlens.keymap": "none",
+    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
     "julia.additionalArgs": [],
     "julia.cellDelimiters": [
         "^##(?!#)",
         "^#(\\s?)%%",
         "^#-"
     ],
+    "julia.enableTelemetry": false,
     "julia.environmentPath": "",
     "julia.execution.inlineResults.colors": {},
     "julia.runtimeCompletions": true,
-    // "terminal.integrated.shell.windows": "C:\\Program Files\\Alacritty\\alacritty.exe"
-    //
+    "julia.symbolCacheDownload": true,
+    "redhat.telemetry.enabled": true,
+    "settingsSync.keybindingsPerPlatform": false,
+    "svelte.enable-ts-plugin": true,
+    "sync.gist": "54c7cc41f7b5c4d5ed1653cf0945064a",
+    "terminal.external.windowsExec": "C:\\Program Files\\Alacritty\\alacritty.exe",
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.cursorWidth": 3,
+    "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
+    "terminal.integrated.profiles.windows": {
+        "Command Prompt": {
+            "args": [],
+            "icon": "terminal-cmd",
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ]
+        },
+        "Git Bash": {
+            "source": "Git Bash"
+        },
+        "PowerShell": {
+            "icon": "terminal-powershell",
+            "source": "PowerShell"
+        },
+        "Windows PowerShell": {
+            "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+        }
+    },
+    "typescript.check.npmIsInstalled": false,
+    "typescript.disableAutomaticTypeAcquisition": true,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+    "typescript.format.insertSpaceAfterTypeAssertion": true,
+    "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "typescript.tsserver.maxTsServerMemory": 0,
+    "typescript.tsserver.useSyntaxServer": "always",
+    "workbench.activityBar.visible": false,
+    "workbench.colorCustomizations": {
+        "editorBracketHighlight.foreground1": "#E8BA36",
+        "editorBracketHighlight.foreground2": "#54A857",
+        "editorBracketHighlight.foreground3": "#82AAFF",
+        "editorBracketHighlight.foreground4": "#5060BB",
+        "editorBracketHighlight.foreground5": "#179387",
+        "editorBracketHighlight.unexpectedBracket.foreground": "#ff0000"
+    },
+    "workbench.colorTheme": "Jewel",
+    "workbench.editor.languageDetection": false,
+    "workbench.enableExperiments": false,
+    "workbench.list.openMode": "doubleClick",
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "workbench.startupEditor": "none",
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideTabs": false
 }

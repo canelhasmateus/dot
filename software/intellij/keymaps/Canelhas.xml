@@ -1197,6 +1197,9 @@
   <action id="VcsHistory.ShowAllAffected" />
   <action id="VcsShowNextChangeMarker" />
   <action id="VcsShowPrevChangeMarker" />
+  <action id="ViewBreakpoints">
+    <keyboard-shortcut first-keystroke="alt w" second-keystroke="ctrl b" />
+  </action>
   <action id="VimActions">
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="ctrl v" />
   </action>
