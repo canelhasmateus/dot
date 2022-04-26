@@ -136,5 +136,17 @@
     "workbench.settings.enableNaturalLanguageSearch": false,
     "workbench.startupEditor": "none",
     "zenMode.hideLineNumbers": false,
-    "zenMode.hideTabs": false
+    "zenMode.hideTabs": false,
+    "cSpell.enabledLanguageIds": [
+        "asciidoc",
+        "json",
+        "jsonc",
+        "latex",
+        "markdown",
+        "plaintext",
+        "restructuredtext",
+        // "text",
+        "yaml",
+        "yml"
+    ]
 }

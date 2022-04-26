@@ -6,13 +6,14 @@ function FindCommand ($command) {
 function GitAmmend {
     git add .
     git commit --amend --no-edit
-    git push --force-with-lease
+    git push --force-with-lease --recurse-submodules=on-demand
 }
 
 function GitShove($Message) {
     if ( -not $Message ) {
         $Message  = Read-Host "Message for the commit/push"
     }
+    git submodule foreach "git add . ; git commit -m $Message ; git push --force-with-lease"
     git add "."
     git commit -m $Message
     git push --force-with-lease
