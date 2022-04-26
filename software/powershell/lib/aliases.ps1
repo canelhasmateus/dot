@@ -14,9 +14,9 @@ function GitShove($Message) {
         $Message  = Read-Host "Message for the commit/push"
     }
     git submodule foreach "git add . ; git commit -m $Message ; git push --force-with-lease"
-    git add "."
+    git add .
     git commit -m $Message
-    git push --force-with-lease
+    git push --force-with-lease --recurse-submodules=on-demand
 }
 
 function GitShoveWorkspace( $Message ) {
@@ -65,3 +65,4 @@ Set-Alias -Name gshoveall -Value GitShoveWorkspace
 Set-Alias -Name which -Value FindCommand
 
 
+ 

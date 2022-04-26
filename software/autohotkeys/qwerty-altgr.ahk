@@ -45,7 +45,7 @@ SetWorkingDir, %A_ScriptDir%
   {
     pressedKey := GetNextKey()
     if (pressedKey = "s") {
-      run python C:/Users/Mateus/Desktop/workspace/dot/software/scripting/daily_reads.py
+      run python "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\scripts\update.py"
 
     } else {
 
@@ -90,7 +90,7 @@ SetWorkingDir, %A_ScriptDir%
         if (comment) {
 
 
-          articleStream := "C:\Users\Mateus\OneDrive\vault\Canelhas\others\lists\articlesStream.txt"
+          articleStream := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\streams\articleStream.txt"
           FileAppend, `n%A_YYYY%-%A_MM%-%A_DD%`t%A_Hour%:%A_Min%:%A_Sec%`t%comment%`t%url%, %articleStream%
           SoundPlay %A_ScriptDir%\blob\xylo.wav
         }

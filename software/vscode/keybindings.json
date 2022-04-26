@@ -4,7 +4,6 @@
         "command": "-editor.action.insertCursorAbove",
         "when": "editorTextFocus"
     },
-    
     {
         "key": "ctrl+alt+down",
         "command": "-editor.action.insertCursorBelow",
@@ -20,7 +19,6 @@
         "command": "-editor.action.addCommentLine",
         "when": "editorTextFocus && !editorReadonly"
     },
-    
     {
         "key": "ctrl+d",
         "command": "-editor.action.addSelectionToNextFindMatch",
@@ -46,8 +44,6 @@
         "command": "-references-view.showCallHierarchy",
         "when": "editorHasCallHierarchyProvider"
     },
-    
-    
     {
         "key": "ctrl+k m",
         "command": "-workbench.action.editor.changeLanguageMode"
@@ -75,7 +71,6 @@
         "command": "-editor.action.copyLinesUpAction",
         "when": "editorTextFocus && !editorReadonly"
     },
-    
     {
         "key": "ctrl+u",
         "command": "-cursorUndo",
@@ -85,7 +80,6 @@
         "key": "shift+delete",
         "command": "-editor.action.clipboardCutAction"
     },
-
     {
         "key": "f5",
         "command": "-workbench.action.debug.continue",
@@ -248,7 +242,12 @@
     },
     {
         "key": "alt+f f",
-        "command": "actions.find"
+        "command": "extension.multiCommand.execute",
+        "args": {
+            "sequence": [
+                "actions.find",
+            ]
+        }
     },
     {
         "key": "ctrl+f",
@@ -1159,7 +1158,13 @@
     },
     {
         "key": "alt+f r",
-        "command": "editor.action.startFindReplaceAction"
+        "command": "extension.multiCommand.execute",
+        "args": {
+            "sequence": [
+                "editor.action.startFindReplaceAction",
+                "toggleFindInSelection"
+            ]
+        }
     },
     {
         "key": "ctrl+h",
@@ -1558,7 +1563,6 @@
     {
         "key": "alt+w left",
         "command": "workbench.action.focusPreviousPart",
-        
     },
     {
         "key": "shift+f6",
@@ -5665,7 +5669,6 @@
         "command": "list.focusDown",
         "when": "listFocus && !inputFocus"
     },
-
     {
         "key": "alt+k",
         "command": "scm.viewNextCommit",
@@ -5868,7 +5871,6 @@
     {
         "key": "alt+o r",
         "command": "extension.intellijRecentFiles",
-        
     },
     {
         "key": "alt+o ctrl+f",
@@ -6308,24 +6310,20 @@
         "when": "terminalFocus"
     },
     {
-            "key": "alt+a up",
-            "command": "references-view.showCallHierarchy",
-            "when": "editorHasCallHierarchyProvider"
-        },
-        {
-            "key": "ctrl+f2",
-            "command": "-editor.action.changeAll",
-            "when": "editorTextFocus && editorTextFocus && !editorReadonly"
-        },
-{
-    "key": "numpad_add",
-    "command": "cursorUndo",
-    "when": "textInputFocus"
-},
-
-
-
-
+        "key": "alt+a up",
+        "command": "references-view.showCallHierarchy",
+        "when": "editorHasCallHierarchyProvider"
+    },
+    {
+        "key": "ctrl+f2",
+        "command": "-editor.action.changeAll",
+        "when": "editorTextFocus && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "numpad_add",
+        "command": "cursorUndo",
+        "when": "textInputFocus"
+    },
     // 
     // custom
     // 
@@ -6419,4 +6417,12 @@
         "command": "paragraphjump.up",
         "when": "!terminalFocus"
     },
+    {
+        "key": "alt+o ctrl+x",
+        "command": "workbench.action.inspectContextKeys",
+    },
+    {
+        "key": "alt+x shift+f",
+        "command": "toggleFindInSelection"
+    }
 ]

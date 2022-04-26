@@ -22,7 +22,7 @@
     "editor.bracketPairColorization.enabled": true,
     "editor.cursorSmoothCaretAnimation": true,
     "editor.cursorWidth": 3,
-    "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
     "editor.fontLigatures": true,
     "editor.fontSize": 18,
     "editor.formatOnPaste": true,
@@ -33,7 +33,7 @@
     "editor.parameterHints.cycle": true,
     "editor.quickSuggestions": true,
     "editor.scrollBeyondLastLine": false,
-    "editor.semanticHighlighting.enabled": true,
+    "editor.semanticHighlighting.enabled": "configuredByTheme",
     "editor.showFoldingControls": "always",
     "editor.smoothScrolling": true,
     "editor.suggest.localityBonus": true,
@@ -145,8 +145,9 @@
         "markdown",
         "plaintext",
         "restructuredtext",
-        // "text",
+        "text",
         "yaml",
         "yml"
-    ]
+    ],
+    "editor.fontWeight": "1"
 }
