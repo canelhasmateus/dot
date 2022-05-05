@@ -2,7 +2,4 @@
   <template name="sout" value="System.out.println($END$);" description="Prints a string to System.out" toReformat="true" toShortenFQNames="true">
     <context />
   </template>
-  <template name="soutc" value="System.out::println" description="System.out::println" toReformat="true" toShortenFQNames="true">
-    <context />
-  </template>
 </templateSet>

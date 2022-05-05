@@ -35,9 +35,9 @@ SetWorkingDir, %A_ScriptDir%
     }
     else if ( pressedKey = "w") 
     {
-      
+
       alternateWindowMonitor()
-      
+
     }
     return 
   } 
@@ -51,50 +51,64 @@ SetWorkingDir, %A_ScriptDir%
 
       url := GetBrowserUrl()
       if ( url ) {
-
-        comment := ""
-
-        ; Article Related
-        if (pressedKey = "p") {
-          comment := "Premium"
+      
+        if (pressedKey == "p") {
+          kind := "articles.tsv"
+          quality := "Premium"
+        }          
+        else if (pressedKey == "i"){
+          kind := "articles.tsv"
+          quality := "Good"
         }
+        else if (pressedKey == "h"){
+          kind := "articles.tsv"
+          quality := "History"
+        }
+        else if ( pressedKey == "b") {
+          kind := "articles.tsv"
+          quality := "Bookmark"
 
-        else if (pressedKey = "i") {
-          comment := "Good"
         }
-        else if (pressedKey = "h") {
-          comment := "History"
-        }
+        else if ( pressedKey == "k") {
+          kind := "articles.tsv"
+          quality := "Bad"
 
-        else if (pressedKey = "k") {
-          comment := "Bad"
         }
-        else if (pressedKey = "l") {
-          comment := "Revisit"
-        }
+        else if ( pressedKey == "q") {
+          kind := "articles.tsv"
+          quality := "Queue"
 
-        else if (pressedKey = "q") {
-          comment := "Queue"
         }
+        else if ( pressedKey == "l") {
+          kind := "articles.tsv"
+          quality := "Revisit"
 
-        else if (pressedKey = "t") {
-          comment := "Tool"
         }
-        else if (pressedKey = "u") {
-          comment := "Utility"
+        else if ( pressedKey == "t") {
+          kind := "urls.tsv"
+          quality := "Tool"
+
         }
-        else if (pressedKey = "b") {
-          comment := "Bookmark"
+        else if ( pressedKey == "u") {
+          kind := "urls.tsv"
+          quality := "Utility"
         }
-
-        if (comment) {
-
-
-          articleStream := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\streams\articleStream.txt"
-          FileAppend, `n%A_YYYY%-%A_MM%-%A_DD%`t%A_Hour%:%A_Min%:%A_Sec%`t%comment%`t%url%, %articleStream%
+        else if ( pressedKey == "e") {
+          kind := "urls.tsv"
+          quality := "Explore"
+        }
+        else if ( pressedKey == "d") {
+          kind := "urls.tsv"
+          quality := "Done"
+        }
+        
+        if (kind) {
+          root := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\stream\"
+          destination = %root%%kind%
+          
+          FileAppend, `n%A_YYYY%-%A_MM%-%A_DD%`t%A_Hour%:%A_Min%:%A_Sec%`t%quality%`t%url%, %destination%
           SoundPlay %A_ScriptDir%\blob\xylo.wav
         }
-      
 
       }
 
@@ -103,8 +117,7 @@ SetWorkingDir, %A_ScriptDir%
     return
   } 
 
-
 <^>!SC021::
-{
-OpenHighlighted()  
-}
+  {
+    OpenHighlighted() 
+  }

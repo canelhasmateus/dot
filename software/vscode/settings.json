@@ -149,5 +149,12 @@
         "yaml",
         "yml"
     ],
-    "editor.fontWeight": "1"
+    "editor.fontWeight": "1",
+    "editor.find.autoFindInSelection": "multiline",
+    "editor.find.seedSearchStringFromSelection": "selection",
+    "foam.graph.titleMaxLength": 0,
+    "foam.graph.style": {
+    
+    },
+    "editor.largeFileOptimizations": false
 }
