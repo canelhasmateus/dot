@@ -3,6 +3,7 @@
   <action id="NewPythonFile" />
   <action id="NewJavaScriptFile" />
   <action id="NewClass" />
-  <action id="NewScratchFile" />
+  <action id="Scala.NewClass" />
   <action id="NewFile" />
+  <action id="NewScratchFile" />
 </list>

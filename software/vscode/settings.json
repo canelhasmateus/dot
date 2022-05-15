@@ -153,8 +153,19 @@
     "editor.find.autoFindInSelection": "multiline",
     "editor.find.seedSearchStringFromSelection": "selection",
     "foam.graph.titleMaxLength": 0,
-    "foam.graph.style": {
-    
+    "foam.graph.style": {},
+    "editor.largeFileOptimizations": false,
+    "cSpell.enabled": false,
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
     },
-    "editor.largeFileOptimizations": false
+    "markdownlint.config": {
+        "code-block-style": {
+            "style": "fenced"
+        },
+    },
+    "markdownlint.run": "onSave",
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
 }

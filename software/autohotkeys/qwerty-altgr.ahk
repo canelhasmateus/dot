@@ -39,6 +39,10 @@ SetWorkingDir, %A_ScriptDir%
       alternateWindowMonitor()
 
     }
+    else if ( pressedKey = "i") 
+    { 
+      WinMaximize, A
+    }
     return 
   } 
 <^>!SC022::
@@ -121,3 +125,4 @@ SetWorkingDir, %A_ScriptDir%
   {
     OpenHighlighted() 
   }
+
