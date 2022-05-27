@@ -1,93 +1,196 @@
 #NoEnv
 #singleinstance force
+#Include %A_ScriptDir%\lib\workspaces.ahk
 
 CurrentMode := 0 ; 0 = Off, 1 = working, 2 = break
 CurrentTask := ""
-StartTime := A_TickCount
-EndPause := A_TickCount
-flowtimeLog := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\stream\flowtime.tsv"
 
-SetMode(mode){
-    global CurrentMode, StartTime, EndPause, CurrentTask
-    
-    CurrentTime := A_TickCount
+WorkStart := 0
+WorkEnd := 0
+BreakStart := 0
+BreakEnd := 0
+BreakLength := 0
 
-    if ( mode == 0) {
-        WriteTip("FlowTime: Off")
+SetMode(mode , flowStatus){
+    global CurrentMode, CurrentTask, WorkStart, StartTime
+    if ( mode = CurrentMode) {
+        ; No Changes , Do Nothing
+        return
     }
-    else if (mode == 1){
+
+    if (mode == 1){
         ; Work Mode
-        StartTime := CurrentTime
-        InputBox ,CurrentTask, FlowTime, `nWhat will be your task?,  , 180 , 150
-        if (ErrorLevel > 0) {
+        CurrentTask := TaskChoose()
+        if (!CurrentTask) {
             return
         }
+        SetTimes( mode )
+        TaskInstructions( CurrentTask ) 
+
     } else if ( mode == 2){
-        
-        ; Break Mode
-        breakLength := (CurrentTime - StartTime)*.4 ; length of break
-        EndPause := CurrentTime + breakLength
-        SetTimer, BackToWork, % "-" breakLength
-        WriteTip("FlowTime: Break will take "  Floor(breakLength / 1000) " seconds")
+        SetTimes( mode )
+        BreakInstructions( )
     }
+
+    FlowFlush( CurrentMode , flowStatus )
     CurrentMode := mode
-    
+
     return
-    
+
 }
+SetTimes( mode ) {
+    global CurrentMode, WorkStart, WorkEnd, BreakStart, BreakEnd, BreakLength
+    ; -----
 
-
-ToggleFlow() {
-    global CurrentMode
-    if ( CurrentMode == 1) {
-        SetMode( 2 )
+    if ( mode = 1) {
+        ; Entering Work Mode
+        WorkStart := A_TickCount
     }
-    else {
-        SetMode( 1 )
+    if (CurrentMode = 1) {
+        ; Exiting Work Mode
+        WorkEnd := A_TickCount
+    }
+
+    ; -----
+
+    if ( mode = 2 ) {
+        ; Entering Break Mode
+        BreakStart := A_TickCount
+        BreakLength := BreakSize( WorkStart , WorkEnd )
+        BreakEnd := BreakStart + BreakLength
     }
 
 }
-DisableFlow() {    
-    SetMode( 0 )
+; -----
+FlowFlush( mode, flowStatus ) {
+    global CurrentTask, WorkStart, WorkEnd, BreakStart, BreakEnd
+
+    flowtimeLog := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\stream\flowtime.tsv" 
+    if (mode = 1) { 
+        content := "`nWork`t" CurrentTask "`t" WorkStart "`t" A_TickCount "`t" flowStatus
+    }
+    else if ( mode = 2){
+        content := "`nBreak`t" CurrentTask "`t" BreakStart "`t" A_TickCount "`t" flowStatus
+    }
+
+    if (content) {
+        FileAppend, %content%, %flowtimeLog%
+    }
+
 }
-ShowFlow() {
-    global CurrentMode, StartTime, EndPause
-    
+FlowShow() {
+    global CurrentMode, StartTime, EndPause, CurrentTask
+
     if (CurrentMode == 0) {
-    
         WriteTip("FlowTime is Off")
-    
     }
     else if (CurrentMode == 1){
-    
-        elapsed := DiffSeconds( StartTime , A_TickCount) 
-        WriteTip("FlowTime: Working For " elapsed " seconds")
-    
+        elapsed := AsSeconds( A_TickCount - StartTime ) 
+        WriteTip("FlowTime: Working at " CurrentTask " (" elapsed "s)")
+
     } else if ( CurrentMode == 2){
-    
-        elapsed := DiffSeconds( A_TickCount , EndPause )
-        WriteTip("FlowTime: On Break for " elapsed " more")
-    
+        elapsed := AsSeconds( EndPause - A_TickCount )
+        WriteTip("FlowTime: Break from " CurrentTask " (" elapsed "s)")
     }
 }
+FlowToggle() {
+    global CurrentMode
 
+    mode := CurrentMode
+    if ( CurrentMode = 1) {
+        SetMode( 2 , "Ok")
+    }
+    else {
+        SetMode( 1 , "Ok")
+    }
+
+}
+FlowStop() { 
+    SetMode( 0 , "Interrupt")
+}
+; -----
+TaskChoose() {
+    Global ChosenTask
+    flowtimeTasks := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\aggregate\todos.tsv"
+
+    Gui, +LastFound
+    GuiHWND := WinExist() ;--get handle to this gui..
+
+    Gui, Add , Text , , What Are We Gonna Do?
+    Gui, Add , ComboBox,vChosenTask, Nothing || Nothing at all | Just nothing 
+    Gui, Add , Button, Default, OK
+    Gui, Show
+
+    WinWaitClose, ahk_id %GuiHWND% ;--waiting for gui to close
+    return ChosenTask
+
+    ;-------
+
+    ButtonOK:
+        GuiControlGet, ChosenTask
+        Gui, Destroy
+    return
+    ;-------
+
+    GuiEscape:
+    GuiClose:
+        Gui, Destroy
+    return
+
+}
+
+TaskInstructions( task) {
+    Sleep, 100
+    Send {CtrlDown}{LWinDown}{d}{CtrlUp}{LWinUp}
+    Sleep, 100
+
+    ninetyMinutes = -54000000
+    SetTimer, TaskOver, %ninetyMinutes%
+    WriteTip("FlowTime: Working on " task)
+    return
+
+    TaskOver:
+        global CurrentMode, CurrentTask
+        if ( CurrentMode = 1 ) {
+            MsgBox,, Flowtime, It has been quite sometime since you started %CurrentTask%. `nCare to take a break?
+        }
+    return
+}
+; -----
+BreakSize( start, finish ) {
+    return Floor( 0.4 * (finish - start) )
+}
+BreakInstructions( ) {
+
+    global BreakLength
+
+    SetTimer, BreakOver, % "-" BreakLength
+    WriteTip("FlowTime: Break will take " AsSeconds( BreakLength ) "s")
+    return
+
+    BreakOver:
+        global CurrentMode
+        if (CurrentMode = 2 ) {
+            SoundBeep, 500, 1000
+            MsgBox Break is Over!
+            SetMode(0 , "Ok")
+        }
+    return
+}
+
+; ------
 
 WriteTip( msg ) {
     ToolTip, %msg%, A_ScreenWidth - 200, A_ScreenHeight-100
     SetTimer, RemoveToolTip, -3000
     return
+
+    RemoveToolTip:
+        ToolTip
+    return
 }
 
-DiffSeconds( start , finish) {
-    return Floor( (finish - start) / 1000 )
+AsSeconds( l ) { 
+    return Floor(l / 1000)
 }
 
-RemoveToolTip:
-    ToolTip
-    return
-
-BackToWork:
-    SoundBeep, 500, 1000
-    msgbox Break is Over!
-    SetMode(0)
-    return

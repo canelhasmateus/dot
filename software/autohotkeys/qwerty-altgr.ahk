@@ -56,15 +56,15 @@ SetWorkingDir, %A_ScriptDir%
     else if (pressedKey = "m"){
       isShift := GetKeyState( "Shift")
       if (isShift == 1 ) {
-        ShowFlow()
+        FlowShow()
       }
       else {
-        ToggleFlow()
+        FlowToggle()
       }
   
     }
     else if (pressedKey = "n"){
-      DisableFlow()
+      FlowStop()
     }
     else {
 

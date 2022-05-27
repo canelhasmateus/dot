@@ -34,8 +34,9 @@ GetNextKey()
 
 sendDesktopOrSwitchDesktop( desktopNumber ) 
 {
-  if GetKeyState("LAlt", "P") = 1
+  if (GetKeyState("LAlt", "P") = 1)
   {
+	  
     
     ; Todo: Send current window to another desktop.
   

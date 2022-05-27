@@ -6429,5 +6429,12 @@
         "key": "f8",
         "command": "ahk++.debug",
         "when": "editorLangId == 'ahk'"
+    },
+    {
+    "key": "alt+e tab",
+    "command": "type",
+    "args": { "text": "\t" },
+    "when": "editorTextFocus"
     }
+    
 ]

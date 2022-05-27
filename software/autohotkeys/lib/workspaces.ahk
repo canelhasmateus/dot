@@ -119,7 +119,7 @@ switchDesktopByNumber(targetDesktop)
     updateGlobalVariables()
 
     same := (targetDesktop == CurrentDesktop)
-
+    
     if ( !same ) {
         _switchDesktopToTarget(targetDesktop)
     }
@@ -133,19 +133,7 @@ switchDesktopToLastOpened()
     _switchDesktopToTarget(LastOpenedDesktop)
 }
 
-switchDesktopToRight()
-{
-    global CurrentDesktop, DesktopCount
-    updateGlobalVariables()
-    _switchDesktopToTarget(CurrentDesktop == DesktopCount ? 1 : CurrentDesktop + 1)
-}
 
-switchDesktopToLeft()
-{
-    global CurrentDesktop, DesktopCount
-    updateGlobalVariables()
-    _switchDesktopToTarget(CurrentDesktop == 1 ? DesktopCount : CurrentDesktop - 1)
-}
 
 focusTheForemostWindow(targetDesktop) {
     foremostWindowId := getForemostWindowIdOnDesktop(targetDesktop)
@@ -153,11 +141,6 @@ focusTheForemostWindow(targetDesktop) {
 
     ; if isWindowNonMinimized(foremostWindowId) {
     ; }
-}
-
-isWindowNonMinimized(windowId) {
-    WinGet MMX, MinMax, ahk_id %windowId%
-    return MMX != -1
 }
 
 getForemostWindowIdOnDesktop(n)
@@ -176,49 +159,16 @@ getForemostWindowIdOnDesktop(n)
     }
 }
 
-MoveCurrentWindowToDesktop(desktopNumber) {
-    
-    WinGet, activeHwnd, ID, A
-    DllCall(MoveWindowToDesktopNumberProc, UInt, activeHwnd, UInt, desktopNumber - 1)
-    ; switchDesktopByNumber(desktopNumber)
+
+isWindowNonMinimized(windowId) {
+    WinGet MMX, MinMax, ahk_id %windowId%
+    return MMX != -1
 }
 
-MoveCurrentWindowToDesktopNumber( desktopNumber )
-{
-    
-    global CurrentDesktop, DesktopCount
-    updateGlobalVariables()
-    WinGet, activeHwnd, ID, A
-    
-    if desktopNumber > DesktopCount 
-    {
-        desktopNumber := DesktopCount
-    }
 
-    DllCall(MoveWindowToDesktopNumberProc, UInt, activeHwnd, UInt, desktopNumber - 1)
-    _switchDesktopToTarget(desktopNumber)
-}
 
-MoveCurrentWindowToLeftDesktop()
-{
-    global CurrentDesktop, DesktopCount
-    updateGlobalVariables()
-    WinGet, activeHwnd, ID, A
-    DllCall(MoveWindowToDesktopNumberProc, UInt, activeHwnd, UInt, (CurrentDesktop == 1 ? DesktopCount : CurrentDesktop - 1) - 1)
-    _switchDesktopToTarget(CurrentDesktop == 1 ? DesktopCount : CurrentDesktop - 1)
-}
-
-;
 ; This function creates a new virtual desktop and switches to it
-;
-createVirtualDesktop()
-{
-    global CurrentDesktop, DesktopCount
-    Send, #^d
-    DesktopCount++
-    CurrentDesktop := DesktopCount
-    OutputDebug, [create] desktops: %DesktopCount% current: %CurrentDesktop%
-}
+
 
 ;
 ; This function deletes the current virtual desktop
@@ -232,7 +182,7 @@ deleteVirtualDesktop()
     }
     DesktopCount--
     CurrentDesktop--
-    OutputDebug, [delete] desktops: %DesktopCount% current: %CurrentDesktop%
+    return 
 }
 
 
