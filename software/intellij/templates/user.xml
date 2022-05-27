@@ -166,4 +166,14 @@
       <option name="Python_Top_Level" value="false" />
     </context>
   </template>
+  <template name="leetSearch" value="def binarysearch(nums: List[int ], target: int ) -&gt; int:&#10;&#9;left, right = 0, len(nums) - 1&#10;&#9;while left &lt;= right:&#10;&#9;&#9;pivot = left + (right - left) // 2&#10;&#9;&#9;if nums[pivot] == target:&#10;&#9;&#9;&#9;return pivot&#10;&#9;&#9;if target &lt; nums[pivot]:&#10;&#9;&#9;&#9;right = pivot - 1&#10;&#9;&#9;else:&#10;&#9;&#9;&#9;left = pivot + 1&#10;&#9;return -1" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="Python_Top_Level" value="true" />
+    </context>
+  </template>
+  <template name="&lt;abbreviation&gt;" value="def binarysearch( self, nums: List[ int ], target: int ) -&gt; int:&#10;&#9;left, right = 0, len( nums ) - 1&#10;&#9;while left &lt;= right:&#10;&#9;&#9;pivot = left + (right - left) // 2&#10;&#9;&#9;if nums[ pivot ] == target:&#10;&#9;&#9;&#9;return pivot&#10;&#9;&#9;if target &lt; nums[ pivot ]:&#10;&#9;&#9;&#9;right = pivot - 1&#10;&#9;&#9;else:&#10;&#9;&#9;&#9;left = pivot + 1&#10;&#9;return -1" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="Python_Top_Level" value="true" />
+    </context>
+  </template>
 </templateSet>

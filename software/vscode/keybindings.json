@@ -6424,5 +6424,10 @@
     {
         "key": "alt+x shift+f",
         "command": "toggleFindInSelection"
+    },
+    {
+        "key": "f8",
+        "command": "ahk++.debug",
+        "when": "editorLangId == 'ahk'"
     }
 ]

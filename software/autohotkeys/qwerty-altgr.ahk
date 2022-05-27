@@ -4,6 +4,7 @@ SetWorkingDir, %A_ScriptDir%
 #Include %A_ScriptDir%\lib\workspaces.ahk
 #Include %A_ScriptDir%\lib\random.ahk
 #Include %A_ScriptDir%\lib\accData.ahk
+#Include %A_ScriptDir%\lib\FlowTime.ahk
 
 <^>!SC01E:: 
   {
@@ -43,6 +44,7 @@ SetWorkingDir, %A_ScriptDir%
     { 
       WinMaximize, A
     }
+    
     return 
   } 
 <^>!SC022::
@@ -50,12 +52,26 @@ SetWorkingDir, %A_ScriptDir%
     pressedKey := GetNextKey()
     if (pressedKey = "s") {
       run python "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\scripts\update.py"
+    } 
+    else if (pressedKey = "m"){
+      isShift := GetKeyState( "Shift")
+      if (isShift == 1 ) {
+        ShowFlow()
+      }
+      else {
+        ToggleFlow()
+      }
+  
+    }
+    else if (pressedKey = "n"){
+      DisableFlow()
+    }
+    else {
 
-    } else {
       url := GetBrowserUrl()
       if ( url ) {
         kind := "articles.tsv"
-      
+        quality := ""
         if (pressedKey == "p") {
           quality := "Premium"
         }          

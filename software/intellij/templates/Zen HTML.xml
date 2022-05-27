@@ -2,10 +2,14 @@
   <template name="style" value="&lt;style&gt;$END$&lt;/style&gt;" description="&lt;style&gt;...&lt;/style&gt;" toReformat="true" toShortenFQNames="true">
     <context />
   </template>
-  <template name="script" value="&lt;script !src=&quot;&quot;&gt;$END$&lt;/script&gt;" description="&lt;script&gt;...&lt;/script&gt;" toReformat="true" toShortenFQNames="true">
+  <template name="div" value="&lt;div&gt;$END$&lt;/div&gt;" description="&lt;div&gt;...&lt;/div&gt;" toReformat="false" toShortenFQNames="true">
     <context />
   </template>
-  <template name="div" value="&lt;div&gt;$END$&lt;/div&gt;" description="&lt;div&gt;...&lt;/div&gt;" toReformat="false" toShortenFQNames="true">
+  <template name="a" value="&lt;a href=&quot;$VAR0$&quot;&gt;$END$&lt;/a&gt;" shortcut="NONE" description="&lt;a href=&quot;...&quot;&gt;...&lt;/a&gt;" toReformat="true" toShortenFQNames="true">
+    <variable name="VAR0" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="i" value="&lt;i&gt;$END$&lt;/i&gt;" shortcut="NONE" description="&lt;i&gt;...&lt;/i&gt;" toReformat="false" toShortenFQNames="true">
     <context />
   </template>
 </templateSet>

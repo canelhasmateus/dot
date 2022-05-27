@@ -83,8 +83,6 @@ def negation( keybind : KeyBind ) -> KeyBind:
 	return KeyBind.evolve( keybind , command = "-" + keybind.command )
 
 
-			
-
 
 def fanout(*subscribers : Iterable[ Transformer[ T ] ] ) -> Callable[ [T ], Transformation[T]]:
 	
