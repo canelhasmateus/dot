@@ -1,6 +1,7 @@
 #NoEnv
 #singleinstance force
 #Include %A_ScriptDir%\lib\workspaces.ahk
+#Include %A_ScriptDir%\lib\csv.ahk
 
 CurrentMode := 0 ; 0 = Off, 1 = working, 2 = break
 CurrentTask := ""
@@ -109,19 +110,30 @@ FlowStop() {
     SetMode( 0 , "Interrupt")
 }
 ; -----
+TaskRead() {
+    flowtimeTasks := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\stream\todos.txt"
+    FileRead,content , %flowtimeTasks%    
+    return StrSplit(content , "`n")
+}
+
 TaskChoose() {
     Global ChosenTask
-    flowtimeTasks := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\aggregate\todos.tsv"
 
     Gui, +LastFound
     GuiHWND := WinExist() ;--get handle to this gui..
 
     Gui, Add , Text , , What Are We Gonna Do?
-    Gui, Add , ComboBox,vChosenTask, Nothing || Nothing at all | Just nothing 
+    Gui, Add , ComboBox,vChosenTask
     Gui, Add , Button, Default, OK
     Gui, Show
+    
+    
+    
+    for k, v in TaskRead() {
+        GuiControl,, ChosenTask, % v "|"
+    }
 
-    WinWaitClose, ahk_id %GuiHWND% ;--waiting for gui to close
+    WinWaitClose, ahk_id %GuiHWND% ;--waiting for 'gui to close
     return ChosenTask
 
     ;-------

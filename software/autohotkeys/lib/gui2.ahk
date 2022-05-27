@@ -1,7 +1,3 @@
-#SingleInstance, Force
-SendMode Input
-SetWorkingDir, %A_ScriptDir%
-
 ;array of arrays
 levels 						:= []
 levels["Associate"] 		:= ["Analysis", "Conference Call", "Data Copy"]
@@ -10,8 +6,8 @@ levels["Manager"] 			:= ["Conference Call", "Oversee Associate and Seniors"]
 levels["Director"] 			:= ["Conference Call", "Project Management"]
 
 ;sample gui
-gui, add, DropDownList,  gUpdate vGUI_Levels r5
-gui, add, DropDownList,  vGUI_Tasks r5
+gui, add, ComboBox,  vGUI_Levels 
+gui, add, DropDownList, x10 y60 w100 vGUI_Tasks r5
 gui, show, h100 w120
 gosub GUI_Levels_Populate
 return
