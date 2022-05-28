@@ -1,20 +1,18 @@
 #NoEnv
 #singleinstance force
-
-
+#Include %A_ScriptDir%\lib\VisualUtils.ahk
 
 CurrentMode := 0 ; 0 = Off, 1 = working, 2 = break
 CurrentTask := ""
-
 WorkStart := 0
 WorkEnd := 0
 BreakStart := 0
 BreakEnd := 0
 BreakLength := 0
 
-
 SetMode(mode , flowStatus){
-    global CurrentMode, CurrentTask, WorkStart, StartTime
+    global CurrentMode, CurrentTask, WorkStart
+
     if ( mode = CurrentMode) {
         ; No Changes , Do Nothing
         return
@@ -35,7 +33,7 @@ SetMode(mode , flowStatus){
         BreakInstructions( )
     }
 
-    FlowFlush( CurrentMode , flowStatus )
+    FlowLog( CurrentMode , flowStatus )
     CurrentMode := mode
 
     return
@@ -64,8 +62,53 @@ SetTimes( mode ) {
     }
 
 }
-; -----
-FlowFlush( mode, flowStatus ) {
+
+FlowInterrupt(){
+    SetMode( 0 , "Interrupt" )
+}
+FlowStop(){
+    SetMode( 0 , "Ok")
+}
+FlowStart(){
+    SetMode( 1 , "Ok" )
+}
+FlowBreak(){
+    SetMode( 2 , "Ok" )
+}
+FlowChoose() {
+    global CurrentMode, CurrentTask, WorkStart, BreakEnd
+    if ( CurrentMode != 0 && CurrentMode != 1 && CurrentMode != 2 ) {
+        CurrentMode := 0
+    }
+
+    if (CurrentMode = 0){
+        FlowStart() 
+        return
+    }
+    else if ( CurrentMode = 1) {
+        prompt := "Working at " CurrentTask " for " AsSeconds( WorkStart , GetUnixTime() ) "s."
+        options := ["Break", "Interrupt"] 
+    }
+    else if ( CurrentMode = 2 ) {
+        prompt := "Breaking from " CurrentTask " for " AsSeconds( GetUnixTime() , BreakEnd ) "s."
+        options := ["Interrupt"] 
+    }
+    else {
+        WriteTip( "CurrentMode not found: " CurrentMode)
+        return
+    }
+
+    action := AutoCompleteComboBox(prompt, options)
+    if ( action = "Break" ) {
+        FlowBreak()
+    }
+    else if ( action = "Interrupt" ) {
+        FlowInterrupt()
+    }
+    return
+}
+
+FlowLog( mode, flowStatus ) {
     global CurrentTask, WorkStart, WorkEnd, BreakStart, BreakEnd
 
     flowtimeLog := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\stream\flowtime.tsv" 
@@ -81,74 +124,14 @@ FlowFlush( mode, flowStatus ) {
     }
 
 }
-FlowShow() {
-    global CurrentMode, StartTime, EndPause, CurrentTask
 
-    if (CurrentMode == 0) {
-        WriteTip("FlowTime is Off")
-    }
-    else if (CurrentMode == 1){
-        elapsed := AsSeconds( StartTime , GetUnixTime() ) 
-        WriteTip("FlowTime: Working at " CurrentTask " (" elapsed "s)")
-
-    } else if ( CurrentMode == 2){
-        elapsed := AsSeconds( GetUnixTime ,EndPause)
-        WriteTip("FlowTime: Break from " CurrentTask " (" elapsed "s)")
-    }
-}
-FlowToggle() {
-    global CurrentMode
-
-    mode := CurrentMode
-    if ( CurrentMode = 1) {
-        SetMode( 2 , "Ok")
-    }
-    else {
-        SetMode( 1 , "Ok")
-    }
-
-}
-FlowStop() { 
-    SetMode( 0 , "Interrupt")
-}
 ; -----
-TaskRead() {
-    flowtimeTasks := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\stream\todos.txt"
-    FileRead,content , %flowtimeTasks% 
-    return StrSplit(content , "`n")
-}
 
 TaskChoose() {
-    Global ChosenTask
-
-    Gui, +LastFound
-    GuiHWND := WinExist() ;--get handle to this gui..
-
-    Gui, Add , Text , , What to do?
-    Gui, Add , ComboBox,vChosenTask
-    Gui, Add , Button, Default, OK
-    Gui, Show
-
-    for k, v in TaskRead() {
-        GuiControl,, ChosenTask, % v "|"
-    }
-
-    WinWaitClose, ahk_id %GuiHWND% ;--waiting for 'gui to close
-    return ChosenTask
-
-    ;-------
-
-    ButtonOK:
-        GuiControlGet, ChosenTask
-        Gui, Destroy
-    return
-    ;-------
-
-    GuiEscape:
-    GuiClose:
-        Gui, Destroy
-    return
-
+    flowtimeTasks := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\stream\todos.txt"
+    FileRead,content , %flowtimeTasks% 
+    content := StrSplit(content , "`n")
+    return AutoCompleteComboBox( "Working on what?", content)
 }
 TaskExpire() {
     ninetyMinutes = -54000000
@@ -172,9 +155,10 @@ TaskInstructions( task) {
     TaskDesktop()
     TaskExpire()
     WriteTip("FlowTime: Working on " task)
-    return    
+    return 
 }
 ; -----
+
 BreakSize( start, finish ) {
     return Floor( 0.4 * (finish - start) )
 }
@@ -197,16 +181,6 @@ BreakInstructions( ) {
 }
 
 ; ------
-
-WriteTip( msg ) {
-    ToolTip, %msg%, A_ScreenWidth - 200, A_ScreenHeight-100
-    SetTimer, RemoveToolTip, -3000
-    return
-
-    RemoveToolTip:
-        ToolTip
-    return
-}
 
 AsSeconds( start, finish ) { 
     return Floor( (finish - start) / 1000 )

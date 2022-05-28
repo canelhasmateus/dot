@@ -57,42 +57,52 @@ _MakeShort(Long, ByRef LoWord, ByRef HiWord) {
 	LoWord := Long & 0xffff, HiWord := Long >> 16
 }
 
+ListenNextKey() 
+{
+	Input pressedKey, M L1 T2 B, {Escape}{Tab}{Backspace}
+	return pressedKey
+}
 
 AutoCompleteComboBox( prompt , options ) {
-    Global ChosenOption
+	Global ChosenOption
 
-    ChosenOption := ""
-    Gui, 2:+LastFound
-    GuiHWND := WinExist() ;--get handle to this gui..
-    
-    
-    Gui, 2:Add , Text , , %prompt%
-    Gui, 2:Add , ComboBox, vChosenOption gCbAutoComplete
-    Gui, 2:Add , Button, gButtonComplete, OK
-    Gui, 2:Show
+	ChosenOption := ""
+	Gui, 2:+LastFound
+	GuiHWND := WinExist() ;--get handle to this gui..
 
-    for k, v in options {        
-        GuiControl,2:, ChosenOption, % v "|"
-    }
+	Gui, 2:Add , Text , , %prompt%
+	Gui, 2:Add , ComboBox, vChosenOption gCbAutoComplete
+	Gui, 2:Add , Button, gButtonComplete, OK
+	Gui, 2:Show
 
-    WinWaitClose, ahk_id %GuiHWND% ;--waiting for 'gui to close
-    return ChosenOption
+	for k, v in options { 
+		GuiControl,2:, ChosenOption, % v "|"
+	}
 
-    ;-------
+	WinWaitClose, ahk_id %GuiHWND% ;--waiting for 'gui to close
+	return ChosenOption
 
-    ButtonComplete:
-        GuiControlGet, ChosenOption
-        Gui, 2:Destroy
-    return
-    ;-------
+	;-------
 
-    2GuiEscape:
-    2GuiClose:
-        Gui, 2:Destroy
-    return
+	ButtonComplete:
+		GuiControlGet, ChosenOption
+		Gui, 2:Destroy
+	return
+	;-------
+
+	2GuiEscape:
+	2GuiClose:
+		Gui, 2:Destroy
+	return
 
 }
 
+WriteTip( msg ) {
+	ToolTip, %msg%, A_ScreenWidth - 200, A_ScreenHeight-100
+	SetTimer, RemoveToolTip, -3000
+	return
 
-a := AutoCompleteComboBox("A" , ["Red" , "Green" , "Blue"])
-MsgBox %a%
+	RemoveToolTip:
+		ToolTip
+	return
+}
