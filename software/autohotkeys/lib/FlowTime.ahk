@@ -1,7 +1,7 @@
 #NoEnv
 #singleinstance force
-#Include %A_ScriptDir%\lib\workspaces.ahk
-#Include %A_ScriptDir%\lib\csv.ahk
+
+
 
 CurrentMode := 0 ; 0 = Off, 1 = working, 2 = break
 CurrentTask := ""
@@ -12,6 +12,7 @@ BreakStart := 0
 BreakEnd := 0
 BreakLength := 0
 
+
 SetMode(mode , flowStatus){
     global CurrentMode, CurrentTask, WorkStart, StartTime
     if ( mode = CurrentMode) {
@@ -21,6 +22,7 @@ SetMode(mode , flowStatus){
 
     if (mode == 1){
         ; Work Mode
+        CurrentTask := ""
         CurrentTask := TaskChoose()
         if (!CurrentTask) {
             return
@@ -45,18 +47,18 @@ SetTimes( mode ) {
 
     if ( mode = 1) {
         ; Entering Work Mode
-        WorkStart := A_TickCount
+        WorkStart := GetUnixTime()
     }
     if (CurrentMode = 1) {
         ; Exiting Work Mode
-        WorkEnd := A_TickCount
+        WorkEnd := GetUnixTime()
     }
 
     ; -----
 
     if ( mode = 2 ) {
         ; Entering Break Mode
-        BreakStart := A_TickCount
+        BreakStart := GetUnixTime()
         BreakLength := BreakSize( WorkStart , WorkEnd )
         BreakEnd := BreakStart + BreakLength
     }
@@ -68,10 +70,10 @@ FlowFlush( mode, flowStatus ) {
 
     flowtimeLog := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\stream\flowtime.tsv" 
     if (mode = 1) { 
-        content := "`nWork`t" CurrentTask "`t" WorkStart "`t" A_TickCount "`t" flowStatus
+        content := "`nWork`t" CurrentTask "`t" WorkStart "`t" GetUnixTime() "`t" flowStatus
     }
     else if ( mode = 2){
-        content := "`nBreak`t" CurrentTask "`t" BreakStart "`t" A_TickCount "`t" flowStatus
+        content := "`nBreak`t" CurrentTask "`t" BreakStart "`t" GetUnixTime() "`t" flowStatus
     }
 
     if (content) {
@@ -86,11 +88,11 @@ FlowShow() {
         WriteTip("FlowTime is Off")
     }
     else if (CurrentMode == 1){
-        elapsed := AsSeconds( A_TickCount - StartTime ) 
+        elapsed := AsSeconds( StartTime , GetUnixTime() ) 
         WriteTip("FlowTime: Working at " CurrentTask " (" elapsed "s)")
 
     } else if ( CurrentMode == 2){
-        elapsed := AsSeconds( EndPause - A_TickCount )
+        elapsed := AsSeconds( GetUnixTime ,EndPause)
         WriteTip("FlowTime: Break from " CurrentTask " (" elapsed "s)")
     }
 }
@@ -112,7 +114,7 @@ FlowStop() {
 ; -----
 TaskRead() {
     flowtimeTasks := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\stream\todos.txt"
-    FileRead,content , %flowtimeTasks%    
+    FileRead,content , %flowtimeTasks% 
     return StrSplit(content , "`n")
 }
 
@@ -122,13 +124,11 @@ TaskChoose() {
     Gui, +LastFound
     GuiHWND := WinExist() ;--get handle to this gui..
 
-    Gui, Add , Text , , What Are We Gonna Do?
+    Gui, Add , Text , , What to do?
     Gui, Add , ComboBox,vChosenTask
     Gui, Add , Button, Default, OK
     Gui, Show
-    
-    
-    
+
     for k, v in TaskRead() {
         GuiControl,, ChosenTask, % v "|"
     }
@@ -150,15 +150,9 @@ TaskChoose() {
     return
 
 }
-
-TaskInstructions( task) {
-    Sleep, 100
-    Send {CtrlDown}{LWinDown}{d}{CtrlUp}{LWinUp}
-    Sleep, 100
-
+TaskExpire() {
     ninetyMinutes = -54000000
     SetTimer, TaskOver, %ninetyMinutes%
-    WriteTip("FlowTime: Working on " task)
     return
 
     TaskOver:
@@ -168,16 +162,28 @@ TaskInstructions( task) {
         }
     return
 }
+TaskDesktop() {
+    Sleep, 100
+    Send {CtrlDown}{LWinDown}{d}{CtrlUp}{LWinUp}
+    Sleep, 100
+    return
+}
+TaskInstructions( task) {
+    TaskDesktop()
+    TaskExpire()
+    WriteTip("FlowTime: Working on " task)
+    return    
+}
 ; -----
 BreakSize( start, finish ) {
     return Floor( 0.4 * (finish - start) )
 }
 BreakInstructions( ) {
 
-    global BreakLength
+    global BreakStart, BreakEnd, BreakLength
 
     SetTimer, BreakOver, % "-" BreakLength
-    WriteTip("FlowTime: Break will take " AsSeconds( BreakLength ) "s")
+    WriteTip("FlowTime: Break will take " AsSeconds( BreakStart , BreakEnd) "s")
     return
 
     BreakOver:
@@ -202,7 +208,10 @@ WriteTip( msg ) {
     return
 }
 
-AsSeconds( l ) { 
-    return Floor(l / 1000)
+AsSeconds( start, finish ) { 
+    return Floor( (finish - start) / 1000 )
+}
+GetUnixTime() {
+    return A_TickCount
 }
 

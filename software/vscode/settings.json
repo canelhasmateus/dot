@@ -168,4 +168,5 @@
     "editor.codeActionsOnSave": {
         "source.fixAll": true
     },
+    "editor.columnSelection": true,
 }

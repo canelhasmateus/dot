@@ -8,13 +8,13 @@ SetWorkingDir, %A_ScriptDir%
 ; On Windows 11 the current desktop UUID appears to be in the same location
 ; On previous versions in HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\SessionInfo\1\VirtualDesktops
 
-mapDesktopsFromRegistry()
+_mapDesktopsFromRegistry()
 {
     global CurrentDesktop, DesktopCount
 
     ; Get the current desktop UUID. Length should be 32 always, but there's no guarantee this couldn't change in a later Windows release so we check.
     IdLength := 32
-    SessionId := getSessionId()
+    SessionId := _getSessionId()
     if (SessionId) {
         RegRead, CurrentDesktopId, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VirtualDesktops, CurrentVirtualDesktop
         if ErrorLevel {
@@ -54,11 +54,17 @@ mapDesktopsFromRegistry()
         i++
     }
 }
+_updateGlobalVariables()
+{
+    ; Re-generate the list of desktops and where we fit in that. We do this because
+    ; the user may have switched desktops via some other means than the script.
+    _mapDesktopsFromRegistry()
+}
 
 ;
 ; This functions finds out ID of current session.
 ;
-getSessionId()
+_getSessionId()
 {
     ProcessId := DllCall("GetCurrentProcessId", "UInt")
     if ErrorLevel {
@@ -78,12 +84,11 @@ getSessionId()
 
 _switchDesktopToTarget(targetDesktop)
 {
-    ; Globals variables should have been updated via updateGlobalVariables() prior to entering this function
+    _updateGlobalVariables()
     global CurrentDesktop, DesktopCount, LastOpenedDesktop
 
     ; Don't attempt to switch to an invalid desktop
     if (targetDesktop > DesktopCount || targetDesktop < 1 || targetDesktop == CurrentDesktop) {
-        ; OutputDebug, [invalid] target: %targetDesktop% current: %CurrentDesktop%
         return
     }
 
@@ -106,34 +111,19 @@ _switchDesktopToTarget(targetDesktop)
 
 }
 
-updateGlobalVariables()
-{
-    ; Re-generate the list of desktops and where we fit in that. We do this because
-    ; the user may have switched desktops via some other means than the script.
-    mapDesktopsFromRegistry()
-}
-
 switchDesktopByNumber(targetDesktop)
 {
-    global CurrentDesktop, DesktopCount
-    updateGlobalVariables()
-
-    same := (targetDesktop == CurrentDesktop)
-    
-    if ( !same ) {
+    global CurrentDesktop
+    if ( targetDesktop != CurrentDesktop ) {
         _switchDesktopToTarget(targetDesktop)
     }
-    
 }
 
 switchDesktopToLastOpened()
 {
-    global CurrentDesktop, DesktopCount, LastOpenedDesktop
-    updateGlobalVariables()
+    global LastOpenedDesktop
     _switchDesktopToTarget(LastOpenedDesktop)
 }
-
-
 
 focusTheForemostWindow(targetDesktop) {
     foremostWindowId := getForemostWindowIdOnDesktop(targetDesktop)
@@ -159,32 +149,10 @@ getForemostWindowIdOnDesktop(n)
     }
 }
 
-
 isWindowNonMinimized(windowId) {
     WinGet MMX, MinMax, ahk_id %windowId%
     return MMX != -1
 }
-
-
-
-; This function creates a new virtual desktop and switches to it
-
-
-;
-; This function deletes the current virtual desktop
-;
-deleteVirtualDesktop()
-{
-    global CurrentDesktop, DesktopCount, LastOpenedDesktop
-    Send, #^{F4}
-    if (LastOpenedDesktop >= CurrentDesktop) {
-        LastOpenedDesktop--
-    }
-    DesktopCount--
-    CurrentDesktop--
-    return 
-}
-
 
 alternateWindowMonitor() 
 {

@@ -1,4 +1,13 @@
 
+GetBrowserUrl() 
+{
+
+	accData:= GetAccData() ; parameter: "A" (default), "WinTitle", "ahk_class IEFrame", "ahk_exe chrome.exe", etc.
+    if ( accData ) {
+      return accData.2
+    }
+}
+
 OpenHighlighted()
 {
 	MyClipboard := "" ; Clears variable
@@ -25,7 +34,6 @@ OpenHighlighted()
 }
 
 
-
 GetNextKey() 
 {
   Input pressedKey, M L1 T2 B, {Escape}{Tab}{Backspace}
@@ -48,13 +56,3 @@ sendDesktopOrSwitchDesktop( desktopNumber )
 
 }
 
-
-
-GetBrowserUrl() 
-{
-
-	accData:= GetAccData() ; parameter: "A" (default), "WinTitle", "ahk_class IEFrame", "ahk_exe chrome.exe", etc.
-    if ( accData ) {
-      return accData.2
-    }
-}

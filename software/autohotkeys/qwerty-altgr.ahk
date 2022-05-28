@@ -5,6 +5,7 @@ SetWorkingDir, %A_ScriptDir%
 #Include %A_ScriptDir%\lib\random.ahk
 #Include %A_ScriptDir%\lib\accData.ahk
 #Include %A_ScriptDir%\lib\FlowTime.ahk
+#Include %A_ScriptDir%\lib\VisualUtils.ahk
 
 <^>!SC01E:: 
   {
@@ -60,65 +61,25 @@ SetWorkingDir, %A_ScriptDir%
       }
       else {
         FlowToggle()
-      }
-  
+      }  
     }
     else if (pressedKey = "n"){
       FlowStop()
     }
-    else {
-
+    else if ( pressedKey = "q") {
       url := GetBrowserUrl()
       if ( url ) {
-        kind := "articles.tsv"
-        quality := ""
-        if (pressedKey == "p") {
-          quality := "Premium"
-        }          
-        else if (pressedKey == "i"){
-          quality := "Good"
-        }
-        else if (pressedKey == "h"){
-          quality := "History"
-        }
-        else if ( pressedKey == "b") {
-          quality := "Bookmark"
-        }
-        else if ( pressedKey == "k") {
-          quality := "Bad"
-
-        }
-        else if ( pressedKey == "q") {
-          quality := "Queue"
-
-        }
-        else if ( pressedKey == "l") {
-          quality := "Revisit"
-
-        }
-        else if ( pressedKey == "t") {
-          quality := "Tool"
-        }
-        else if ( pressedKey == "u") {
-          quality := "Utility"
-        }
-        else if ( pressedKey == "e") {
-          quality := "Explore"
-        }
-        else if ( pressedKey == "d") {
-          quality := "Done"
-        }
         
-        if (quality) {
+        
+        chosenQuality := AutoCompleteComboBox("Choose a quality" , ["Premium" , "Good" , "History" , "Bookmark" , "Bad", "Queue" , "Revisit" , "Tool" , "Utility" , "Explore" , "Done" ])    
+        if (chosenQuality) {
           root := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\stream\"
-          destination = %root%%kind%
-          
+          kind := "articles.tsv"
+          destination = %root%%kind%  
+
           FileAppend, `n%A_YYYY%-%A_MM%-%A_DD%`t%A_Hour%:%A_Min%:%A_Sec%`t%quality%`t%url%, %destination%
           SoundPlay %A_ScriptDir%\blob\xylo.wav
         }
-        
-        
-
       }
     }
 
