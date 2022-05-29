@@ -97,9 +97,81 @@ AutoCompleteComboBox( prompt , options ) {
 
 }
 
-WriteTip( msg ) {
+GatherText( prompt ) {
+
+	Global ChosenOption
+
+	ChosenOption := ""
+	Gui, 3:+LastFound
+	GuiHWND := WinExist() ;--get handle to this gui..
+
+	Gui, 3:Add , Text , , %prompt%
+	Gui, 3:Add , Edit, vChosenOption
+	Gui, 3:Add , Button, gButtonGather, OK
+	Gui, 3:Show
+
+	WinWaitClose, ahk_id %GuiHWND% ;--waiting for 'gui to close
+	return ChosenOption
+
+	;-------
+
+	ButtonGather:
+		GuiControlGet, ChosenOption
+		Gui, 3:Destroy
+	return
+	;-------
+
+	3GuiEscape:
+	3GuiClose:
+		Gui, 3:Destroy
+	return
+
+	
+}
+
+
+GatherChoice( prompt , options ) {
+	Global ChosenOption
+
+	ChosenOption := ""
+	Gui, 4:+LastFound
+	GuiHWND := WinExist() ;--get handle to this gui..
+
+	Gui, 4:Add , Text , , %prompt%
+	Gui, 4:Add , DropDownList, vChosenOption
+	Gui, 4:Add , Button, gButtonList, OK
+	Gui, 4:Show
+
+	for k, v in options { 
+		if (k == 1) {
+			GuiControl,4:, ChosenOption, % v "||"
+		}
+		else {
+			GuiControl,4:, ChosenOption, % v "|"
+		}
+		
+	}
+
+	WinWaitClose, ahk_id %GuiHWND% ;--waiting for 'gui to close
+	return ChosenOption
+
+	;-------
+
+	ButtonList:
+		GuiControlGet, ChosenOption
+		Gui, 4:Destroy
+	return
+	;-------
+
+	4GuiEscape:
+	4GuiClose:
+		Gui, 4:Destroy
+	return
+
+}
+WriteTip( msg , duration := 3000) {
 	ToolTip, %msg%, A_ScreenWidth - 200, A_ScreenHeight-100
-	SetTimer, RemoveToolTip, -3000
+	SetTimer, RemoveToolTip, -%duration%
 	return
 
 	RemoveToolTip:

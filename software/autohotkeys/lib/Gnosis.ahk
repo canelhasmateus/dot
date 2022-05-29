@@ -1,8 +1,8 @@
 #SingleInstance, Force
 SendMode Input
-SetWorkingDir, %A_ScriptDir%
-#Include %A_ScriptDir%\lib\accData.ahk
-#Include %A_ScriptDir%\lib\FlowTime.ahk
+
+#Include %A_ScriptDir%\lib\AccessibilityData.ahk
+#Include %A_ScriptDir%\lib\Flowtime.ahk
 #Include %A_ScriptDir%\lib\VisualUtils.ahk
 
 GetBrowserUrl() {

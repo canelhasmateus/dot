@@ -6435,6 +6435,10 @@
     "command": "type",
     "args": { "text": "\t" },
     "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+tab",
+        "command": "workbench.action.previousEditor"
     }
     
 ]

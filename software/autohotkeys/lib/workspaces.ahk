@@ -1,7 +1,5 @@
 #SingleInstance, Force
 SendMode Input
-SetWorkingDir, %A_ScriptDir%
-
 ;
 ; This function examines the registry to build an accurate list of the current virtual desktops and which one we're currently on.
 ; List of desktops appears to be in HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VirtualDesktops

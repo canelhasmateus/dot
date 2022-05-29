@@ -2,7 +2,7 @@
 #singleinstance force
 #Include %A_ScriptDir%\lib\VisualUtils.ahk
 
-CurrentMode := 0 ; 0 = Off, 1 = working, 2 = break
+CurrentMode := 0 ; 0 = Off, 1 = working, 2 = break, 3 = interrupted
 CurrentTask := ""
 WorkStart := 0
 WorkEnd := 0
@@ -10,87 +10,81 @@ BreakStart := 0
 BreakEnd := 0
 BreakLength := 0
 
-SetMode(mode , flowStatus){
-    global CurrentMode, CurrentTask, WorkStart
+SetMode( NextMode ){
+    global CurrentMode, CurrentTask
 
-    if ( mode = CurrentMode) {
-        ; No Changes , Do Nothing
+    if ( NextMode = CurrentMode) {
         return
     }
 
-    if (mode == 1){
+    if (NextMode == 1){
         ; Work Mode
-        CurrentTask := ""
         CurrentTask := TaskChoose()
         if (!CurrentTask) {
             return
         }
-        SetTimes( mode )
         TaskInstructions( CurrentTask ) 
 
-    } else if ( mode == 2){
-        SetTimes( mode )
+    } else if ( NextMode == 2){
+
         BreakInstructions( )
     }
 
-    FlowLog( CurrentMode , flowStatus )
-    CurrentMode := mode
-
+    SetTimes( CurrentMode, NextMode )
+    FlowLog( CurrentMode, NextMode, currentTask)
+    CurrentMode := NextMode
     return
 
 }
-SetTimes( mode ) {
-    global CurrentMode, WorkStart, WorkEnd, BreakStart, BreakEnd, BreakLength
+SetTimes( StartMode , EndMode) {
+    global WorkStart, WorkEnd, BreakStart, BreakEnd, BreakLength
+
     ; -----
 
-    if ( mode = 1) {
+    if ( EndMode = 1) {
         ; Entering Work Mode
         WorkStart := GetUnixTime()
     }
-    if (CurrentMode = 1) {
+    if (StartMode = 1) {
         ; Exiting Work Mode
         WorkEnd := GetUnixTime()
+        BreakStart := GetUnixTime()
+        BreakLength := BreakSize( WorkStart , WorkEnd )
+        BreakEnd := Sum( BreakStart, BreakLength)
     }
 
     ; -----
 
-    if ( mode = 2 ) {
-        ; Entering Break Mode
-        BreakStart := GetUnixTime()
-        BreakLength := BreakSize( WorkStart , WorkEnd )
-        BreakEnd := BreakStart + BreakLength
-    }
-
 }
 
-FlowInterrupt(){
-    SetMode( 0 , "Interrupt" )
-}
 FlowStop(){
-    SetMode( 0 , "Ok")
+    SetMode( 0 )
 }
 FlowStart(){
-    SetMode( 1 , "Ok" )
+    SetMode( 1 )
 }
 FlowBreak(){
-    SetMode( 2 , "Ok" )
+    SetMode( 2 )
 }
+FlowInterrupt(){
+    SetMode( 3 )
+    WriteTip("FlowTime: Interrupted")
+}
+
 FlowChoose() {
     global CurrentMode, CurrentTask, WorkStart, BreakEnd
-    if ( CurrentMode != 0 && CurrentMode != 1 && CurrentMode != 2 ) {
-        CurrentMode := 0
-    }
 
-    if (CurrentMode = 0){
+    CurrentMode := Coalesce( CurrentMode , 0)
+    if (CurrentMode = 0 || CurrentMode = 3){
         FlowStart() 
         return
     }
     else if ( CurrentMode = 1) {
-        prompt := "Working at " CurrentTask " for " AsSeconds( WorkStart , GetUnixTime() ) "s."
+        prompt := "Working at " CurrentTask " for " Diff( WorkStart , GetUnixTime() ) "s."
         options := ["Break", "Interrupt"] 
     }
     else if ( CurrentMode = 2 ) {
-        prompt := "Breaking from " CurrentTask " for " AsSeconds( GetUnixTime() , BreakEnd ) "s."
+        prompt := "Breaking from " CurrentTask " for " Diff( GetUnixTime() , BreakEnd ) "s."
         options := ["Interrupt"] 
     }
     else {
@@ -98,50 +92,72 @@ FlowChoose() {
         return
     }
 
-    action := AutoCompleteComboBox(prompt, options)
+    action := GatherChoice(prompt, options)
     if ( action = "Break" ) {
         FlowBreak()
     }
     else if ( action = "Interrupt" ) {
         FlowInterrupt()
     }
+    else if (action) {
+        WriteTip( "Action not understood: " action) 
+    }
     return
 }
 
-FlowLog( mode, flowStatus ) {
-    global CurrentTask, WorkStart, WorkEnd, BreakStart, BreakEnd
+; -----
 
-    flowtimeLog := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\stream\flowtime.tsv" 
-    if (mode = 1) { 
-        content := "`nWork`t" CurrentTask "`t" WorkStart "`t" GetUnixTime() "`t" flowStatus
-    }
-    else if ( mode = 2){
-        content := "`nBreak`t" CurrentTask "`t" BreakStart "`t" GetUnixTime() "`t" flowStatus
-    }
+FlowLog( ModeStart , ModeEnd, Task, Comment := "") {
 
+    Comment := GatherComments( ModeStart, ModeEnd , Comment)
+    Action := GetModeName( ModeEnd )
+    Start := GetUnixTime()
+    content := "`n" Action "`t" Task "`t" Start "`t" Comment
     if (content) {
+        flowtimeLog := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\stream\flowtime.tsv" 
         FileAppend, %content%, %flowtimeLog%
     }
+    return
 
 }
+GetModeName( mode ) {
+    Expected := ["BreakEnd" , "WorkStart" , "WorkEnd" , "Interrupt"][ 1 + mode ]
+    return Coalesce( Expected , "Unknown")
+}
+GatherComments( ModeStart, ModeEnd, Comment) {
+    if ( ModeStart == 1 && ModeEnd != 1) {
+        if (Comment == "") {
+            Comment := GatherText("Any comments?")
+        }
+    } 
 
+    return Coalesce( Comment , "None")
+}
 ; -----
 
 TaskChoose() {
     flowtimeTasks := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\stream\todos.txt"
     FileRead,content , %flowtimeTasks% 
     content := StrSplit(content , "`n")
-    return AutoCompleteComboBox( "Working on what?", content)
+    return AutoCompleteComboBox( "Start a task!", content)
 }
-TaskExpire() {
-    ninetyMinutes = -54000000
-    SetTimer, TaskOver, %ninetyMinutes%
+TaskAlerts() {
+
+    SetTimer, TaskOver, -54000000
+    SetTimer, TaskTime, -18000000
+    return
+
+    TaskTime:
+        global CurrentMode
+        if ( CurrentMode = 1 ) {
+            WriteTip( "30 minutes since task started." , 10000)
+        }
     return
 
     TaskOver:
-        global CurrentMode, CurrentTask
+        global CurrentMode
         if ( CurrentMode = 1 ) {
-            MsgBox,, Flowtime, It has been quite sometime since you started %CurrentTask%. `nCare to take a break?
+            WriteTip("90 minutes since task started.`nCare to take a break?" , 10000)
         }
     return
 }
@@ -153,21 +169,55 @@ TaskDesktop() {
 }
 TaskInstructions( task) {
     TaskDesktop()
-    TaskExpire()
-    WriteTip("FlowTime: Working on " task)
+    TaskAlerts()
+    content = 
+    (
+
+        Working on %task%.
+        -----------------------------
+
+    Take care of your phisiology:
+        * Coffee
+        * Water
+        * Bathroom
+        * Reading Glasses
+
+    Optimize your environment:
+        * Distractions
+        * Music
+        * Scents
+        * Lightning
+        * Tidiness
+
+        -----------------------------
+        Have a good time! 
+
+    )
+
+    MsgBox,, Flowtime, %content%
     return 
 }
 ; -----
 
 BreakSize( start, finish ) {
-    return Floor( 0.4 * (finish - start) )
+    Duration := Diff( start , finish )
+    Length := Ceil( 0.3 * Duration )
+    if (Length <= 60) {
+        Length := 60
+    }
+    if ( Length >= 1800) {
+        Length := 1800
+    }
+    return Length
 }
+
 BreakInstructions( ) {
+    global BreakLength
 
-    global BreakStart, BreakEnd, BreakLength
-
-    SetTimer, BreakOver, % "-" BreakLength
-    WriteTip("FlowTime: Break will take " AsSeconds( BreakStart , BreakEnd) "s")
+    BreakInSeconds := Coalesce( BreakLength , 60 )
+    MilliBreak := 1000*BreakInSeconds
+    SetTimer BreakOver, -%MilliBreak%
+    WriteTip("FlowTime: Break for " BreakInSeconds "s")
     return
 
     BreakOver:
@@ -175,17 +225,34 @@ BreakInstructions( ) {
         if (CurrentMode = 2 ) {
             SoundBeep, 500, 1000
             MsgBox Break is Over!
-            SetMode(0 , "Ok")
+            FlowStop()
         }
     return
 }
 
 ; ------
 
-AsSeconds( start, finish ) { 
-    return Floor( (finish - start) / 1000 )
+Diff( start, finish ) { 
+    result = %finish%
+    EnvSub result, %start%, seconds
+    return result
 }
+Sum( start, offset ) { 
+    result = %start%
+    EnvAdd result, %offset%, seconds
+    return result
+}
+
 GetUnixTime() {
-    return A_TickCount
+    return A_Now
+}
+
+Coalesce( val , fallback ) {
+    if (val == "" || val ==) {
+    return fallback
+}
+
+return val
+
 }
 

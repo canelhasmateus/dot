@@ -1,10 +1,10 @@
 #SingleInstance, Force
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
-#Include %A_ScriptDir%\lib\workspaces.ahk
+#Include %A_ScriptDir%\lib\Workspaces.ahk
 #Include %A_ScriptDir%\lib\Gnosis.ahk
 #Include %A_ScriptDir%\lib\VisualUtils.ahk
-#Include %A_ScriptDir%\lib\FlowTime.ahk
+#Include %A_ScriptDir%\lib\Flowtime.ahk
 
 <^>!SC01E:: 
   {
@@ -44,6 +44,9 @@ SetWorkingDir, %A_ScriptDir%
     }
     else if ( pressedKey = "i") { 
       WinMaximize, A
+    }
+    else if (pressedKey = "x"){
+      
     }
     else {
       WriteTip("Unknown key: " pressedKey)
