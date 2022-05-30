@@ -111,7 +111,7 @@ FlowLog( ModeStart , ModeEnd, Task, Comment := "") {
 
     Comment := GatherComments( ModeStart, ModeEnd , Comment)
     Action := GetModeName( ModeEnd )
-    Start := GetUnixTime()
+    Start :=GetHumanTime()
     content := "`n" Action "`t" Task "`t" Start "`t" Comment
     if (content) {
         flowtimeLog := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\stream\flowtime.tsv" 
@@ -119,7 +119,7 @@ FlowLog( ModeStart , ModeEnd, Task, Comment := "") {
     }
     return
 
-}
+} 
 GetModeName( mode ) {
     Expected := ["BreakEnd" , "WorkStart" , "WorkEnd" , "Interrupt"][ 1 + mode ]
     return Coalesce( Expected , "Unknown")
@@ -246,7 +246,11 @@ Sum( start, offset ) {
 GetUnixTime() {
     return A_Now
 }
-
+GetHumanTime() {
+    currentTime := GetUnixTime()
+    FormatTime, result, %currentTime%, yyyy/MM/dd HH:mm:ss
+    return result
+}
 Coalesce( val , fallback ) {
     if (val == "" || val ==) {
     return fallback

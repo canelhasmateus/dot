@@ -40,7 +40,9 @@
   <action id="ActivateBuildToolWindow">
     <keyboard-shortcut first-keystroke="alt w" second-keystroke="b" />
   </action>
-  <action id="ActivateCommitToolWindow" />
+  <action id="ActivateCommitToolWindow">
+    <keyboard-shortcut first-keystroke="alt w" second-keystroke="c" />
+  </action>
   <action id="ActivateDatabaseToolWindow">
     <keyboard-shortcut first-keystroke="alt w" second-keystroke="alt d" />
   </action>
