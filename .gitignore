@@ -25,6 +25,13 @@
 **/intellij/options/updates.xml
 **/intellij/options/vcs.xml
 **/intellij/options/window.state.xml
+**/intellij/options/github*
+**/intellij/options/ide-features*
+**/intellij/options/scala*
+**/intellij/options/web-types*
+**/intellij/options/docker*
+**/intellij/options/dslActivationStatus*
+**/intellij/options/trusted-paths*
 
 
 

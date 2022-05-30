@@ -58,19 +58,37 @@ function GitRemoveSubmodule( $Path) {
     Remove-Item  $ToRemove -Force -Recurse -ErrorAction SilentlyContinue
     git rm -f $path
 }
+function GitFlush( $Path) {
+    
+    if (-not $Path) {
+        $Path = "."
+    }
+
+    git rm -rf --cached $Path ; git add $Path
+}
+function GitUndo( $Path) {
+    if (-not $Path) {
+        $Path = Read-Host "Path for undoing"
+    }
+
+    git rm -rf --cached $Path
+    git add $Path
+}
 
 Set-Alias -Name vim -Value nvim
 Set-Alias -Name grep -Value findstr
 Set-Alias -Name tig -Value 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias -Name less -Value 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias -Name sublime -Value "C:\Program Files\Sublime Text\sublime_text.exe"
+Set-Alias -Name which -Value FindCommand
 
 
 Set-Alias -Name gammend -Value GitAmmend
 Set-Alias -Name gshove -Value GitShove
 Set-Alias -Name gshoveall -Value GitShoveWorkspace
 Set-Alias -Name gunmod -Value GitRemoveSubmodule
-Set-Alias -Name which -Value FindCommand
+Set-Alias -Name gflush -Value GitFlush
+Set-Alias -Name gundo -Value GitUndo
 
 
  

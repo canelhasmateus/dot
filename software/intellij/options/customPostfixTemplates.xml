@@ -7,13 +7,13 @@
             <value>
               <list>
                 <VFile>
-                  <option name="enabled" value="true" />
+                  <option name="enabled" value="false" />
                   <option name="id" value="pg.numbers" />
                   <option name="url" value="https://raw.githubusercontent.com/philipgriggs/go-postfix-templates/master/numbers.postfixTemplates" />
                   <option name="file" value="${PLUGIN}\go\pg.numbers.postfixTemplates" />
                 </VFile>
                 <VFile>
-                  <option name="enabled" value="true" />
+                  <option name="enabled" value="fale" />
                   <option name="id" value="pg.collections" />
                   <option name="url" value="https://raw.githubusercontent.com/philipgriggs/go-postfix-templates/master/collections.postfixTemplates" />
                   <option name="file" value="${PLUGIN}\go\pg.collections.postfixTemplates" />
@@ -25,7 +25,7 @@
                   <option name="file" value="${PLUGIN}\go\pg.zerolog.postfixTemplates" />
                 </VFile>
                 <VFile>
-                  <option name="enabled" value="true" />
+                  <option name="enabled" value="false" />
                   <option name="id" value="pg.zap" />
                   <option name="url" value="https://raw.githubusercontent.com/philipgriggs/go-postfix-templates/master/zap.postfixTemplates" />
                   <option name="file" value="${PLUGIN}\go\pg.zap.postfixTemplates" />

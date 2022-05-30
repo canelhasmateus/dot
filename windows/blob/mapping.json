@@ -107,84 +107,84 @@
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2021.3/jba_config/codestyles",
+            "destinationName": "/JetBrains/IntelliJIdea2022.1/codestyles",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/codestyles"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2021.3/jba_config/colors",
+            "destinationName": "/JetBrains/IntelliJIdea2022.1/colors",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/colors"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2021.3/jba_config/templates",
+            "destinationName": "/JetBrains/IntelliJIdea2022.1/templates",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/templates"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2021.3/jba_config/win.keymaps",
+            "destinationName": "/JetBrains/IntelliJIdea2022.1/keymaps",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/keymaps"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2021.3/options",
+            "destinationName": "/JetBrains/IntelliJIdea2022.1/options",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/options"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2021.3/tools",
+            "destinationName": "/JetBrains/IntelliJIdea2022.1/tools",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/tools"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2021.3/quicklists",
+            "destinationName": "/JetBrains/IntelliJIdea2022.1/quicklists",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/quicklists"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2021.3/plugins/live-plugins",
+            "destinationName": "/JetBrains/IntelliJIdea2022.1/plugins/live-plugins",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/plugins/live-plugins"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2021.3/plugins/intellij-postfix-templates_templates",
+            "destinationName": "/JetBrains/IntelliJIdea2022.1/plugins/intellij-postfix-templates_templates",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/plugins/postfix"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2021.3/jba_config/installed_plugins.txt",
+            "destinationName": "/JetBrains/IntelliJIdea2022.1/jba_config/installed_plugins.txt",
             "type": "hard",
             "targetRoot": "",
             "targetName": "/software/intellij/installed_plugins.txt"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2021.3/jba_config/disabled_plugins.txt",
+            "destinationName": "/JetBrains/IntelliJIdea2022.1/jba_config/disabled_plugins.txt",
             "type": "hard",
             "targetRoot": "",
             "targetName": "/software/intellij/disabled_plugins.txt"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2021.3/jba_config/idea64.exe.vmoptions",
+            "destinationName": "/JetBrains/IntelliJIdea2022.1/idea64.exe.vmoptions",
             "type": "hard",
             "targetRoot": "",
             "targetName": "/software/intellij/idea64.exe.vmoptions"

@@ -1,7 +1,0 @@
-<application>
-  <component name="DslActivationStatus">
-    <option name="entries">
-      <Entry url="file://$APPLICATION_PLUGINS_DIR$/LivePlugin/lib/standardDsls/livePluginCompletions.gdsl" status="ERROR" />
-    </option>
-  </component>
-</application>

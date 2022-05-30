@@ -70,11 +70,14 @@ FlowInterrupt(){
     SetMode( 3 )
     WriteTip("FlowTime: Interrupted")
 }
-
+FlowLoad() {
+    global CurrentMode
+    CurrentMode := Coalesce( CurrentMode , 0)
+}
 FlowChoose() {
     global CurrentMode, CurrentTask, WorkStart, BreakEnd
 
-    CurrentMode := Coalesce( CurrentMode , 0)
+    FlowLoad()
     if (CurrentMode = 0 || CurrentMode = 3){
         FlowStart() 
         return

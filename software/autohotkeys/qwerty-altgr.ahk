@@ -41,9 +41,9 @@ SetWorkingDir, %A_ScriptDir%
       WinMaximize, A
     }
     else if (pressedKey = "x"){
-
+      ;todo : Delete all workspaces
     }
-    else {
+    else if ( pressedKey ) {
       WriteTip("Unknown key: " pressedKey)
     }
 
@@ -63,7 +63,7 @@ SetWorkingDir, %A_ScriptDir%
     else if ( pressedKey = "q") {
       GrabUrl()
     }
-    else {
+    else if ( pressedKey ) {
       WriteTip("Unknown key: " pressedKey)
     }
 
