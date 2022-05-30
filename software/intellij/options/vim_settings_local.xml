@@ -1,4 +1,12 @@
 <application>
+  <component name="VimMarksSettings">
+    <globalmarks />
+    <filemarks />
+    <jumps />
+  </component>
+  <component name="VimRegisterSettings">
+    <registers />
+  </component>
   <component name="VimSearchSettings">
     <search>
       <last-dir encoding="base64">MQ==</last-dir>
