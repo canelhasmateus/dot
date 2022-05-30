@@ -178,3 +178,6 @@ WriteTip( msg , duration := 3000) {
 		ToolTip
 	return
 }
+SoundChime( ) {
+	SoundPlay, %A_ScriptDir%\blob\nightchime.wav duration
+}

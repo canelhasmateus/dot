@@ -25,7 +25,7 @@ GrabUrl(){
     if (chosenQuality) { 
         destination = "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\articles.tsv"
         FileAppend, `n%A_YYYY%-%A_MM%-%A_DD%`t%A_Hour%:%A_Min%:%A_Sec%`t%chosenQuality%`t%url%, %destination%
-        SoundPlay %A_ScriptDir%\blob\xylo.wav
+        WriteTip("Saved url as " chosenQuality)
     }
 }
 
@@ -57,5 +57,12 @@ ProcessArticles() {
     run python "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\scripts\update.py"
 }
 
+CreateIssue() {
+    issue := GatherText( "Create an issue") 
+    if ( issue ){
+        issueFile := "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\issues.txt"
+        FileAppend, %issue%, %issueFile%
+    }
+}
 ; -----
 

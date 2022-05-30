@@ -63,6 +63,9 @@ SetWorkingDir, %A_ScriptDir%
     else if ( pressedKey = "q") {
       GrabUrl()
     }
+    else if ( pressedKey = "i") {
+      CreateIssue()
+    }
     else if ( pressedKey ) {
       WriteTip("Unknown key: " pressedKey)
     }

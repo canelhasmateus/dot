@@ -61,18 +61,22 @@ function GitRemoveSubmodule( $Path) {
 function GitFlush( $Path) {
     
     if (-not $Path) {
-        $Path = "."
+        $Path = Read-Host "Path for undoing"
+        if ( -not $Path) {
+            $Path = "."
+        }
     }
 
-    git rm -rf --cached $Path ; git add $Path
+    git rm -rf --cached $Path
+    git add $Path
 }
 function GitUndo( $Path) {
     if (-not $Path) {
         $Path = Read-Host "Path for undoing"
     }
 
-    git rm -rf --cached $Path
-    git add $Path
+    git restore --staged $Path
+    git restore $Path
 }
 
 Set-Alias -Name vim -Value nvim

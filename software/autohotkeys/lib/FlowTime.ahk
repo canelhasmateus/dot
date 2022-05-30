@@ -2,14 +2,18 @@
 #singleinstance force
 #Include %A_ScriptDir%\lib\VisualUtils.ahk
 
-CurrentMode := 0 ; 0 = Off, 1 = working, 2 = break, 3 = interrupted
+CurrentMode := 0 ; 0 = Off, 1 = working, 2 = break, 3 = interrupted, 4 = setting up
 CurrentTask := ""
 WorkStart := 0
 WorkEnd := 0
 BreakStart := 0
 BreakEnd := 0
 BreakLength := 0
+WorkingTasks := [ ]
 
+Task() {
+    
+}
 SetMode( NextMode ){
     global CurrentMode, CurrentTask
 
@@ -30,6 +34,9 @@ SetMode( NextMode ){
         BreakInstructions( )
     }
 
+    Comment := GatherComments( ModeStart, ModeEnd , Comment)
+    Action := GetModeName( ModeEnd )
+    
     SetTimes( CurrentMode, NextMode )
     FlowLog( CurrentMode, NextMode, currentTask)
     CurrentMode := NextMode
@@ -112,17 +119,19 @@ FlowChoose() {
 
 FlowLog( ModeStart , ModeEnd, Task, Comment := "") {
 
-    Comment := GatherComments( ModeStart, ModeEnd , Comment)
-    Action := GetModeName( ModeEnd )
+
+    FlowSave( Action , Task , Comment)
+    return
+
+} 
+FlowSave( Action , Task , Comment := "") {
     Start :=GetHumanTime()
     content := "`n" Action "`t" Task "`t" Start "`t" Comment
     if (content) {
         flowtimeLog := "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\flowtime.tsv" 
         FileAppend, %content%, %flowtimeLog%
     }
-    return
-
-} 
+}
 GetModeName( mode ) {
     Expected := ["BreakEnd" , "WorkStart" , "WorkEnd" , "Interrupt"][ 1 + mode ]
     return Coalesce( Expected , "Unknown")
