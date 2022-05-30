@@ -52,6 +52,13 @@ function GitShoveWorkspace( $Message ) {
 
 }
 
+function GitRemoveSubmodule( $Path) {
+    git submodule deinit -f $Path
+    $ToRemove = Resolve-Path ".git/modules/$Path"
+    rm -rf $ToRemove
+    git rm -f path/to/submodule
+
+}
 Set-Alias -Name vim -Value nvim
 Set-Alias -Name grep -Value findstr
 Set-Alias -Name tig -Value 'C:\Program Files\Git\usr\bin\tig.exe'
@@ -62,6 +69,7 @@ Set-Alias -Name sublime -Value "C:\Program Files\Sublime Text\sublime_text.exe"
 Set-Alias -Name gammend -Value GitAmmend
 Set-Alias -Name gshove -Value GitShove
 Set-Alias -Name gshoveall -Value GitShoveWorkspace
+Set-Alias -Name gunmod -Value GitRemoveSubmodule
 Set-Alias -Name which -Value FindCommand
 
 
