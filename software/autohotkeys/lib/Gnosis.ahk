@@ -23,7 +23,7 @@ GrabUrl(){
 
     chosenQuality := AutoCompleteComboBox("Choose a quality" , ["Premium" , "Good" , "History" , "Bookmark" , "Bad", "Queue" , "Revisit" , "Tool" , "Utility" , "Explore" , "Done" ]) 
     if (chosenQuality) { 
-        destination = "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\stream\articles.tsv"
+        destination = "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\articles.tsv"
         FileAppend, `n%A_YYYY%-%A_MM%-%A_DD%`t%A_Hour%:%A_Min%:%A_Sec%`t%chosenQuality%`t%url%, %destination%
         SoundPlay %A_ScriptDir%\blob\xylo.wav
     }
@@ -54,7 +54,7 @@ OpenHighlighted() {
 }
 
 ProcessArticles() {
-    run python "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\scripts\update.py"
+    run python "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\scripts\update.py"
 }
 
 ; -----

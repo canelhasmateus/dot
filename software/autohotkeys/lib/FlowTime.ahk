@@ -114,7 +114,7 @@ FlowLog( ModeStart , ModeEnd, Task, Comment := "") {
     Start :=GetHumanTime()
     content := "`n" Action "`t" Task "`t" Start "`t" Comment
     if (content) {
-        flowtimeLog := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\stream\flowtime.tsv" 
+        flowtimeLog := "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\flowtime.tsv" 
         FileAppend, %content%, %flowtimeLog%
     }
     return
@@ -136,7 +136,7 @@ GatherComments( ModeStart, ModeEnd, Comment) {
 ; -----
 
 TaskChoose() {
-    flowtimeTasks := "C:\Users\Mateus\OneDrive\vault\Canelhas\lists\stream\todos.txt"
+    flowtimeTasks := "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\todos.txt"
     FileRead,content , %flowtimeTasks% 
     content := StrSplit(content , "`n")
     return AutoCompleteComboBox( "Start a task!", content)

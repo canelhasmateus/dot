@@ -19,11 +19,6 @@ SetWorkingDir, %A_ScriptDir%
     Send {|}
     return
   }
-<^>!SC021::
-  {
-    ; AltGr + "F"
-    OpenHighlighted() 
-  }
 
 <^>!SC018::
   {
@@ -33,11 +28,11 @@ SetWorkingDir, %A_ScriptDir%
     {
       sendDesktopOrSwitchDesktop( pressedKey )
     }
+    else if ( pressedKey = "f") {
+      OpenHighlighted() 
+    }
     else if (pressedkey = "r") {
       switchDesktopToLastOpened()
-    }
-    else if ( pressedKey = "f") {
-      OpenHighlighted()
     }
     else if ( pressedKey = "w") {
       alternateWindowMonitor()
@@ -46,7 +41,7 @@ SetWorkingDir, %A_ScriptDir%
       WinMaximize, A
     }
     else if (pressedKey = "x"){
-      
+
     }
     else {
       WriteTip("Unknown key: " pressedKey)
@@ -74,5 +69,4 @@ SetWorkingDir, %A_ScriptDir%
 
     return
   } 
-
 
