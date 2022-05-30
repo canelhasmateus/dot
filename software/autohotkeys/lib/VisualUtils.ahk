@@ -63,22 +63,25 @@ ListenNextKey()
 	return pressedKey
 }
 
-AutoCompleteComboBox( prompt , options ) {
+AutoCompletingView( prompt , options ) {
 	Global ChosenOption
 
 	ChosenOption := ""
 	Gui, 2:+LastFound
 	GuiHWND := WinExist() ;--get handle to this gui..
-
-	Gui, 2:Add , Text , , %prompt%
-	Gui, 2:Add , ComboBox, vChosenOption gCbAutoComplete
+	Gui, 2:Default
+	Gui, 2:Add , Text , Center w700, %prompt%
+	Gui, 2:Add , ListView,h400 w700, Todo
+	Gui, 2:Add , ComboBox, h400 w700 vChosenOption gCbAutoComplete
 	Gui, 2:Add , Button, gButtonComplete, OK
 	Gui, 2:Show
 
 	for k, v in options { 
 		GuiControl,2:, ChosenOption, % v "|"
+		LV_Add("", v)
 	}
-
+	GuiControl, 2:Focus, ChosenOption
+	; GuiControl, Focus, 
 	WinWaitClose, ahk_id %GuiHWND% ;--waiting for 'gui to close
 	return ChosenOption
 
@@ -128,8 +131,6 @@ GatherText( prompt ) {
 
 	
 }
-
-
 GatherChoice( prompt , options ) {
 	Global ChosenOption
 
@@ -138,7 +139,7 @@ GatherChoice( prompt , options ) {
 	GuiHWND := WinExist() ;--get handle to this gui..
 
 	Gui, 4:Add , Text , , %prompt%
-	Gui, 4:Add , DropDownList, vChosenOption
+	Gui, 4:Add , ListBox, vChosenOption
 	Gui, 4:Add , Button, gButtonList, OK
 	Gui, 4:Show
 
@@ -178,6 +179,9 @@ WriteTip( msg , duration := 3000) {
 		ToolTip
 	return
 }
+SoundWind() {
+	SoundPlay, %A_ScriptDir%\blob\windchime.wav 
+}
 SoundChime( ) {
-	SoundPlay, %A_ScriptDir%\blob\nightchime.wav duration
+	SoundPlay, %A_ScriptDir%\blob\nightchime.wav 
 }

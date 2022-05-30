@@ -2,128 +2,140 @@
 #singleinstance force
 #Include %A_ScriptDir%\lib\VisualUtils.ahk
 
-globalState :=  { }
+CurrentMode := 0 ; 0 = Off, 1 = working, 2 = break, 3 = interrupted, 4 = setting up
+CurrentTask := ""
+WorkStart := 0
+WorkEnd := 0
+BreakStart := 0
+BreakEnd := 0
+BreakLength := 0
+WorkingTasks := [ ]
 
-StrRepeat(string, times) {
-    output := ""
-
-    loop % times
-        output .= string
-
-    return output
+Task() {
+    
 }
-_FormatTaskMessage( tasks ) {
-    ; tasks := Coalesce( tasks , [ ])    
-    message := "Currently Working:`n"
-    for idx , obj in tasks {
-        spaces := StrRepeat( " " , idx) 
-        name := obj["Name"] 
-        message .= "`n" spaces name
+SetMode( NextMode ){
+    global CurrentMode, CurrentTask
+
+    if ( NextMode = CurrentMode) {
+        return
     }
-    return message
+
+    if (NextMode == 1){
+        ; Work Mode
+        CurrentTask := TaskChoose()
+        if (!CurrentTask) {
+            return
+        }
+        TaskInstructions( CurrentTask ) 
+
+    } else if ( NextMode == 2){
+
+        _BreakInstructions( )
+    }
+
+    Comment := GatherComments( ModeStart, ModeEnd , Comment)
+    Action := GetModeName( ModeEnd )
+    
+    SetTimes( CurrentMode, NextMode )
+    FlowLog( CurrentMode, NextMode, currentTask)
+    CurrentMode := NextMode
+    return
+
 }
+SetTimes( StartMode , EndMode) {
+    global WorkStart, WorkEnd, BreakStart, BreakEnd, BreakLength
 
-UpdateState( action , state) {
+    ; -----
 
-    if (!action) {
-        return state
+    if ( EndMode = 1) {
+        ; Entering Work Mode
+        WorkStart := GetUnixTime()
     }
-
-    detail := "None"
-    timestamp := "" ; 
-    newMode := state["Mode"]
-    newTasks := state["Tasks"].Clone()
-
-    actionName := action["Action"]
-    if (actionName == "Fork") {
-        task := action["Task"]
-        newTasks.Push( task )
-        newMode := "Flow"
-    }
-    else if ( actionName == "Join") {
-        task := newTasks.Pop()
-        ; 
-        newMode := newTasks.Count() == 0 ? "Off" : "Flow"
-    }
-    else if ( actionName == "Gather" || actionName == "Break") {
-        task := { "Name" : "None"}
-        newTasks := [ ]
-        newMode := "Off"
+    if (StartMode = 1) {
+        ; Exiting Work Mode
+        WorkEnd := GetUnixTime()
+        BreakStart := GetUnixTime()
+        BreakLength := BreakSize( WorkStart , WorkEnd )
+        BreakEnd := Sum( BreakStart, BreakLength)
     }
 
-    return { "Mode" : newMode , "Tasks" : newTasks , "LastUpdate" : timestamp , "Detail" : "None"}
-}
+    ; -----
 
-DisplayFork( ) {
-    flowtimeTasks := "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\todos.txt"
-    FileRead,content , %flowtimeTasks% 
-    content := StrSplit(content , "`n")
-    task := AutoCompleteComboBox( "Start a task!", content)
-    if ( task ) {
-        action := { "Action" : "Fork" , "Task" : { "Name" : task }}
-    }
-    return action
-}
-
-DisplayFlow( state ) {
-    message := _FormatTaskMessage( state["Tasks"] ) 
-    options := [ "Fork" , "Join" , "Gather" , "Break"] 
-    choice := GatherChoice( message, options)
-
-    if (choice == "Fork") {
-        action := DisplayFork()
-    }
-    else if ( choice == "Join") {
-        action := { "Action" : "Join" }
-    }
-    else if ( choice == "Gather") {
-        action := { "Action" : "Gather" }
-    }
-    else if ( choice == "Break") {
-        action := { "Action" : "Break" }
-    }
-    else if ( choice ) {
-        WriteTip( "Flowtime: unknown choice: " choice) 
-    }
-
-    return action
 }
 
-DisplayUI( state ) {
+FlowStop(){
+    SetMode( 0 )
+}
+FlowStart(){
+    SetMode( 1 )
+}
+FlowBreak(){
+    SetMode( 2 )
+}
+FlowInterrupt(){
+    SetMode( 3 )
+    WriteTip("FlowTime: Interrupted")
+}
+FlowLoad() {
+    global CurrentMode
+    CurrentMode := Coalesce( CurrentMode , 0)
+}
+FlowChoose() {
+    global CurrentMode, CurrentTask, WorkStart, BreakEnd
 
-    currentMode := state["Mode"]
-    if (currentMode == "Flow") {
-        action := DisplayFlow( state )
+    FlowLoad()
+    if (CurrentMode = 0 || CurrentMode = 3){
+        FlowStart() 
+        return
     }
-    else if (currentMode == "Off") {
-        action := DisplayFork()
+    else if ( CurrentMode = 1) {
+        prompt := "Working at " CurrentTask " for " Diff( WorkStart , GetUnixTime() ) "s."
+        options := ["Break", "Interrupt"] 
+    }
+    else if ( CurrentMode = 2 ) {
+        prompt := "Breaking from " CurrentTask " for " Diff( GetUnixTime() , BreakEnd ) "s."
+        options := ["Interrupt"] 
     }
     else {
-        WriteTip( "Flowtime in unknown state.")
+        WriteTip( "CurrentMode not found: " CurrentMode)
+        return
     }
-    
-    newState := UpdateState( action , state )
-    
-    if (newState != state) {
-        return newState
+
+    action := GatherChoice(prompt, options)
+    if ( action = "Break" ) {
+        FlowBreak()
     }
-    return DisplayUI( newState )
+    else if ( action = "Interrupt" ) {
+        FlowInterrupt()
+    }
+    else if (action) {
+        WriteTip( "Action not understood: " action) 
+    }
+    return
 }
 
-FlowLoad() {
-    global CurrentMode, CurrentStatus    
-    CurrentMode := Coalesce( CurrentMode , 0)
-    
-    FlowLoad()
-    mode = Coalesce( CurrentMode , 0 )
-    CurrentStatus := { "CurrentMode" : mode }
-    return CurrentStatus
+; -----
+
+FlowLog( ModeStart , ModeEnd, Task, Comment := "") {
+
+
+    FlowSave( Action , Task , Comment)
+    return
+
+} 
+FlowSave( Action , Task , Comment := "") {
+    Start :=GetHumanTime()
+    content := "`n" Action "`t" Task "`t" Start "`t" Comment
+    if (content) {
+        flowtimeLog := "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\flowtime.tsv" 
+        FileAppend, %content%, %flowtimeLog%
+    }
 }
-
-; ---
-
-; ---
-
+GetModeName( mode ) {
+    Expected := ["BreakEnd" , "WorkStart" , "WorkEnd" , "Interrupt"][ 1 + mode ]
+    return Coalesce( Expected , "Unknown")
+}
 GatherComments( ModeStart, ModeEnd, Comment) {
     if ( ModeStart == 1 && ModeEnd != 1) {
         if (Comment == "") {
@@ -133,18 +145,14 @@ GatherComments( ModeStart, ModeEnd, Comment) {
 
     return Coalesce( Comment , "None")
 }
-
-FlowSave( currentStatus, Comment := "") {
-    Start :=GetHumanTime()
-    content := "`n" Action "`t" Task "`t" Start "`t" Comment
-    if (content) {
-        flowtimeLog := "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\flowtime.tsv" 
-        FileAppend, %content%, %flowtimeLog%
-    }
-}
 ; -----
 
-
+TaskChoose() {
+    flowtimeTasks := "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\todos.txt"
+    FileRead,content , %flowtimeTasks% 
+    content := StrSplit(content , "`n")
+    return AutoCompletingView( "Start a task!", content)
+}
 TaskAlerts() {
 
     SetTimer, TaskOver, -54000000
@@ -165,14 +173,14 @@ TaskAlerts() {
         }
     return
 }
-TaskDesktop() {
+newDesktop() {
     Sleep, 100
     Send {CtrlDown}{LWinDown}{d}{CtrlUp}{LWinUp}
     Sleep, 100
     return
 }
 TaskInstructions( task) {
-    TaskDesktop()
+    newDesktop()
     TaskAlerts()
     content = 
     (
@@ -215,7 +223,7 @@ BreakSize( start, finish ) {
     return Length
 }
 
-BreakInstructions( ) {
+_BreakInstructions( ) {
     global BreakLength
 
     BreakInSeconds := Coalesce( BreakLength , 60 )
