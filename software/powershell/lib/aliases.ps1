@@ -54,11 +54,11 @@ function GitShoveWorkspace( $Message ) {
 
 function GitRemoveSubmodule( $Path) {
     git submodule deinit -f $Path
-    $ToRemove = Resolve-Path ".git/modules/$Path"
-    rm -rf $ToRemove
-    git rm -f path/to/submodule
-
+    $ToRemove = Resolve-Path ".git/modules/$Path" -ErrorAction SilentlyContinue
+    Remove-Item  $ToRemove -Force -Recurse -ErrorAction SilentlyContinue
+    git rm -f $path
 }
+
 Set-Alias -Name vim -Value nvim
 Set-Alias -Name grep -Value findstr
 Set-Alias -Name tig -Value 'C:\Program Files\Git\usr\bin\tig.exe'
