@@ -48,7 +48,7 @@ function CreateSymLink {
 
     
  
-    Remove-Item $Source -Recurse -Force
+    Remove-Item $Source -Recurse -Force -ErrorAction SilentlyContinue
     New-Item -Type SymbolicLink -Path $Source -Target $Target -Force
     
 
