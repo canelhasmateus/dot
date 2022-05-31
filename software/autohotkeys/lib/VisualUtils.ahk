@@ -63,7 +63,7 @@ ListenNextKey()
 	return pressedKey
 }
 
-AutoCompletingView( prompt , options ) {
+AutoCompletingListView( prompt , options ) {
 	Global ChosenOption
 
 	ChosenOption := ""
@@ -78,11 +78,12 @@ AutoCompletingView( prompt , options ) {
 
 	for k, v in options { 
 		GuiControl,2:, ChosenOption, % v "|"
-		LV_Add("", v)
+		LV_Add("", v)		
 	}
 	GuiControl, 2:Focus, ChosenOption
-	; GuiControl, Focus, 
 	WinWaitClose, ahk_id %GuiHWND% ;--waiting for 'gui to close
+	StringReplace, ChosenOption, ChosenOption, `n,, All
+	StringReplace, ChosenOption, ChosenOption, `r,, All
 	return ChosenOption
 
 	;-------
@@ -108,7 +109,7 @@ GatherText( prompt ) {
 	Gui, 3:+LastFound
 	GuiHWND := WinExist() ;--get handle to this gui..
 
-	Gui, 3:Add , Text , , %prompt%
+	Gui, 3:Add , Text , Center, %prompt%
 	Gui, 3:Add , Edit, vChosenOption
 	Gui, 3:Add , Button, gButtonGather, OK
 	Gui, 3:Show
@@ -168,6 +169,27 @@ GatherChoice( prompt , options ) {
 	4GuiClose:
 		Gui, 4:Destroy
 	return
+
+}
+WriteText( msg ) {
+
+
+	Gui, 5:+LastFound +MaximizeBox
+	
+	GuiHWND := WinExist() ;--get handle to this gui..
+	Gui, 5:Add , Text ,Left, %msg%
+	Gui, 5:Add , Button, gButtonText, OK
+	Gui, 5:Show
+	WinWaitClose, ahk_id %GuiHWND% ;--waiting for 'gui to close
+	return
+
+
+	ButtonText:
+	5GuiEscape:
+	5GuiClose:
+		Gui, 5:Destroy
+	return
+
 
 }
 WriteTip( msg , duration := 3000) {

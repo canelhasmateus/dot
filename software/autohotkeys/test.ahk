@@ -88,7 +88,6 @@ AdvanceState( action , state) {
     return { "Mode" : newMode , "Tasks" : newTasks , "Detail" : "None"}
 }
 
-; ------ Impure Utilities
 _FormatForkMessage( state ) {
     tasks := state["Tasks"] 
     ; tasks := Coalesce( tasks , [ ])    
@@ -142,6 +141,7 @@ _FormatStartMessage( state ) {
 
         return content
     }
+    ; ---
 
     GetUnixTime() {
         return A_Now
@@ -169,14 +169,13 @@ _FormatStartMessage( state ) {
         breakLength := BreakSize( state["Tasks"][ 1 ]["Start"] , now )
         breakEnd := Sum(now , breakLength)
         MilliBreak := 1000*BreakInSeconds
-        
-        prefix := breakLength > 0 ?  "Relax for " breakLength ". " : ""
+
+        prefix := breakLength > 0 ? "Relax for " breakLength ". " : ""
         comment := GatherText( prefix "Any thoughts on this session?")
         if (MilliBreak >= 60000) {
             SetTimer BreakOver, -%MilliBreak%
         }
-        
-        
+
         state["Detail"] = Coalesce( comment , "None")
         return state
 
@@ -192,7 +191,7 @@ _FormatStartMessage( state ) {
         newDesktop()
         content := _FormatStartMessage( state )
         MsgBox,, Flowtime, %content%
-        
+
         SetTimer, TaskTime, -18500000
         SetTimer, TaskTime, -36500000
         SetTimer, TaskTime, -54500000
@@ -238,7 +237,7 @@ _FormatStartMessage( state ) {
         FileRead,content , %flowtimeTasks% 
         content := Trim(content, OmitChars = "`n `t")
         content := StrSplit(content , "`n")
-        task := AutoCompletingView( message , content)
+        task := AutoCompletingListView( message , content)
         if ( task ) {
             action := { "Action" : "Fork" , "Task" : { "Name" : task , "Start" : GetUnixTime() }}
         }
@@ -249,9 +248,9 @@ _FormatStartMessage( state ) {
     DisplayUI( ) {
         global globalState
         if ( !globalState ) {
-            globalState := LoadState()    
+            globalState := LoadState() 
         }
-        
+
         ; ----- 
         state := globalState
         currentMode := state["Mode"]
@@ -265,28 +264,24 @@ _FormatStartMessage( state ) {
         }
         else {
             WriteTip( "Flowtime in unknown state. " currentMode)
-            return
-        }
-        ; -----
-        newState := AdvanceState( action , state )
-        if (!newState) {
-            return 
-        }
-        newMode := newState["Mode"]
-        if ( newMode == "Off" && currentMode == "Flow") { 
-            newState := _BreakInstructions( newState )
-        } 
-        else if ( newMode == "Flow" && currentMode != "Flow") {
-            newState := _FlowInstructions( newState )
-        }
-        globalState := newState
-
+        return
+    }
+    ; -----
+    newState := AdvanceState( action , state )
+    if (!newState) {
         return 
     }
+    newMode := newState["Mode"]
+    if ( newMode == "Off" && currentMode == "Flow") { 
+        newState := _BreakInstructions( newState )
+    } 
+    else if ( newMode == "Flow" && currentMode != "Flow") {
+        newState := _FlowInstructions( newState )
+    }
+    globalState := newState
 
-    ; ----- 
+    return 
+}
 
-    
+; ----- 
 
-loop % 10
-    DisplayUI()

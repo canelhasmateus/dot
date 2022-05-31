@@ -58,7 +58,7 @@ SetWorkingDir, %A_ScriptDir%
       ProcessArticles()
     } 
     else if (pressedKey = "m"){
-      FlowChoose()
+      FlowUI()
     }
     else if ( pressedKey = "q") {
       GrabUrl()

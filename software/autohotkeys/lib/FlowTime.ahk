@@ -2,248 +2,23 @@
 #singleinstance force
 #Include %A_ScriptDir%\lib\VisualUtils.ahk
 
-CurrentMode := 0 ; 0 = Off, 1 = working, 2 = break, 3 = interrupted, 4 = setting up
-CurrentTask := ""
-WorkStart := 0
-WorkEnd := 0
-BreakStart := 0
-BreakEnd := 0
-BreakLength := 0
-WorkingTasks := [ ]
+#SingleInstance, Force
+SendMode Input
+SetWorkingDir, %A_ScriptDir%
+#Include %A_ScriptDir%\lib\VisualUtils.ahk
 
-Task() {
-    
+globalState := 
+breakEnd := 0
+
+; ----- Pure Utilities
+ToHumanTime( timestamp ) {
+    FormatTime, result, %timestamp%, yyyy/MM/dd HH:mm:ss
+    return result
 }
-SetMode( NextMode ){
-    global CurrentMode, CurrentTask
-
-    if ( NextMode = CurrentMode) {
-        return
-    }
-
-    if (NextMode == 1){
-        ; Work Mode
-        CurrentTask := TaskChoose()
-        if (!CurrentTask) {
-            return
-        }
-        TaskInstructions( CurrentTask ) 
-
-    } else if ( NextMode == 2){
-
-        _BreakInstructions( )
-    }
-
-    Comment := GatherComments( ModeStart, ModeEnd , Comment)
-    Action := GetModeName( ModeEnd )
-    
-    SetTimes( CurrentMode, NextMode )
-    FlowLog( CurrentMode, NextMode, currentTask)
-    CurrentMode := NextMode
-    return
-
+ToUnixTime( timestamp ) {
+    FormatTime, result, %timestamp%, yyyyMMddHHmmss
+    return result
 }
-SetTimes( StartMode , EndMode) {
-    global WorkStart, WorkEnd, BreakStart, BreakEnd, BreakLength
-
-    ; -----
-
-    if ( EndMode = 1) {
-        ; Entering Work Mode
-        WorkStart := GetUnixTime()
-    }
-    if (StartMode = 1) {
-        ; Exiting Work Mode
-        WorkEnd := GetUnixTime()
-        BreakStart := GetUnixTime()
-        BreakLength := BreakSize( WorkStart , WorkEnd )
-        BreakEnd := Sum( BreakStart, BreakLength)
-    }
-
-    ; -----
-
-}
-
-FlowStop(){
-    SetMode( 0 )
-}
-FlowStart(){
-    SetMode( 1 )
-}
-FlowBreak(){
-    SetMode( 2 )
-}
-FlowInterrupt(){
-    SetMode( 3 )
-    WriteTip("FlowTime: Interrupted")
-}
-FlowLoad() {
-    global CurrentMode
-    CurrentMode := Coalesce( CurrentMode , 0)
-}
-FlowChoose() {
-    global CurrentMode, CurrentTask, WorkStart, BreakEnd
-
-    FlowLoad()
-    if (CurrentMode = 0 || CurrentMode = 3){
-        FlowStart() 
-        return
-    }
-    else if ( CurrentMode = 1) {
-        prompt := "Working at " CurrentTask " for " Diff( WorkStart , GetUnixTime() ) "s."
-        options := ["Break", "Interrupt"] 
-    }
-    else if ( CurrentMode = 2 ) {
-        prompt := "Breaking from " CurrentTask " for " Diff( GetUnixTime() , BreakEnd ) "s."
-        options := ["Interrupt"] 
-    }
-    else {
-        WriteTip( "CurrentMode not found: " CurrentMode)
-        return
-    }
-
-    action := GatherChoice(prompt, options)
-    if ( action = "Break" ) {
-        FlowBreak()
-    }
-    else if ( action = "Interrupt" ) {
-        FlowInterrupt()
-    }
-    else if (action) {
-        WriteTip( "Action not understood: " action) 
-    }
-    return
-}
-
-; -----
-
-FlowLog( ModeStart , ModeEnd, Task, Comment := "") {
-
-
-    FlowSave( Action , Task , Comment)
-    return
-
-} 
-FlowSave( Action , Task , Comment := "") {
-    Start :=GetHumanTime()
-    content := "`n" Action "`t" Task "`t" Start "`t" Comment
-    if (content) {
-        flowtimeLog := "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\flowtime.tsv" 
-        FileAppend, %content%, %flowtimeLog%
-    }
-}
-GetModeName( mode ) {
-    Expected := ["BreakEnd" , "WorkStart" , "WorkEnd" , "Interrupt"][ 1 + mode ]
-    return Coalesce( Expected , "Unknown")
-}
-GatherComments( ModeStart, ModeEnd, Comment) {
-    if ( ModeStart == 1 && ModeEnd != 1) {
-        if (Comment == "") {
-            Comment := GatherText("Any comments?")
-        }
-    } 
-
-    return Coalesce( Comment , "None")
-}
-; -----
-
-TaskChoose() {
-    flowtimeTasks := "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\todos.txt"
-    FileRead,content , %flowtimeTasks% 
-    content := StrSplit(content , "`n")
-    return AutoCompletingView( "Start a task!", content)
-}
-TaskAlerts() {
-
-    SetTimer, TaskOver, -54000000
-    SetTimer, TaskTime, -18000000
-    return
-
-    TaskTime:
-        global CurrentMode
-        if ( CurrentMode = 1 ) {
-            WriteTip( "30 minutes since task started." , 10000)
-        }
-    return
-
-    TaskOver:
-        global CurrentMode
-        if ( CurrentMode = 1 ) {
-            WriteTip("90 minutes since task started.`nCare to take a break?" , 10000)
-        }
-    return
-}
-newDesktop() {
-    Sleep, 100
-    Send {CtrlDown}{LWinDown}{d}{CtrlUp}{LWinUp}
-    Sleep, 100
-    return
-}
-TaskInstructions( task) {
-    newDesktop()
-    TaskAlerts()
-    content = 
-    (
-
-        Working on %task%.
-        -----------------------------
-
-    Take care of your phisiology:
-        * Coffee
-        * Water
-        * Bathroom
-        * Reading Glasses
-
-    Optimize your environment:
-        * Distractions
-        * Music
-        * Scents
-        * Lightning
-        * Tidiness
-
-        -----------------------------
-        Have a good time! 
-
-    )
-
-    MsgBox,, Flowtime, %content%
-    return 
-}
-; -----
-
-BreakSize( start, finish ) {
-    Duration := Diff( start , finish )
-    Length := Ceil( 0.3 * Duration )
-    if (Length <= 60) {
-        Length := 60
-    }
-    if ( Length >= 1800) {
-        Length := 1800
-    }
-    return Length
-}
-
-_BreakInstructions( ) {
-    global BreakLength
-
-    BreakInSeconds := Coalesce( BreakLength , 60 )
-    MilliBreak := 1000*BreakInSeconds
-    SetTimer BreakOver, -%MilliBreak%
-    WriteTip("FlowTime: Break for " BreakInSeconds "s")
-    return
-
-    BreakOver:
-        global CurrentMode
-        if (CurrentMode = 2 ) {
-            SoundBeep, 500, 1000
-            MsgBox Break is Over!
-            FlowStop()
-        }
-    return
-}
-
-; ------
-
 Diff( start, finish ) { 
     result = %finish%
     EnvSub result, %start%, seconds
@@ -255,20 +30,330 @@ Sum( start, offset ) {
     return result
 }
 
-GetUnixTime() {
-    return A_Now
-}
-GetHumanTime() {
-    currentTime := GetUnixTime()
-    FormatTime, result, %currentTime%, yyyy/MM/dd HH:mm:ss
-    return result
+StrRepeat(string, times) {
+    output := ""
+
+    loop % times
+        output .= string
+
+    return output
 }
 Coalesce( val , fallback ) {
-    if (val == "" || val ==) {
-    return fallback
+
+    if (val == "" || val == ) {
+        return fallback
+    }
+
+    return val
+
+}
+; ----- Core Logic
+BreakSize( start, finish ) {
+    Duration := Diff( start , finish )
+    Length := Ceil( 0.3 * Duration )
+    if (Length <= 5) {
+        Length := 0
+    }
+    else if (Length <= 60) {
+        Length := 60
+    }
+    else if ( Length >= 3600 ) {
+        Length := 3600
+    }
+    return Length
 }
 
-return val
+AdvanceState( action , state) {
+
+    if (!action) {
+        return state
+    }
+
+    detail := "None"
+    breakLength := 0
+    newMode := state["Mode"]
+    newTasks := state["Tasks"].Clone()
+    actionName := action["Action"]
+    if (actionName == "Fork") {
+        task := action["Task"]
+        newTasks.Push( task )
+        newMode := "Flow"
+    }
+    else if ( actionName == "Join") {
+        task := newTasks.Pop()
+        ; 
+        newMode := newTasks.Count() == 0 ? "Off" : "Flow"
+    }
+    else if ( actionName == "Gather" || actionName == "Break") {
+        task := { "Name" : "None" , "Start" : GetUnixTime()}
+        newTasks := [ ]
+        newMode := "Off"
+    }
+    else {
+        return state
+    }
+
+    return { "Mode" : newMode , "Tasks" : newTasks , "Detail" : "None"}
+}
+
+_FormatForkMessage( state ) {
+    tasks := state["Tasks"] 
+    ; tasks := Coalesce( tasks , [ ])    
+    message := "Currently Working:`n"
+    for idx , obj in tasks {
+        spaces := StrRepeat( " " , idx) 
+        name := obj["Name"] 
+        message .= "`n" spaces name
+    }
+    return message
+}
+_FormatOffMessage( state ) {
+    ; Couldn't make this fit nicely. There goes a global :(
+    global breakEnd
+    remainingTime := Diff( GetUnixTime() , breakEnd)
+    remainingTime := Coalesce( remainingTime , 0 )
+    if ( remainingTime <= 0 ) {
+        return "There is no time to explain.`n Get in the flow!"
+    }
+    else {
+        return "Relaxing for " remainingTime " more seconds.`n`t...Or am i?!"
+    }
 
 }
+_FormatStartMessage( state ) {
+
+    task := state["Tasks"][ 1 ]["Name"]
+    content = 
+    (
+        `tWhile Working on %task%,
+        Take care of your phisiology:
+
+            - Coffee
+            - Water
+            - Bathroom
+            - Reading Glasses
+
+        Optimize your environment:
+
+            - Distractions
+            - Music
+            - Scents
+            - Lightning
+            - Tidiness
+
+            Have a good time!
+        )
+
+        return content
+    }
+    ; ---
+
+    GetUnixTime() {
+        return A_Now
+    }
+    StateLog( action , state ) {
+        if ( !action ) {
+        return
+    }
+    detail := state["Detail"]
+
+    actionName := action["Action"]
+    if (actionName == "Fork") {
+        timestamp := state["Tasks"][ state["Tasks"].Count() + 1 ]["Start"]
+        taskName := action["Task"]["Name"]
+    }
+    else if ( actionName == "Join") {
+        timestamp := GetUnixTime()
+        taskName := action["Task"]["Name"]
+    } 
+    else {
+        timestamp := GetUnixTime()
+        taskName := "N/A"
+    }
+
+    timestamp := ToHumanTime( timestamp )
+    content := "`n" actionName "`t" taskName "`t" timestamp "`t" detail
+    flowtimeLog := "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\flowtime.tsv"
+
+    FileAppend ,%content% ,%flowtimeLog%
+    return
+}
+LoadState() {
+    state := { "Mode" : "Off" , "Tasks" : [] , "Detail" : "None"}
+
+    Loop, read, C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\flowtime.tsv
+    {
+        if (A_Index == 1) {
+            Continue
+        }
+
+        if (!A_LoopReadLine) {
+            Continue
+        }
+
+        action := { }
+        Loop, parse, A_LoopReadLine, %A_Tab%
+        {
+            if ( A_Index == 1 ) {
+                action["Action"] := A_LoopField
+            }
+            else if ( A_Index == 2 ) {
+                action["Task"] := {"Name" : A_LoopField }
+            }
+            else if ( A_Index == 3 ) {
+                action["Task"]["Start"] := ToUnixTime( A_LoopField ) 
+            }
+            else if ( A_Index == 4 ) {
+                action["Detail"] := A_LoopField
+            }
+
+        }
+        state := AdvanceState( action , state )
+
+    }
+
+    return state
+}
+
+newDesktop() {
+    ; todo Maybe check the number of currently opened desktops, and act accordingly?
+    Sleep, 100
+    Send {CtrlDown}{LWinDown}{d}{CtrlUp}{LWinUp}
+    Sleep, 100
+    return
+}
+; ------ User Interface ; 
+
+_BreakInstructions( oldState , state) {
+
+    global breakEnd
+    now := GetUnixTime() 
+    breakLength := BreakSize( oldState["Tasks"][ 1 ]["Start"] , now )
+    breakEnd := Sum(now , breakLength)
+    
+    MilliBreak := 1000*breakLength
+
+    prefix := breakLength > 0 ? "Relax for " breakLength ".`n" : ""
+    comment := GatherText( prefix "Any thoughts on this session?")
+    if (MilliBreak >= 1000) {
+        SetTimer BreakOver, -%MilliBreak%
+    }
+
+    state["Detail"] := Coalesce( comment , "N/A")
+    return state
+
+    BreakOver:
+        global globalState
+        mode := globalState["Mode"] 
+        if (globalState["Mode"] != "Flow" ) {
+            SoundChime()
+            MsgBox, "Back to the grind." 
+        }
+    return
+}
+_FlowInstructions( state ) {
+    newDesktop()
+    content := _FormatStartMessage( state )
+    MsgBox, %content%
+
+    SetTimer, TaskTime, -18500000
+    SetTimer, TaskTime, -36500000
+    SetTimer, TaskTime, -54500000
+    ; todo: Make this recurrent.
+    state["Tasks"][0]["Start"] = GetUnixTime()
+    return state
+
+    TaskTime:
+        global globalState
+        mainTask := globalState["Tasks"][0]
+        timeSince := Diff( mainTask["Start"] , GetUnixTime() )
+        halfHours := timeSince / 1800
+        if ( halfHours > 1) {
+            Round(Number [, 0])
+            minutePassed := Round(halfHours) * 30
+            WriteTip( minutePassed "~ minutes since task started." , 10000)
+            SoundChime()
+        }
+    return
+}
+ChooseAction( message , options) {
+    choice := GatherChoice( message, options)
+    if (choice == "Fork") {
+        action := ChooseTask( "A wild subtask appeared!")
+    }
+    else if ( choice == "Join") {
+        action := { "Action" : "Join" }
+    }
+    else if ( choice == "Gather") {
+        action := { "Action" : "Gather" }
+    }
+    else if ( choice == "Break") {
+        action := { "Action" : "Break" }
+    }
+    else if ( choice ) {
+        WriteTip( "Flowtime: unknown choice: " choice) 
+    }
+
+    return action
+}
+ChooseTask( message ) {
+    choices := [ ]
+    Loop, Read, C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\todos.txt
+    {
+        choices.Push(A_LoopReadLine) 
+    }
+
+    task := AutoCompletingListView( message , choices)
+    if ( task ) { 
+        action := { "Action" : "Fork" , "Task" : { "Name" : task , "Start" : GetUnixTime() }}
+    }
+    return action
+}
+; -----
+
+FlowUI( ) {
+    global globalState
+    if ( !globalState ) {
+        globalState := LoadState() 
+    }
+
+    ; ----- 
+    state := globalState
+    currentMode := state["Mode"]
+    if (currentMode == "Flow") {
+        message := _FormatForkMessage( state ) 
+        action := ChooseAction( message , [ "Fork" , "Join" , "Gather" , "Break"] )
+
+    }
+    else if (currentMode == "Off") {
+        message := _FormatOffMessage( state ) 
+        action := ChooseTask( message)
+    }
+    else {
+        WriteTip( "Flowtime in unknown state. " currentMode)
+    return
+}
+if action["Action"] == "Join" {
+    currentTasks := state["Tasks"]
+    action["Task"] := currentTasks[ 1 ] 
+}
+; -----
+newState := AdvanceState( action , state )
+if (!newState) {
+    return 
+}
+newMode := newState["Mode"]
+if ( newMode == "Off" && currentMode == "Flow") { 
+    newState := _BreakInstructions( state, newState )
+} 
+else if ( newMode == "Flow" && currentMode != "Flow") {
+    newState := _FlowInstructions( newState )
+}
+StateLog( action , newState )
+globalState := newState
+
+return 
+}
+
+; ----- 
 
