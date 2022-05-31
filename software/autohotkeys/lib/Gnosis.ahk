@@ -5,6 +5,12 @@ SendMode Input
 #Include %A_ScriptDir%\lib\Flowtime.ahk
 #Include %A_ScriptDir%\lib\VisualUtils.ahk
 
+CurrentDatetime(  ) {
+    timestamp := A_now
+    FormatTime, result, %timestamp%, yyyy/MM/dd HH:mm:ss
+    return result
+}
+
 GetBrowserUrl() {
     accData:= GetAccData() ; parameter: "A" (default), "WinTitle", "ahk_class IEFrame", "ahk_exe chrome.exe", etc.
     if ( accData ) {
@@ -21,10 +27,11 @@ GrabUrl(){
         return
     } 
 
-    chosenQuality := AutoCompletingListView("Choose a quality" , ["Premium" , "Good" , "History" , "Bookmark" , "Bad", "Queue" , "Revisit" , "Tool" , "Utility" , "Explore" , "Done" ]) 
+    chosenQuality := AutoCompletingListView("Saving " url , ["Premium" , "Good" , "History" , "Bookmark" , "Bad", "Queue" , "Revisit" , "Tool" , "Utility" , "Explore" , "Done" ]) 
     if (chosenQuality) { 
-        destination = "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\articles.tsv"
-        FileAppend, `n%A_YYYY%-%A_MM%-%A_DD%`t%A_Hour%:%A_Min%:%A_Sec%`t%chosenQuality%`t%url%, %destination%
+        currentTime := CurrentDatetime()
+        content := "`n" currentTime "`t" chosenQuality "`t" url
+        FileAppend , %content% ,C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\articles.tsv
         WriteTip("Saved url as " chosenQuality)
     }
 }
@@ -60,8 +67,8 @@ ProcessArticles() {
 CreateIssue() {
     issue := GatherText( "Create an issue") 
     if ( issue ){
-        issueFile := "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\issues.txt"
-        FileAppend, %issue%, %issueFile%
+        FileAppend,`n%issue%, C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\todos.txt
+        WriteTip("Issue created.")
     }
 }
 ; -----

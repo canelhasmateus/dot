@@ -226,7 +226,7 @@ newDesktop() {
 
 _BreakInstructions( oldState , state) {
 
-    global breakEnd
+
     now := GetUnixTime() 
     breakLength := BreakSize( oldState["Tasks"][ 1 ]["Start"] , now )
     breakEnd := Sum(now , breakLength)
@@ -300,7 +300,9 @@ ChooseTask( message ) {
     choices := [ ]
     Loop, Read, C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\todos.txt
     {
-        choices.Push(A_LoopReadLine) 
+        if (A_LoopReadLine) {
+            choices.Push(A_LoopReadLine) 
+        }        
     }
 
     task := AutoCompletingListView( message , choices)
