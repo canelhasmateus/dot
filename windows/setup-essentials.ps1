@@ -44,9 +44,11 @@ function Add-Looks {
         Set-AppearanceTaskbar
         Set-AppearanceSystem
         Add-NerdFonts     
+
+
         Set-KeyboardLayouts $ColemakArchive
         Set-TimeZone -Name 'E. South America Standard Time'
-
+        Install-Module PSReadLine -RequiredVersion 2.1.0
         # $EnglishLang = New-WinUserLanguageList -Language $LangSelect -ErrorAction SilentlyContinue
         # Set-WinUserLanguageList -LanguageList $EnglishLang
 
