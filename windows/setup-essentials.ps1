@@ -44,8 +44,12 @@ function Add-Looks {
         Set-AppearanceTaskbar
         Set-AppearanceSystem
         Add-NerdFonts     
-        Set-KeyboardLayouts
+        Set-KeyboardLayouts $ColemakArchive
         Set-TimeZone -Name 'E. South America Standard Time'
+
+        # $EnglishLang = New-WinUserLanguageList -Language $LangSelect -ErrorAction SilentlyContinue
+        # Set-WinUserLanguageList -LanguageList $EnglishLang
+
 
     }  
     

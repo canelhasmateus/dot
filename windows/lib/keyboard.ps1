@@ -1,6 +1,7 @@
 # Capture the existing list
-function Set-KeyboardLayouts {
-
+function Set-KeyboardLayouts( $Path ) {
+    Install-Colemak $Path 
+    
     $someVar = Get-WinUserLanguageList
     $someVar[0].Spellchecking = $false    
     $someVar[0].InputMethodTips.Add('0409:00010416')
