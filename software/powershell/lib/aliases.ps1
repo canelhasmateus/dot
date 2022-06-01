@@ -13,9 +13,11 @@ function GitShove($Message) {
     if ( -not $Message ) {
         $Message  = Read-Host "Message for the commit/push"
     }
-    git submodule foreach "git add . ; git commit -m $Message ; git push --force-with-lease"
+    $Command = "git add . ; git commit -m '$Message' ; git push --force-with-lease"
+    Write-Host $Command
+    git submodule foreach  $Command
     git add .
-    git commit -m $Message
+    git commit -m "$Message"
     git push --force-with-lease --recurse-submodules=on-demand
 }
 

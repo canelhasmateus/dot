@@ -23,17 +23,24 @@
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
-            "type": "hard",
-            "targetRoot": "",
-            "targetName": "/software/windows_terminal/settings.json"
-        },
-        {
-            "destinationRoot": "ApplicationData",
             "destinationName": "/Sublime Text/Packages/User/Default (Windows).sublime-keymap",
             "type": "hard",
             "targetRoot": "",
             "targetName": "/software/sublime/keybinds.json"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/Sublime Text/Packages/User/clear_selection.py",
+            "type": "hard",
+            "targetRoot": "",
+            "targetName": "/software/sublime/clear_selection.py"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/Sublime Text/Packages/User/move_amount.py",
+            "type": "hard",
+            "targetRoot": "",
+            "targetName": "/software/sublime/move_amount.py"
         },
         {
             "destinationRoot": "ApplicationData",
@@ -55,13 +62,6 @@
             "type": "shortcut",
             "targetRoot": "",
             "targetName": "/software/autohotkeys/canelhas.ahk"
-        },
-        {
-            "destinationRoot": "Startup",
-            "destinationName": "/win-vind.lnk",
-            "type": "shortcut",
-            "targetName": "/bin/win-vind.exe",
-            "targetRoot": "$env:ChocolateyInstall"
         },
         {
             "destinationRoot": "Startup",

@@ -13,6 +13,7 @@ function Install-Frills {
         $Installs = @(  
         "alacritty"
         "python"
+        
         "discord"
         "neovim"  
         "obsidian"
@@ -23,6 +24,7 @@ function Install-Frills {
 
         "insomnia-rest-api-client"
         "krita"
+        "sumatrapdf"
         )
             choco install $Installs -y  
         } 

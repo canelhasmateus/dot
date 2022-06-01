@@ -1,4 +1,9 @@
 <application>
+  <component name="VimHistorySettings">
+    <history>
+      <history-cmd />
+    </history>
+  </component>
   <component name="VimMarksSettings">
     <globalmarks />
     <filemarks />
