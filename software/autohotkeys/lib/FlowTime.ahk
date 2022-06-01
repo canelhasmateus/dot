@@ -256,16 +256,16 @@ _FlowInstructions( state ) {
     content := _FormatStartMessage( state )
     MsgBox, %content%
 
-    SetTimer, TaskTime, -18500000
-    SetTimer, TaskTime, -36500000
-    SetTimer, TaskTime, -54500000
+    SetTimer, TaskTime, -185000000
+    SetTimer, TaskTime, -365000000
+    SetTimer, TaskTime, -545000000
     ; todo: Make this recurrent.
-    state["Tasks"][0]["Start"] = GetUnixTime()
+    state["Tasks"][1]["Start"] = GetUnixTime()
     return state
 
     TaskTime:
         global globalState
-        mainTask := globalState["Tasks"][0]
+        mainTask := globalState["Tasks"][1]
         timeSince := Diff( mainTask["Start"] , GetUnixTime() )
         halfHours := timeSince / 1800
         if ( halfHours > 1) {
