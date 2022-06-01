@@ -172,7 +172,7 @@ _FormatStartMessage( state ) {
     }
 
     timestamp := ToHumanTime( timestamp )
-    content := "`n" actionName "`t" taskName "`t" timestamp "`t" detail
+    content := "`n" timestamp "`t" actionName "`t" taskName "`t" detail
     flowtimeLog := "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\flowtime.tsv"
 
     FileAppend ,%content% ,%flowtimeLog%
@@ -191,17 +191,17 @@ LoadState() {
             Continue
         }
 
-        action := { }
+        action := { "Task" : { }}
         Loop, parse, A_LoopReadLine, %A_Tab%
         {
             if ( A_Index == 1 ) {
-                action["Action"] := A_LoopField
+                action["Task"]["Start"] := ToUnixTime( A_LoopField )         
             }
             else if ( A_Index == 2 ) {
-                action["Task"] := {"Name" : A_LoopField }
+                action["Action"] := A_LoopField
             }
             else if ( A_Index == 3 ) {
-                action["Task"]["Start"] := ToUnixTime( A_LoopField ) 
+                action["Task"]["Name"] :=  A_LoopField 
             }
             else if ( A_Index == 4 ) {
                 action["Detail"] := A_LoopField
@@ -211,7 +211,6 @@ LoadState() {
         state := AdvanceState( action , state )
 
     }
-
     return state
 }
 
