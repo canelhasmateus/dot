@@ -120,7 +120,6 @@
     "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
     "typescript.tsserver.maxTsServerMemory": 0,
     "typescript.tsserver.useSyntaxServer": "always",
-    "workbench.activityBar.visible": false,
     "workbench.colorCustomizations": {
         "editorBracketHighlight.foreground1": "#E8BA36",
         "editorBracketHighlight.foreground2": "#54A857",
@@ -168,5 +167,7 @@
     "editor.codeActionsOnSave": {
         "source.fixAll": true
     },
-    "window.title": "${rootName}"
+    "window.title": "${rootName}",
+    "workbench.activityBar.iconClickBehavior": "focus",
+    "zenMode.hideActivityBar": false
 }

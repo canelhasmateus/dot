@@ -31,7 +31,7 @@ GrabUrl(){
     if (chosenQuality) { 
         currentTime := CurrentDatetime()
         content := "`n" currentTime "`t" chosenQuality "`t" url
-        FileAppend , %content% ,C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\articles.tsv
+        FileAppend , %content% ,C:\Users\Mateus\OneDrive\gnosis\limni\lists\stream\articles.tsv
         WriteTip("Saved url as " chosenQuality)
     }
 }
@@ -61,13 +61,13 @@ OpenHighlighted() {
 }
 
 ProcessArticles() {
-    run python "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\scripts\update.py"
+    run python "C:\Users\Mateus\OneDrive\gnosis\limni\lists\scripts\update.py"
 }
 
 CreateIssue() {
     issue := GatherText( "Create an issue") 
     if ( issue ){
-        FileAppend,`n%issue%, C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\todos.txt
+        FileAppend,`n%issue%, C:\Users\Mateus\OneDrive\gnosis\limni\lists\stream\todos.txt
         WriteTip("Issue created.")
     }
 }

@@ -173,7 +173,7 @@ _FormatStartMessage( state ) {
 
     timestamp := ToHumanTime( timestamp )
     content := "`n" timestamp "`t" actionName "`t" taskName "`t" detail
-    flowtimeLog := "C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\flowtime.tsv"
+    flowtimeLog := "C:\Users\Mateus\OneDrive\gnosis\limni\lists\stream\flowtime.tsv"
 
     FileAppend ,%content% ,%flowtimeLog%
     return
@@ -181,7 +181,7 @@ _FormatStartMessage( state ) {
 LoadState() {
     state := { "Mode" : "Off" , "Tasks" : [] , "Detail" : "None"}
 
-    Loop, read, C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\flowtime.tsv
+    Loop, read, C:\Users\Mateus\OneDrive\gnosis\limni\lists\stream\flowtime.tsv
     {
         if (A_Index == 1) {
             Continue
@@ -297,7 +297,7 @@ ChooseAction( message , options) {
 }
 ChooseTask( message ) {
     choices := [ ]
-    Loop, Read, C:\Users\Mateus\OneDrive\gnosis\tholos\lists\stream\todos.txt
+    Loop, Read, C:\Users\Mateus\OneDrive\gnosis\limni\lists\stream\todos.txt
     {
         if (A_LoopReadLine) {
             choices.Push(A_LoopReadLine) 
@@ -336,7 +336,7 @@ FlowUI( ) {
 }
 if action["Action"] == "Join" {
     currentTasks := state["Tasks"]
-    action["Task"] := currentTasks[ 1 ] 
+    action["Task"] := currentTasks[ currentTasks.Count() ] 
 }
 ; -----
 newState := AdvanceState( action , state )

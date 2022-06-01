@@ -3,7 +3,35 @@
 $Threading = Join-Path $PSScriptRoot "/lib/threading.ps1"
 . $Threading
 
+function Add-EnvPath {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string] $Path,
 
+        [ValidateSet('Machine', 'User', 'Session')]
+        [string] $Container = 'Session'
+    )
+
+    if ($Container -ne 'Session') {
+        $containerMapping = @{
+            Machine = [EnvironmentVariableTarget]::Machine
+            User    = [EnvironmentVariableTarget]::User
+        }
+        $containerType = $containerMapping[$Container]
+
+        $persistedPaths = [Environment]::GetEnvironmentVariable('Path', $containerType) -split ';'
+        if ($persistedPaths -notcontains $Path) {
+            $persistedPaths = $persistedPaths + $Path | Where-Object { $_ }
+            [Environment]::SetEnvironmentVariable('Path', $persistedPaths -join ';', $containerType)
+        }
+    }
+
+    $envPaths = $env:Path -split ';'
+    if ($envPaths -notcontains $Path) {
+        $envPaths = $envPaths + $Path | Where-Object { $_ }
+        $env:Path = $envPaths -join ';'
+    }
+}
 function Install-Frills {
     
     
@@ -40,7 +68,7 @@ function Install-Frills {
 function Set-Code {
     
     $Script = {
-
+    
         function Join-Prefix($List , $Prefix ) {
             $Result = ''
             $List | ForEach-Object {        
@@ -153,10 +181,13 @@ function Set-Code {
     $Parameter = @{}
     return Start-Background $Script  $Parameter
 }
+
 function Set-Workspace {
     
     $DesktopPath = [Environment]::GetFolderPath("Desktop")
-    Set-Location $DesktopPath
+    $Workspace = Join-Path $DesktopPath "Workspace"
+    New-Item $Workspace 
+    Set-Location $Workspace
     git config --global user.email "mateus.canelhas@gmail.com"
     git config --global user.name "Mateus Canelhas"
     git config --global merge.conflictstyle diff3
@@ -166,6 +197,9 @@ function Set-Workspace {
     git clone https://github.com/canelhasmateus/leet.git
     git clone https://github.com/canelhasmateus/nimskull.git
     
+    
+    $NimskullBin = Join-Path (Get-Location) "nimskull\bin"
+    Add-EnvPath $NimskullBin "User"
     # todo Git profiles https://deepsource.io/blog/managing-different-git-profiles/
 
 }

@@ -6137,7 +6137,7 @@
                 {
                     "command": "workbench.action.terminal.sendSequence",
                     "args": {
-                        "text": "cd C:/Users/Mateus/Desktop/workspace/canalhaclub/jewel ; vsce package ; code --install-extension ./jewel-0.0.4.vsix --force\n"
+                        "text": "cd C:/Users/Mateus/Desktop/workspace/canalhaclub/jewel ; npm install ; vsce package ; code --install-extension ./jewel-0.0.4.vsix --force\n"
                     }
                 },
                 {
