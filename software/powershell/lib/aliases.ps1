@@ -17,7 +17,7 @@ function GitShove($Message) {
     Write-Host $Command
     git submodule foreach  $Command
     git add .
-    git commit -m "$Message"
+    git commit -m '$Message'
     git push --force-with-lease --recurse-submodules=on-demand
 }
 
