@@ -154,17 +154,18 @@ function Set-Code {
     return Start-Background $Script  $Parameter
 }
 function Set-Workspace {
-
+    
+    $DesktopPath = [Environment]::GetFolderPath("Desktop")
+    Set-Location $DesktopPath
     git config --global user.email "mateus.canelhas@gmail.com"
     git config --global user.name "Mateus Canelhas"
     git config --global merge.conflictstyle diff3
     
-    git clone https://github.com/canelhasmateus/canhome.git
+    
     git clone https://github.com/canelhasmateus/canalhaclub.git
-    git clone https://github.com/canelhasmateus/environments.git
     git clone https://github.com/canelhasmateus/leet.git
-    git clone https://github.com/canelhasmateus/oEuler.git
     git clone https://github.com/canelhasmateus/nimskull.git
+    
     # todo Git profiles https://deepsource.io/blog/managing-different-git-profiles/
 
 }

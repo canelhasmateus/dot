@@ -9,7 +9,7 @@ function CreateDir {
 
     }
     else {
-        New-Item -Type Directory -Path $Path 
+        New-Item -Type Directory -Path $Path *> $null
         Write-Information "`t`tSince the $Description directory did not exist, it was created."
 
     }
@@ -24,11 +24,11 @@ function CreateHardLink {
         [String]$Target )
 
 
-    Write-Information "`tStarting the creation of an hardlink: $Source -> $Target" -ErrorAction Stop
+    Write-Information "`tStarting the creation of an hardlink: $Source -> $Target" 
 
     Try {
 
-        New-Item -Type HardLink -Path $Source -Target $Target -ErrorAction Stop  -Force
+        New-Item -Type HardLink -Path $Source -Target $Target -ErrorAction Stop  -Force *> $null
         Write-Information "`t`tCreation of the link succeeded."
     }
     catch [System.IO.IOException] {
@@ -48,8 +48,8 @@ function CreateSymLink {
 
     
  
-    Remove-Item $Source -Recurse -Force -ErrorAction SilentlyContinue
-    New-Item -Type SymbolicLink -Path $Source -Target $Target -Force
+    Remove-Item $Source -Recurse -Force *> $null
+    New-Item -Type SymbolicLink -Path $Source -Target $Target -Force *> $null
     
 
 }

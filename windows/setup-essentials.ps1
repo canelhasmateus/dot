@@ -35,11 +35,10 @@ function Add-Looks {
         . $KeyBoardModule
         . $AppearanceModule
         
-        Install-Colemak $ColemakArchive
-        Get-ChildItem -Path $PSScriptRoot -Recurse -Include *.jpg, *.png  | ForEach-Object { 
-            Set-AppearanceWallpaper -Image  $_ 
-        }
-    
+        
+        $Wallpaper = Resolve-Path $PSScriptRoot /blob/Wallpaper.jpg
+        Set-AppearanceWallpaper -Image  $Wallpaper
+        
         displayswitch.exe /extend 
         Set-AppearanceExplorer
         Set-AppearanceTaskbar
@@ -185,9 +184,7 @@ $LooksJob = Add-Looks
 $Installations = Add-Choco
 $WSL = Add-WSL1
 
-Set-Looks
-Add-FrillsJob
-Optimize-Bloat
+Add-Looks Add-FrillsJob Optimize-Bloat
 
 Wait-Background @( 
     $Installations  
