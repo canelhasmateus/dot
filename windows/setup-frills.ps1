@@ -103,7 +103,9 @@ function Set-Code {
             "foam.foam-vscode",
             "mushan.vscode-paste-image",        
             "tht13.html-preview-vscode",
-            "yzhang.markdown-all-in-one"
+            "yzhang.markdown-all-in-one",
+            "brokenprogrammer.paragraphjump"
+            "DavidAnson.vscode-markdownlint"
 
         )
     
@@ -194,8 +196,10 @@ function Set-Workspace {
     
     
     git clone https://github.com/canelhasmateus/canalhaclub.git
+    git clone https://github.com/canelhasmateus/canelhasio.git
     git clone https://github.com/canelhasmateus/leet.git
     git clone https://github.com/canelhasmateus/nimskull.git
+    
     
     
     $NimskullBin = Join-Path (Get-Location) "nimskull\bin"

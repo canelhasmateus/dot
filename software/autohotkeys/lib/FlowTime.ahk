@@ -245,7 +245,7 @@ _BreakInstructions( oldState , state) {
         global globalState
         mode := globalState["Mode"] 
         if (globalState["Mode"] != "Flow" ) {
-            SoundChime()
+            SoundChirp()
             MsgBox, "Back to the grind." 
         }
     return
@@ -268,10 +268,9 @@ _FlowInstructions( state ) {
         timeSince := Diff( mainTask["Start"] , GetUnixTime() )
         halfHours := timeSince / 1800
         if ( halfHours > 1) {
-            Round(Number [, 0])
             minutePassed := Round(halfHours) * 30
             WriteTip( minutePassed "~ minutes since task started." , 10000)
-            SoundChime()
+            SoundChirp()
         }
     return
 }

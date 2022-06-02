@@ -212,10 +212,6 @@
         "command": "-workbench.action.files.newUntitledFile"
     },
     {
-        "key": "alt+o f",
-        "command": "workbench.action.files.openFile"
-    },
-    {
         "key": "ctrl+o",
         "command": "-workbench.action.files.openFile"
     },
@@ -2412,6 +2408,11 @@
         "key": "alt+m ctrl+n",
         "command": "explorer.newFile",
         "when": "filesExplorerFocus"
+    },
+    {
+        "key": "alt+m ctrl+n",
+        "command": "workbench.action.files.newUntitledFile",
+        "when": "!filesExplorerFocus && !editorFocus"
     },
     {
         "key": "alt+m ctrl+x",
@@ -6125,7 +6126,7 @@
         "command": "actions.findWithSelection"
     },
     {
-        "key": "alt+o d",
+        "key": "alt+o f",
         "command": "workbench.action.files.openFolderViaWorkspace"
     },
     {
@@ -6431,14 +6432,23 @@
         "when": "editorLangId == 'ahk'"
     },
     {
-    "key": "alt+e tab",
-    "command": "type",
-    "args": { "text": "\t" },
-    "when": "editorTextFocus"
+        "key": "alt+e tab",
+        "command": "type",
+        "args": {
+            "text": "\t"
+        },
+        "when": "editorTextFocus"
     },
     {
         "key": "ctrl+shift+tab",
         "command": "workbench.action.previousEditor"
+    },
+    {
+        "key": "alt+o d",
+        "command": "workbench.action.toggleDevTools"
+    },
+    {
+        "key": "alt+o ctrl+d",
+        "command": "workbench.action.webview.openDeveloperTools"
     }
-    
 ]

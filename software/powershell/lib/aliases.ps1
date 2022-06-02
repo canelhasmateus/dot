@@ -17,7 +17,7 @@ function GitShove($Message) {
     Write-Host $Command
     git submodule foreach  $Command
     git add .
-    git commit -m '$Message'
+    git commit -m "$Message"
     git push --force-with-lease --recurse-submodules=on-demand
 }
 
@@ -81,11 +81,40 @@ function GitUndo( $Path) {
     git restore $Path
 }
 
+function AddUserPath {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string] $Path
+    )
+    
+    $Container = "User"
+    if ($Container -ne 'Session') {
+        $containerMapping = @{
+            Machine = [EnvironmentVariableTarget]::Machine
+            User    = [EnvironmentVariableTarget]::User
+        }
+        $containerType = $containerMapping[$Container]
+
+        $persistedPaths = [Environment]::GetEnvironmentVariable('Path', $containerType) -split ';'
+        if ($persistedPaths -notcontains $Path) {
+            $persistedPaths = $persistedPaths + $Path | Where-Object { $_ }
+            [Environment]::SetEnvironmentVariable('Path', $persistedPaths -join ';', $containerType)
+        }
+    }
+
+    $envPaths = $env:Path -split ';'
+    if ($envPaths -notcontains $Path) {
+        $envPaths = $envPaths + $Path | Where-Object { $_ }
+        $env:Path = $envPaths -join ';'
+    }
+}
+
 Set-Alias -Name vim -Value nvim
 Set-Alias -Name grep -Value findstr
 Set-Alias -Name tig -Value 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias -Name less -Value 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias -Name sublime -Value "C:\Program Files\Sublime Text\sublime_text.exe"
+Set-Alias -Name idea -Value "C:\Program Files\JetBrains\IntelliJ IDEA 2022.1.1\bin\idea64.exe"
 Set-Alias -Name which -Value FindCommand
 
 
@@ -95,6 +124,7 @@ Set-Alias -Name gshoveall -Value GitShoveWorkspace
 Set-Alias -Name gunmod -Value GitRemoveSubmodule
 Set-Alias -Name gflush -Value GitFlush
 Set-Alias -Name gundo -Value GitUndo
+Set-Alias -Name addPath -Value AddUserPath
 
 
  

@@ -10,3 +10,6 @@ $Feel = Join-Path $PSScriptRoot "/lib/feel"
 
 
 # $env:GIT_SSH = "C:\Windows\system32\OpenSSH\ssh.exe"
+
+# Todo: Read this.
+# https://docs.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline?view=powershell-7.2

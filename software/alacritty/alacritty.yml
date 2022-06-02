@@ -19,7 +19,7 @@ window:
   # Specified in number of columns/lines, not pixels. If both are zero this
   # setting is ignored.
   dimensions:
-    columns: 100
+    columns: 200
     lines: 200
 
   # Window padding (changes require restart)
@@ -469,5 +469,3 @@ shell:
 #    - command="cd ~/Desktop"
 
 # vim: nospell
-
-working_directory: "C:\\Users\\Mateus\\Desktop\\workspace"
