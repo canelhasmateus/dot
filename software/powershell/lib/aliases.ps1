@@ -116,15 +116,17 @@ Set-Alias -Name less -Value 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias -Name sublime -Value "C:\Program Files\Sublime Text\sublime_text.exe"
 Set-Alias -Name idea -Value "C:\Program Files\JetBrains\IntelliJ IDEA 2022.1.1\bin\idea64.exe"
 Set-Alias -Name which -Value FindCommand
+Set-Alias -Name to -Value z
 
-
+Set-Alias -Name addPath -Value AddUserPath
 Set-Alias -Name gammend -Value GitAmmend
 Set-Alias -Name gshove -Value GitShove
 Set-Alias -Name gshoveall -Value GitShoveWorkspace
 Set-Alias -Name gunmod -Value GitRemoveSubmodule
 Set-Alias -Name gflush -Value GitFlush
 Set-Alias -Name gundo -Value GitUndo
-Set-Alias -Name addPath -Value AddUserPath
+
+
 
 
  

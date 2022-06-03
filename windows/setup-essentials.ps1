@@ -48,7 +48,9 @@ function Add-Looks {
 
         Set-KeyboardLayouts $ColemakArchive
         Set-TimeZone -Name 'E. South America Standard Time'
-        Install-Module PSReadLine -MinimumVersion 2.1.0
+        
+        
+        
         # $EnglishLang = New-WinUserLanguageList -Language $LangSelect -ErrorAction SilentlyContinue
         # Set-WinUserLanguageList -LanguageList $EnglishLang
 
@@ -85,6 +87,8 @@ function Add-Choco {
             "sublimetext4"
             "win-vind"
             "vscode"
+            "fzf"
+            "oh-my-posh"
         )
         
         choco install $Installs -y 

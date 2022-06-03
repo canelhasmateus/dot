@@ -292,3 +292,12 @@ function Set-AppearanceMenu {
 
 }
 
+function Set-AppearanceShell {
+
+    Set-PSRepository PSGallery
+    Install-Module PSReadLine -MinimumVersion 2.2.0 -Force -AllowPrerelease
+    Install-Module Terminal-Icons -Force
+    Install-Module PSFzf -Force
+    Install-Module z -Force
+
+}

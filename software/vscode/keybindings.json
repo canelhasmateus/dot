@@ -1382,6 +1382,7 @@
         "command": "-workbench.action.terminal.scrollToBottom",
         "when": "terminalFocus"
     },
+    
     {
         "key": "ctrl+home",
         "command": "-workbench.action.terminal.scrollToTop",
@@ -2180,17 +2181,7 @@
     },
     {
         "key": "ctrl+home",
-        "command": "cursorTop",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "ctrl+home",
         "command": "-cursorTop",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "ctrl+end",
-        "command": "cursorBottom",
         "when": "textInputFocus"
     },
     {
@@ -2204,8 +2195,33 @@
         "when": "textInputFocus"
     },
     {
+        "key": "ctrl+end",
+        "command": "cursorEnd",
+        "when": "textInputFocus"
+    },
+    {
         "key": "shift+end",
         "command": "cursorEndSelect",
+        "when": "textInputFocus"
+    },
+     {
+        "key": "ctrl+shift+end",
+        "command": "cursorEndSelect",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "home",
+        "command": "cursorHome",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+home",
+        "command": "cursorHome",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+shift+home",
+        "command": "cursorHomeSelect",
         "when": "textInputFocus"
     },
     {

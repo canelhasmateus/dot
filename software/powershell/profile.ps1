@@ -1,14 +1,22 @@
-$Aliases = Join-Path $PSScriptRoot "/lib/aliases"
+$Aliases = Join-Path $PSScriptRoot "/lib/aliases.ps1"
 . $Aliases
 
-$Feel = Join-Path $PSScriptRoot "/lib/feel"
-. $Feel
+$Completion = Join-Path $PSScriptRoot "/lib/completion.ps1"
+. $Completion
+
+$Terminal = Join-Path $PSScriptRoot "/lib/terminal.ps1"
+. $Terminal
 
 # set PowerShell to UTF-8
 [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 
 
+$CurrentDir = Get-Location
 
+if ($CurrentDir.Path -eq "C:\Windows\System32") {
+    $Desktop = "C:\Users\Mateus\Desktop"
+    Set-Location $Desktop
+}
 # $env:GIT_SSH = "C:\Windows\system32\OpenSSH\ssh.exe"
 
 # Todo: Read this.

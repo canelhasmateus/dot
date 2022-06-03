@@ -106,6 +106,20 @@
             "targetName": "/software/powershell/lib"
         },
         {
+            "destinationRoot": "ProgramFiles",
+            "destinationName": "/Powershell/7/Profile.ps1",
+            "type": "hard",
+            "targetRoot": "",
+            "targetName": "/software/powershell/profile.ps1"
+        },
+        {
+            "destinationRoot": "ProgramFiles",
+            "destinationName": "/Powershell/7/lib",
+            "type": "sym",
+            "targetRoot": "",
+            "targetName": "/software/powershell/lib"
+        },
+        {
             "destinationRoot": "ApplicationData",
             "destinationName": "/JetBrains/IntelliJIdea2022.1/codestyles",
             "type": "sym",

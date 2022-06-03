@@ -2,22 +2,7 @@
     "[julia]": {
         "editor.defaultFormatter": "julialang.language-julia"
     },
-    "cSpell.ignorePaths": [
-        "**/vault/journal/*",
-        ".git/objects",
-        ".vscode",
-        ".vscode-insiders",
-        "node_modules",
-        "package-lock.json",
-        "vscode-extension"
-    ],
-    "cSpell.userWords": [
-        "codestyles",
-        "intellij",
-        "keymaps",
-        "quicklists"
-    ],
-    "debug.inlineValues": true,
+    "debug.inlineValues": "auto",
     "diffEditor.codeLens": true,
     "editor.bracketPairColorization.enabled": true,
     "editor.cursorSmoothCaretAnimation": true,
@@ -42,7 +27,6 @@
     "explorer.autoReveal": false,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
-    "explorer.experimental.fileNesting.enabled": true,
     "files.associations": {
         "*.kws": "xml"
     },
@@ -83,14 +67,14 @@
     "redhat.telemetry.enabled": true,
     "settingsSync.keybindingsPerPlatform": false,
     "svelte.enable-ts-plugin": true,
-    "sync.gist": "54c7cc41f7b5c4d5ed1653cf0945064a",
     "terminal.external.windowsExec": "C:\\Program Files\\Alacritty\\alacritty.exe",
     "terminal.integrated.commandsToSkipShell": [
         "language-julia.interrupt"
     ],
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.cursorWidth": 3,
-    "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
+    
+    "terminal.integrated.defaultProfile.windows": "pwsh",
     "terminal.integrated.profiles.windows": {
         "Command Prompt": {
             "args": [],
@@ -109,6 +93,10 @@
         },
         "Windows PowerShell": {
             "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+        },
+        "pwsh": {
+            "path": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+            "args": [ "-nologo"]
         }
     },
     "typescript.check.npmIsInstalled": false,
