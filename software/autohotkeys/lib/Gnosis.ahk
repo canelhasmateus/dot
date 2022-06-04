@@ -54,7 +54,7 @@ OpenHighlighted() {
     else
         Desc := "GoogleSearch", Target := "http://www.google.com/search?q=" MyClipboard
 
-    TrayTip,, %Desc%: "%MyClipboard%" ;
+    WriteTip( Desc " : " MyClipboard  )
     Run, %Target%
     Clipboard := previousClip
     Return

@@ -3,31 +3,40 @@
 
 unmapAll
 
+# Need to use more
+map nq LinkHints.activateModeToOpenInNewForegroundTab
+map / enterFindMode
+map ? enterVisualMode
+map fl performFind
+map fj performBackwardsFind
+map fi focusInput
+
+#map <a-f><a-l> performFind
+#map <a-f><a-j> performBackwardsFind
+#map VI enterVisualLineMode
+
+
+# Todo:
+# map <a-m>m Marks.activateCreateMode
+# map <a-m><a-m> Marks.activateCreateMode
+# map <a-n> Marks.activateGotoMode
+# map <a-s>a nextFrame
+# map <a-s>s mainFrame
+
+
+
 # Jump
 map nc LinkHints.activateModeToCopyLinkUrl
-map nd LinkHints.activateModeToDownloadLink
 map ni LinkHints.activateModeToOpenIncognito
 map nn LinkHints.activateMode
 map nN LinkHints.activateModeToOpenInNewTab
 map NN LinkHints.activateModeToOpenInNewTab
 map np LinkHints.activateModeWithQueue
-map nq LinkHints.activateModeToOpenInNewForegroundTab
-
-#Todo: find out how to select word, paragraph etcf
-map / enterFindMode
-map <a-f>l performFind
-map <a-f><a-l> performFind
-map <a-f>j performBackwardsFind
-map <a-f><a-j> performBackwardsFind
-
-map vi enterVisualMode
-map VI enterVisualLineMode
-
-
+map nf focusInput
 map <a-f>i focusInput
 map <a-f><a-i> focusInput
-# Inside Insert Mode, we skip vimium keymapping.
-map II enterInsertMode
+
+
 
 #Vim scrolling
 map k scrollUp
@@ -52,10 +61,11 @@ map <a-w> scrollPageUp
 # History
 map A goBack
 map D goForward
+map na goBack
+map nd goForward
 
 
 #Omnibar / tab
-map on Vomnibar.activate
 map oe Vomnibar.activateEditUrl
 map oN Vomnibar.activateInNewTab
 map of Vomnibar.activateTabSelection
@@ -64,7 +74,6 @@ map om Vomnibar.activateBookmarks
 map oM Vomnibar.activateBookmarksInNewTab
 map oq createTab
 map ot restoreTab
-map od duplicateTab
 map ow removeTab
 map o<a-w> closeOtherTabs
 map ox moveTabToNewWindow
@@ -77,21 +86,17 @@ map <a-d> nextTab
 map <a-h> previousTab
 map <a-l> nextTab
 
-map MM toggleMuteTab
+map < goPrevious
+map > goNext
 
+# Infrequent
 map <a-m><a-a> moveTabLeft
 map <a-m><a-d> moveTabRight
 map <a-m><a-h> moveTabLeft
 map <a-m><a-l> moveTabRight
-map <a-m><a-r> reload
 
-# Todo:
-# map <a-m>m Marks.activateCreateMode
-# map <a-m><a-m> Marks.activateCreateMode
-# map <a-n> Marks.activateGotoMode
 
-map < goPrevious
-map > goNext
-# map <a-s>a nextFrame
-# map <a-s>s mainFrame
-
+#Never Used.
+#map II enterInsertMode
+#map od duplicateTab
+#map on Vomnibar.activate 
