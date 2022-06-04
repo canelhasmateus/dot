@@ -1,4 +1,4 @@
-$theme = Join-Path $PSScriptRoot theme.omp.json
+$theme = Join-Path $PSScriptRoot "theme.omp.json"
 oh-my-posh init pwsh --config $theme | Invoke-Expression
 
 

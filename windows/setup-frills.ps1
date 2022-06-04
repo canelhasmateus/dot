@@ -105,7 +105,8 @@ function Set-Code {
             "tht13.html-preview-vscode",
             "yzhang.markdown-all-in-one",
             "brokenprogrammer.paragraphjump"
-            "DavidAnson.vscode-markdownlint"
+            "DavidAnson.vscode-markdownlint",
+            "znck.grammarly"
 
         )
     

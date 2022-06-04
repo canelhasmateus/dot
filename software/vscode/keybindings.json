@@ -1028,11 +1028,7 @@
         "key": "shift+insert",
         "command": "-editor.action.clipboardPasteAction"
     },
-    {
-        "key": "alt+a ctrl+up",
-        "command": "editor.showCallHierarchy",
-        "when": "editorHasCallHierarchyProvider && editorTextFocus && !inReferenceSearchEditor"
-    },
+    
     {
         "key": "shift+alt+h",
         "command": "-editor.showCallHierarchy",
@@ -2515,7 +2511,7 @@
     },
     {
         "key": "ctrl+up",
-        "command": "-scroll-faster.up",
+        "command": "-scroll-fastxer.up",
         "when": "textInputFocus"
     },
     {

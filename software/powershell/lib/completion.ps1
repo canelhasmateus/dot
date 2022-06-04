@@ -7,15 +7,7 @@ Set-PSReadLineOption -EditMode Emacs
 Set-PSReadLineOption -BellStyle None
 Set-PSReadLineOption -ContinuationPrompt ""
 Set-PSReadLineOption -PredictionSource History *> $null
-if ($currentVersion -gt 5) {
-    try {
-        Set-PSReadLineOption -PredictionViewStyle InlineView *> $null
-    }
-    catch {
-        
-    }
 
-}
 Set-PSReadlineOption -Color @{
     
     "Command"   = [ConsoleColor]::Red
@@ -42,7 +34,6 @@ Set-PSReadlineOption -Color @{
 
 Set-PSReadlineKeyHandler -Function TabCompleteNext -Chord 'Tab'
 Set-PSReadlineKeyHandler -Function TabCompletePrevious -Chord 'Shift+Tab'
-Set-PSReadlineKeyHandler -Function SwitchPredictionView -Chord 'Alt+e,Tab'
 #
 Set-PSReadlineKeyHandler -Function Paste -Chord 'Ctrl+v'
 Set-PSReadlineKeyHandler -Function Undo -Chord 'Ctrl+z'
@@ -70,6 +61,17 @@ Set-PSReadlineKeyHandler -Function ShowKeyBindings -Chord 'Ctrl+s'
 
 # Set-PSReadlineKeyHandler -Function ScrollDisplayDown -Chord 'Ctrl+Alt+DownArrow'
 # Set-PSReadlineKeyHandler -Function ScrollDisplayDownLine -Chord 'Alt+DownArrow'
+
+if ($currentVersion -gt 5) {
+    try {
+        Set-PSReadLineOption -PredictionViewStyle InlineView *> $null
+        Set-PSReadlineKeyHandler -Function SwitchPredictionView -Chord 'Alt+e,Tab'
+    }
+    catch {
+        
+    }
+
+}
 #
 
 Set-PSReadLineKeyHandler -Key '"', "'" `
