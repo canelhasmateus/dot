@@ -82,7 +82,7 @@ _getSessionId()
 
 _switchDesktopToTarget(targetDesktop)
 {
-    _updateGlobalVariables()
+    
     global CurrentDesktop, DesktopCount, LastOpenedDesktop
 
     ; Don't attempt to switch to an invalid desktop
@@ -113,6 +113,7 @@ switchDesktopByNumber(targetDesktop)
 {
     global CurrentDesktop
     if ( targetDesktop != CurrentDesktop ) {
+        _updateGlobalVariables()
         _switchDesktopToTarget(targetDesktop)
     }
 }
@@ -120,6 +121,7 @@ switchDesktopByNumber(targetDesktop)
 switchDesktopToLastOpened()
 {
     global LastOpenedDesktop
+    _updateGlobalVariables()
     _switchDesktopToTarget(LastOpenedDesktop)
 }
 

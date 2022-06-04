@@ -24,6 +24,9 @@ SetWorkingDir, %A_ScriptDir%
   {
     ; AltGr + "O"
     pressedKey := ListenNextKey()
+
+    WriteTip( "pressed key is " pressedkey )
+    
     if pressedKey is number
     {
       sendDesktopOrSwitchDesktop( pressedKey )

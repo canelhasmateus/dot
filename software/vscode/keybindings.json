@@ -2511,7 +2511,7 @@
     },
     {
         "key": "ctrl+up",
-        "command": "-scroll-fastxer.up",
+        "command": "-scroll-faster.up",
         "when": "textInputFocus"
     },
     {
