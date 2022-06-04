@@ -255,9 +255,9 @@ _FlowInstructions( state ) {
     content := _FormatStartMessage( state )
     MsgBox, %content%
 
-    SetTimer, TaskTime, -185000000
-    SetTimer, TaskTime, -365000000
-    SetTimer, TaskTime, -545000000
+    SetTimer, TaskTime, -1800000
+    SetTimer, TaskTime, -3650000
+    SetTimer, TaskTime, -5450000
     ; todo: Make this recurrent.
     state["Tasks"][1]["Start"] = GetUnixTime()
     return state
