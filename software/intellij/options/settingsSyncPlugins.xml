@@ -13,6 +13,13 @@
             </PluginData>
           </value>
         </entry>
+        <entry key="Axis2 IDEA tools">
+          <value>
+            <PluginData>
+              <option name="enabled" value="false" />
+            </PluginData>
+          </value>
+        </entry>
         <entry key="Dart">
           <value>
             <PluginData>
@@ -34,7 +41,6 @@
                   <option value="com.intellij.javaee.app.servers.integration" />
                 </set>
               </option>
-              <option name="enabled" value="false" />
             </PluginData>
           </value>
         </entry>
@@ -58,7 +64,6 @@
                   <option value="com.intellij.javaee.app.servers.integration" />
                 </set>
               </option>
-              <option name="enabled" value="false" />
             </PluginData>
           </value>
         </entry>
@@ -82,7 +87,6 @@
                   <option value="com.intellij.modules.vcs" />
                 </set>
               </option>
-              <option name="enabled" value="false" />
             </PluginData>
           </value>
         </entry>
@@ -106,7 +110,6 @@
                   <option value="com.intellij.modules.vcs" />
                 </set>
               </option>
-              <option name="enabled" value="false" />
             </PluginData>
           </value>
         </entry>
@@ -145,6 +148,32 @@
             </PluginData>
           </value>
         </entry>
+        <entry key="com.dmarcotte.handlebars">
+          <value>
+            <PluginData>
+              <option name="dependencies">
+                <set>
+                  <option value="com.intellij.modules.lang" />
+                </set>
+              </option>
+            </PluginData>
+          </value>
+        </entry>
+        <entry key="com.easywsdl.tools.plugins.intellij">
+          <value>
+            <PluginData>
+              <option name="dependencies">
+                <set>
+                  <option value="com.intellij.modules.java" />
+                  <option value="com.intellij.modules.lang" />
+                  <option value="com.intellij.modules.platform" />
+                  <option value="org.jetbrains.android" />
+                  <option value="org.jetbrains.plugins.gradle" />
+                </set>
+              </option>
+            </PluginData>
+          </value>
+        </entry>
         <entry key="com.github.b3er.idea.plugins.arc.browser">
           <value>
             <PluginData>
@@ -165,6 +194,7 @@
                   <option value="com.intellij.modules.platform" />
                 </set>
               </option>
+              <option name="enabled" value="false" />
             </PluginData>
           </value>
         </entry>
@@ -196,16 +226,12 @@
         </entry>
         <entry key="com.intellij.cdi">
           <value>
-            <PluginData>
-              <option name="enabled" value="false" />
-            </PluginData>
+            <PluginData />
           </value>
         </entry>
         <entry key="com.intellij.completion.ml.ranking">
           <value>
-            <PluginData>
-              <option name="enabled" value="false" />
-            </PluginData>
+            <PluginData />
           </value>
         </entry>
         <entry key="com.intellij.javaee.extensions">
@@ -218,29 +244,22 @@
                   <option value="com.intellij.modules.microservices" />
                 </set>
               </option>
-              <option name="enabled" value="false" />
             </PluginData>
           </value>
         </entry>
         <entry key="com.intellij.javaee.webSocket">
           <value>
-            <PluginData>
-              <option name="enabled" value="false" />
-            </PluginData>
+            <PluginData />
           </value>
         </entry>
         <entry key="com.intellij.laf.win10">
           <value>
-            <PluginData>
-              <option name="enabled" value="false" />
-            </PluginData>
+            <PluginData />
           </value>
         </entry>
         <entry key="com.intellij.micronaut">
           <value>
-            <PluginData>
-              <option name="enabled" value="false" />
-            </PluginData>
+            <PluginData />
           </value>
         </entry>
         <entry key="com.intellij.plugin.adernov.powershell">
@@ -279,30 +298,22 @@
         </entry>
         <entry key="com.intellij.quarkus">
           <value>
-            <PluginData>
-              <option name="enabled" value="false" />
-            </PluginData>
+            <PluginData />
           </value>
         </entry>
         <entry key="com.intellij.spring.integration">
           <value>
-            <PluginData>
-              <option name="enabled" value="false" />
-            </PluginData>
+            <PluginData />
           </value>
         </entry>
         <entry key="com.intellij.spring.websocket">
           <value>
-            <PluginData>
-              <option name="enabled" value="false" />
-            </PluginData>
+            <PluginData />
           </value>
         </entry>
         <entry key="com.intellij.swagger">
           <value>
-            <PluginData>
-              <option name="enabled" value="false" />
-            </PluginData>
+            <PluginData />
           </value>
         </entry>
         <entry key="com.intellij.velocity">
@@ -315,7 +326,6 @@
                   <option value="com.intellij.properties" />
                 </set>
               </option>
-              <option name="enabled" value="false" />
             </PluginData>
           </value>
         </entry>
@@ -331,6 +341,11 @@
             </PluginData>
           </value>
         </entry>
+        <entry key="com.jetbrains.jax.ws">
+          <value>
+            <PluginData />
+          </value>
+        </entry>
         <entry key="com.jetbrains.nim">
           <value>
             <PluginData>
@@ -339,14 +354,22 @@
                   <option value="com.intellij.modules.lang" />
                 </set>
               </option>
-              <option name="enabled" value="false" />
             </PluginData>
           </value>
         </entry>
         <entry key="com.jetbrains.restWebServices">
           <value>
+            <PluginData />
+          </value>
+        </entry>
+        <entry key="com.kevinshu.retrofit2.plugins">
+          <value>
             <PluginData>
-              <option name="enabled" value="false" />
+              <option name="dependencies">
+                <set>
+                  <option value="com.intellij.modules.lang" />
+                </set>
+              </option>
             </PluginData>
           </value>
         </entry>
@@ -410,6 +433,18 @@
             </PluginData>
           </value>
         </entry>
+        <entry key="com.vincentp.gruvbox-theme">
+          <value>
+            <PluginData>
+              <option name="category" value="UI" />
+              <option name="dependencies">
+                <set>
+                  <option value="com.intellij.modules.lang" />
+                </set>
+              </option>
+            </PluginData>
+          </value>
+        </entry>
         <entry key="com.wakatime.intellij.plugin">
           <value>
             <PluginData>
@@ -433,7 +468,6 @@
                   <option value="org.intellij.groovy" />
                 </set>
               </option>
-              <option name="enabled" value="false" />
             </PluginData>
           </value>
         </entry>
@@ -529,6 +563,19 @@
             </PluginData>
           </value>
         </entry>
+        <entry key="io.github.mishkun.ideavimsneak">
+          <value>
+            <PluginData>
+              <option name="dependencies">
+                <set>
+                  <option value="IdeaVIM" />
+                  <option value="com.intellij.modules.platform" />
+                </set>
+              </option>
+              <option name="enabled" value="false" />
+            </PluginData>
+          </value>
+        </entry>
         <entry key="izhangzhihao.rainbow.brackets">
           <value>
             <PluginData>
@@ -588,6 +635,19 @@
             </PluginData>
           </value>
         </entry>
+        <entry key="org.jetbrains.IdeaVim-EasyMotion">
+          <value>
+            <PluginData>
+              <option name="dependencies">
+                <set>
+                  <option value="AceJump" />
+                  <option value="IdeaVIM" />
+                  <option value="com.intellij.modules.platform" />
+                </set>
+              </option>
+            </PluginData>
+          </value>
+        </entry>
         <entry key="org.jetbrains.idea.eclipse">
           <value>
             <PluginData>
@@ -596,7 +656,6 @@
                   <option value="com.intellij.modules.java" />
                 </set>
               </option>
-              <option name="enabled" value="false" />
             </PluginData>
           </value>
         </entry>
@@ -613,7 +672,6 @@
                   <option value="com.intellij.modules.java" />
                 </set>
               </option>
-              <option name="enabled" value="false" />
             </PluginData>
           </value>
         </entry>
@@ -636,11 +694,14 @@
             </PluginData>
           </value>
         </entry>
+        <entry key="soapUI Plugin">
+          <value>
+            <PluginData />
+          </value>
+        </entry>
         <entry key="tanvd.grazi">
           <value>
-            <PluginData>
-              <option name="enabled" value="false" />
-            </PluginData>
+            <PluginData />
           </value>
         </entry>
       </map>

@@ -4,14 +4,13 @@ function FindCommand ($command) {
 }
 
 function GitAmmend {
-    git add .
     git commit --amend --no-edit
     git push --force-with-lease --recurse-submodules=on-demand
 }
 
 function GitShove($Message) {
     if ( -not $Message ) {
-        $Message  = Read-Host "Message for the commit/push"
+        $Message = Read-Host "Message for the commit/push"
     }
     $Command = "git add . ; git commit -m '$Message' ; git push --force-with-lease"
     Write-Host $Command
@@ -27,7 +26,7 @@ function GitShoveWorkspace( $Message ) {
     Write-Host "$OriginalPath"
     $Workspaces = Get-ChildItem -Path $OriginalPath -Filter "*.code-workspace" 
     
-    if ( -not $Workspaces){
+    if ( -not $Workspaces) {
         Write-Host "Unable to find a workspace file."
         return
     }
@@ -80,6 +79,9 @@ function GitUndo( $Path) {
     git restore --staged $Path
     git restore $Path
 }
+function GitScrape( $Path) {
+    git reset --soft head~
+}
 
 function AddUserPath {
     param(
@@ -121,12 +123,14 @@ Set-Alias -Name to -Value z
 Set-Alias -Name addPath -Value AddUserPath
 Set-Alias -Name gammend -Value GitAmmend
 Set-Alias -Name gshove -Value GitShove
-Set-Alias -Name gshoveall -Value GitShoveWorkspace
+Set-Alias -Name gshovespace -Value GitShoveWorkspace
 Set-Alias -Name gunmod -Value GitRemoveSubmodule
 Set-Alias -Name gflush -Value GitFlush
 Set-Alias -Name gundo -Value GitUndo
-
-
+Set-Alias -Name gscrape -Value GitScrape
+Set-Alias -Name java -Value C:\Users\Mateus\.jdks\corretto-1.8.0_332\bin\java
+Set-Alias -Name firefox -Value "C:\Program Files\Mozilla Firefox\firefox.exe"
+    
 
 
  

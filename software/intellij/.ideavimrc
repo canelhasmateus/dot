@@ -1,0 +1,170 @@
+""" Map leader to space ---------------------
+let mapleader=" "
+
+""" Plugins  --------------------------------
+set surround
+set multiple-cursors
+set commentary
+set argtextobj
+set textobj-entire
+
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:],(:),<:>"
+""" Common settings -------------------------
+set showmode
+set so=0
+set incsearch
+set nu
+set visualbell
+set noerrorbells
+set number relativenumber
+set ignorecase smartcase
+""" Idea specific settings ------------------
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+set clipboard+=unnamed
+""" Mappings --------------------------------
+sethandler <ESC> a:ide
+sethandler <C-x> a:ide
+sethandler <A-F> a:ide
+sethandler <A-f> a:ide
+sethandler <C-I> a:ide
+sethandler <C-B> a:ide
+sethandler <C-L> a:ide
+sethandler <A-N> a:ide
+sethandler <C-P> a:ide
+sethandler <C-R> a:ide
+sethandler <C-U> a:ide
+sethandler <A-X> a:ide
+sethandler <C-\> a:ide
+sethandler <M-F> a:ide
+sethandler <M-n> a:ide
+sethandler <C-w> a:ide
+sethandler <C-A> a:ide
+sethandler <C-D> a:ide
+sethandler <C-c> a:ide
+sethandler <C-s> a:ide
+sethandler <C-]> a:ide
+sethandler <C-[> a:ide
+sethandler <C-v> i:ide n-v:vim
+
+"""macro
+
+map <leader>sort vi"<Action>(Sort Words)<Esc>
+vmap <leader>sort <Action>(Sort Words)<Esc>
+
+let @a='va{'
+let @b='vi{'
+
+
+noremap <leader>sca @a
+noremap <leader>sci @b
+
+""" Window
+map <leader>w<A-p> <Action>(SelectInProjectView)
+map <leader>vim :e ~\.ideavimrc<CR>
+map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
+map <leader>wp <Action>(ActivateProjectToolWindow)
+map <leader>wp <Action>(SelectInProjectView)
+map <leader>ff <Action>(Find)
+""" Refactoring -------------------------------
+map rd <Action>(EditorDuplicate)
+map rr <Action>(ReformatCode)
+map rn <Action>(RenameElement)
+map ri <Action>(Inline)
+map ro <Action>(OptimizeImports)
+""" Runnin
+map sn <Action>(StepOver)
+map sl <Action>(StepOver)
+map sk <Action>(StepIntoMyCode)
+map so <Action>(StepOut)
+map sr <Action>(Resume)
+""" Quick commands --------------------------
+map ql <Action>(Forward)
+map qw <Action>(ShowErrorDescription)
+map qd <Action>(QuickJavaDoc)
+map qj <Action>(Back)
+map qh <Action>(GotoPreviousError)
+map qç <Action>(GotoNextError)
+map qk <Action>(PartialPageNav.PageDown)
+map qi <Action>(PartialPageNav.PageUp)
+
+map or <Action>(RecentFiles)
+noremap oo o
+
+
+""" Navigation
+noremap nn n
+map nd <Action>(GotoDeclaration)
+map nu <Action>(ShowUsages)
+map ne <Action>(ShowExecutionPoint)
+map nP <Action>(EditorBackwardParagraph)
+map np <Action>(EditorForwardParagraph)
+map nb }
+map nB {
+map vv V
+map cie ciw
+"basic movement
+
+
+nnoremap <Enter> i<Enter><ESC>
+nnoremap <Home> ^
+nnoremap <C-Home> ^
+nnoremap <End> $
+nnoremap <C-End> $
+nnoremap <Backspace> dh
+
+inoremap <C-Up> <Esc>:action PartialPageNav.PageUp<CR>i
+inoremap <C-Down> <Esc>:action PartialPageNav.PageDown<CR>i
+inoremap <Home> <Esc>^i
+inoremap <C-Home> <Esc>^i
+inoremap <End> <Esc>$a
+inoremap <C-End> <Esc>$a
+
+""" basic editing 
+nnoremap <S-Up> vk
+nnoremap <S-Right> vl
+nnoremap <S-Down> vj
+nnoremap <S-Left> vh
+nnoremap <S-End> v$
+nnoremap <S-Home> v^
+nnoremap dp d}
+nnoremap dP d{
+
+inoremap <S-Up> <Esc>vk
+inoremap <S-Right> <Esc>vl
+inoremap <S-Down> <Esc>vj
+inoremap <S-Left> <Esc>vh
+inoremap <S-End> <Esc>v$
+inoremap <S-Home> <Esc>v^
+
+
+vnoremap <S-Up> k
+vnoremap <Backspace> d
+vnoremap <Tab> >gv
+vnoremap <S-Right> l
+vnoremap <S-Down> j
+vnoremap <S-Left> h
+vnoremap <S-End> $
+vnoremap <C-End> $
+vnoremap <C-Home> ^
+
+
+
+
+""" Easy Motion ----------------------------------
+set easymotion
+let g:EasyMotion_do_mapping = 0
+map fl <Plug>(easymotion-w)
+map fj <Plug>(easymotion-b)
+""" line-jumping
+map fi <Plug>(easymotion-bd-jk)
+map fk *
+""" free-jump
+map ff f
+map ft t
+map f<Space> <Plug>(easymotion-f)
+""" End
+
+

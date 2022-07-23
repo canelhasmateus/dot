@@ -1,0 +1,54 @@
+.var: range
+    ANY  → $actionVar:suggestShortVariableName()$ = $expr$$END$
+
+.idx: range
+    ANY  → range( len($expr$) )$END$
+
+.range: range
+    ANY  → range( $expr$)$END$
+
+.enumerate : Enumerate value
+    ANY   →   enumerate($expr$)
+
+.str : Convert as string
+    ANY   →   str($expr$)$END$
+
+.float : Convert as float
+    ANY   →   float($expr$)$END$
+
+.float : Convert as int
+    ANY   →   int($expr$)$END$
+
+.reversed : Reverse iterable
+    ANY   →   reversed($expr$)
+
+.sort : Sort iterable
+    ANY   →   sort($expr$)$END$
+
+.filter : Filter iterable with lambda
+    ANY   →   filter(lambda o: $first$, $expr$)$END$
+
+.map : Map iterable with lambda
+    ANY   →   map(lambda o: $first$, $expr$)$END$
+
+.open : Open a path
+    ANY   →   with open($expr$) as $file_name$:\
+    $END$
+
+.for : Iterate through an object
+    ANY   →   for $var$ in $expr$:\
+    $END$
+
+.try : Wrap with try except
+    ANY   →   try:\
+    $expr$\
+except $error$ as $error_var$:\
+    $END$
+
+.tryf : Wrap with try except and finally
+    ANY   →   try:\
+    $expr$\
+except $error$ as $error_var$:\
+    $except$\
+finally:\
+    $END$

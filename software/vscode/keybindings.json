@@ -1,4 +1,4 @@
-[
+ [
     {
         "key": "ctrl+alt+up",
         "command": "-editor.action.insertCursorAbove",
@@ -522,11 +522,7 @@
         "command": "-editor.action.marker.prev",
         "when": "editorFocus"
     },
-    {
-        "key": "alt+q ctrl+left",
-        "command": "editor.action.marker.prevInFiles",
-        "when": "editorFocus"
-    },
+    
     {
         "key": "shift+f8",
         "command": "-editor.action.marker.prevInFiles",
@@ -3071,7 +3067,17 @@
         "when": "editorTextFocus"
     },
     {
+        "key": "ctrl+shift+up",
+        "command": "editor.action.smartSelect.expand",
+        "when": "editorTextFocus"
+    },
+    {
         "key": "ctrl+shift+alt+k",
+        "command": "editor.action.smartSelect.shrink",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+down",
         "command": "editor.action.smartSelect.shrink",
         "when": "editorTextFocus"
     },
@@ -3597,7 +3603,23 @@
         }
     },
     {
+        "key": "ctrl+down",
+        "command": "partial.navigateCursor",
+        "when": "textInputFocus",
+        "args": {
+            "ratio": 0.5
+        }
+    },
+    {
         "key": "ctrl+alt+i",
+        "command": "partial.navigateCursor",
+        "when": "textInputFocus",
+        "args": {
+            "ratio": -0.5
+        }
+    },
+    {
+        "key": "ctrl+up",
         "command": "partial.navigateCursor",
         "when": "textInputFocus",
         "args": {
@@ -4844,24 +4866,6 @@
         "key": "backspace",
         "command": "paredit.deleteBackward",
         "when": "editorLangId == 'clojure'"
-    },
-    {
-        "key": "alt+left",
-        "command": "paredit.dragSexprBackward",
-        "when": "editorLangId == 'clojure'"
-    },
-    {
-        "key": "alt+right",
-        "command": "paredit.dragSexprForward",
-        "when": "editorLangId == 'clojure'"
-    },
-    {
-        "key": "alt+up",
-        "command": "paredit.dragSexprBackwardUp"
-    },
-    {
-        "key": "alt+down",
-        "command": "paredit.dragSexprForwardDown"
     },
     {
         "key": "ctrl+[",
@@ -6462,5 +6466,19 @@
     {
         "key": "alt+o ctrl+d",
         "command": "workbench.action.webview.openDeveloperTools"
+    },
+    {
+        "key": "alt+down",
+        "command": "editor.action.moveLinesDownAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+up",
+        "command": "editor.action.moveLinesUpAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+oem_3",
+        "command": "toggleVim"
     }
 ]

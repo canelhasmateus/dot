@@ -6,6 +6,7 @@ SetWorkingDir, %A_ScriptDir%
 #Include %A_ScriptDir%\lib\VisualUtils.ahk
 #Include %A_ScriptDir%\lib\Flowtime.ahk
 
+
 <^>!SC01E:: 
   {
     ; AltGr + "A"
@@ -19,6 +20,14 @@ SetWorkingDir, %A_ScriptDir%
     Send {|}
     return
   }
+<^>!SC020:: 
+  {
+    ; AltGr + "D"
+    Send {}
+    return
+  }
+
+; ------
 
 <^>!SC018::
   {
@@ -26,7 +35,7 @@ SetWorkingDir, %A_ScriptDir%
     pressedKey := ListenNextKey()
 
     WriteTip( "pressed key is " pressedkey )
-    
+
     if pressedKey is number
     {
       sendDesktopOrSwitchDesktop( pressedKey )
@@ -42,10 +51,7 @@ SetWorkingDir, %A_ScriptDir%
     }
     else if ( pressedKey = "i") { 
       WinMaximize, A
-    }
-    else if (pressedKey = "x"){
-      ;todo : Delete all workspaces
-    }
+    }    
     else if ( pressedKey ) {
       WriteTip("Unknown key: " pressedKey)
     }

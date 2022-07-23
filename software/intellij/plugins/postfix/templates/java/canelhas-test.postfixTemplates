@@ -1,0 +1,71 @@
+## Templates for JUnit 5 jupiter ##
+
+## Assert
+.assertNull : assertNull
+    ANY [org.junit.jupiter.api.Assertions]                         →  org.junit.jupiter.api.Assertions.assertNull($expr$)
+
+.assertNotNull : assertNotNull
+    ANY [org.junit.jupiter.api.Assertions]                         →  org.junit.jupiter.api.Assertions.assertNotNull($expr$)
+
+.assertSame : assertSame
+    ANY [org.junit.jupiter.api.Assertions]                         →  org.junit.jupiter.api.Assertions.assertSame($args$, $expr$)
+
+.assertNotSame : assertNotSame
+    ANY [org.junit.jupiter.api.Assertions]                         →  org.junit.jupiter.api.Assertions.assertNotSame($args$, $expr$)
+
+#
+.fail : fail
+    java.lang.String [org.junit.jupiter.api.Assertions]            →  org.junit.jupiter.api.Assertions.fail($expr$)
+
+.assertTrue : assertTrue
+    java.lang.Boolean [org.junit.jupiter.api.Assertions]           →  org.junit.jupiter.api.Assertions.assertTrue($expr$) [USE_STATIC_IMPORTS]
+
+.assertFalse : assertFalse
+    java.lang.Boolean [org.junit.jupiter.api.Assertions]           →  org.junit.jupiter.api.Assertions.assertFalse($expr$) [USE_STATIC_IMPORTS]
+
+.assertEquals : assertEquals
+    ANY [org.junit.jupiter.api.Assertions]                         →  org.junit.jupiter.api.Assertions.assertEquals($args$, $expr$) [USE_STATIC_IMPORTS]
+
+.assertNotEquals : assertNotEquals
+    ANY [org.junit.jupiter.api.Assertions]                         →  org.junit.jupiter.api.Assertions.assertNotEquals($args$, $expr$) [USE_STATIC_IMPORTS]
+
+.assertThrows : assertThrows
+    ANY [org.junit.jupiter.api.Assertions]                         →  org.junit.jupiter.api.Assertions.assertThrows( () -> $expr$ ) [USE_STATIC_IMPORTS]
+
+.assertDoesNotThrow : assertDoesNotThrow
+    ANY [org.junit.jupiter.api.Assertions]                         →  org.junit.jupiter.api.Assertions.assertDoesNotThrow( () -> $expr$ ) [USE_STATIC_IMPORTS]
+
+## Templates for JUnit 5 jupiter ##
+
+# Mockito postfix templates
+# create mock instance
+.mock : mockito mock
+    java.lang.Class     [org.mockito.Mockito]       →  org.mockito.Mockito.mock($expr$)  [USE_STATIC_IMPORTS]
+.doThrow : mockito doThrow
+    ANY                 [org.mockito.Mockito]       →  org.mockito.Mockito.doThrow($throwable$).when($expr$).$END$   [USE_STATIC_IMPORTS]
+.doNothing : mockito doNothing
+    ANY                 [org.mockito.Mockito]       →  org.mockito.Mockito.doNothing().when($expr$).$END$    [USE_STATIC_IMPORTS]
+.doAnswer : mockito doAnswer
+    ANY                 [org.mockito.Mockito]       →  org.mockito.Mockito.doAnswer((org.mockito.stubbing.Answer<$answerType$>) invocation -> $answerBody$).when($expr$).$END$    [USE_STATIC_IMPORTS]
+.doReturn : mockito doReturn
+    ANY                 [org.mockito.Mockito]       →  org.mockito.Mockito.doReturn($returnValue$).when($expr$).$END$    [USE_STATIC_IMPORTS]
+.when : mockito when
+    NON_VOID            [org.mockito.Mockito]       →  org.mockito.Mockito.when($expr$)  [USE_STATIC_IMPORTS]
+
+# not sure if good
+# create spy instance
+.spy : mockito spy
+    java.lang.Object    [org.mockito.Mockito]       →  org.mockito.Mockito.spy($expr$)   [USE_STATIC_IMPORTS]
+
+# mockito stubing operations
+
+.verify : mockito verify
+    ANY                 [org.mockito.Mockito]       →  org.mockito.Mockito.verify($expr$)    [USE_STATIC_IMPORTS]
+.verifyWithMode : mockito verifyWithMode
+    ANY                 [org.mockito.Mockito]       →  org.mockito.Mockito.verify($expr$,$mode$) [USE_STATIC_IMPORTS]
+.reset : mockito reset
+    ANY                 [org.mockito.Mockito]       →  org.mockito.Mockito.reset($expr$); [USE_STATIC_IMPORTS]
+.clearInvocations : mockito clearInvocations
+    ANY                 [org.mockito.Mockito]       →  org.mockito.Mockito.clearInvocations($expr$);  [USE_STATIC_IMPORTS]
+
+

@@ -170,7 +170,7 @@
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2022.1/plugins/live-plugins",
+            "destinationName": "/JetBrains/IntelliJIdea2022.1/live-plugins",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/plugins/live-plugins"
@@ -202,6 +202,20 @@
             "type": "hard",
             "targetRoot": "",
             "targetName": "/software/intellij/idea64.exe.vmoptions"
+        },
+        {
+            "destinationRoot": "$Home",
+            "destinationName": "/.ideavimrc",
+            "type": "hard",
+            "targetRoot": "",
+            "targetName": "/software/intellij/.ideavimrc"
+        },
+        {
+            "destinationRoot": "ApplicationData",
+            "destinationName": "/Mozilla/Firefox/Profiles/912oq0eg.default-release/extensions",
+            "type": "sym",
+            "targetRoot": "",
+            "targetName": "/software/firefox/extensions"
         }
     ]
 }

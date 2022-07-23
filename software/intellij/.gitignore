@@ -1,0 +1,37 @@
+# Root files
+*
+!*/
+
+!.ideavimrc
+!.gitignore
+!idea64.exe.vmoptions
+
+
+# Whole directories
+!/tools/*
+!/codestyles/*
+!/keymaps/*
+!/plugins/*
+!/quicklists/*
+!/templates/*
+
+# options
+!/options/AceJump.xml
+!/options/actionSummary.xml
+!/options/advancedSettings.xml
+!/options/customPostfixTemplates.xml
+!/options/editor-font.xml
+!/options/features.usage.statistics.xml
+!/options/filetypes.xml
+!/options/intelliLang.xml
+!/options/live-plugin.xml
+!/options/macros.xml
+!/options/project.default.xml
+!/options/settingsSyncPlugins.xml
+!/options/terminal.xml
+!/options/usage.statistics.xml
+
+# postfix templates
+!/**/canelhas-*.postfixTemplates
+!/**/webTemplateFiles.yaml
+
