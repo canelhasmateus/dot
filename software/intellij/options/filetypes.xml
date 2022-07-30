@@ -1,9 +1,6 @@
 <application>
   <component name="FileTypeManager" version="18">
     <extensionMap>
-      <mapping ext="cprof" type="PLAIN_TEXT" />
-      <mapping ext="gz" type="PLAIN_TEXT" />
-      <mapping ext="profile" type="PLAIN_TEXT" />
       <removed_mapping ext="apk" approved="true" type="ARCHIVE" />
       <removed_mapping ext="psd" approved="true" type="Image" />
     </extensionMap>

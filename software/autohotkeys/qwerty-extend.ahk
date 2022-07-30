@@ -64,7 +64,7 @@ SetCapsLockState, AlwaysOff
 ; F24 & SC00D::
 ;   Send {Blind}{F12}
 ; return
-
+  
 ; ; top row
 
 F24 & SC010::
@@ -75,13 +75,11 @@ F24 & SC011::
   Send {Esc}
 return
 
+
 F24 & SC012::
-  Send {Blind}{CtrlDown}{AltDown}
+  Send {Esc}
 return
 
-F24 & SC012 Up::
-  Send {CtrlUp}{AltUp}
-return
 
 ; F24 & SC01B::
 ;   Send {Insert}

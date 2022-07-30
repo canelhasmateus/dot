@@ -6480,5 +6480,20 @@
     {
         "key": "alt+oem_3",
         "command": "toggleVim"
+    },
+    {
+        "key": "escape",
+        "command": "-language-julia.clearCurrentInlineResult",
+        "when": "editorLangId == 'juliamarkdown' || editorLangId == 'markdown' || editorTextFocus && juliaHasInlineResult && !editorHasSelection && !findWidgetVisible && !inSnippetMode && !isInEmbeddedEditor && !markerNavigationVisible && !onTypeRenameInputVisible && !parameterHintsVisible && !renameInputVisible && !suggestWidgetVisible && editorLangId == 'julia'"
+    },
+    {
+        "key": "escape",
+        "command": "-language-julia.clearCurrentInlineResult",
+        "when": "editorLangId == 'juliamarkdown' || editorTextFocus && juliaHasInlineResult && !editorHasSelection && !findWidgetVisible && !inSnippetMode && !isInEmbeddedEditor && !markerNavigationVisible && !onTypeRenameInputVisible && !parameterHintsVisible && !renameInputVisible && !suggestWidgetVisible && editorLangId == 'julia'"
+    },
+    {
+        "key": "ctrl+i ctrl+c",
+        "command": "-language-julia.clearAllInlineResultsInEditor",
+        "when": "editorLangId == 'juliamarkdown' || editorLangId == 'markdown' || editorTextFocus && editorLangId == 'julia' && activeEditor != 'workbench.editor.notebook'"
     }
 ]

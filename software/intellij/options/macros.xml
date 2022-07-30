@@ -12,6 +12,5 @@
       <action id="EditorToggleStickySelection" />
       <action id="AceWordStartAction" />
     </macro>
-    
   </component>
 </application>

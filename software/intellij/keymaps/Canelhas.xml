@@ -267,7 +267,6 @@
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="alt i" />
   </action>
   <action id="EditorBackwardParagraphWithSelection">
-    <keyboard-shortcut first-keystroke="shift ctrl up" />
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="shift alt i" />
   </action>
   <action id="EditorChooseLookupItem">
@@ -345,7 +344,6 @@
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="alt k" />
   </action>
   <action id="EditorForwardParagraphWithSelection">
-    <keyboard-shortcut first-keystroke="shift ctrl down" />
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="shift alt k" />
   </action>
   <action id="EditorIncreaseFontSize">
@@ -457,6 +455,7 @@
   <action id="EditorSelectWord">
     <keyboard-shortcut first-keystroke="shift ctrl alt up" />
     <keyboard-shortcut first-keystroke="shift ctrl alt i" />
+    <keyboard-shortcut first-keystroke="shift ctrl up" />
   </action>
   <action id="EditorShowGutterIconTooltip" />
   <action id="EditorSortLines">
@@ -499,6 +498,7 @@
   <action id="EditorUnSelectWord">
     <keyboard-shortcut first-keystroke="shift ctrl alt down" />
     <keyboard-shortcut first-keystroke="shift ctrl alt k" />
+    <keyboard-shortcut first-keystroke="shift ctrl down" />
   </action>
   <action id="EditorUp">
     <keyboard-shortcut first-keystroke="up" />
@@ -554,7 +554,9 @@
   </action>
   <action id="ExpandTreeNode" />
   <action id="ExportToTextFile" />
-  <action id="ExternalSystem.ProjectRefreshAction" />
+  <action id="ExternalSystem.ProjectRefreshAction">
+    <keyboard-shortcut first-keystroke="alt m" second-keystroke="ctrl o" />
+  </action>
   <action id="ExtractFunctionToScope" />
   <action id="ExtractMethod">
     <keyboard-shortcut first-keystroke="alt r" second-keystroke="f" />
@@ -1043,7 +1045,6 @@
   <action id="ShowReformatFileDialog" />
   <action id="ShowSettings">
     <keyboard-shortcut first-keystroke="alt m" second-keystroke="ctrl s" />
-    <keyboard-shortcut first-keystroke="alt quote" second-keystroke="s" />
   </action>
   <action id="ShowSettingsAndFindUsages" />
   <action id="ShowTime">
@@ -1205,8 +1206,11 @@
   <action id="VimActions">
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="ctrl v" />
   </action>
+  <action id="VimFindActionIdAction">
+    <keyboard-shortcut first-keystroke="alt q" second-keystroke="ctrl alt v" />
+  </action>
   <action id="VimPluginToggle">
-    <keyboard-shortcut first-keystroke="alt q" second-keystroke="v" />
+    <keyboard-shortcut first-keystroke="alt quote" />
   </action>
   <action id="WD.UploadCurrentRemoteFileAction" />
   <action id="WebOpenInAction" />
