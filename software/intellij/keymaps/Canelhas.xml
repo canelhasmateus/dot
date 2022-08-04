@@ -298,7 +298,6 @@
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="shift alt comma" />
   </action>
   <action id="EditorCompleteStatement">
-    <keyboard-shortcut first-keystroke="alt d" second-keystroke="enter" />
     <keyboard-shortcut first-keystroke="alt d" second-keystroke="alt 8" />
   </action>
   <action id="EditorContextInfo" />
@@ -470,7 +469,6 @@
   </action>
   <action id="EditorTextEnd">
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="ctrl alt k" />
-    <keyboard-shortcut first-keystroke="ctrl end" />
   </action>
   <action id="EditorTextEndWithSelection">
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="shift ctrl alt k" />
@@ -478,7 +476,6 @@
   </action>
   <action id="EditorTextStart">
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="ctrl alt i" />
-    <keyboard-shortcut first-keystroke="ctrl home" />
   </action>
   <action id="EditorTextStartWithSelection">
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="shift ctrl alt i" />
@@ -1227,6 +1224,7 @@
   <action id="context.save" />
   <action id="copilot.applyInlays">
     <keyboard-shortcut first-keystroke="alt d" second-keystroke="ctrl enter" />
+    <keyboard-shortcut first-keystroke="alt d" second-keystroke="enter" />
   </action>
   <action id="copilot.cycleNextInlays">
     <keyboard-shortcut first-keystroke="alt d" second-keystroke="alt k" />

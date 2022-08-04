@@ -35,6 +35,7 @@ set clipboard+=unnamed
 sethandler <ESC> a:ide
 sethandler <C-x> a:ide
 sethandler <A-F> a:ide
+sethandler <A-S> a:ide
 sethandler <A-f> a:ide
 sethandler <C-I> a:ide
 sethandler <C-B> a:ide
@@ -57,113 +58,157 @@ sethandler <C-v> i:ide n-v:vim
 sethandler <C-A> i:ide n-v:vim
 
 
+
 """ Base Bindings
+nnoremap <Del> "adl
+vnoremap <Del> "ad
+nnoremap <Enter> i<Enter><ESC>
+nnoremap <Backspace> "adh
+vnoremap <Backspace> "adh
+
 nnoremap a <Nop>
 nnoremap i <Nop>
 nnoremap x <Nop>
+nnoremap s <Nop>
+nnoremap r <Nop>
 
+nnoremap cl "act
+nnoremap cj "acT
+nnoremap ck "acl
+nnoremap dl "adt
+nnoremap dj "adT
+nnoremap vl vf
+nnoremap vj vF
+nnoremap oo o
+nnoremap vv V
+
+nnoremap dip "adipi<Enter><Esc>
+nnoremap viv g^vg_
+
+""" Extend-Layer
 
 nnoremap <leader>i i
+vnoremap <leader>i <Esc>i
 nnoremap i k
 nnoremap k j
 nnoremap j h
-nnoremap h  ^
-nnoremap ç  $
-nnoremap <Enter> i<Enter><ESC>
+nnoremap h ^
+nnoremap ç $
 
+nnoremap <Tab> >
+nnoremap <S-Tab> <
 
-""" Extend-Layer
 nnoremap <Home> ^
 nnoremap <C-Home> ^
+nnoremap <C-S-Home> v^
+nnoremap <S-Home> v^
+
 nnoremap <End> $
 nnoremap <C-End> $
-nnoremap <Backspace> dh
+nnoremap <C-S-End> v$
+nnoremap <S-End> v$
 
-inoremap <Home> <Esc>^i
-inoremap <C-Home> <Esc>^i
-inoremap <C-S-Home> <Esc>^i
-inoremap <End> <Esc>$a
-inoremap <C-End> <Esc>$a
-inoremap <C-S-End> <Esc>$a
 
-""" visual mode
 nnoremap <S-Up> vk
 nnoremap <S-Right> vl
 nnoremap <S-Down> vj
 nnoremap <S-Left> vh
-nnoremap <S-End> v$
-nnoremap <C-S-End> v$
-nnoremap <S-Home> v^
-nnoremap <C-S-Home> v^
 
-vnoremap <Backspace> d
-vnoremap <C-End> $
-vnoremap <C-Home> ^
-vnoremap <Down> j
-vnoremap <End> $
-vnoremap <Home> ^
-vnoremap <Left> h
-vnoremap <Right> l
-vnoremap <S-Down> j
-vnoremap <S-End> $
-vnoremap <C-End> $
-vnoremap <S-Home> ^
-vnoremap <S-Left> h
-vnoremap <S-Right> l
-vnoremap <S-Up> k
-vnoremap <Tab> >gv
-vnoremap <Up> k
+inoremap <Home> <Esc>^i
+inoremap <C-Home> <Esc>^i
+inoremap <C-S-Home> <Esc>g^i
+inoremap <S-Home> <Esc>g^i
+
+inoremap <End> <Esc>$a
+inoremap <C-End> <Esc>$a
+inoremap <C-S-End> <Esc>lv$a
+inoremap <S-End> <Esc>lv$
 
 inoremap <S-Up> <Esc>vk
 inoremap <S-Right> <Esc>vl
 inoremap <S-Down> <Esc>vj
 inoremap <S-Left> <Esc>vh
-inoremap <S-End> <Esc>v$
-inoremap <S-Home> <Esc>v^
 
+vnoremap <Tab> >>
+vnoremap <Tab> <<
+
+vnoremap <Home> ^
+vnoremap <C-Home> ^
+vnoremap <C-S-Home> ^
+vnoremap <S-Home> ^
+
+vnoremap <End> $
+dnoremap <C-End> $
+dnoremap <C-S-End> $
+vnoremap <S-End> $
+
+vnoremap <Backspace> "ad
+vnoremap <Up> k
+vnoremap <S-Up> k
+vnoremap <Down> j
+vnoremap <S-Down> j
+vnoremap <Left> h
+vnoremap <S-Left> h
+vnoremap <Right> l
+vnoremap <S-Right> l
+
+
+
+""" -----------------------------------------------
 
 """ Code
-nnoremap <Tab> >>
-nnoremap <S-Tab> <<
-map x. <Action>(ExpandRegion)
-map x, <Action>(CollapseRegion)
-map x0 <Action>(CollapseAllRegions)
+map xo <Action>(OverrideMethods)
+map xj <Action>(HippieCompletion)
+map xl <Action>(HippieBackwardCompletion)
 map x1 <Action>(ExpandAllToLevel1)
 map x2 <Action>(ExpandAllToLevel2)
 map x3 <Action>(ExpandAllToLevel3)
 map xt <Action>(ImplementMethods)
-map xo <Action>(OverrideMethods)
-map xk <Action>(MethodDown)
+nnoremap x. zo
+nnoremap x, zc
+nnoremap x0 zM
+"""nnoremap xk ]m
+"""nnoremap xi [m
 map xi <Action>(MethodUp)
-
-
+map xk <Action>(MethodDown)
 """ Surround / Context
 map st <Action>(InsertLiveTemplate)
 map ss <Action>(SurroundWith)
 map su <Action>(Unwrap)
-map si :<c-u>action EditorSelectWord<CR>
+map si <Action>(EditorSelectWord)
 map sk <Action>(EditorUnSelectWord)
 
 """ Refactoring
+nnoremap rr gq
+vnoremap rr gq
+map ra <Action>(IntroduceField)
 map rd <Action>(EditorDuplicate)
-map rr <Action>(ReformatCode)
-map rn <Action>(RenameElement)
+map rn <leader>i<Action>(RenameElement)
 map ri <Action>(Inline)
+map rv <Action>(IntroduceVariable)
 map ro <Action>(OptimizeImports)
 map rk <Action>(IntroduceConstant)
+map ru <Action>(EditorToggleCase)
 
 """ Quick commands --------------------------
+nnoremap qd K
+nnoremap qe zz
 map qw <Action>(ShowErrorDescription)
-map qd <Action>(QuickJavaDoc)
-map qe <Action>(EditorScrollToCenter)
 map qh <Action>(GotoPreviousError)
 map qç <Action>(GotoNextError)
+
 map ql <Action>(Forward)
 map qj <Action>(Back)
+"""nnoremap ql <C-I>
+"""nnoremap qj <C-O>
 
-map qq <Esc>
-map qi <Action>(PartialPageNav.PageUp)
-map qk <Action>(PartialPageNav.PageDown)
+"""map qi<Action>(PartialPageNav.PageUp)
+"""map qk <Action>(PartialPageNav.PageDown)
+nnoremap qq <Esc>
+nnoremap qi <C-U>
+nnoremap qk <C-D>
+nnoremap qu {
+nnoremap qp }
 nnoremap qo %
 
 """ Window
@@ -177,105 +222,121 @@ map or <Action>(RecentFiles)
 map ox <Action>(FileStructurePopup)
 
 """ Navigation
+nnoremap nn n
 map nf <Action>(GotoFile)
 map nc <Action>(GotoClass)
 map ns <Action>(GotoSymbol)
-map nd <Action>(GotoDeclaration)
+map nd gD
 map nj <Action>(JumpToLastChange)
 map nl <Action>(JumpToLastChange)
 
-""" Easy Motion
-map fl <Plug>(easymotion-w)
-map fj <Plug>(easymotion-b)
-map fi <Plug>(easymotion-bd-jk)
-map f<Space> <Plug>(easymotion-bd-t)
-
-
 """ Search ---------------------------------------------------
 
-""" find current word
-noremap fk *
-noremap fK #
-""" search
+""" Easy Motion
 map <leader>ff <Action>(Find)
-""" search line
-noremap ff f
-""" search again
-nnoremap nn n
+map fq <Plug>(easymotion-bd-jk)
+map fl <Plug>(easymotion-w)
+map fj <Plug>(easymotion-b)
+map f<Space> <Plug>(easymotion-bd-t)
 
-""" Re-Mapping  ----------------------------------------------
+noremap fk *
+noremap fi #
+noremap ff f
+
 """ end of Word / CamelCase
 nnoremap ee e
 nnoremap ei ea
 nnoremap ea ea
 nnoremap ai a
 
-map el <Action>(EditorNextWordInDifferentHumpsMode)
-map ej <Action>(EditorPreviousWordInDifferentHumpsMode)
-nnoremap vie :action EditorNextWordInDifferentHumpsMode<CR>hma:action EditorPreviousWordInDifferentHumpsMode<CR>v`a
 
 
-
-""" delete paragraph with one space
-nnoremap dip dipi<Enter><Esc>
-
+nnoremap cie ciw
+""" Experimental -----------------------------------------
 
 
 """ Seek Aheads ----------------------------------
-""" Inside / outside assignment
-nnoremap voa g_T=vg_
-nnoremap via g^t=vg^
-nmap coa voac
-nmap cia viac
 
-""" Inside / outside call
-nnoremap vv V
-nnoremap vic /)<CR>v%loh
-nnoremap voc /)<CR>%hvB
-nnoremap vac /)<CR>v%B
-nmap cic vicc
-nmap coc vocc
-nmap coc vocc
+nnoremap D dt
+nnoremap C ct
+nnoremap DD D
+""" seek ahead camel case
+nnoremap me [w
+nnoremap mE [b
+nnoremap vie :let @a="]wv[b"<CR>@a
+nnoremap cie ]wv[bc
 
-nnoremap viv g^vg_
+""" seek ahead: next square
+nnoremap mi :let @a="/[\rvi["<CR>@a
+nnoremap mI :let @a="?]\rvi["<CR>@a
 
-"""
+""" seek ahead: next curly
+nnoremap ms :let @a="/{\rvi{"<CR>@a
+nnoremap mS :let @a="?}\rvi{"<CR>@a
+
+""" seek ahead: next paren
+nnoremap mp :let @a="/(\rvi("<CR>@a
+nnoremap mP :let @a="?)\rvi("<CR>@a
+
+""" next var
+nnoremap mv :let @a="/=\rvg^"<CR>@a
+nnoremap mV :let @a="?=\rvg^"<CR>@a
+
+""" next assignment
+nnoremap ma :let @a="/=\rlvg_"<CR>@a
+nnoremap mA :let @a="?=\rlvg_"<CR>@a
+
+""" seek ahead: generic
+nnoremap mt :let @a="/>\rvi>"<CR>@a
+nnoremap mT :let @a="?<\rvi>"<CR>@a
+
+""" next call
+nnoremap mc :let @a="/(\r%v%B"<CR>@a
+nnoremap mC :let @a="?)\r%v%B"<CR>@a
+
+""" next callee
+nnoremap mk :let @a="/(\rjvB"<CR>@a
+nnoremap mK :let @a="?(\rjvB"<CR>@a
+
+""" seek ahead: next quote
+nnoremap mq :let @a="/\"\rvi\""<CR>@a
+nnoremap mQ :let @a="?\"\rvi\""<CR>@a
+
+
+""""todo: next unmatched
+
+
+vnoremap . <Esc>`<@@
+
+
+""" bring back
+vnoremap <Leader>qj "ad``"aP
+nnoremap <Leader>qj V"ad``"aP
 
 
 
-""" delete / change / select ahead or behind
 
-nnoremap cl ct
-nnoremap cj cT
-noremap dl dt
-noremap dj dT
-noremap vl vf
-noremap vj vF
 
-noremap oo o
-""" do macro again
-noremap <leader>. @@
+""" todo: What exactly is a paragraph?
+""" todo: What exactly is a sentence
+""" todo: What exactly is a section
+
+
+
+nnoremap <leader>. @@
 
 """ select all scope
 nnoremap <leader>sa va}
 nnoremap <leader>si vi}
 nnoremap <leader>ss va}^$o^
-map sj <Action>(HippieCompletion)
-map sl <Action>(HippieBackwardCompletion)
 
 
-""" Experimental -----------------------------------------
 
-"""nnoremap cau :action EditorSelectWord<CR>:action EditorCut<CR>:action EditorSelectWord<CR>:action EditorSelectWord<CR>:action EditorPaste<CR>
-
-
-map ru <Action>(EditorToggleCase)
+""" todo quickscope
+""" todo multiple cursors
+""" todo visual P swap
 
 
-""" bring back
-vnoremap <leader>dj "ad``"aP
-nnoremap <leader>dj V"ad``"aP
+vnoremap p "ad<Esc>p
 
-
-map <leader>sort vi"<Action>(Sort Words)<Esc>
-vmap <leader>sort <Action>(Sort Words)<Esc>
+map rsp vip<Action>(EditorSortLines)
