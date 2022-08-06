@@ -16,13 +16,13 @@
       <i c="182" l="1659732957585" />
     </e>
     <e n="$Redo">
-      <i c="449" l="1659749643034" />
+      <i c="451" l="1659796882692" />
     </e>
     <e n="$SelectAll">
-      <i c="1245" d="1" l="1659795475073" k="1658946012377" />
+      <i c="1246" d="1" l="1659797876711" k="1658946012377" />
     </e>
     <e n="$Undo">
-      <i c="27052" l="1659795682380" />
+      <i c="27062" l="1659797913759" />
     </e>
     <e n="About">
       <i c="2" l="1659061315275" />
@@ -70,7 +70,7 @@
       <i c="13" l="1659735230539" />
     </e>
     <e n="ActivateTerminalToolWindow">
-      <i c="1652" l="1659790460613" />
+      <i c="1653" l="1659798046961" />
     </e>
     <e n="ActivateVersionControlToolWindow">
       <i c="7" l="1659754325688" />
@@ -106,7 +106,7 @@
       <i c="766" d="1" l="1659768908224" k="1658779099367" />
     </e>
     <e n="Back">
-      <i c="8319" l="1659795674638" />
+      <i c="8322" l="1659797917046" />
     </e>
     <e n="CallHierarchy">
       <i c="2" l="1650916822772" />
@@ -196,7 +196,7 @@
       <i c="1" l="1658779140719" />
     </e>
     <e n="CommentByLineComment">
-      <i c="975" l="1659788631690" />
+      <i c="976" l="1659796293570" />
     </e>
     <e n="Compare.SameVersion">
       <i c="1" l="1655317786256" />
@@ -310,7 +310,7 @@
       <i c="123" l="1659733550965" />
     </e>
     <e n="EditorBackSpace">
-      <i c="38912" l="1659795617618" />
+      <i c="38947" l="1659797968001" />
     </e>
     <e n="EditorBackwardParagraph">
       <i c="642" l="1659793146069" />
@@ -319,7 +319,7 @@
       <i c="162" l="1659386282721" />
     </e>
     <e n="EditorChooseLookupItem">
-      <i c="15491" l="1659795558239" />
+      <i c="15492" l="1659796175181" />
     </e>
     <e n="EditorChooseLookupItemCompleteStatement">
       <i c="1" l="1656436809541" />
@@ -352,31 +352,31 @@
       <i c="4" l="1659765322039" />
     </e>
     <e n="EditorDelete">
-      <i c="6522" l="1659795390948" />
+      <i c="6596" l="1659798016568" />
     </e>
     <e n="EditorDeleteLine">
       <i c="3640" l="1659795273317" />
     </e>
     <e n="EditorDeleteToWordEnd">
-      <i c="2690" l="1659795553462" />
+      <i c="2696" l="1659796603867" />
     </e>
     <e n="EditorDeleteToWordStart">
-      <i c="12935" l="1659795556944" />
+      <i c="12944" l="1659797856503" />
     </e>
     <e n="EditorDown">
-      <i c="72413" l="1659795638879" />
+      <i c="72468" l="1659798018945" />
     </e>
     <e n="EditorDownWithSelection">
       <i c="4283" l="1659735808720" />
     </e>
     <e n="EditorDuplicate">
-      <i c="1207" l="1659795599770" />
+      <i c="1211" l="1659797901163" />
     </e>
     <e n="EditorEnter">
-      <i c="24222" l="1659795679025" />
+      <i c="24226" l="1659797119125" />
     </e>
     <e n="EditorEscape">
-      <i c="5500" l="1659795684535" />
+      <i c="5504" l="1659797868186" />
     </e>
     <e n="EditorForwardParagraph">
       <i c="728" l="1659759593151" />
@@ -427,7 +427,7 @@
       <i c="15" l="1659142524777" />
     </e>
     <e n="EditorNextWordWithSelection">
-      <i c="5217" l="1659768905208" />
+      <i c="5219" l="1659796446594" />
     </e>
     <e n="EditorPaste">
       <i c="4456" l="1659793963163" />
@@ -460,7 +460,7 @@
       <i c="85" l="1659758766305" />
     </e>
     <e n="EditorSelectWord">
-      <i c="6796" l="1659767879524" />
+      <i c="6797" l="1659796186267" />
     </e>
     <e n="EditorSortLines">
       <i c="80" l="1659758830536" />
@@ -469,7 +469,7 @@
       <i c="1" d="1" l="1658766085040" k="1658766085040" />
     </e>
     <e n="EditorStartNewLine">
-      <i c="150" l="1659754570042" />
+      <i c="151" l="1659797841142" />
     </e>
     <e n="EditorStartNewLineBefore">
       <i c="19" l="1659753850911" />
@@ -484,10 +484,10 @@
       <i c="1206" l="1659795672484" />
     </e>
     <e n="EditorTextEndWithSelection">
-      <i c="183" l="1659768642370" />
+      <i c="184" l="1659796401823" />
     </e>
     <e n="EditorTextStart">
-      <i c="1794" l="1659795083059" />
+      <i c="1796" l="1659796432655" />
     </e>
     <e n="EditorTextStartWithSelection">
       <i c="54" l="1658595652218" />
@@ -520,7 +520,7 @@
       <i c="556" l="1659794812866" />
     </e>
     <e n="EditorUp">
-      <i c="63661" l="1659795638552" />
+      <i c="63676" l="1659798019242" />
     </e>
     <e n="EditorUpWithSelection">
       <i c="2024" d="2" l="1659762157838" k="1655695429423" />
@@ -592,7 +592,7 @@
       <i c="7" d="2" l="1659145708168" k="1658779572870" />
     </e>
     <e n="Find">
-      <i c="1084" l="1659795457439" />
+      <i c="1087" l="1659797871002" />
     </e>
     <e n="FindInPath">
       <i c="145" l="1659758374235" />
@@ -610,7 +610,7 @@
       <i c="4" l="1655942315083" />
     </e>
     <e n="Forward">
-      <i c="1180" l="1659768695543" />
+      <i c="1182" l="1659797916766" />
     </e>
     <e n="Generate">
       <i c="7" l="1659768935230" />
@@ -694,7 +694,7 @@
       <i c="2" l="1659732155743" />
     </e>
     <e n="HideAllWindows">
-      <i c="1097" l="1659795386514" />
+      <i c="1098" l="1659798048214" />
     </e>
     <e n="HippieBackwardCompletion">
       <i c="124" l="1659792123834" />
@@ -703,7 +703,7 @@
       <i c="87" l="1659792124470" />
     </e>
     <e n="IdeaVim.ReloadVimRc.reload">
-      <i c="1107" l="1659795480971" />
+      <i c="1114" l="1659798045816" />
     </e>
     <e n="Images.Editor.ZoomIn">
       <i c="1" l="1658253325442" />
@@ -871,10 +871,10 @@
       <i c="30" l="1659757021295" />
     </e>
     <e n="MoveStatementDown">
-      <i c="1628" l="1659794597528" />
+      <i c="1652" l="1659798032278" />
     </e>
     <e n="MoveStatementUp">
-      <i c="2918" l="1659794606468" />
+      <i c="2921" l="1659798013468" />
     </e>
     <e n="NavBar-cancel">
       <i c="12" l="1659743996773" />
@@ -994,7 +994,7 @@
       <i c="1" l="1658683601129" />
     </e>
     <e n="RecentFiles">
-      <i c="7871" l="1659795433684" />
+      <i c="7883" l="1659797620263" />
     </e>
     <e n="RecentLocations">
       <i c="3" l="1656278318370" />
@@ -1036,7 +1036,7 @@
       <i c="7" l="1657664284481" />
     </e>
     <e n="RestartIde">
-      <i c="117" l="1659795119191" />
+      <i c="118" l="1659796448824" />
     </e>
     <e n="Resume">
       <i c="752" l="1659707522717" />
@@ -1345,7 +1345,7 @@
       <i c="57" d="2" l="1659795071963" k="1655691135275" />
     </e>
     <e n="VimPluginToggle">
-      <i c="818" l="1659794754045" />
+      <i c="824" l="1659797868936" />
     </e>
     <e n="WebServicesActions">
       <i c="14" d="14" l="1659476033226" k="1659476033226" />
@@ -1519,7 +1519,7 @@
       <i c="62" l="1653790105989" />
     </e>
     <e n="com.intellij.find.SearchReplaceComponent$CloseAction">
-      <i c="1199" l="1659795476609" />
+      <i c="1202" l="1659797882807" />
     </e>
     <e n="com.intellij.find.SearchReplaceComponent$ModeAction">
       <i c="6" l="1657589035848" />
@@ -1624,7 +1624,7 @@
       <i c="11" l="1659647257980" />
     </e>
     <e n="com.intellij.openapi.actionSystem.EmptyAction$MyDelegatingAction">
-      <i c="644992" l="1659795864235" />
+      <i c="645667" l="1659798044977" />
     </e>
     <e n="com.intellij.openapi.diff.impl.dir.actions.ChangeCompareModeAction">
       <i c="3" l="1656444937461" />
@@ -1669,7 +1669,7 @@
       <i c="1598" l="1659795384887" />
     </e>
     <e n="com.intellij.openapi.project.LightEditActionFactory$SimpleLightEditCompatibleAction">
-      <i c="8085" l="1659795434058" />
+      <i c="8096" l="1659797620489" />
     </e>
     <e n="com.intellij.openapi.roots.ui.configuration.CommonContentEntriesEditor$AddContentEntryAction">
       <i c="1" l="1654193345092" />
@@ -1702,7 +1702,7 @@
       <i c="3" l="1656616027989" />
     </e>
     <e n="com.intellij.openapi.ui.DialogWrapper$4">
-      <i c="1895" l="1659795119572" />
+      <i c="1896" l="1659796449624" />
     </e>
     <e n="com.intellij.openapi.ui.MasterDetailsComponent$MyDeleteAction">
       <i c="1" l="1650368055198" />
@@ -1894,7 +1894,7 @@
       <i c="5" l="1655691078942" />
     </e>
     <e n="com.maddyhome.idea.vim.ui.ex.ExShortcutKeyAction">
-      <i c="801" l="1659795433335" />
+      <i c="807" l="1659797819698" />
     </e>
     <e n="copilot.applyInlays">
       <i c="1414" l="1659795415143" />

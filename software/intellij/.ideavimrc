@@ -4,6 +4,7 @@ set showmode
 set visualbell
 set number
 set relativenumber
+set ruler
 
 set wrapscan
 set incsearch
@@ -20,16 +21,18 @@ set scrolljump=0
 """set startofline
 
 
+"""set keymodel="startsel,stopsel"
+"""set selection='inclusive'
+"""set selectmode=""
+
 set clipboard+=unnamed
 """set digraph
-"""set keymodel
 """set iskeyword
 
 if has('ide')
     set ideamarks
     set ideajoin
     set idearefactormode=select
-    set selectmode=ideaselection
     set ideavimsupport=""
     
     sethandler a:ide
@@ -71,7 +74,6 @@ endif
 
 if has('myTodo')
 
-    set matchpairs
     packadd matchit
 
     Plug 'tommcdo/vim-exchange'
@@ -90,6 +92,7 @@ if has('myTodo')
 
 endif
 
+:au FileType java set matchpairs +==:;
 
 """ Overrides ------------------------------------------------ 
 
@@ -124,8 +127,11 @@ nnoremap mm ma
 """change / delete
 vnoremap p "ad<Esc>p
 nnoremap <Del> "adl
+nnoremap <C-Del> "adw
 vnoremap <Del> "ad
+vnoremap <C-Del> "ad
 nnoremap <Backspace> "adh
+nnoremap <C-Backspace> "adb
 vnoremap <Backspace> "adh
 nnoremap cl "act
 nnoremap cj "acT
@@ -199,13 +205,13 @@ vnoremap <C-S-End> $
 vnoremap <S-End> $
 
 
-vnoremap <Up> k
+"""vnoremap <Up> k
+"""vnoremap <Down> j
+"""vnoremap <Left> h
+"""vnoremap <Right> l
 vnoremap <S-Up> k
-vnoremap <Down> j
 vnoremap <S-Down> j
-vnoremap <Left> h
 vnoremap <S-Left> h
-vnoremap <Right> l
 vnoremap <S-Right> l
 
 """ -------------------------------------------------------
