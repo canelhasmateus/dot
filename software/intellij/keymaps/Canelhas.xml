@@ -334,7 +334,6 @@
   </action>
   <action id="EditorEnter">
     <keyboard-shortcut first-keystroke="enter" />
-    <keyboard-shortcut first-keystroke="alt d" second-keystroke="space" />
     <keyboard-shortcut first-keystroke="alt 8" />
   </action>
   <action id="EditorFocusGutter" />
@@ -1225,6 +1224,7 @@
   <action id="copilot.applyInlays">
     <keyboard-shortcut first-keystroke="alt d" second-keystroke="ctrl enter" />
     <keyboard-shortcut first-keystroke="alt d" second-keystroke="enter" />
+    <keyboard-shortcut first-keystroke="alt d" second-keystroke="space" />
   </action>
   <action id="copilot.cycleNextInlays">
     <keyboard-shortcut first-keystroke="alt d" second-keystroke="alt k" />

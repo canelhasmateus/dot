@@ -12,7 +12,7 @@ map ? enterFindMode
 map . performFind
 map , performBackwardsFind
 map vi focusInput
-map vv enterInsertMode
+map vv enterVisualMode
 
 
 # Todo:
@@ -26,6 +26,7 @@ map vv enterInsertMode
 
 
 # Jump
+map nd LinkHints.activateModeToDownloadLink
 map nc LinkHints.activateModeToCopyLinkUrl
 map ni LinkHints.activateModeToOpenIncognito
 map nn LinkHints.activateMode
@@ -36,7 +37,6 @@ map nl previousTab
 map nj nextTab
 map nw goUp
 map n<a-w> goToRoot
-
 
 #Vim scrolling
 map k scrollUp

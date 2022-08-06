@@ -1,91 +1,151 @@
-""" Map leader to space ---------------------
 let mapleader=" "
 
-""" Plugins  --------------------------------
-""" set multiple-cursors
-set commentary
-set surround
-set argtextobj
-set textobj-entire
-
-""" Plugin settings -------------------------
-let g:argtextobj_pairs="[:],(:),<:>"
-
-""" Common settings -------------------------
-set number relativenumber
-set visualbell
-set noerrorbells
-
-set incsearch
 set showmode
-set so=0
-set ignorecase
-set nu
+set visualbell
+set number
+set relativenumber
 
-set easymotion
-let g:EasyMotion_do_mapping = 0
+set wrapscan
+set incsearch
+set smartcase
+"""set hlsearch
 
-""" Idea specific settings ------------------
-set ideajoin
-set ideastatusicon=gray
-set idearefactormode=keep
+"""set maxmapdepth
+"""set history
+
+
+set scroll=0
+set scrolloff=0
+set scrolljump=0
+"""set startofline
+
+
 set clipboard+=unnamed
+"""set digraph
+"""set keymodel
+"""set iskeyword
 
-""" Handler --------------------------------
-sethandler <ESC> a:ide
-sethandler <C-x> a:ide
-sethandler <A-F> a:ide
-sethandler <A-S> a:ide
-sethandler <A-f> a:ide
-sethandler <C-I> a:ide
-sethandler <C-B> a:ide
-sethandler <C-L> a:ide
-sethandler <A-N> a:ide
-sethandler <C-P> a:ide
-sethandler <C-R> a:ide
-sethandler <C-U> a:ide
-sethandler <A-X> a:ide
-sethandler <C-\> a:ide
-sethandler <M-F> a:ide
-sethandler <M-n> a:ide
-sethandler <C-w> a:ide
-sethandler <C-D> a:ide
-sethandler <C-c> a:ide
-sethandler <C-s> a:ide
-sethandler <C-]> a:ide
-sethandler <C-[> a:ide
-sethandler <C-v> i:ide n-v:vim
-sethandler <C-A> i:ide n-v:vim
+if has('ide')
+    set ideamarks
+    set ideajoin
+    set idearefactormode=select
+    set selectmode=ideaselection
+    set ideavimsupport=""
+    
+    sethandler a:ide
+endif
 
 
+""" Plugins  --------------------------------------------------------------
 
-""" Base Bindings
+Plug 'easymotion/vim-easymotion'
+let g:EasyMotion_do_mapping = 0
+map fq <Plug>(easymotion-bd-jk)
+map fl <Plug>(easymotion-w)
+map fj <Plug>(easymotion-b)
+map f<Space> <Plug>(easymotion-bd-t)
+map <leader>ff <Action>(Find)
+
+"""Plug 'dbakker/vim-paragraph-motion'
+if has('myAbout')
+    ""Normally the { and } motions only match completely empty lines.
+    """With this plugin lines that only contain whitespace are also matched.
+endif
+
+Plug 'tpope/vim-surround'
+if has('myAbout')
+    """Commands: ys, cs, ds, S
+endif
+
+Plug 'machakann/vim-highlightedyank'
+if has('myAbout')
+    let g:highlightedyank_highlight_duration = "1000"
+    let g:highlightedyank_highlight_duration = "-1"
+    let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
+endif 
+
+Plug 'michaeljsmith/vim-indent-object'
+if has('myAbout')
+    """Additional text objects: ai, ii, aI
+endif
+
+if has('myTodo')
+
+    set matchpairs
+    packadd matchit
+
+    Plug 'tommcdo/vim-exchange'
+    """Commands: cx, cxx, X, cxc
+
+    Plug 'vim-scripts/argtextobj.vim'
+    let g:argtextobj_pairs="[:],(:),<:>"
+    """Additional text objects: aa, ia
+
+    Plug 'terryma/vim-multiple-cursors'
+    """Commands: <A-n>, <A-x>, <A-p>, g<A-n>
+
+    Plug 'preservim/nerdtree'
+
+"""quickscope
+
+endif
+
+
+""" Overrides ------------------------------------------------ 
+
+"""search
+noremap fk *
+noremap fi #
+noremap ff f
+
+"""redo
+nnoremap <leader>. @@
+vnoremap . <Esc>`<@@
+
+""" till
+nnoremap D dt
+nnoremap C ct
+nnoremap V vt
+nnoremap vv V
+nnoremap viv g^vg_
+nnoremap DD D
+
+
+""" end of Word / CamelCase
+nnoremap ee e
+nnoremap ei ea
+nnoremap ea ea
+nnoremap ai a
+nnoremap cie ciw
+
+""" mark
+nnoremap mm ma
+
+"""change / delete
+vnoremap p "ad<Esc>p
 nnoremap <Del> "adl
 vnoremap <Del> "ad
-nnoremap <Enter> i<Enter><ESC>
 nnoremap <Backspace> "adh
 vnoremap <Backspace> "adh
-
-nnoremap a <Nop>
-nnoremap i <Nop>
-nnoremap x <Nop>
-nnoremap s <Nop>
-nnoremap r <Nop>
-
 nnoremap cl "act
 nnoremap cj "acT
 nnoremap ck "acl
 nnoremap dl "adt
 nnoremap dj "adT
-nnoremap vl vf
-nnoremap vj vF
-nnoremap oo o
-nnoremap vv V
+vnoremap <Backspace> "ad
+
 
 nnoremap dip "adipi<Enter><Esc>
-nnoremap viv g^vg_
+nnoremap <Tab> >>
+nnoremap <S-Tab> <<
+vnoremap <Tab> >>
+vnoremap <Tab> <<
+nnoremap <Enter> i<Enter><ESC>
 
-""" Extend-Layer
+
+""" Extend-Layer ------
+nnoremap i <Nop>
+nnoremap a <Nop>
 
 nnoremap <leader>i i
 vnoremap <leader>i <Esc>i
@@ -95,8 +155,6 @@ nnoremap j h
 nnoremap h ^
 nnoremap ç $
 
-nnoremap <Tab> >
-nnoremap <S-Tab> <
 
 nnoremap <Home> ^
 nnoremap <C-Home> ^
@@ -129,8 +187,6 @@ inoremap <S-Right> <Esc>vl
 inoremap <S-Down> <Esc>vj
 inoremap <S-Left> <Esc>vh
 
-vnoremap <Tab> >>
-vnoremap <Tab> <<
 
 vnoremap <Home> ^
 vnoremap <C-Home> ^
@@ -138,11 +194,11 @@ vnoremap <C-S-Home> ^
 vnoremap <S-Home> ^
 
 vnoremap <End> $
-dnoremap <C-End> $
-dnoremap <C-S-End> $
+vnoremap <C-End> $
+vnoremap <C-S-End> $
 vnoremap <S-End> $
 
-vnoremap <Backspace> "ad
+
 vnoremap <Up> k
 vnoremap <S-Up> k
 vnoremap <Down> j
@@ -152,119 +208,141 @@ vnoremap <S-Left> h
 vnoremap <Right> l
 vnoremap <S-Right> l
 
+""" -------------------------------------------------------
 
+""" Code ----
+nnoremap zz zz
+nnoremap zi zb
+nnoremap zk zt
+nnoremap zl zL
+nnoremap zj zH
 
-""" -----------------------------------------------
-
-""" Code
-map xo <Action>(OverrideMethods)
-map xj <Action>(HippieCompletion)
-map xl <Action>(HippieBackwardCompletion)
-map x1 <Action>(ExpandAllToLevel1)
-map x2 <Action>(ExpandAllToLevel2)
-map x3 <Action>(ExpandAllToLevel3)
-map xt <Action>(ImplementMethods)
+nnoremap x <Nop>
 nnoremap x. zo
 nnoremap x, zc
 nnoremap x0 zM
-"""nnoremap xk ]m
-"""nnoremap xi [m
-map xi <Action>(MethodUp)
-map xk <Action>(MethodDown)
-""" Surround / Context
-map st <Action>(InsertLiveTemplate)
-map ss <Action>(SurroundWith)
-map su <Action>(Unwrap)
-map si <Action>(EditorSelectWord)
-map sk <Action>(EditorUnSelectWord)
+if has('ide')
+    map xo <Action>(OverrideMethods)
+    map x1 <Action>(ExpandAllToLevel1)
+    map x2 <Action>(ExpandAllToLevel2)
+    map x3 <Action>(ExpandAllToLevel3)
+    map xt <Action>(ImplementMethods)
+    map xi <Action>(MethodUp)
+    map xk <Action>(MethodDown)
+    map xj <Action>(HippieCompletion)
+    map xl <Action>(HippieBackwardCompletion)
+else
+    nnoremap xi [m
+    nnoremap xk ]m
+endif
 
-""" Refactoring
+
+""" Surround ----
+nnoremap s <Nop>
+
+if has('ide')
+    map st <Action>(InsertLiveTemplate)
+    map ss <Action>(SurroundWith)
+    map su <Action>(Unwrap)
+    map si <Action>(EditorSelectWord)
+    map sk <Action>(EditorUnSelectWord)
+endif
+
+""" select all scope
+nnoremap <leader>sa va}
+nnoremap <leader>si vi}
+nnoremap <leader>ss Va}
+
+
+
+""" Refactoring ----
+nnoremap r <Nop>
+
 nnoremap rr gq
 vnoremap rr gq
-map ra <Action>(IntroduceField)
-map rd <Action>(EditorDuplicate)
-map rn <leader>i<Action>(RenameElement)
-map ri <Action>(Inline)
-map rv <Action>(IntroduceVariable)
-map ro <Action>(OptimizeImports)
-map rk <Action>(IntroduceConstant)
-map ru <Action>(EditorToggleCase)
+
+if has('ide')
+    map rj <Action>(EditorJoinLines)
+    map ra <Action>(IntroduceField)
+    map rd <Action>(EditorDuplicate)
+    map rn <Action>(RenameElement)
+    map rm <Action>(Move)
+    map ri <Action>(Inline)
+    map rv <Action>(IntroduceVariable)
+    map ro <Action>(OptimizeImports)
+    map rk <Action>(IntroduceConstant)
+    map ru <Action>(EditorToggleCase)
+    map rf <Action>(ExtractMethod)
+else
+   nnoremap rj J
+endif
+
+nnoremap rsp vip:sort<CR>
+nnoremap rsP vip:%sort!<CR>
+vnoremap rs :sort<CR>
 
 """ Quick commands --------------------------
-nnoremap qd K
-nnoremap qe zz
-map qw <Action>(ShowErrorDescription)
-map qh <Action>(GotoPreviousError)
-map qç <Action>(GotoNextError)
+nnoremap q <Nop>
 
-map ql <Action>(Forward)
-map qj <Action>(Back)
-"""nnoremap ql <C-I>
-"""nnoremap qj <C-O>
-
-"""map qi<Action>(PartialPageNav.PageUp)
-"""map qk <Action>(PartialPageNav.PageDown)
 nnoremap qq <Esc>
-nnoremap qi <C-U>
-nnoremap qk <C-D>
 nnoremap qu {
 nnoremap qp }
 nnoremap qo %
+nnoremap qd K
+nnoremap qe zz
+nnoremap qi <C-U>
+nnoremap qk <C-D>
 
-""" Window
+if has('ide')
+    map qw <Action>(ShowErrorDescription)
+    map qh <Action>(GotoPreviousError)
+    map qç <Action>(GotoNextError)
+    map ql <Action>(Forward)
+    map qj <Action>(Back)
+else
+    nnoremap ql <C-I>
+    nnoremap qj <C-O>
+endif
+
+""" Window / Open
+nnoremap o <Nop>
+
+nnoremap oo o
+nnoremap <leader>vim :e ~\.ideavimrc<CR>
+map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
 map <leader>w<A-p> <Action>(SelectInProjectView)
 map <leader>wp <Action>(ActivateProjectToolWindow)
-map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
-map <leader>vim :e ~\.ideavimrc<CR>
-
-""" Open
 map or <Action>(RecentFiles)
 map ox <Action>(FileStructurePopup)
 
 """ Navigation
+nnoremap n <Nop>
+
 nnoremap nn n
-map nf <Action>(GotoFile)
-map nc <Action>(GotoClass)
-map ns <Action>(GotoSymbol)
-map nd gD
-map nj <Action>(JumpToLastChange)
-map nl <Action>(JumpToLastChange)
-
-""" Search ---------------------------------------------------
-
-""" Easy Motion
-map <leader>ff <Action>(Find)
-map fq <Plug>(easymotion-bd-jk)
-map fl <Plug>(easymotion-w)
-map fj <Plug>(easymotion-b)
-map f<Space> <Plug>(easymotion-bd-t)
-
-noremap fk *
-noremap fi #
-noremap ff f
-
-""" end of Word / CamelCase
-nnoremap ee e
-nnoremap ei ea
-nnoremap ea ea
-nnoremap ai a
+nnoremap nd gD
+if has('ide')
+    map nf <Action>(GotoFile)
+    map nc <Action>(GotoClass)
+    map ns <Action>(GotoSymbol)
+    map nj <Action>(JumpToLastChange)
+    map nl <Action>(JumpToLastChange)
+endif
 
 
 
-nnoremap cie ciw
+
+
+
 """ Experimental -----------------------------------------
 
 
-""" Seek Aheads ----------------------------------
+""" Seek Aheads -
 
-nnoremap D dt
-nnoremap C ct
-nnoremap DD D
+
 """ seek ahead camel case
 nnoremap me [w
 nnoremap mE [b
 nnoremap vie :let @a="]wv[b"<CR>@a
-nnoremap cie ]wv[bc
 
 """ seek ahead: next square
 nnoremap mi :let @a="/[\rvi["<CR>@a
@@ -302,41 +380,21 @@ nnoremap mK :let @a="?(\rjvB"<CR>@a
 nnoremap mq :let @a="/\"\rvi\""<CR>@a
 nnoremap mQ :let @a="?\"\rvi\""<CR>@a
 
-
 """"todo: next unmatched
-
-
-vnoremap . <Esc>`<@@
-
-
-""" bring back
-vnoremap <Leader>qj "ad``"aP
-nnoremap <Leader>qj V"ad``"aP
-
-
-
-
 
 """ todo: What exactly is a paragraph?
 """ todo: What exactly is a sentence
 """ todo: What exactly is a section
 
-
-
-nnoremap <leader>. @@
-
-""" select all scope
-nnoremap <leader>sa va}
-nnoremap <leader>si vi}
-nnoremap <leader>ss va}^$o^
-
-
-
-""" todo quickscope
-""" todo multiple cursors
 """ todo visual P swap
 
 
-vnoremap p "ad<Esc>p
 
-map rsp vip<Action>(EditorSortLines)
+
+
+""" bring back
+vnoremap <Leader>qj "ad``"aP
+nnoremap <Leader>qj V"ad``"aP
+nnoremap <Leader>ql magv"ad`a"aP
+
+vnoremap rb :s/)\./)\r./g<CR>:action ReformatCode<CR>
