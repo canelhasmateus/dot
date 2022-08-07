@@ -6,7 +6,12 @@ using namespace System.Management.Automation.Language
 Set-PSReadLineOption -EditMode Emacs
 Set-PSReadLineOption -BellStyle None
 Set-PSReadLineOption -ContinuationPrompt ""
-Set-PSReadLineOption -PredictionSource History *> $null
+try {
+    Set-PSReadLineOption -PredictionSource History *> $null
+}
+catch {
+
+}
 
 Set-PSReadlineOption -Color @{
     

@@ -370,6 +370,7 @@
     <keyboard-shortcut first-keystroke="shift ctrl alt right" />
     <keyboard-shortcut first-keystroke="shift ctrl alt #10000c7" />
     <keyboard-shortcut first-keystroke="shift end" />
+    <keyboard-shortcut first-keystroke="shift ctrl end" />
   </action>
   <action id="EditorLineStart">
     <keyboard-shortcut first-keystroke="ctrl alt left" />
@@ -380,6 +381,7 @@
     <keyboard-shortcut first-keystroke="shift ctrl alt left" />
     <keyboard-shortcut first-keystroke="shift ctrl alt h" />
     <keyboard-shortcut first-keystroke="shift home" />
+    <keyboard-shortcut first-keystroke="shift ctrl home" />
   </action>
   <action id="EditorLookupDown" />
   <action id="EditorLookupUp" />
@@ -471,7 +473,6 @@
   </action>
   <action id="EditorTextEndWithSelection">
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="shift ctrl alt k" />
-    <keyboard-shortcut first-keystroke="shift ctrl end" />
   </action>
   <action id="EditorTextStart">
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="ctrl alt i" />
@@ -1150,6 +1151,9 @@
   </action>
   <action id="Tree-selectFirst">
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="ctrl alt i" />
+  </action>
+  <action id="Tree-selectLastExtendSelection">
+    <keyboard-shortcut first-keystroke="alt n" second-keystroke="shift ctrl alt k" />
   </action>
   <action id="TypeHierarchy" />
   <action id="UML.ShowChanges" />

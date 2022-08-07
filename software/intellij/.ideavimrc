@@ -6,20 +6,20 @@ set number
 set relativenumber
 set ruler
 
+
 set wrapscan
 set incsearch
 set smartcase
+
 """set hlsearch
 
 """set maxmapdepth
 """set history
 
-
 set scroll=0
 set scrolloff=0
 set scrolljump=0
 """set startofline
-
 
 """set keymodel="startsel,stopsel"
 """set selection='inclusive'
@@ -34,9 +34,33 @@ if has('ide')
     set ideajoin
     set idearefactormode=select
     set ideavimsupport=""
-    
-    sethandler a:ide
 endif
+
+sethandler <ESC> a:ide
+sethandler <C-x> a:ide
+sethandler <A-F> a:ide
+sethandler <A-S> a:ide
+sethandler <A-f> a:ide
+sethandler <C-I> a:ide
+sethandler <C-B> a:ide
+sethandler <C-L> a:ide
+sethandler <A-N> a:ide
+sethandler <C-P> a:ide
+sethandler <C-R> a:ide
+sethandler <C-U> a:ide
+sethandler <A-X> a:ide
+sethandler <C-\> a:ide
+sethandler <M-F> a:ide
+sethandler <M-n> a:ide
+sethandler <C-w> a:ide
+sethandler <C-D> a:ide
+sethandler <C-c> a:ide
+sethandler <C-s> a:ide
+sethandler <C-]> a:ide
+sethandler <C-[> a:ide
+sethandler <C-v> a:ide
+sethandler <C-A> a:ide
+
 
 
 """ Plugins  --------------------------------------------------------------
@@ -50,49 +74,32 @@ map f<Space> <Plug>(easymotion-bd-t)
 map <leader>ff <Action>(Find)
 
 """Plug 'dbakker/vim-paragraph-motion'
-if has('myAbout')
     ""Normally the { and } motions only match completely empty lines.
     """With this plugin lines that only contain whitespace are also matched.
-endif
 
-Plug 'tpope/vim-surround'
-if has('myAbout')
-    """Commands: ys, cs, ds, S
-endif
+
+Plug 'tpope/vim-surround' """Commands: ys, cs, ds, S
 
 Plug 'machakann/vim-highlightedyank'
-if has('myAbout')
-    let g:highlightedyank_highlight_duration = "1000"
-    let g:highlightedyank_highlight_duration = "-1"
-    let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
-endif 
+let g:highlightedyank_highlight_duration = "1000"
+let g:highlightedyank_highlight_color = "rgba(100, 160, 100, 100)"
 
-Plug 'michaeljsmith/vim-indent-object'
-if has('myAbout')
-    """Additional text objects: ai, ii, aI
-endif
+Plug 'michaeljsmith/vim-indent-object' """Additional text objects: ai, ii, aI
+packadd matchit
 
-if has('myTodo')
+Plug 'tommcdo/vim-exchange' """Commands: cx, cxx, X, cxc
 
-    packadd matchit
+Plug 'vim-scripts/argtextobj.vim' """Additional text objects: aa, ia
+let g:argtextobj_pairs="[:],(:),<:>"
 
-    Plug 'tommcdo/vim-exchange'
-    """Commands: cx, cxx, X, cxc
+"""Plug 'preservim/nerdtree'
+set multicursor
 
-    Plug 'vim-scripts/argtextobj.vim'
-    let g:argtextobj_pairs="[:],(:),<:>"
-    """Additional text objects: aa, ia
-
-    Plug 'terryma/vim-multiple-cursors'
-    """Commands: <A-n>, <A-x>, <A-p>, g<A-n>
-
-    Plug 'preservim/nerdtree'
 
 """quickscope
 
 endif
 
-:au FileType java set matchpairs +==:;
 
 """ Overrides ------------------------------------------------ 
 
@@ -105,16 +112,12 @@ noremap ff f
 nnoremap <leader>. @@
 vnoremap . <Esc>`<@@
 
-""" till
-nnoremap D dt
-nnoremap C ct
-nnoremap V vt
-nnoremap vv V
-nnoremap viv g^vg_
-nnoremap DD D
 
 
 """ end of Word / CamelCase
+vnoremap ee e
+vnoremap ei `>A
+
 nnoremap ee e
 nnoremap ei ea
 nnoremap ea ea
@@ -128,8 +131,10 @@ nnoremap mm ma
 vnoremap p "ad<Esc>p
 nnoremap <Del> "adl
 nnoremap <C-Del> "adw
+
 vnoremap <Del> "ad
 vnoremap <C-Del> "ad
+
 nnoremap <Backspace> "adh
 nnoremap <C-Backspace> "adb
 vnoremap <Backspace> "adh
@@ -140,8 +145,15 @@ nnoremap dl "adt
 nnoremap dj "adT
 vnoremap <Backspace> "ad
 
+""" till
+nnoremap D "adt
+nnoremap C "act
+nnoremap DD "aD
+nnoremap V vt
+nnoremap vv V
+nnoremap viv g^vg_
 
-nnoremap dip "adipi<Enter><Esc>
+nnoremap dip "adipO<Esc>
 nnoremap <Tab> >>
 nnoremap <S-Tab> <<
 vnoremap <Tab> >>
@@ -158,17 +170,17 @@ vnoremap <leader>i <Esc>i
 nnoremap i k
 nnoremap k j
 nnoremap j h
-nnoremap h ^
-nnoremap ç $
+nnoremap h g^
+nnoremap ç g$
 
 
-nnoremap <Home> ^
-nnoremap <C-Home> ^
+nnoremap <Home> g^
+nnoremap <C-Home> g^
 nnoremap <C-S-Home> v^
 nnoremap <S-Home> v^
 
-nnoremap <End> $
-nnoremap <C-End> $
+nnoremap <End> g$
+nnoremap <C-End> g$
 nnoremap <C-S-End> v$
 nnoremap <S-End> v$
 
@@ -180,8 +192,8 @@ nnoremap <S-Left> vh
 
 inoremap <Home> <Esc>^i
 inoremap <C-Home> <Esc>^i
-inoremap <C-S-Home> <Esc>g^i
-inoremap <S-Home> <Esc>g^i
+inoremap <C-S-Home> <Esc>vg^
+inoremap <S-Home> <Esc>vg^
 
 inoremap <End> <Esc>$a
 inoremap <C-End> <Esc>$a
@@ -223,10 +235,13 @@ nnoremap zk zt
 nnoremap zl zL
 nnoremap zj zH
 
+
 nnoremap x <Nop>
 nnoremap x. zo
 nnoremap x, zc
 nnoremap x0 zM
+vmap xx <Plug>(Exchange)
+nmap xx v<Plug>(Exchange)
 if has('ide')
     map xo <Action>(OverrideMethods)
     map x1 <Action>(ExpandAllToLevel1)
@@ -255,9 +270,9 @@ if has('ide')
 endif
 
 """ select all scope
-nnoremap <leader>sa va}
-nnoremap <leader>si vi}
-nnoremap <leader>ss Va}
+nnoremap vsa va}
+nnoremap vsi vi}
+nnoremap vss Va}g$og^
 
 
 
@@ -293,11 +308,11 @@ nnoremap q <Nop>
 nnoremap qq <Esc>
 nnoremap qu {
 nnoremap qp }
-nnoremap qo %
 nnoremap qd K
 nnoremap qe zz
 nnoremap qi <C-U>
 nnoremap qk <C-D>
+map qo <Plug>(MatchitMotion)
 
 if has('ide')
     map qw <Action>(ShowErrorDescription)
@@ -312,8 +327,10 @@ endif
 
 """ Window / Open
 nnoremap o <Nop>
+vnoremap o <Nop>
 
 nnoremap oo o
+vnoremap oo o
 nnoremap <leader>vim :e ~\.ideavimrc<CR>
 map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
 map <leader>w<A-p> <Action>(SelectInProjectView)
@@ -375,8 +392,8 @@ nnoremap mt :let @a="/>\rvi>"<CR>@a
 nnoremap mT :let @a="?<\rvi>"<CR>@a
 
 """ next call
-nnoremap mc :let @a="/(\r%v%B"<CR>@a
-nnoremap mC :let @a="?)\r%v%B"<CR>@a
+""" nnoremap mc :let @a="/(\r%v%B"<CR>@a
+""" nnoremap mC :let @a="?)\r%v%B"<CR>@a
 
 """ next callee
 nnoremap mk :let @a="/(\rjvB"<CR>@a
