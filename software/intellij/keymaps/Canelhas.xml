@@ -37,6 +37,10 @@
   <action id="AceWordStartAction">
     <keyboard-shortcut first-keystroke="alt f" second-keystroke="space" />
   </action>
+  <action id="ActivateBookmarksToolWindow">
+    <keyboard-shortcut first-keystroke="alt 2" />
+    <keyboard-shortcut first-keystroke="alt w" second-keystroke="q" />
+  </action>
   <action id="ActivateBuildToolWindow">
     <keyboard-shortcut first-keystroke="alt w" second-keystroke="b" />
   </action>
@@ -55,6 +59,9 @@
   </action>
   <action id="ActivateHierarchyToolWindow">
     <keyboard-shortcut first-keystroke="alt w" second-keystroke="h" />
+  </action>
+  <action id="ActivateMavenToolWindow">
+    <keyboard-shortcut first-keystroke="alt w" second-keystroke="m" />
   </action>
   <action id="ActivateProblemsViewToolWindow">
     <keyboard-shortcut first-keystroke="alt w" second-keystroke="i" />
@@ -85,6 +92,9 @@
   </action>
   <action id="AnalyzeMenu">
     <keyboard-shortcut first-keystroke="alt m" second-keystroke="alt a" />
+  </action>
+  <action id="Annotate">
+    <keyboard-shortcut first-keystroke="alt g" second-keystroke="b" />
   </action>
   <action id="Arrangement.Rule.Edit" />
   <action id="Arrangement.Rule.Match.Condition.Move.Down" />
@@ -592,9 +602,7 @@
   <action id="Generate">
     <keyboard-shortcut first-keystroke="alt r" second-keystroke="g" />
   </action>
-  <action id="Git.Branches">
-    <keyboard-shortcut first-keystroke="alt g" second-keystroke="b" />
-  </action>
+  <action id="Git.Branches" />
   <action id="Git.Commit.And.Push.Executor" />
   <action id="Git.Log.Branches.Change.Branch.Filter" />
   <action id="Git.Merge">

@@ -18,7 +18,6 @@ $Completion = Join-Path $PSScriptRoot "/lib/completion.ps1"
 
 $Terminal = Join-Path $PSScriptRoot "/lib/terminal.ps1"
 . $Terminal
-# $env:GIT_SSH = "C:\Windows\system32\OpenSSH\ssh.exe"
 
 # Todo: Read this.
 # https://docs.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline?view=powershell-7.2

@@ -18,7 +18,7 @@ set smartcase
 
 set scroll=0
 set scrolloff=0
-set scrolljump=0
+set scrolljump=5
 """set startofline
 
 """set keymodel="startsel,stopsel"
@@ -104,9 +104,10 @@ endif
 """ Overrides ------------------------------------------------ 
 
 """search
-noremap fk *
-noremap fi #
-noremap ff f
+nnoremap fu :set invhlsearch<CR>
+nnoremap fk *
+nnoremap fi #
+nnoremap ff f
 
 """redo
 nnoremap <leader>. @@
@@ -144,6 +145,7 @@ nnoremap ck "acl
 nnoremap dl "adt
 nnoremap dj "adT
 vnoremap <Backspace> "ad
+nnoremap vk v
 
 """ till
 nnoremap D "adt
@@ -231,7 +233,9 @@ vnoremap <S-Right> l
 """ Code ----
 nnoremap zz zz
 nnoremap zi zb
+vnoremap zi zb
 nnoremap zk zt
+vnoremap zk zt
 nnoremap zl zL
 nnoremap zj zH
 
@@ -240,8 +244,8 @@ nnoremap x <Nop>
 nnoremap x. zo
 nnoremap x, zc
 nnoremap x0 zM
+nmap xx vkxx
 vmap xx <Plug>(Exchange)
-nmap xx v<Plug>(Exchange)
 if has('ide')
     map xo <Action>(OverrideMethods)
     map x1 <Action>(ExpandAllToLevel1)
@@ -298,9 +302,8 @@ else
    nnoremap rj J
 endif
 
-nnoremap rsp vip:sort<CR>
-nnoremap rsP vip:%sort!<CR>
-vnoremap rs :sort<CR>
+nnoremap rsp vip:sort i<CR>
+nnoremap rsP vip:sort! i<CR>
 
 """ Quick commands --------------------------
 nnoremap q <Nop>
@@ -337,7 +340,7 @@ map <leader>w<A-p> <Action>(SelectInProjectView)
 map <leader>wp <Action>(ActivateProjectToolWindow)
 map or <Action>(RecentFiles)
 map ox <Action>(FileStructurePopup)
-
+map oh <Action>(CallHierarchy)
 """ Navigation
 nnoremap n <Nop>
 
@@ -353,14 +356,38 @@ endif
 
 
 
+""" Seek Aheads -------------------------------------------
 
+""" next quote
+nnoremap mq /"<CR>vi"
+vnoremap mq /"<CR>n
 
+""" next paren
+nnoremap mp /(<CR>vi(
+nnoremap mP ?)<CR>vi(
+vnoremap mp <Esc>/(<CR>vi(
+vnoremap mP <Esc>?)<CR>vi(
+
+""" next semicolon
+nnoremap mç v/;<CR>
+nnoremap mh v?;<CR>
+vnoremap mç /;<CR>
+vnoremap mh ?;<CR>
+
+""" next var
+nnoremap ml /=<CR>g^v/=<CR>
+nnoremap mj ?=<CR>vg^
+vnoremap ml /=<CR>
+vnoremap mj ?=<CR>
+
+"""next whitespace
+nnoremap mw v/\s\+<CR>
+vnoremap mw /\s\+<CR>
 
 """ Experimental -----------------------------------------
 
-
-""" Seek Aheads -
-
+""" seek ahead: next curly
+nnoremap ms v/}|{<CR>
 
 """ seek ahead camel case
 nnoremap me [w
@@ -368,47 +395,24 @@ nnoremap mE [b
 nnoremap vie :let @a="]wv[b"<CR>@a
 
 """ seek ahead: next square
-nnoremap mi :let @a="/[\rvi["<CR>@a
-nnoremap mI :let @a="?]\rvi["<CR>@a
+nnoremap mi /]<CR>vi[
+nnoremap mI ?]<CR>vi[
+vnoremap mi /]<CR><Esc>nvi[
+vnoremap mI /[<CR><Esc>nvi[
 
-""" seek ahead: next curly
-nnoremap ms :let @a="/{\rvi{"<CR>@a
-nnoremap mS :let @a="?}\rvi{"<CR>@a
 
-""" seek ahead: next paren
-nnoremap mp :let @a="/(\rvi("<CR>@a
-nnoremap mP :let @a="?)\rvi("<CR>@a
-
-""" next var
-nnoremap mv :let @a="/=\rvg^"<CR>@a
-nnoremap mV :let @a="?=\rvg^"<CR>@a
-
-""" next assignment
-nnoremap ma :let @a="/=\rlvg_"<CR>@a
-nnoremap mA :let @a="?=\rlvg_"<CR>@a
-
-""" seek ahead: generic
-nnoremap mt :let @a="/>\rvi>"<CR>@a
-nnoremap mT :let @a="?<\rvi>"<CR>@a
-
-""" next call
-""" nnoremap mc :let @a="/(\r%v%B"<CR>@a
-""" nnoremap mC :let @a="?)\r%v%B"<CR>@a
+""" next method
+nnoremap mm :let @a="/)\rvqoB"<CR>@a
+nnoremap mM :let @a="?/\rvqoB"<CR>@a
 
 """ next callee
-nnoremap mk :let @a="/(\rjvB"<CR>@a
+nnoremap mk :let @a="/)\rqojvB"<CR>@a
 nnoremap mK :let @a="?(\rjvB"<CR>@a
 
-""" seek ahead: next quote
-nnoremap mq :let @a="/\"\rvi\""<CR>@a
-nnoremap mQ :let @a="?\"\rvi\""<CR>@a
-
 """"todo: next unmatched
-
 """ todo: What exactly is a paragraph?
 """ todo: What exactly is a sentence
 """ todo: What exactly is a section
-
 """ todo visual P swap
 
 
@@ -421,3 +425,5 @@ nnoremap <Leader>qj V"ad``"aP
 nnoremap <Leader>ql magv"ad`a"aP
 
 vnoremap rb :s/)\./)\r./g<CR>:action ReformatCode<CR>
+nmap <leader>tc <Action>(Console.Transaction.Commit)
+nmap <leader>tt <Action>(Console.Transaction.TxSettings)
