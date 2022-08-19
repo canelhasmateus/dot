@@ -265,12 +265,14 @@ endif
 """ Surround ----
 nnoremap s <Nop>
 
+nnoremap so vi<"ay/><CR>v?\<<CR>B"ap
 if has('ide')
     map st <Action>(InsertLiveTemplate)
     map ss <Action>(SurroundWith)
     map su <Action>(Unwrap)
     map si <Action>(EditorSelectWord)
     map sk <Action>(EditorUnSelectWord)
+    nmap sw vsssiss
 endif
 
 """ select all scope
@@ -283,8 +285,7 @@ nnoremap vss Va}g$og^
 """ Refactoring ----
 nnoremap r <Nop>
 
-nnoremap rr gq
-vnoremap rr gq
+
 
 if has('ide')
     map rj <Action>(EditorJoinLines)
@@ -298,8 +299,11 @@ if has('ide')
     map rk <Action>(IntroduceConstant)
     map ru <Action>(EditorToggleCase)
     map rf <Action>(ExtractMethod)
+    map rr <Action>(ReformatCode)
 else
    nnoremap rj J
+    nnoremap rr gq
+    vnoremap rr gq
 endif
 
 nnoremap rsp vip:sort i<CR>
@@ -339,6 +343,7 @@ map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
 map <leader>w<A-p> <Action>(SelectInProjectView)
 map <leader>wp <Action>(ActivateProjectToolWindow)
 map or <Action>(RecentFiles)
+
 map ox <Action>(FileStructurePopup)
 map oh <Action>(CallHierarchy)
 """ Navigation
@@ -387,7 +392,15 @@ vnoremap mw /\s\+<CR>
 """ Experimental -----------------------------------------
 
 """ seek ahead: next curly
-nnoremap ms v/}|{<CR>
+nnoremap mA ?{<CR>vi}
+nnoremap ma /}<CR>vi}
+vnoremap ma <Esc>/}<CR>nvi}
+vnoremap mA <Esc>?{<CR>nvi}
+
+nnoremap mG ?\<<CR>vi>
+nnoremap mg /><CR>vi>
+vnoremap mg <Esc>/><CR>nvi>
+vnoremap mG <Esc>?\<<CR>nvi>
 
 """ seek ahead camel case
 nnoremap me [w
@@ -420,10 +433,26 @@ nnoremap mK :let @a="?(\rjvB"<CR>@a
 
 
 """ bring back
-vnoremap <Leader>qj "ad``"aP
-nnoremap <Leader>qj V"ad``"aP
-nnoremap <Leader>ql magv"ad`a"aP
+"""vnoremap <Leader>qj "ad``"aP
+"""nnoremap <Leader>qj V"ad``"aP
+"""nnoremap <Leader>ql magv"ad`a"aP
 
 vnoremap rb :s/)\./)\r./g<CR>:action ReformatCode<CR>
 nmap <leader>tc <Action>(Console.Transaction.Commit)
 nmap <leader>tt <Action>(Console.Transaction.TxSettings)
+
+
+nnoremap daa da>
+nnoremap dia di>
+nnoremap vaa va>
+nnoremap via vi>
+
+nmap <leader>q <Action>(ShowErrorDescription)
+nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>  
+
+
+
+
+
+
+

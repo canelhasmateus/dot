@@ -82,6 +82,26 @@ function GitUndo( $Path) {
 function GitScrape( $Path) {
     git reset --soft head~
 }
+function GitStatus( $Path) {
+    if (-not $Path) {
+        $Path = Read-Host "Path for checking status"
+    }
+
+    
+    $Path = Resolve-Path $Path
+    $Original = Get-Location 
+    Get-ChildItem -Path $Path -Depth 2 -Attributes Directory,Hidden -Filter ".git" | ForEach-Object {
+        
+        $Root = Split-Path -Parent $_.FullName
+        Set-Location $Root
+        $Status = Get-GitStatus $Root
+        $Info = Write-GitStatus -Status $Status
+        Write-Host (Split-Path $Root -Leaf) $Info
+        
+
+    }
+    Set-Location $Original
+}
 
 function AddUserPath {
     param(
@@ -128,9 +148,9 @@ Set-Alias -Name gunmod -Value GitRemoveSubmodule
 Set-Alias -Name gflush -Value GitFlush
 Set-Alias -Name gundo -Value GitUndo
 Set-Alias -Name gscrape -Value GitScrape
+Set-Alias -Name gstatus -Value GitStatus
 Set-Alias -Name java -Value C:\Users\Mateus\.jdks\corretto-1.8.0_332\bin\java
 Set-Alias -Name firefox -Value "C:\Program Files\Mozilla Firefox\firefox.exe"
-    
 
 
  
