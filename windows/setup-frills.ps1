@@ -207,6 +207,8 @@ function Set-Workspace {
     Add-EnvPath $NimskullBin "User"
     # todo Git profiles https://deepsource.io/blog/managing-different-git-profiles/
 
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    
 }
 
 

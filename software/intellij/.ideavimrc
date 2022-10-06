@@ -67,6 +67,10 @@ sethandler <C-A> a:ide
 
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_do_mapping = 0
+
+map fr :s/
+vmap fr :s/
+map <leader>fr &
 map fq <Plug>(easymotion-bd-jk)
 map fl <Plug>(easymotion-w)
 map fj <Plug>(easymotion-b)
@@ -104,10 +108,12 @@ endif
 """ Overrides ------------------------------------------------ 
 
 """search
+
 nnoremap fu :set invhlsearch<CR>
 nnoremap fk *
 nnoremap fi #
 nnoremap ff f
+nnoremap f. n.
 
 """redo
 nnoremap <leader>. @@
@@ -156,10 +162,10 @@ nnoremap vv V
 nnoremap viv g^vg_
 
 nnoremap dip "adipO<Esc>
-nnoremap <Tab> >>
-nnoremap <S-Tab> <<
-vnoremap <Tab> >>
-vnoremap <Tab> <<
+nnoremap <Tab> >>gv
+nnoremap <S-Tab> <<gv
+vnoremap <Tab> >>gv
+
 nnoremap <Enter> i<Enter><ESC>
 
 
@@ -168,7 +174,9 @@ nnoremap i <Nop>
 nnoremap a <Nop>
 
 nnoremap <leader>i i
+nnoremap <leader>a a
 vnoremap <leader>i <Esc>i
+vnoremap <leader>a <Esc>a
 nnoremap i k
 nnoremap k j
 nnoremap j h
@@ -244,9 +252,12 @@ nnoremap x <Nop>
 nnoremap x. zo
 nnoremap x, zc
 nnoremap x0 zM
-nmap xx vkxx
+nmap xx kxx
 vmap xx <Plug>(Exchange)
+
 if has('ide')
+    
+    map xc <Action>(CommentByLineComment)
     map xo <Action>(OverrideMethods)
     map x1 <Action>(ExpandAllToLevel1)
     map x2 <Action>(ExpandAllToLevel2)
@@ -265,14 +276,26 @@ endif
 """ Surround ----
 nnoremap s <Nop>
 
+
+""" Remove generic
 nnoremap so vi<"ay/><CR>v?\<<CR>B"ap
+
+""" Add generic
+nmap sqo viwS><leader>iOptional
+vmap sqo S><leader>iOptional
+nmap sql viwS><leader>iList
+vmap sql wS><leader>iList
+
+nmap sfl viwS)<leader>iCollections.singletonList
+vmap sfl S)<leader>iCollections.singletonList
+
+
 if has('ide')
     map st <Action>(InsertLiveTemplate)
     map ss <Action>(SurroundWith)
     map su <Action>(Unwrap)
     map si <Action>(EditorSelectWord)
-    map sk <Action>(EditorUnSelectWord)
-    nmap sw vsssiss
+    map sk <Action>(EditorUnSelectWord) 
 endif
 
 """ select all scope
@@ -288,18 +311,23 @@ nnoremap r <Nop>
 
 
 if has('ide')
-    map rj <Action>(EditorJoinLines)
+
+    map r<Del> <Action>(SafeDelete)
     map ra <Action>(IntroduceField)
     map rd <Action>(EditorDuplicate)
-    map rn <Action>(RenameElement)
-    map rm <Action>(Move)
-    map ri <Action>(Inline)
-    map rv <Action>(IntroduceVariable)
-    map ro <Action>(OptimizeImports)
-    map rk <Action>(IntroduceConstant)
-    map ru <Action>(EditorToggleCase)
     map rf <Action>(ExtractMethod)
+    map ri <Action>(Inline)
+    map rj <Action>(EditorJoinLines)
+    map rk <Action>(IntroduceConstant)
+    map rm <Action>(Move)
+    map rn <Action>(RenameElement)
+    map ro <Action>(OptimizeImports)
     map rr <Action>(ReformatCode)
+    map rsi <Action>(ChangeSignature)
+    map rt <Action>(MembersPullUp)
+    map ru <Action>(EditorToggleCase)
+    map rv <Action>(IntroduceVariable)
+
 else
    nnoremap rj J
     nnoremap rr gq
@@ -315,7 +343,11 @@ nnoremap q <Nop>
 nnoremap qq <Esc>
 nnoremap qu {
 nnoremap qp }
+vnoremap qu {
+vnoremap qp }
+
 nnoremap qd K
+
 nnoremap qe zz
 nnoremap qi <C-U>
 nnoremap qk <C-D>
@@ -336,8 +368,11 @@ endif
 nnoremap o <Nop>
 vnoremap o <Nop>
 
-nnoremap oo o
-vnoremap oo o
+nnoremap oi O
+nnoremap ok o
+vnoremap oi O
+vnoremap ok o
+
 nnoremap <leader>vim :e ~\.ideavimrc<CR>
 map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
 map <leader>w<A-p> <Action>(SelectInProjectView)
@@ -357,6 +392,8 @@ if has('ide')
     map ns <Action>(GotoSymbol)
     map nj <Action>(JumpToLastChange)
     map nl <Action>(JumpToLastChange)
+    map ni <Action>(GotoImplementation)
+    map nu <Action>(ShowUsages)
 endif
 
 
@@ -366,6 +403,9 @@ endif
 """ next quote
 nnoremap mq /"<CR>vi"
 vnoremap mq /"<CR>n
+nnoremap mQ ?"<CR>vi"
+vnoremap mQ ?"<CR>N
+
 
 """ next paren
 nnoremap mp /(<CR>vi(
@@ -398,8 +438,8 @@ vnoremap ma <Esc>/}<CR>nvi}
 vnoremap mA <Esc>?{<CR>nvi}
 
 nnoremap mG ?\<<CR>vi>
-nnoremap mg /><CR>vi>
-vnoremap mg <Esc>/><CR>nvi>
+nnoremap mg /\<<CR>vi>
+vnoremap mg <Esc>/\<<CR>nvi>
 vnoremap mG <Esc>?\<<CR>nvi>
 
 """ seek ahead camel case
@@ -419,8 +459,12 @@ nnoremap mm :let @a="/)\rvqoB"<CR>@a
 nnoremap mM :let @a="?/\rvqoB"<CR>@a
 
 """ next callee
-nnoremap mk :let @a="/)\rqojvB"<CR>@a
-nnoremap mK :let @a="?(\rjvB"<CR>@a
+nnoremap mk /(<CR>qohb<Esc>
+nnoremap mK ?)<CR>qohb<Esc>
+
+""" next callee
+nnoremap mf /return<CR>V
+nnoremap mF ?return<CR>V
 
 """"todo: next unmatched
 """ todo: What exactly is a paragraph?
@@ -449,10 +493,14 @@ nnoremap via vi>
 
 nmap <leader>q <Action>(ShowErrorDescription)
 nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>  
+"""vmap <leader>c <Plug>(multicursor-mc0)
+map <leader>c <Plug>(multicursor-mc/)
+vmap <leader>c <Plug>(multicursor-mc/)
+vmap <leader>l <Plug>(multicursor-ms0)
 
 
 
-
+"""map <leader>sl viW<Plug>(VSurround)<Esc>
 
 
 

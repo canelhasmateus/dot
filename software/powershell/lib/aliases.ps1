@@ -90,7 +90,7 @@ function GitStatus( $Path) {
     
     $Path = Resolve-Path $Path
     $Original = Get-Location 
-    Get-ChildItem -Path $Path -Depth 2 -Attributes Directory,Hidden -Filter ".git" | ForEach-Object {
+    Get-ChildItem -Path $Path -Depth 2 -Attributes Directory, Hidden -Filter ".git" | ForEach-Object {
         
         $Root = Split-Path -Parent $_.FullName
         Set-Location $Root
@@ -103,6 +103,17 @@ function GitStatus( $Path) {
     Set-Location $Original
 }
 
+function GitPsych( $Path ) {
+    if (-not $Path) {
+        $Path = Read-Host "Path for shoving"
+    }
+    
+    Push-Location
+    Set-Location $Path
+    GitShove "." *> $null
+    Pop-Location
+
+}
 function AddUserPath {
     param(
         [Parameter(Mandatory = $true)]
@@ -149,6 +160,8 @@ Set-Alias -Name gflush -Value GitFlush
 Set-Alias -Name gundo -Value GitUndo
 Set-Alias -Name gscrape -Value GitScrape
 Set-Alias -Name gstatus -Value GitStatus
+Set-Alias -Name gpsych -Value GitPsych
+
 Set-Alias -Name java -Value C:\Users\Mateus\.jdks\corretto-1.8.0_332\bin\java
 Set-Alias -Name firefox -Value "C:\Program Files\Mozilla Firefox\firefox.exe"
 
