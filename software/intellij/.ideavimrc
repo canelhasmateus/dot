@@ -226,7 +226,6 @@ vnoremap <C-End> $
 vnoremap <C-S-End> $
 vnoremap <S-End> $
 
-
 """vnoremap <Up> k
 """vnoremap <Down> j
 """vnoremap <Left> h
@@ -252,7 +251,7 @@ nnoremap x <Nop>
 nnoremap x. zo
 nnoremap x, zc
 nnoremap x0 zM
-nmap xx kxx
+nmap xx vkxx
 vmap xx <Plug>(Exchange)
 
 if has('ide')
@@ -288,7 +287,8 @@ vmap sql wS><leader>iList
 
 nmap sfl viwS)<leader>iCollections.singletonList
 vmap sfl S)<leader>iCollections.singletonList
-
+nmap sfr viwS)<leader>iPattern.compile
+vmap sfr S)<leader>iPattern.compile
 
 if has('ide')
     map st <Action>(InsertLiveTemplate)
@@ -327,11 +327,13 @@ if has('ide')
     map rt <Action>(MembersPullUp)
     map ru <Action>(EditorToggleCase)
     map rv <Action>(IntroduceVariable)
-
+    vnoremap rb :s/)\./)\r./g<CR>:action ReformatCode<CR>
 else
-   nnoremap rj J
+
+    nnoremap rj J
     nnoremap rr gq
     vnoremap rr gq
+
 endif
 
 nnoremap rsp vip:sort i<CR>
@@ -402,69 +404,88 @@ endif
 
 """ next quote
 nnoremap mq /"<CR>vi"
-vnoremap mq /"<CR>n
-nnoremap mQ ?"<CR>vi"
-vnoremap mQ ?"<CR>N
+vnoremap mq /"<CR><Esc>/"<CR>vi"
+nnoremap mQ ?"<CR>nvi"
+vnoremap mQ ?"<CR><Esc>?"<CR>nvi"
+
 
 
 """ next paren
-nnoremap mp /(<CR>vi(
-nnoremap mP ?)<CR>vi(
-vnoremap mp <Esc>/(<CR>vi(
-vnoremap mP <Esc>?)<CR>vi(
+nnoremap mf /(<CR>vi(o
+nnoremap mF ?)<CR>vi(o
+vnoremap mf <Esc>/(<CR>vi(o
+vnoremap mF <Esc>?)<CR>vi(o
+
+""" seek ahead: next | current curly
+
+nnoremap ma /{<CR>vi}o
+nnoremap mA ?{<CR>nvi}o
+vnoremap ma <Esc>/{<CR>vi}o
+vnoremap mA <Esc>?{<CR>nvi}o
+
+
+nnoremap msi /}<CR>vi}
+nnoremap mSi ?{<CR>vi}
+vnoremap msi <Esc>/}<CR>nvi}
+vnoremap mSi <Esc>?{<CR>nvi}
+
+""" next angle
+nnoremap mt ?\<<CR>vi>
+nnoremap mT /\<<CR>vi>
+vnoremap mt <Esc>/\<<CR>nvi>
+vnoremap mT <Esc>?\<<CR>nvi>
 
 """ next semicolon
 nnoremap mç v/;<CR>
-nnoremap mh v?;<CR>
+nnoremap mÇ v?;<CR>
 vnoremap mç /;<CR>
-vnoremap mh ?;<CR>
+vnoremap mÇ ?;<CR>
 
-""" next var
-nnoremap ml /=<CR>g^v/=<CR>
-nnoremap mj ?=<CR>vg^
-vnoremap ml /=<CR>
-vnoremap mj ?=<CR>
-
-"""next whitespace
-nnoremap mw v/\s\+<CR>
-vnoremap mw /\s\+<CR>
-
-""" Experimental -----------------------------------------
-
-""" seek ahead: next curly
-nnoremap mA ?{<CR>vi}
-nnoremap ma /}<CR>vi}
-vnoremap ma <Esc>/}<CR>nvi}
-vnoremap mA <Esc>?{<CR>nvi}
-
-nnoremap mG ?\<<CR>vi>
-nnoremap mg /\<<CR>vi>
-vnoremap mg <Esc>/\<<CR>nvi>
-vnoremap mG <Esc>?\<<CR>nvi>
 
 """ seek ahead camel case
 nnoremap me [w
 nnoremap mE [b
 nnoremap vie :let @a="]wv[b"<CR>@a
 
-""" seek ahead: next square
-nnoremap mi /]<CR>vi[
-nnoremap mI ?]<CR>vi[
-vnoremap mi /]<CR><Esc>nvi[
-vnoremap mI /[<CR><Esc>nvi[
+
+""" seek ahead: next list
+nnoremap ml /]<CR>vi[
+nnoremap mL ?]<CR>vi[
+vnoremap ml /]<CR><Esc>nvi[
+vnoremap mL /[<CR><Esc>nvi[
+
+""" Experimental -----------------------------------------
+
+""" next var
+nnoremap mv /=[^>=<]<CR>?\S<CR>:action EditorSelectWord<CR>
+nnoremap mV ?=[^>=<]<CR>?\S<CR>:action EditorSelectWord<CR>
+vnoremap mv <Esc>/=[^>=<]<CR>n?\S<CR>:action EditorSelectWord<CR>
+vnoremap mV <Esc>?=[^>=<]<CR>?\S<CR>:action EditorSelectWord<CR>
+
+""" next definition
+""" /=[^>=<]<CR> -- Next = sign not followed by comparison
+""" \S<CR>:action EditorSelectWord<CR> -- select the contexc around next non-whitespace
+
+
+nnoremap md /=[^>=<]<CR>/\S<CR>v:action EditorSelectWord<CR>
+"""nnoremap mD ?=[^>=<]<CR>/\S<CR>v:action EditorSelectWord<CR>
+vnoremap md <Esc>/=[^>=<]<CR>/\S<CR>v:action EditorSelectWord<CR>
+"""vnoremap mD <Esc>?=[^>=<]<CR>N/\S<CR>v:action EditorSelectWord<CR> 
+
+"""next whitespace
+"""nnoremap mw v/\s\+<CR>
+"""vnoremap mw /\s\+<CR>
+
 
 
 """ next method
-nnoremap mm :let @a="/)\rvqoB"<CR>@a
-nnoremap mM :let @a="?/\rvqoB"<CR>@a
+nnoremap mm /)<CR>vqoB
+nnoremap mM ?/<CR>qoB
 
 """ next callee
-nnoremap mk /(<CR>qohb<Esc>
-nnoremap mK ?)<CR>qohb<Esc>
+"""nnoremap mk /(<CR>qohb<Esc>
+"""nnoremap mK ?)<CR>qohb<Esc>
 
-""" next callee
-nnoremap mf /return<CR>V
-nnoremap mF ?return<CR>V
 
 """"todo: next unmatched
 """ todo: What exactly is a paragraph?
@@ -481,7 +502,7 @@ nnoremap mF ?return<CR>V
 """nnoremap <Leader>qj V"ad``"aP
 """nnoremap <Leader>ql magv"ad`a"aP
 
-vnoremap rb :s/)\./)\r./g<CR>:action ReformatCode<CR>
+
 nmap <leader>tc <Action>(Console.Transaction.Commit)
 nmap <leader>tt <Action>(Console.Transaction.TxSettings)
 
