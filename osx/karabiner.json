@@ -417,7 +417,7 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "del",
+                        "key_code": "delete_forward",
                         "modifiers": {
                             "mandatory": [
                                 "control"
@@ -429,8 +429,28 @@
                     },
                     "to": [
                         {
-                            "key_code": "del",
-                            "modifiers": "command"
+                            "key_code": "delete_forward",
+                            "modifiers": "option"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "delete_or_backspace",
+                        "modifiers": {
+                            "mandatory": [
+                                "control"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace",
+                            "modifiers": "option"
                         }
                     ]
                 }
@@ -455,6 +475,31 @@
                     "to": [
                         {
                             "key_code": "x",
+                            "modifiers": "command"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Control + F",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f",
+                        "modifiers": {
+                            "mandatory": [
+                                "control"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f",
                             "modifiers": "command"
                         }
                     ]
