@@ -184,8 +184,8 @@ vnoremap <S-Right> l
     nnoremap qu {
     nnoremap qp }
 
-    nnoremap qi <C-U>
-    nnoremap qk <C-D>
+    nnoremap qi <M-U>
+    nnoremap qk <M-D>
 
     nnoremap ql <C-I>
     nnoremap qj <C-O>
@@ -377,27 +377,29 @@ vnoremap <S-Right> l
     nnoremap <leader>fr &
     vnoremap fr :s/
 
+    Plug 'easymotion/vim-easymotion'
+    let g:EasyMotion_do_mapping = 0
+
+    map fl <Plug>(easymotion-w)
+    map fj <Plug>(easymotion-b)
+    map fç <Plug>(easymotion-eol-j)
+    map fh <Plug>(easymotion-sol-k)
+
+    map fL <Plug>(easymotion-e)
+    map fJ <Plug>(easymotion-ge)
+    map fÇ <Plug>(easymotion-sol-j)
+    map fH <Plug>(easymotion-eol-k)
+
+
+    map f. <Plug>(easymotion-bd-n)
+    nmap ff <Plug>(easymotion-s)
+    nmap fp <Plug>(easymotion-jumptoanywhere)
+
+    vmap ff <Plug>(easymotion-jumptoanywhere)
+
     if has('ide')
 
-        Plug 'easymotion/vim-easymotion'
-        let g:EasyMotion_do_mapping = 0
 
-        map fl <Plug>(easymotion-w)
-        map fj <Plug>(easymotion-b)
-        map fç <Plug>(easymotion-eol-j)
-        map fh <Plug>(easymotion-sol-k)
-
-        map fL <Plug>(easymotion-e)
-        map fJ <Plug>(easymotion-ge)
-        map fÇ <Plug>(easymotion-sol-j)
-        map fH <Plug>(easymotion-eol-k)
-
-
-        map f. <Plug>(easymotion-bd-n)
-        nmap ff <Plug>(easymotion-s)
-        nmap fp <Plug>(easymotion-jumptoanywhere)
-
-        vmap ff <Plug>(easymotion-jumptoanywhere)
 
         """map <leader>ff <Action>(Find)
 

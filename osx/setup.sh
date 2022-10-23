@@ -1,3 +1,37 @@
+installCodePlugins() {
+
+plugins=(
+            "alefragnani.project-manager" "canelhasmateus.jewel"
+            "canelhasmateus.partial"
+            "mark-wiemer.vscode-autohotkey-plus-plus"
+            "percygrunwald.vscode-intellij-recent-files"
+            "ryuta46.multi-command"
+            "usernamehw.errorlens"
+            "wmaurer.vscode-jumpy"
+
+            "bierner.markdown-mermaid"
+            "bpruitt-goddard.mermaid-markdown-syntax-highlighting"
+            "foam.foam-vscode"
+            "yzhang.markdown-all-in-one"
+            "brokenprogrammer.paragraphjump"
+            "DavidAnson.vscode-markdownlint"
+            "znck.grammarly"
+
+            "ms-python.python"
+            "ms-vscode.anycode-typescript"
+            "ms-vscode.anycode"
+            "rbbit.typescript-hero"
+            "VisualStudioExptTeam.vscodeintellicode"
+            "eamodio.gitlens"
+            "formulahendry.code-runner"
+
+        ) 
+    
+    for plugin in $plugins; 
+    do code --install-extension $plugin
+    done
+}
+
 
 apply_brew_taps() {
   local tap_packages=$*
@@ -44,24 +78,56 @@ install_masApps() {
   done
 }
 
-dest=$(echo "$HOME/.config/karabiner/assets/complex_modifications/canelhas.json")
 orig=$(readlink -f "./osx/karabiner.json")
+dest=$(echo "$HOME/.config/karabiner/assets/complex_modifications/canelhas.json")
 rm -f $dest && ln $orig $dest 
 
 
-dest=$(echo "$HOME/Library/Application Support/Code/User/settings.json")
 orig=$(readlink -f "./software/vscode/settings-mac.json")
+dest=$(echo "$HOME/Library/Application Support/Code/User/settings.json")
 rm -f $dest && ln -s $orig $dest
 
 
-dest=$(echo "$HOME/Library/Application Support/Code/User/keybindings.json")
 orig=$(readlink -f "./software/vscode/keybindings-mac.json")
+dest=$(echo "$HOME/Library/Application Support/Code/User/keybindings.json")
 rm -f $dest && ln -s $orig $dest
 
 
-dest=$(echo "$HOME/Library/Application Support/JetBrains/IntelliJIdea2022.2/settingsRepository/repository/keymaps/Macnelhas.xml")
-orig=$(readlink -f "./software/intellij/keymaps/Macnelhas.xml")
+orig=$(readlink -f "./software/intellij/keymaps/macnelhas.xml")
+dest=$(echo "$HOME/Library/Application Support/JetBrains/IntelliJIdea2022.2/settingsRepository/repository/keymaps/macnelha.xml")
+rm -f $dest && ln -s $orig $dest
+
+orig=$(readlink -f "./software/intellij/keymaps/macnelhas.xml")
+dest=$(echo "$HOME/Library/Application Support/JetBrains/IdeaIC2021.3/keymaps/macnelhas.xml")
+rm -f $dest && ln -s $orig $dest
+
+orig=$(readlink -f "./software/intellij/templates")
+dest=$(echo "$HOME/Library/Application Support/JetBrains/IdeaIC2021.3/templates")
+rm -f $dest && ln -s $orig $dest
+
+orig=$(readlink -f "./software/intellij/quicklists")
+dest=$(echo "$HOME/Library/Application Support/JetBrains/IdeaIC2021.3/quicklists")
+rm -f $dest && ln -s $orig $dest
+
+orig=$(readlink -f "./software/intellij/plugins/postfix")
+dest=$(echo "$HOME/Library/Application Support/JetBrains/IdeaIC2021.3/intellij-postfix-templates_templates")
+rm -f $dest && ln -s $orig $dest
+
+orig=$(readlink -f "./software/intellij/.ideavimrc-mac")
+dest=$(echo "$HOME/.ideavimrc")
+rm -f $dest && ln -s $orig $dest
+
+orig=$(readlink -f "./software/intellij/.ideavimrc-mac")
+dest=$(echo "$HOME/.vimrc")
 rm -f $dest && ln -s $orig $dest
 
 
 #todo : stow or something
+
+vinstallFonts() {
+    curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip -o ./mono.zip
+    unzip ./mono.zip -d ./mono
+    mv ./mono/*.ttf ~/Library/Fonts
+    rm -rf ./mono
+    rm ./mono.zip
+    }

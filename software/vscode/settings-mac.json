@@ -37,11 +37,13 @@
     "files.autoSave": "afterDelay",
     "files.eol": "\n",
     "files.exclude": {
-        "**/*.jar": true,
         "**/.classpath": true,
         "**/.factorypath": true,
         "**/.project": true,
-        "**/.settings": true
+        "**/.settings": true,
+        "**/.tmp.drivedownload": true,
+        "**/.tmp.driveupload": true,
+        "**/*.jar": true
     },
     "files.watcherExclude": {
         "**/.ammonite": true,
@@ -145,11 +147,10 @@
     "editor.find.autoFindInSelection": "multiline",
     "editor.find.seedSearchStringFromSelection": "selection",
     "foam.graph.titleMaxLength": 0,
-    
     "editor.largeFileOptimizations": false,
     "cSpell.enabled": false,
     "[markdown]": {
-        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
     },
     "markdownlint.config": {
         "code-block-style": {
@@ -164,6 +165,11 @@
     "workbench.activityBar.iconClickBehavior": "focus",
     "zenMode.hideActivityBar": false,
     "vale.core.useCLI": true,
+    "vim.handleKeys": {
+        "<C-p>": false,
+        "<C-c>": false,
+        "<Esc>": false,
+    },
     "vim.camelCaseMotion.enable": true,
     "vim.cursorStylePerMode.insert": "line",
     "vim.cursorStylePerMode.normal": "block",
@@ -174,67 +180,53 @@
     "vim.easymotion": true,
     "vim.easymotionKeys": "qwerasdfzxcvuiopjklçnm,.",
     "vim.highlightedyank.enable": true,
-    "vim.hlsearch": true,
+    "vim.hlsearch": false,
     "vim.insertModeKeyBindings": [],
     "vim.insertModeKeyBindingsNonRecursive": [],
     "vim.leader": "<Space>",
     "vim.normalModeKeyBindings": [
         {
             "before": [
-                "Down"
+                "o",
+                "r"
             ],
-            "after": [
-                "g",
-                "j"
-            ]
-        },
-        {
-            "before": [
-                "j"
-            ],
-            "after": [
-                "g",
-                "j"
-            ]
-        },
-        {
-            "before": [
-                "k"
-            ],
-            "after": [
-                "g",
-                "k"
-            ]
-        },
-        {
-            "before": [
-                "Up"
-            ],
-            "after": [
-                "g",
-                "k"
-            ]
-        },
-        {
-            "before": [
-                "<leader>", "right"
-            ],
+            "after": [],
             "commands": [
-                "editor.action.marker.next"
+                {
+                    "command": "extension.intellijRecentFiles",
+                    "when": "editorTextFocus",
+                    "args": {
+                        // "snippet": "console.log($1)$0"
+                    }
+                }
             ]
-        },{
+        },
+        {
             "before": [
-                "<leader>", "left"
+                "r",
+                "r"
             ],
+            "after": [],
             "commands": [
-                "editor.action.marker.prev"
+                {
+                    "command": "editor.action.formatDocument",
+                    "when": "editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus",
+                    "args": {
+                        // "snippet": "console.log($1)$0"
+                    }
+                }
             ]
-        },{
+        },
+        {
             "before": [
-                "<leader>", "up"
+                "r",
+                "d"
             ],
+            "after": [],
             "commands": [
-                "editor.action.quickFix"
+                {
+                    "command": "editor.action.duplicateSelection",
+                }
             ]
         }
     ],
@@ -249,7 +241,7 @@
     "vim.visualModeKeyBindings": [],
     "vim.visualModeKeyBindingsNonRecursive": [],
     "vim.whichwrap": "b,s,",
-    "editor.columnSelection": true,
     "security.workspace.trust.untrustedFiles": "open",
-    
+    "vim.vimrc.enable": true,
+    "vim.vimrc.path": "$HOME/.ideavimrc",
 }
