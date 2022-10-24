@@ -1,7 +1,4 @@
 {
-    "[julia]": {
-        "editor.defaultFormatter": "julialang.language-julia"
-    },
     "debug.inlineValues": "auto",
     "diffEditor.codeLens": true,
     "editor.bracketPairColorization.enabled": true,
@@ -131,24 +128,11 @@
     "workbench.startupEditor": "none",
     "zenMode.hideLineNumbers": false,
     "zenMode.hideTabs": false,
-    "cSpell.enabledLanguageIds": [
-        "asciidoc",
-        "json",
-        "jsonc",
-        "latex",
-        "markdown",
-        "plaintext",
-        "restructuredtext",
-        "text",
-        "yaml",
-        "yml"
-    ],
     "editor.fontWeight": "1",
     "editor.find.autoFindInSelection": "multiline",
     "editor.find.seedSearchStringFromSelection": "selection",
     "foam.graph.titleMaxLength": 0,
     "editor.largeFileOptimizations": false,
-    "cSpell.enabled": false,
     "[markdown]": {
         "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
     },
@@ -164,7 +148,6 @@
     "window.title": "${rootName}",
     "workbench.activityBar.iconClickBehavior": "focus",
     "zenMode.hideActivityBar": false,
-    "vale.core.useCLI": true,
     "vim.handleKeys": {
         "<C-p>": false,
         "<C-c>": false,
@@ -226,6 +209,30 @@
             "commands": [
                 {
                     "command": "editor.action.duplicateSelection",
+                }
+            ]
+        },
+        {
+            "before": [
+                "q",
+                "ç"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.marker.next",
+                }
+            ]
+        }        ,
+        {
+            "before": [
+                "q",
+                "h"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.marker.prev",
                 }
             ]
         }

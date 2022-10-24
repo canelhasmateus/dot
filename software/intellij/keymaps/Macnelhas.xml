@@ -1,8 +1,12 @@
 <keymap version="1" name="Macnelhas" parent="$default">
   <action id="$Copy" />
   <action id="$Cut" />
-  <action id="$LRU" />
-  <action id="$Paste" />
+  <action id="$LRU">
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="meta f" />
+  </action>
+  <action id="$Paste">
+    <keyboard-shortcut first-keystroke="meta v" />
+  </action>
   <action id="$Redo">
     <keyboard-shortcut first-keystroke="meta alt z" />
   </action>
@@ -137,7 +141,9 @@
   </action>
   <action id="CodeInspection.OnEditor" />
   <action id="CollapseAll" />
-  <action id="CollapseAllRegions" />
+  <action id="CollapseAllRegions">
+    <keyboard-shortcut first-keystroke="alt q" second-keystroke="meta alt comma" />
+  </action>
   <action id="CollapseBlock" />
   <action id="CollapseExpandableComponent" />
   <action id="CollapseRegion">
@@ -228,7 +234,12 @@
   <action id="EditPropertyValue" />
   <action id="EditSource" />
   <action id="EditSourceInNewWindow" />
-  <action id="Editor LRU" />
+  <action id="Editor LRU">
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="meta f" />
+  </action>
+  <action id="Editor Paste">
+    <keyboard-shortcut first-keystroke="meta v" />
+  </action>
   <action id="Editor Redo">
     <keyboard-shortcut first-keystroke="meta alt z" />
   </action>
@@ -463,7 +474,9 @@
   </action>
   <action id="EvaluateExpression" />
   <action id="ExpandAll" />
-  <action id="ExpandAllRegions" />
+  <action id="ExpandAllRegions">
+    <keyboard-shortcut first-keystroke="alt q" second-keystroke="meta alt period" />
+  </action>
   <action id="ExpandAllToLevel1" />
   <action id="ExpandAllToLevel2" />
   <action id="ExpandAllToLevel3" />
