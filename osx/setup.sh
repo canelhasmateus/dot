@@ -95,36 +95,48 @@ rm -f $dest && ln -s $orig $dest
 
 orig=$(readlink -f "./software/intellij/keymaps/macnelhas.xml")
 dest=$(echo "$HOME/Library/Application Support/JetBrains/IntelliJIdea2022.2/settingsRepository/repository/keymaps/macnelha.xml")
+mkdir -p $(dirname $dest)parent=$(dirname $dest)
+mkdir -p "$parent"
 rm -f $dest && ln -s $orig $dest
 
 orig=$(readlink -f "./software/intellij/keymaps/macnelhas.xml")
-dest=$(echo "$HOME/Library/Application Support/JetBrains/IdeaIC2021.3/keymaps/macnelhas.xml")
+dest=$(echo "$HOME/Library/Application Support/JetBrains/IntelliJIdea2022.2/keymaps/macnelha.xml")
+parent=$(dirname $dest)
+mkdir -p "$parent"
 rm -f $dest && ln -s $orig $dest
 
 orig=$(readlink -f "./software/intellij/templates")
-dest=$(echo "$HOME/Library/Application Support/JetBrains/IdeaIC2021.3/templates")
+  dest=$(echo "$HOME/Library/Application Support/JetBrains/IntelliJIdea2022.2/templates")
+mkdir -p $(dirname $dest)parent=$(dirname $dest)
+mkdir -p "$parent"
 rm -f $dest && ln -s $orig $dest
 
 orig=$(readlink -f "./software/intellij/quicklists")
-dest=$(echo "$HOME/Library/Application Support/JetBrains/IdeaIC2021.3/quicklists")
+dest=$(echo "$HOME/Library/Application Support/JetBrains/IntelliJIdea2022.2/quicklists")
 rm -f $dest && ln -s $orig $dest
+mkdir -p $(dirname $dest)
 
 orig=$(readlink -f "./software/intellij/plugins/postfix")
-dest=$(echo "$HOME/Library/Application Support/JetBrains/IdeaIC2021.3/intellij-postfix-templates_templates")
+dest=$(echo "$HOME/Library/Application Support/JetBrains/IntelliJIdea2022.2/intellij-postfix-templates_templates")
+mkdir -p $(dirname $dest)parent=$(dirname $dest)
+mkdir -p "$parent"
 rm -f $dest && ln -s $orig $dest
 
 orig=$(readlink -f "./software/intellij/.ideavimrc-mac")
 dest=$(echo "$HOME/.ideavimrc")
+parent=$(dirname $dest)
+mkdir -p "$parent"
 rm -f $dest && ln -s $orig $dest
 
 orig=$(readlink -f "./software/intellij/.ideavimrc-mac")
 dest=$(echo "$HOME/.vimrc")
+mkdir -p $(dirname $dest)
 rm -f $dest && ln -s $orig $dest
 
 
 #todo : stow or something
 
-vinstallFonts() {
+installFonts() {
     curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip -o ./mono.zip
     unzip ./mono.zip -d ./mono
     mv ./mono/*.ttf ~/Library/Fonts
