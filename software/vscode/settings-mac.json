@@ -251,4 +251,18 @@
     "security.workspace.trust.untrustedFiles": "open",
     "vim.vimrc.enable": true,
     "vim.vimrc.path": "$HOME/.ideavimrc",
+    "markdown.preview.openMarkdownLinks": "inEditor",
+    "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serifr",
+    "emojisense.languages": {
+
+        "markdown": true,
+        ".mmd": true,
+        "plaintext": {
+            "markupCompletionsEnabled": false,
+            "emojiDecoratorsEnabled": false
+        },
+        "scminput": true,
+        "git-commit": true
+    },
+    
 }
