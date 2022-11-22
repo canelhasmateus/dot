@@ -40,6 +40,7 @@ apply_brew_taps() {
       warn "Tap $tap is already applied"
     else
       brew tap "$tap"
+    fi 
   done
 }
 install_brew_formulas() {

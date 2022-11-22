@@ -139,7 +139,7 @@
     "markdownlint.config": {
         "code-block-style": {
             "style": "fenced"
-        },
+        }
     },
     "markdownlint.run": "onSave",
     "editor.codeActionsOnSave": {
@@ -151,7 +151,7 @@
     "vim.handleKeys": {
         "<C-p>": false,
         "<C-c>": false,
-        "<Esc>": false,
+        "<Esc>": false
     },
     "vim.camelCaseMotion.enable": true,
     "vim.cursorStylePerMode.insert": "line",
@@ -178,9 +178,7 @@
                 {
                     "command": "extension.intellijRecentFiles",
                     "when": "editorTextFocus",
-                    "args": {
-                        // "snippet": "console.log($1)$0"
-                    }
+                    "args": {}
                 }
             ]
         },
@@ -194,9 +192,7 @@
                 {
                     "command": "editor.action.formatDocument",
                     "when": "editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus",
-                    "args": {
-                        // "snippet": "console.log($1)$0"
-                    }
+                    "args": {}
                 }
             ]
         },
@@ -208,7 +204,7 @@
             "after": [],
             "commands": [
                 {
-                    "command": "editor.action.duplicateSelection",
+                    "command": "editor.action.duplicateSelection"
                 }
             ]
         },
@@ -220,10 +216,10 @@
             "after": [],
             "commands": [
                 {
-                    "command": "editor.action.marker.next",
+                    "command": "editor.action.marker.next"
                 }
             ]
-        }        ,
+        },
         {
             "before": [
                 "q",
@@ -232,7 +228,7 @@
             "after": [],
             "commands": [
                 {
-                    "command": "editor.action.marker.prev",
+                    "command": "editor.action.marker.prev"
                 }
             ]
         }
@@ -254,7 +250,6 @@
     "markdown.preview.openMarkdownLinks": "inEditor",
     "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serifr",
     "emojisense.languages": {
-
         "markdown": true,
         ".mmd": true,
         "plaintext": {
@@ -264,5 +259,5 @@
         "scminput": true,
         "git-commit": true
     },
-    
+    "editor.columnSelection": true
 }
