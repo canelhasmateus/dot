@@ -8,7 +8,7 @@ set ruler
 
 
 set wrapscan
-set incsearch
+"""set incsearch
 set smartcase
 
 """set hlsearch
@@ -18,7 +18,7 @@ set smartcase
 
 set scroll=0
 set scrolloff=0
-set scrolljump=5
+set scrolljump=0
 """set startofline
 
 """set keymodel="startsel,stopsel"
@@ -62,7 +62,7 @@ if has('ide')
     sethandler <C-[> a:ide
     sethandler <C-v> a:ide
     sethandler <C-A> a:ide
-
+    sethandler <M-A> a:ide
     sethandler <A-Right> a:vim
     sethandler <S-A-Right> a:vim
     sethandler <A-Left> a:vim
@@ -73,9 +73,6 @@ endif
 
 """ Plugins  --------------------------------------------------------------
 
-"""Plug 'dbakker/vim-paragraph-motion'
-    ""Normally the { and } motions only match completely empty lines.
-    """With this plugin lines that only contain whitespace are also matched.
 
 if has('ide')
     Plug 'tpope/vim-surround' """Commands: ys, cs, ds, S
@@ -84,16 +81,23 @@ if has('ide')
     let g:highlightedyank_highlight_duration = "1000"
     let g:highlightedyank_highlight_color = "rgba(100, 160, 100, 100)"
 
-    Plug 'michaeljsmith/vim-indent-object' """Additional text objects: ai, ii, aI
+    """Additional text objects: ai, ii, aI
+    Plug 'michaeljsmith/vim-indent-object'
     packadd matchit
-
-    Plug 'tommcdo/vim-exchange' """Commands: cx, cxx, X, cxc
+ 
+    """Additional text objects: ai, ii, aI
+    Plug 'tommcdo/vim-exchange' 
 
     Plug 'vim-scripts/argtextobj.vim' """Additional text objects: aa, ia
     let g:argtextobj_pairs="[:],(:),<:>"
 
     """Plug 'preservim/nerdtree'
     set multicursor
+   
+    Plug 'dbakker/vim-paragraph-motion'
+       ""Normally the { and } motions only match completely empty lines.
+       """With this plugin lines that only contain whitespace are also matched.
+ 
 endif
 
 """quickscope
@@ -207,9 +211,9 @@ nnoremap q <Nop>
 nnoremap qq <Esc>
 nnoremap qe zz
 
-nnoremap qo %
-nnoremap qu {
-nnoremap qp }
+nmap qo %
+nmap qu {
+nmap qp }
 
 nnoremap qi <C-U>
 nnoremap qk <C-D>
@@ -217,10 +221,9 @@ nnoremap qk <C-D>
 nnoremap ql <C-I>
 nnoremap qj <C-O>
 
-vnoremap qu {
-vnoremap qp }
-
-
+vmap qo %
+vmap qu {
+vmap qp }
 
 if has('ide')
 
@@ -232,7 +235,7 @@ if has('ide')
 
         map ql <Action>(Forward)
         map qj <Action>(Back)
-
+        
 endif
 
 
@@ -252,6 +255,7 @@ endif
 
 """ ____________________ [E] prefix controls [E]dit cursor
 
+
 nnoremap ee e
 nnoremap ea ea
 
@@ -260,18 +264,26 @@ nnoremap ek o
 
 nnoremap el ea
 nnoremap ej bi
+
 nnoremap eç A
 nnoremap e<End> A
+
 nnoremap eh I
 nnoremap e<Home> I
 
 nnoremap eu {a
 nnoremap ep }i
 
+nnoremap eo %a
+
 vnoremap ee e
-vnoremap ei O
-vnoremap ek o
-vnoremap el <Esc>`<a
+vnoremap ei <Esc>`<O
+vnoremap ek <Esc>`>o
+
+vnoremap ej <Esc>`<i
+vnoremap el <Esc>`>i
+
+vnoremap eo <Esc>%i
 
 
 """ ____________________ [R] prefix controls [R]efactoring
@@ -322,9 +334,19 @@ vnoremap o <Nop>
 vnoremap oi o
 
 if has('ide')
+
         map or <Action>(RecentFiles)
+        map oR <Action>($LRU)
         map ox <Action>(FileStructurePopup)
         map oh <Action>(CallHierarchy)
+        map op <Action>(ActivateProjectToolWindow)
+        map ou <Action>(SelectInProjectView)
+        map ovo <Action>(ImportTests)
+        map ovv <Action>(ShowRecentTests)
+        
+        map osm <Action>(RunMenu)
+        map osx <Action>(ChooseRunConfiguration)
+       
 endif
 
 
@@ -343,7 +365,6 @@ nnoremap ai a
 
 nnoremap s <Nop>
 if has('ide')
-        map st <Action>(InsertLiveTemplate)
         map ss <Action>(SurroundWith)
         map su <Action>(Unwrap)
         map si <Action>(EditorSelectWord)
@@ -353,10 +374,9 @@ endif
     " Java - Remove generic
 nnoremap so vi<"ay/><CR>v?\<<CR>B"ap
     " Java - surround with generic typings
-nnoremap sqo viw<Esc>a><Esc>biOptional<
-vmap sqo S><leader>iOptional
-nmap sql viwS><leader>iList
-vmap sql wS><leader>iList
+
+nnoremap sqo ea><Esc>biOptional<
+nnoremap sql viw<Esc>a><Esc>biList<
 
     " Java - surround with generic functions
 nmap sfl viwS)<leader>iCollections.singletonList
@@ -372,6 +392,8 @@ nnoremap d<Home> "ad<Home>
 nnoremap dh "ad<Home>
 nnoremap d<End> "ad<End>
 nnoremap dç "ad<End>
+
+nnoremap ds<space> F<space>xf<space>x
 
 nnoremap D "adt
 nnoremap DD "aD
@@ -402,11 +424,15 @@ nnoremap fe t
 
 """ todo: search for currently selected text vnoremap fk "ay/\V<C-R>=escape(@",'/\')<CR><CR>
 
-nnoremap f<leader> f
+"""todo yank to search register
+nnoremap fy viw"/y
+vnoremap fy "/y
+
 nnoremap fr :s/
 nnoremap <leader>fr &
 vnoremap fr :s/
 nnoremap ff f
+vnoremap ff f
 
 if has('ide')
 Plug 'easymotion/vim-easymotion'
@@ -423,8 +449,8 @@ let g:EasyMotion_do_mapping = 0
     map f. <Plug>(easymotion-bd-n)
 
     nmap fp <Plug>(easymotion-jumptoanywhere)
-    vmap ff <Plug>(easymotion-jumptoanywhere)
-    
+    vmap fp <Plug>(easymotion-jumptoanywhere)
+
 endif
 
 
@@ -478,6 +504,10 @@ if has('ide')
         map xj <Action>(HippieCompletion)
         map xl <Action>(HippieBackwardCompletion)
 
+
+        map xns <Action>(InsertLiveTemplate)
+        map xnv <Action>(GenerateTestMethod)
+
 endif
  
 
@@ -498,11 +528,12 @@ nnoremap V vt
 nnoremap vv V
 nnoremap viv g^vg_
 nnoremap vk v
-
+nnoremap vp vi)
+nnoremap vd vi}
+nnoremap vw viw
 " Java - select all scope
-nnoremap vsa va}
+nnoremap vsd va}V
 nnoremap vsi vi}
-nnoremap vss Va}g$og^
 
 
 """ ________________________________ [B] prefix is unmodified
@@ -524,11 +555,17 @@ if has('ide')
         map nl <Action>(JumpToLastChange)
         map ni <Action>(GotoImplementation)
         map nu <Action>(ShowUsages)
+        map nt <Action>(GotoTest)
 endif
 
 """ ________________________________ [M] prefix controls [M]ove aheads
 
 " All - next quote
+function! moveQuote()
+    normal! /"
+    normal! vi"
+endfunction
+
 nnoremap mq /"<CR>vi"
 nnoremap mQ ?"<CR>nvi"
 vnoremap mq /"<CR><Esc>/"<CR>vi"
@@ -540,9 +577,6 @@ nnoremap mF ?)<CR>vi)o
 vnoremap mf <Esc>/(<CR>vi(o
 vnoremap mF <Esc>?)<CR>vi(o
 
-" All - next non-empty
-"nnoremap mp /\v(!@)<CR>va(o
-"vnoremap mp <Esc>/\v(\()!@)<CR>nva(o
 
 "nnoremap mP ?([^)]<CR>va(o
 "vnoremap mP <Esc>?([^)]<CR>nva(o
@@ -566,15 +600,17 @@ nnoremap mA ?{<CR>vi}
 vnoremap mA <Esc>?{<CR>nvi}
 
 " All - next angle
-nnoremap m> /<<CR>vi>
-nnoremap m< ?<<CR>vi>
-vnoremap m> <Esc>/<<CR>vi>
-vnoremap m< <Esc>?<<CR>vi>
+nnoremap m> /><CR>vi>
+vnoremap m> <Esc>/><CR>nvi>
+nnoremap m< ?><CR>vi>
+vnoremap m< <Esc>?><CR>vi>
 
 " All - seek ahead camel case
-nnoremap me [w
+nnoremap me ]w[bv]w
+vnoremap me <Esc>]w[bv]w
+
 nnoremap mE [b
-nnoremap vie :let @a="]wv[b"<CR>@a
+nnoremap vie ]wv[b
 
 " Java - next semicolon
 nnoremap mç v/;<CR>
@@ -601,20 +637,28 @@ vnoremap md <Esc>/= \+/e1<CR>v/;/b-1<CR>o
 vnoremap mD <Esc>?= \+?e1<CR>v/;/v-1<CR>o
 
 """ Java next call - cant use mc because of multicursor remaps.
-nnoremap mm /\S(/e-1<CR>v?\v[ ()=]?e+1<CR>o
+nnoremap mm /\S(/e-1<CR>v?\v[ ()=.]?e+1<CR>o
 nnoremap mM ?(?e-1<CR>vBo
-vnoremap mm <Esc>/\S(/e-1<CR>nv?\v[ ()=]?e+1<CR>o
+vnoremap mm <Esc>/\S(/e-1<CR>v?\v[ ()=.]?e+1<CR>o
 vnoremap mM <Esc>?(?e-1<CR>vBo
+
+""" Move next literal number
+nnoremap mn /[0-9]\+/<CR>viw
+vnoremap mn <Esc>/[0-9]\+/<CR>viw
+nnoremap mN ?[0-9]\+?<CR>viw
+nnoremap mN <Esc>?[0-9]\+?<CR>viw
+
+
 """ ________________________________
 
 """ Experimental -----------------------------------------
 
 """next whitespace
-nnoremap mw v/\s<CR>
-vnoremap mw /\s\+<CR>
+nnoremap m<Space> v/\s<CR>
+vnoremap m<Space> /\s\+<CR>
 
 
-nnoremap m, /,<CR>
+nnoremap m, v/,<CR>
 nnoremap mi /:\t|:\n<Space>{2,}/e<CR>
 
 """"todo: next unmatched
@@ -636,9 +680,17 @@ nnoremap daa da>
 nnoremap dia di>
 nnoremap vaa va>
 nnoremap via vi>
+nnoremap daa da>
 
-nmap <leader>q <Action>(ShowErrorDescription)
-nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>  
+function! jsonProperty()
+    normal! /;
+    normal! "ayiw
+    normal! O@JsonProperty("
+    normal! "ap
+    normal! li")
+endfunction
+
+nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
 """vmap <leader>c <Plug>(multicursor-mc0)
 
 ""Multi cursor operations
@@ -648,16 +700,28 @@ vmap <leader>l <Plug>(multicursor-ms0)
 
 """map <leader>sl viW<Plug>(VSurround)<Esc>
 
-""" mark
-nnoremap M m
 
 " ?????????????????? nnoremap qd K
     " visual the rest of the screen / the next half / the next quarter the next scope / paren / etc
 
 map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
-map <leader>wp <Action>(ActivateProjectToolWindow)
-map <leader>ms <Action>(Preferences)
 
 nnoremap <leader>vim :e ~/.ideavimrc<CR>
 
+nnoremap <leader>ai <C-a>
+vnoremap <leader>ai <C-a>
 
+nnoremap <leader>ak <C-x>
+vnoremap <leader>ak <C-x>
+
+nnoremap <leader>au g<C-a>
+vnoremap <leader>au g<C-a>
+
+nnoremap <leader>ap g<C-x>
+vnoremap <leader>ap g<C-x>
+
+if has('ide')
+    noremap Mm qa
+    noremap MM qa
+    noremap Ma @a
+endif

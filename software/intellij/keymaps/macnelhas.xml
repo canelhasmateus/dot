@@ -173,6 +173,9 @@
   <action id="Console.Execute" />
   <action id="Console.Execute.Multiline" />
   <action id="Console.History.Browse" />
+  <action id="Console.Jdbc.Execute">
+    <keyboard-shortcut first-keystroke="alt enter" />
+  </action>
   <action id="Console.Jdbc.Execute.2" />
   <action id="Console.Jpa.GenerateDDL" />
   <action id="Console.Jpa.GenerateSql" />
@@ -185,7 +188,6 @@
   <action id="Console.TableResult.EditFilterCriteria" />
   <action id="Console.TableResult.EditValue">
     <keyboard-shortcut first-keystroke="enter" />
-    <keyboard-shortcut first-keystroke="alt enter" />
   </action>
   <action id="Console.TableResult.EditValueMaximized" />
   <action id="Console.TableResult.MaximizeEditingCell" />
@@ -317,12 +319,6 @@
   </action>
   <action id="EditorCreateRectangularSelection" />
   <action id="EditorCreateRectangularSelectionOnMouseDrag" />
-  <action id="EditorCutLineBackward">
-    <keyboard-shortcut first-keystroke="alt enter" />
-  </action>
-  <action id="EditorCutLineEnd">
-    <keyboard-shortcut first-keystroke="alt enter" />
-  </action>
   <action id="EditorDecreaseFontSize" />
   <action id="EditorDeleteLine">
     <keyboard-shortcut first-keystroke="meta alt back_space" />

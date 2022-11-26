@@ -3,6 +3,7 @@
 !*/
 
 !.ideavimrc
+!.ideavimrc-mac
 !.gitignore
 !idea64.exe.vmoptions
 
@@ -13,7 +14,8 @@
 !/keymaps/*
 !/plugins/*
 !/quicklists/*
-!/templates/*
+!/templates/Personal.xml
+!/templates/user.xml
 
 # options
 !/options/AceJump.xml
