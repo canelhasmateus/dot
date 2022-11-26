@@ -259,5 +259,8 @@
         "scminput": true,
         "git-commit": true
     },
-    "editor.columnSelection": true
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "markdown.extension.list.indentationSize": "inherit"
 }
