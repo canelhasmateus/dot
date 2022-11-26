@@ -1,69 +1,99 @@
-local fn = vim.fn
+local function packer_setup(plugins)
 
--- Automatically install packer
-local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system {
-    "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  }
-  print "Installing packer close and reopen Neovim..."
-  vim.cmd [[packadd packer.nvim]]
-end
+  local fn = vim.fn
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
+  -- Automatically install packer
+  local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+  if fn.empty(fn.glob(install_path)) > 0 then
+    PACKER_BOOTSTRAP = fn.system {
+      "git",
+      "clone",
+      "--depth",
+      "1",
+      "https://github.com/wbthomason/packer.nvim",
+      install_path,
+    }
+    print "Installing packer close and reopen Neovim..."
+    vim.cmd [[packadd packer.nvim]]
+  end
+
+  -- Autocommand that reloads neovim whenever you save the plugins.lua file
+  vim.cmd [[
   augroup packer_user_config
     autocmd!
     autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
 ]]
 
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
+  -- Use a protected call so we don't error out on first use
+  local status_ok, packer = pcall(require, "packer")
+  if not status_ok then
+    return
+  end
+
+  -- Have packer use a popup window
+  packer.init {
+    display = {
+      open_fn = function()
+        return require("packer.util").float { border = "rounded" }
+      end,
+    },
+  }
+
+
+
+  packer.startup(function(use)
+    for _, plugin in pairs(plugins) do
+      use(plugin)
+    end
+
+  end)
+
+  if PACKER_BOOTSTRAP then
+    packer.sync()
+  end
+
 end
 
--- Have packer use a popup window
-packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-  },
-}
+local function plugins()
+  return {
+    "wbthomason/packer.nvim" -- Have packer manage itself
 
--- Install your plugins here
-return packer.startup(function(use)
-  -- My plugins here
-  use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+    , "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+    , "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
-  -- Colorschemes
-   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-   use 'folke/tokyonight.nvim' -- A bunch of colorschemes you can try out
-  --use "lunarvim/darkplus.nvim"
+    -- The ones from IJ
+    , "easymotion/vim-easymotion"
+    , "tpope/vim-surround"
 
-  -- cmp plugins
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+    , "dbakker/vim-paragraph-motion"
+    , "chrisbra/matchit"
+    , "tommcdo/vim-exchange"
+    , "machakann/vim-highlightedyank"
 
-  -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+    , "michaeljsmith/vim-indent-object"
+    , "mg979/vim-visual-multi"
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
-end)
+
+    -- Colorschemes
+    , "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+    , 'folke/tokyonight.nvim' -- A bunch of colorschemes you can try out
+    --use "lunarvim/darkplus.nvim"
+
+    -- cmp plugins
+    , "hrsh7th/nvim-cmp" -- The completion plugin
+    , "hrsh7th/cmp-buffer" -- buffer completions
+    , "hrsh7th/cmp-path" -- path completions
+    , "hrsh7th/cmp-cmdline" -- cmdline completions
+    , "saadparwaiz1/cmp_luasnip" -- snippet completions
+    , "hrsh7th/cpm-nvim-lsp" -- cmdline completions
+    -- snippets
+    , "L3MON4D3/LuaSnip" --snippet engine
+    , "rafamadriz/friendly-snippets" -- a bunch of snippets to use  -- snippets
+
+    , "neovim/nvim-lspconfig" -- basic lsp configs
+    , "williamboman/mason.nvim" -- replacement for lsp-installer
+  }
+end
+
+packer_setup(plugins())

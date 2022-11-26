@@ -162,7 +162,7 @@ Set-Alias -Name gscrape -Value GitScrape
 Set-Alias -Name gstatus -Value GitStatus
 Set-Alias -Name gpsych -Value GitPsych
 
-Set-Alias -Name java -Value C:\Users\Mateus\.jdks\corretto-1.8.0_332\bin\java
+
 Set-Alias -Name firefox -Value "C:\Program Files\Mozilla Firefox\firefox.exe"
 
 

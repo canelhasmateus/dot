@@ -13,3 +13,11 @@ study
     packer features
     auto-commands
     lazy loading
+
+lvim
+
+    <Leader>Lk
+
+    Use <Leader>Vk to view the keybindings set by Lunarvim.
+
+<https://github.com/gpanders/nvim-moonwalk>

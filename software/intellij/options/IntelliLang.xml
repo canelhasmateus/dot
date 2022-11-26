@@ -58,6 +58,11 @@
       <place><![CDATA[psiParameter().ofMethod(2, psiMethod().withName("PrintStream").withParameters("java.io.OutputStream", "boolean", "java.lang.String").definedInClass("java.io.PrintStream"))]]></place>
       <place><![CDATA[psiParameter().ofMethod(3, psiMethod().withName("String").withParameters("byte[]", "int", "int", "java.lang.String").definedInClass("java.lang.String"))]]></place>
     </injection>
+    <injection language="JavaScript" injector-id="java">
+      <display-name>ExecutionBundle.message (com.intellij.execution)</display-name>
+      <single-file value="false" />
+      <place><![CDATA[psiParameter().ofMethod(0, psiMethod().withName("message").withParameters("java.lang.String", "java.lang.Object...").definedInClass("com.intellij.execution.ExecutionBundle"))]]></place>
+    </injection>
     <injection language="SQL" injector-id="java">
       <display-name>JDBI (org.jdbi.v3.core)</display-name>
       <ignore-pattern>&lt;[a-zA-Z0-9_]+&gt;</ignore-pattern>

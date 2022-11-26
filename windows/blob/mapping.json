@@ -70,12 +70,13 @@
             "targetRoot": "",
             "targetName": "/windows/blob/MarbleScroll.exe"
         },
+        
         {
             "destinationRoot": "LocalApplicationData",
-            "destinationName": "/nvim/init.lua",
+            "destinationName": "/nvim/init.vim",
             "type": "hard",
             "targetRoot": "",
-            "targetName": "/software/nvim/init.lua"
+            "targetName": "/software/intellij/.ideavimrc"
         },
         {
             "destinationRoot": "LocalApplicationData",
