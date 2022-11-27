@@ -34,9 +34,7 @@ if has('ide')
     set ideajoin
     set idearefactormode=select
     set ideavimsupport=""
-endif
 
-if has('ide')
 
     sethandler <ESC> a:ide
     sethandler <C-x> a:ide
@@ -62,45 +60,34 @@ if has('ide')
     sethandler <C-[> a:ide
     sethandler <C-v> a:ide
     sethandler <C-A> a:ide
+
     sethandler <M-A> a:ide
     sethandler <A-Right> a:vim
     sethandler <S-A-Right> a:vim
     sethandler <A-Left> a:vim
     sethandler <S-A-Left> a:vim
 
-endif
+"""Plug 'preservim/nerdtree'
+"""Plug 'terryma/vim-multiple-cursor'
+"""Plug 'tpope/vim-commentary'
+"""Plug 'vim-scripts/ReplaceWithRegister'
+"""Plug 'vim-scripts/argtextobj.vim'
+"""let g:argtextobj_pairs="[:],(:),<:>"
+
+"""set sneak
+"""quickscope
 
 
-""" Plugins  --------------------------------------------------------------
+Plug 'michaeljsmith/vim-ident-object' """Additional text objects: ai, ii, aI
 
+Plug 'tommcdo/vim-exchange' """Commands: cx, cxx, X, cxc
 
-if has('ide')
     Plug 'tpope/vim-surround' """Commands: ys, cs, ds, S
 
-    Plug 'machakann/vim-highlightedyank'
-    let g:highlightedyank_highlight_duration = "1000"
-    let g:highlightedyank_highlight_color = "rgba(100, 160, 100, 100)"
 
-    """Additional text objects: ai, ii, aI
-    Plug 'michaeljsmith/vim-indent-object'
-    packadd matchit
- 
-    """Additional text objects: ai, ii, aI
-    Plug 'tommcdo/vim-exchange' 
 
-    Plug 'vim-scripts/argtextobj.vim' """Additional text objects: aa, ia
-    let g:argtextobj_pairs="[:],(:),<:>"
-
-    """Plug 'preservim/nerdtree'
-    set multicursor
-   
-    Plug 'dbakker/vim-paragraph-motion'
-       ""Normally the { and } motions only match completely empty lines.
-       """With this plugin lines that only contain whitespace are also matched.
- 
 endif
 
-"""quickscope
 
 
 
@@ -212,8 +199,8 @@ nnoremap qq <Esc>
 nnoremap qe zz
 
 nmap qo %
-nmap qu {
-nmap qp }
+nnoremap qu {
+nnoremap qp }
 
 nnoremap qi <C-U>
 nnoremap qk <C-D>
@@ -221,21 +208,34 @@ nnoremap qk <C-D>
 nnoremap ql <C-I>
 nnoremap qj <C-O>
 
-vmap qo %
-vmap qu {
-vmap qp }
+vnoremap qo %
+vnoremap qu {
+vnoremap qp }
 
 if has('ide')
 
+    Plug 'chrisbra/matchit'
+    map qo <Plug>(MatchitMotion)
+
+
+    Plug 'dbakker/vim-paragraph-motion'
+    map qu <Plug>(ParagraphPrevMotion)
+    map qp <Plug>(ParagraphNextMotion)
+
+
+    map qd <Action>(CompareTwoFiles)
         map qw <Action>(ShowErrorDescription)
-        map qo <Plug>(MatchitMotion)
 
         map qh <Action>(GotoPreviousError)
         map qç <Action>(GotoNextError)
 
-        map ql <Action>(Forward)
         map qj <Action>(Back)
-        
+        map ql <Action>(Forward)
+    map qJ <Action>(JumpToLastChange)
+    map qL <Action>(JumpToNextChange)
+
+    """todo quick evaluate expression map qe <Action>()
+
 endif
 
 
@@ -294,6 +294,7 @@ nnoremap rr gq
 nnoremap rsp vip:sort i<CR>
 nnoremap rsP vip:sort! i<CR>
 
+nnoremap rd "ayy"ap
 vnoremap rr gq
 
 if has('ide')
@@ -311,6 +312,8 @@ if has('ide')
         map rn <Action>(RenameElement)
         map ro <Action>(OptimizeImports)
         map rr <Action>(ReformatCode)
+    """vmap rr <Action>(AutoIndentLines)
+
         map rt <Action>(MembersPullUp)
         map ru <Action>(EditorToggleCase)
         map rv <Action>(IntroduceVariable)
@@ -321,7 +324,14 @@ endif
 
 """ ____________________ [T] prefix is unmodified
 
-""" ____________________ [Y] prefix is unmodified
+""" ____________________ [Y] prefix is for yanking
+if has('ide')
+
+Plug 'machakann/vim-highlightedyank'
+let g:highlightedyank_highlight_duration = "1000"
+let g:highlightedyank_highlight_color = "rgba(100, 160, 100, 100)"
+
+endif
 
 """ ____________________ [U] prefix is unmodified
 
@@ -335,18 +345,26 @@ vnoremap oi o
 
 if has('ide')
 
+    map oe <Action>(RecentChangedFiles)
         map or <Action>(RecentFiles)
         map oR <Action>($LRU)
         map ox <Action>(FileStructurePopup)
-        map oh <Action>(CallHierarchy)
-        map op <Action>(ActivateProjectToolWindow)
-        map ou <Action>(SelectInProjectView)
-        map ovo <Action>(ImportTests)
-        map ovv <Action>(ShowRecentTests)
-        
+        map ou <Action>(ShowUsages)
+        map op <Action>(PasteMultiple)
+
+    """todo map oh <Action>(ProductivityGuide)
+    """todo map os <Action>(ActivateTerminalToolWindow)
+    """todo map ot <Action>(Rest Client)
+    """todo map ot <Action>(Quick Swithc scheme)
+    """todo EditBreakpoint
+    """todo ViewBreakpoints
+    """todo evaluate expression
+
         map osm <Action>(RunMenu)
         map osx <Action>(ChooseRunConfiguration)
-       
+        map ovo <Action>(ImportTests)
+        map ovv <Action>(ShowRecentTests)
+
 endif
 
 
@@ -365,6 +383,8 @@ nnoremap ai a
 
 nnoremap s <Nop>
 if has('ide')
+
+    map sx <Action>(InsertLiveTemplate)
         map ss <Action>(SurroundWith)
         map su <Action>(Unwrap)
         map si <Action>(EditorSelectWord)
@@ -393,7 +413,6 @@ nnoremap dh "ad<Home>
 nnoremap d<End> "ad<End>
 nnoremap dç "ad<End>
 
-nnoremap ds<space> F<space>xf<space>x
 
 nnoremap D "adt
 nnoremap DD "aD
@@ -427,6 +446,7 @@ nnoremap fe t
 """todo yank to search register
 nnoremap fy viw"/y
 vnoremap fy "/y
+nnoremap <A-f>f /
 
 nnoremap fr :s/
 nnoremap <leader>fr &
@@ -443,18 +463,20 @@ let g:EasyMotion_do_mapping = 0
     map fç <Plug>(easymotion-eol-j)
     map fh <Plug>(easymotion-sol-k)
 
+    map fL <Plug>(easymotion-e)
+    map fJ <Plug>(easymotion-ge)
     map fÇ <Plug>(easymotion-sol-j)
     map fH <Plug>(easymotion-eol-k)
     
     map f. <Plug>(easymotion-bd-n)
 
     nmap fp <Plug>(easymotion-jumptoanywhere)
-    vmap fp <Plug>(easymotion-jumptoanywhere)
+
+    """todo map off <Action>(StructuralSearchPlugin.StructuralSearchAction)
+    """todo map ofr <Action>(StructuralSearchPlugin.StructuralReplaceAction)
+    """todo map ofp <Action>(FindInPath)
 
 endif
-
-
-""" ____________________ [G] Prefix is unmodified
 
 """ ____________________ [G] Prefix is directional ( Home )
 """ ____________________ [J] Prefix is directional ( Left )
@@ -475,7 +497,7 @@ vnoremap zk zt
 nnoremap zl zL
 nnoremap zj zH
 
-""" ________________________________ [X] prefix controls code
+""" ________________________________ [X] prefix controls code stuff
 
 nnoremap x <Nop>
 
@@ -493,18 +515,31 @@ if has('ide')
         nmap xx vkxx
         vmap xx <Plug>(Exchange)
 
-        map xc <Action>(CommentByLineComment)
-        map xo <Action>(OverrideMethods)
+
         map x1 <Action>(ExpandAllToLevel1)
         map x2 <Action>(ExpandAllToLevel2)
         map x3 <Action>(ExpandAllToLevel3)
-        map xt <Action>(ImplementMethods)
+
+    map xri <Action>(ImplementMethods)
+    map xro <Action>(OverrideMethods)
+    map xrd <Action>(DelegateMethods)
+
         map xi <Action>(MethodUp)
         map xk <Action>(MethodDown)
-        map xj <Action>(HippieCompletion)
-        map xl <Action>(HippieBackwardCompletion)
+    map xl <Action>(SliceForward)
+    map xj <Action>(SliceBackward)
 
+    map xoc <Action>(CallHierarchy)
+    map xot <Action>(TypeHierarchy)
+    map xom <Action>(MethodHierarchy)
+    map xoi <Action>(RunInspection)
+    map xor <Action>(CodeCleanup)
 
+    """todo a quick list of some actions map xo <>
+    """todo complete current statement
+    """todo better templates
+    """todo better postfixes
+    """todo create emmet engine for other languages
         map xns <Action>(InsertLiveTemplate)
         map xnv <Action>(GenerateTestMethod)
 
@@ -516,6 +551,8 @@ endif
 nnoremap ck "acl
 nnoremap cl "act
 nnoremap cj "acT
+nnoremap c<Home> "ac<Home>
+nnoremap c<End> "ac<End>
 nnoremap cç c<Home>
 nnoremap ch c0
 
@@ -528,16 +565,18 @@ nnoremap V vt
 nnoremap vv V
 nnoremap viv g^vg_
 nnoremap vk v
+
+" All - this paren
 nnoremap vp vi)
 nnoremap vd vi}
-nnoremap vw viw
 " Java - select all scope
-nnoremap vsd va}V
+nnoremap vss va}V
 nnoremap vsi vi}
 
 
 """ ________________________________ [B] prefix is unmodified
 
+"""nnoremap bb b
 
    
 """ ________________________________ [N] prefix controls [N]avigation
@@ -546,16 +585,29 @@ nnoremap n <Nop>
 nnoremap nn n
 
 nnoremap nd gD
+vnoremap nd <Esc>gD
+nnoremap <A-n>k G
+nnoremap <A-n>i gg
 
 if has('ide')
+
+    map nd <Action>(GotoDeclaration)
+    map nD <Action>(GotoTypeDeclaration)
+        map nt <Action>(GotoTest)
+        map ni <Action>(GotoImplementation)
+    map nr <Action>(GotoRelated)
+    map nS <Action>(GotoSuperMethod)
+
+
+    map nn <Action>(SearchEverywhere)
+    map na <Action>(GotoAction)
         map nf <Action>(GotoFile)
         map nc <Action>(GotoClass)
         map ns <Action>(GotoSymbol)
-        map nj <Action>(JumpToLastChange)
-        map nl <Action>(JumpToLastChange)
-        map ni <Action>(GotoImplementation)
-        map nu <Action>(ShowUsages)
-        map nt <Action>(GotoTest)
+    map nl <Action>(GotoLine)
+    map nb <Action>(ShowNavBar)
+
+
 endif
 
 """ ________________________________ [M] prefix controls [M]ove aheads
@@ -577,6 +629,9 @@ nnoremap mF ?)<CR>vi)o
 vnoremap mf <Esc>/(<CR>vi(o
 vnoremap mF <Esc>?)<CR>vi(o
 
+" All - next non-empty
+"nnoremap mp /\v(!@)<CR>va(o
+"vnoremap mp <Esc>/\v(\()!@)<CR>nva(o
 
 "nnoremap mP ?([^)]<CR>va(o
 "vnoremap mP <Esc>?([^)]<CR>nva(o
@@ -673,14 +728,12 @@ nnoremap mi /:\t|:\n<Space>{2,}/e<CR>
 """nnoremap <Leader>ql magv"ad`a"aP
 
 
-nmap <leader>tc <Action>(Console.Transaction.Commit)
-nmap <leader>tt <Action>(Console.Transaction.TxSettings)
+
 
 nnoremap daa da>
 nnoremap dia di>
 nnoremap vaa va>
 nnoremap via vi>
-nnoremap daa da>
 
 function! jsonProperty()
     normal! /;
@@ -693,35 +746,24 @@ endfunction
 nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
 """vmap <leader>c <Plug>(multicursor-mc0)
 
-""Multi cursor operations
+if has("ide")
+set multicursor
+
 map <leader>c <Plug>(multicursor-mc/)
-vmap <leader>c <Plug>(multicursor-mc/)
 vmap <leader>l <Plug>(multicursor-ms0)
+endif
 
 """map <leader>sl viW<Plug>(VSurround)<Esc>
 
+nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
+nnoremap <leader>vim :e ~\.ideavimrc<CR>
 
-" ?????????????????? nnoremap qd K
-    " visual the rest of the screen / the next half / the next quarter the next scope / paren / etc
-
-map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
-
-nnoremap <leader>vim :e ~/.ideavimrc<CR>
-
-nnoremap <leader>ai <C-a>
-vnoremap <leader>ai <C-a>
-
-nnoremap <leader>ak <C-x>
-vnoremap <leader>ak <C-x>
-
-nnoremap <leader>au g<C-a>
-vnoremap <leader>au g<C-a>
-
-nnoremap <leader>ap g<C-x>
-vnoremap <leader>ap g<C-x>
-
-if has('ide')
+" visual the rest of the screen / the next half / the next quarter the next scope / paren / etc
+if has("ide")
+    map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
     noremap Mm qa
     noremap MM qa
     noremap Ma @a
+    else
+    nnoremap <leader>wr :w<CR>:source ~\.ideavimrc<CR>
 endif

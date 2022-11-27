@@ -7,7 +7,7 @@
     <feature id="navigation.goto.file.line" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="editing.completion.finishBySmartEnter" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="navigation.popup.symbol" count="42" last-shown="0" last-used="1669496547926" shown-count="0" />
-    <feature id="editing.completion.replace" count="7" last-shown="1669498116700" last-used="1662407448868" shown-count="66901" />
+    <feature id="editing.completion.replace" count="7" last-shown="1669508400555" last-used="1662407448868" shown-count="66923" />
     <feature id="switcher" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="codeassists.complete.statement" count="9" last-shown="0" last-used="1659544050026" shown-count="0" />
     <feature id="vcs.show.quick.list" count="0" last-shown="0" last-used="0" shown-count="0" />
@@ -78,7 +78,7 @@
     <feature id="navigation.select.in" count="2" last-shown="0" last-used="1669495716166" shown-count="0" />
     <feature id="editing.completion.global.member.name" count="37" last-shown="0" last-used="1668541674402" shown-count="0" />
     <feature id="intentions.fix.javadoc" count="0" last-shown="0" last-used="0" shown-count="0" />
-    <feature id="ui.tree.speedsearch" count="1341" last-shown="0" last-used="1669496673848" shown-count="0" />
+    <feature id="ui.tree.speedsearch" count="1346" last-shown="0" last-used="1669502442972" shown-count="0" />
     <feature id="ui.horizontal.scrolling" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="refactoring.copyClass" count="32" last-shown="0" last-used="1669473145972" shown-count="0" />
     <feature id="codeassists.highlight.return" count="0" last-shown="0" last-used="0" shown-count="0" />
@@ -102,7 +102,7 @@
     <feature id="ui.recentchanges" count="2" last-shown="0" last-used="1665414137181" shown-count="0" />
     <feature id="diagram.show" count="3" last-shown="0" last-used="1665448392688" shown-count="0" />
     <feature id="editing.completion.second.basic" count="6" last-shown="0" last-used="1665436611245" shown-count="0" />
-    <feature id="editing.move.statement.up.down" count="5163" last-shown="0" last-used="1669497625794" shown-count="0" />
+    <feature id="editing.move.statement.up.down" count="5193" last-shown="0" last-used="1669508365123" shown-count="0" />
     <feature id="editing.completion.changeSorting" count="0" last-shown="0" last-used="0" shown-count="0" />
     <completionStatsTag>
       <option name="sparedCharacters" value="180122" />
