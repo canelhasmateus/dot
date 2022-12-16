@@ -7,22 +7,22 @@
       <i c="112" l="1668814926677" />
     </e>
     <e n="$Delete">
-      <i c="1378" l="1669481453652" />
+      <i c="1380" l="1669562221513" />
     </e>
     <e n="$LRU">
-      <i c="670" l="1669493834481" />
+      <i c="675" l="1669562566071" />
     </e>
     <e n="$Paste">
-      <i c="418" l="1669478384151" />
+      <i c="419" l="1669560416342" />
     </e>
     <e n="$Redo">
       <i c="647" l="1668908548932" />
     </e>
     <e n="$SelectAll">
-      <i c="2237" d="1" l="1669471721743" k="1658946012377" />
+      <i c="2242" d="1" l="1669560826074" k="1658946012377" />
     </e>
     <e n="$Undo">
-      <i c="46372" l="1669507277252" />
+      <i c="46383" l="1669673836166" />
     </e>
     <e n="About">
       <i c="4" l="1668905742398" />
@@ -70,7 +70,7 @@
       <i c="118" l="1669495465279" />
     </e>
     <e n="ActivateProjectToolWindow">
-      <i c="19939" l="1669502263368" />
+      <i c="19961" l="1669673782735" />
     </e>
     <e n="ActivateRunToolWindow">
       <i c="237" l="1668640781990" />
@@ -82,7 +82,7 @@
       <i c="3" l="1665004288210" />
     </e>
     <e n="ActivateTerminalToolWindow">
-      <i c="2293" l="1669496749102" />
+      <i c="2294" l="1669562269122" />
     </e>
     <e n="ActivateVersionControlToolWindow">
       <i c="33" l="1669492920406" />
@@ -121,10 +121,10 @@
       <i c="2" d="2" l="1665165692418" k="1665165692418" />
     </e>
     <e n="AutoIndentLines">
-      <i c="1649" d="1" l="1669495432416" k="1658779099367" />
+      <i c="1652" d="1" l="1669562059378" k="1658779099367" />
     </e>
     <e n="Back">
-      <i c="18576" l="1669497608921" />
+      <i c="18597" l="1669562186392" />
     </e>
     <e n="CPP.CreateCMakeProject">
       <i c="2" l="1661125601918" />
@@ -178,16 +178,16 @@
       <i c="66" l="1667871256316" />
     </e>
     <e n="ChooseRunConfiguration">
-      <i c="328" l="1668637509762" />
+      <i c="329" l="1669673786956" />
     </e>
     <e n="CloseActiveTab">
-      <i c="274" l="1669250017062" />
+      <i c="276" l="1669562683398" />
     </e>
     <e n="CloseAllEditors">
       <i c="9" l="1667861406059" />
     </e>
     <e n="CloseContent">
-      <i c="330" l="1668911154038" />
+      <i c="331" l="1669560931065" />
     </e>
     <e n="CloseProject">
       <i c="1" l="1653848031531" />
@@ -217,7 +217,7 @@
       <i c="1" d="1" l="1669472269804" k="1669472269804" />
     </e>
     <e n="CollapseAllRegions">
-      <i c="3239" l="1669497017588" />
+      <i c="3244" l="1669561408738" />
     </e>
     <e n="CollapseRegion">
       <i c="4872" l="1669490486600" />
@@ -229,7 +229,7 @@
       <i c="1" l="1658779140719" />
     </e>
     <e n="CommentByLineComment">
-      <i c="1929" l="1669474411598" />
+      <i c="1930" l="1669562098661" />
     </e>
     <e n="Compare.SameVersion">
       <i c="1" l="1655317786256" />
@@ -441,6 +441,9 @@
     <e n="EditBreakpoint">
       <i c="41" l="1669493040183" />
     </e>
+    <e n="EditCreateDeleteGroup">
+      <i c="1" d="1" l="1669560240411" k="1669560240411" />
+    </e>
     <e n="EditInspectionSettings">
       <i c="2" l="1658632790700" />
     </e>
@@ -451,7 +454,7 @@
       <i c="188" l="1668476076118" />
     </e>
     <e n="EditorBackSpace">
-      <i c="72103" l="1669508165686" />
+      <i c="72149" l="1669562246668" />
     </e>
     <e n="EditorBackwardParagraph">
       <i c="1278" l="1669490979371" />
@@ -463,7 +466,7 @@
       <i c="1" d="1" l="1669492105648" k="1669492105648" />
     </e>
     <e n="EditorChooseLookupItem">
-      <i c="42022" l="1669495223731" />
+      <i c="42042" l="1669562198849" />
     </e>
     <e n="EditorChooseLookupItemCompleteStatement">
       <i c="1" l="1656436809541" />
@@ -487,10 +490,10 @@
       <i c="87" l="1659544050026" />
     </e>
     <e n="EditorCopy">
-      <i c="3852" l="1669508277446" />
+      <i c="3856" l="1669560755281" />
     </e>
     <e n="EditorCut">
-      <i c="5291" l="1669502976582" />
+      <i c="5292" l="1669561226824" />
     </e>
     <e n="EditorCutLineBackward">
       <i c="66" l="1667617972146" />
@@ -505,19 +508,19 @@
       <i c="1" l="1663866368393" />
     </e>
     <e n="EditorDelete">
-      <i c="16620" l="1669508090430" />
+      <i c="16638" l="1669562113318" />
     </e>
     <e n="EditorDeleteLine">
       <i c="9168" l="1668041067697" />
     </e>
     <e n="EditorDeleteToWordEnd">
-      <i c="10576" l="1668913731474" />
+      <i c="10580" l="1669562190876" />
     </e>
     <e n="EditorDeleteToWordStart">
-      <i c="28798" l="1669502364685" />
+      <i c="28805" l="1669562101898" />
     </e>
     <e n="EditorDown">
-      <i c="105539" l="1669508295158" />
+      <i c="105550" l="1669562095484" />
     </e>
     <e n="EditorDownWithSelection">
       <i c="4908" l="1666648420597" />
@@ -526,13 +529,13 @@
       <i c="2536" l="1669497733097" />
     </e>
     <e n="EditorEnter">
-      <i c="49856" l="1669508400158" />
+      <i c="49876" l="1669562226051" />
     </e>
     <e n="EditorEscape">
-      <i c="9519" l="1669502989568" />
+      <i c="9524" l="1669562042406" />
     </e>
     <e n="EditorForwardParagraph">
-      <i c="1489" d="1" l="1669490979218" k="1669490962801" />
+      <i c="1490" d="1" l="1669561393208" k="1669490962801" />
     </e>
     <e n="EditorForwardParagraphWithSelection">
       <i c="131" l="1666648415605" />
@@ -541,16 +544,16 @@
       <i c="49" l="1667859641955" />
     </e>
     <e n="EditorIndentLineOrSelection">
-      <i c="10135" l="1669502162249" />
+      <i c="10136" l="1669561376337" />
     </e>
     <e n="EditorIndentSelection">
       <i c="169" l="1662070554315" />
     </e>
     <e n="EditorJoinLines">
-      <i c="3186" l="1669497263170" />
+      <i c="3188" l="1669560997153" />
     </e>
     <e n="EditorLeft">
-      <i c="5221" l="1668555078735" />
+      <i c="5222" l="1669561016801" />
     </e>
     <e n="EditorLeftWithSelection">
       <i c="646" d="3" l="1667699760407" k="1655930706327" />
@@ -583,7 +586,7 @@
       <i c="6238" l="1668550992289" />
     </e>
     <e n="EditorPaste">
-      <i c="5994" l="1669508278587" />
+      <i c="5998" l="1669561233207" />
     </e>
     <e n="EditorPasteSimple">
       <i c="16" l="1667778933181" />
@@ -604,7 +607,7 @@
       <i c="1" l="1654615189833" />
     </e>
     <e n="EditorRight">
-      <i c="4759" l="1669493260240" />
+      <i c="4762" l="1669561268010" />
     </e>
     <e n="EditorRightWithSelection">
       <i c="930" l="1667693487122" />
@@ -637,13 +640,13 @@
       <i c="1" l="1664566411471" />
     </e>
     <e n="EditorTextEnd">
-      <i c="2172" l="1669423408183" />
+      <i c="2173" l="1669560833467" />
     </e>
     <e n="EditorTextEndWithSelection">
       <i c="345" l="1667874572767" />
     </e>
     <e n="EditorTextStart">
-      <i c="2750" l="1669495929872" />
+      <i c="2754" l="1669561060449" />
     </e>
     <e n="EditorTextStartWithSelection">
       <i c="106" l="1665171313575" />
@@ -670,13 +673,13 @@
       <i c="4" d="4" l="1655246954864" k="1655246954864" />
     </e>
     <e n="EditorUnSelectWord">
-      <i c="564" l="1669422559936" />
+      <i c="565" l="1669562370533" />
     </e>
     <e n="EditorUnindentSelection">
       <i c="669" l="1669508298066" />
     </e>
     <e n="EditorUp">
-      <i c="89529" l="1669508118413" />
+      <i c="89543" l="1669562081405" />
     </e>
     <e n="EditorUpWithSelection">
       <i c="2468" d="2" l="1665068568235" k="1655695429423" />
@@ -688,7 +691,7 @@
       <i c="2" l="1652742517245" />
     </e>
     <e n="ExpandAllRegions">
-      <i c="1842" l="1669498084983" />
+      <i c="1844" l="1669560985335" />
     </e>
     <e n="ExpandAllToLevel1">
       <i c="100" l="1667611150320" />
@@ -703,13 +706,13 @@
       <i c="165" l="1668543448250" />
     </e>
     <e n="ExpandRegion">
-      <i c="6331" l="1669497560168" />
+      <i c="6337" l="1669560999556" />
     </e>
     <e n="ExpandRegionRecursively">
       <i c="7" l="1667348372081" />
     </e>
     <e n="ExportSettings">
-      <i c="13" l="1665951866708" />
+      <i c="16" l="1669563630761" />
     </e>
     <e n="ExportToTextFile">
       <i c="4" l="1654698623030" />
@@ -757,10 +760,10 @@
       <i c="36" d="2" l="1669496696719" k="1658779572870" />
     </e>
     <e n="Find">
-      <i c="1977" l="1669508138114" />
+      <i c="1978" l="1669560309919" />
     </e>
     <e n="FindInPath">
-      <i c="337" l="1669494832656" />
+      <i c="340" l="1669562564904" />
     </e>
     <e n="FindUsages">
       <i c="11" d="1" l="1669495746990" k="1669495746990" />
@@ -826,7 +829,7 @@
       <i c="1" l="1655223557956" />
     </e>
     <e n="GotoAction">
-      <i c="542" l="1669497754701" />
+      <i c="546" l="1669561261422" />
     </e>
     <e n="GotoBookmark1">
       <i c="65" l="1665414828969" />
@@ -835,13 +838,13 @@
       <i c="30" l="1664399443336" />
     </e>
     <e n="GotoClass">
-      <i c="87" l="1669490288270" />
+      <i c="88" l="1669559865330" />
     </e>
     <e n="GotoCustomRegion">
       <i c="147" l="1669420714155" />
     </e>
     <e n="GotoDeclaration">
-      <i c="23581" d="1" l="1669498080244" k="1669423875479" />
+      <i c="23602" d="1" l="1669562180533" k="1669423875479" />
     </e>
     <e n="GotoDeclarationOnly">
       <i c="1" d="1" l="1669423885554" k="1669423885554" />
@@ -850,7 +853,7 @@
       <i c="39" l="1669493879810" />
     </e>
     <e n="GotoImplementation">
-      <i c="240" d="2" l="1669497566389" k="1662041058678" />
+      <i c="242" d="2" l="1669560336696" k="1662041058678" />
     </e>
     <e n="GotoLine">
       <i c="114" l="1669497450706" />
@@ -859,7 +862,7 @@
       <i c="1" l="1654545000694" />
     </e>
     <e n="GotoNextError">
-      <i c="3140" l="1669495185734" />
+      <i c="3150" l="1669561308357" />
     </e>
     <e n="GotoPrevElementUnderCaretUsage">
       <i c="1" l="1654879010848" />
@@ -871,16 +874,16 @@
       <i c="12" l="1669497648810" />
     </e>
     <e n="GotoSuperMethod">
-      <i c="11" d="1" l="1669497578194" k="1669491867148" />
+      <i c="12" d="1" l="1669560341303" k="1669491867148" />
     </e>
     <e n="GotoSymbol">
       <i c="57" l="1669496547876" />
     </e>
     <e n="GotoTest">
-      <i c="2" l="1669496023410" />
+      <i c="3" l="1669561319782" />
     </e>
     <e n="GotoTypeDeclaration">
-      <i c="9" l="1669497635403" />
+      <i c="10" l="1669561324166" />
     </e>
     <e n="Help.KeymapReference">
       <i c="1" l="1655734253262" />
@@ -889,7 +892,7 @@
       <i c="75" l="1669507651036" />
     </e>
     <e n="HideAllWindows">
-      <i c="2899" l="1669496749938" />
+      <i c="2907" l="1669562682762" />
     </e>
     <e n="HierarchyGroup">
       <i c="2" d="2" l="1669492098820" k="1669492098820" />
@@ -907,7 +910,7 @@
       <i c="1" l="1658253325442" />
     </e>
     <e n="ImplementMethods">
-      <i c="23" l="1669496398855" />
+      <i c="24" l="1669561995676" />
     </e>
     <e n="Inline">
       <i c="1237" l="1669493231338" />
@@ -988,7 +991,7 @@
       <i c="36" l="1658721808207" />
     </e>
     <e n="MainMenu">
-      <i c="102" l="1669493359749" />
+      <i c="105" l="1669561596407" />
     </e>
     <e n="MakeModule">
       <i c="18" l="1665426118906" />
@@ -1075,13 +1078,13 @@
       <i c="36" l="1666663754109" />
     </e>
     <e n="MethodDown">
-      <i c="2373" l="1669496236223" />
+      <i c="2382" l="1669562371385" />
     </e>
     <e n="MethodHierarchy">
       <i c="3" l="1669496668359" />
     </e>
     <e n="MethodUp">
-      <i c="7162" l="1669498119758" />
+      <i c="7175" l="1669562371685" />
     </e>
     <e n="MicrobeUpdateAction">
       <i c="5" l="1653925641507" />
@@ -1090,7 +1093,7 @@
       <i c="5" l="1653493323139" />
     </e>
     <e n="Move">
-      <i c="1025" l="1669497003600" />
+      <i c="1028" l="1669560288563" />
     </e>
     <e n="MoveElementLeft">
       <i c="246" l="1668542136172" />
@@ -1120,7 +1123,7 @@
       <i c="1" l="1669490602612" />
     </e>
     <e n="NewClass">
-      <i c="409" l="1669249804930" />
+      <i c="412" l="1669561930023" />
     </e>
     <e n="NewDir">
       <i c="181" l="1669490618698" />
@@ -1138,7 +1141,7 @@
       <i c="2" l="1658529412070" />
     </e>
     <e n="NewProject">
-      <i c="17" l="1668908476868" />
+      <i c="18" l="1669559977542" />
     </e>
     <e n="NewPythonFile">
       <i c="99" l="1665010549143" />
@@ -1156,25 +1159,25 @@
       <i c="4" l="1662573708444" />
     </e>
     <e n="NextTemplateVariable">
-      <i c="7039" l="1669495208267" />
+      <i c="7040" l="1669561382336" />
     </e>
     <e n="OnlineDocAction">
       <i c="3" l="1665410628660" />
     </e>
     <e n="OpenFile">
-      <i c="84" l="1669251915837" />
+      <i c="86" l="1669673762265" />
     </e>
     <e n="OpenInRightSplit">
       <i c="6" l="1664480187398" />
     </e>
     <e n="OptimizeImports">
-      <i c="466" l="1668464832391" />
+      <i c="467" l="1669560290215" />
     </e>
     <e n="OverrideMethods">
-      <i c="46" d="2" l="1669496399864" k="1658635662870" />
+      <i c="48" d="2" l="1669561994009" k="1658635662870" />
     </e>
     <e n="ParameterInfo">
-      <i c="1886" l="1669491468802" />
+      <i c="1889" l="1669562193832" />
     </e>
     <e n="PartialPageNav.PageDown">
       <i c="36561" d="2" l="1667620252669" k="1659148952047" />
@@ -1234,10 +1237,10 @@
       <i c="69" l="1668554230514" />
     </e>
     <e n="QuickJavaDoc">
-      <i c="141" l="1668911975242" />
+      <i c="142" l="1669561313720" />
     </e>
     <e n="QuickList.New">
-      <i c="1070" l="1669495552307" />
+      <i c="1073" l="1669561922149" />
     </e>
     <e n="QuickList.Random">
       <i c="974" l="1667156791929" />
@@ -1252,7 +1255,7 @@
       <i c="2" l="1665414137042" />
     </e>
     <e n="RecentFiles">
-      <i c="18022" l="1669498118272" />
+      <i c="18041" l="1669562253145" />
     </e>
     <e n="RecentLocations">
       <i c="3" l="1656278318370" />
@@ -1261,16 +1264,16 @@
       <i c="117" l="1667697942735" />
     </e>
     <e n="ReformatCode">
-      <i c="28233" l="1669497642362" />
+      <i c="28242" l="1669562225074" />
     </e>
     <e n="Register">
       <i c="2" l="1659127065344" />
     </e>
     <e n="RenameElement">
-      <i c="10316" l="1669423440337" />
+      <i c="10317" l="1669561255655" />
     </e>
     <e n="RenameFile">
-      <i c="1" l="1656468462968" />
+      <i c="2" d="1" l="1669561266233" k="1669561266233" />
     </e>
     <e n="ReopenClosedTab">
       <i c="7" l="1665082427442" />
@@ -1300,7 +1303,7 @@
       <i c="3" l="1669495463066" />
     </e>
     <e n="RestartIde">
-      <i c="173" l="1669491550456" />
+      <i c="174" l="1669560708774" />
     </e>
     <e n="RestoreDefaultLayout">
       <i c="1" l="1665154697756" />
@@ -1330,7 +1333,7 @@
       <i c="11" d="3" l="1669497123467" k="1669492296573" />
     </e>
     <e n="RunMenu">
-      <i c="4690" l="1669250317386" />
+      <i c="4691" l="1669673785212" />
     </e>
     <e n="RunSetupPyTask">
       <i c="2" d="1" l="1655758971695" k="1655758971695" />
@@ -1372,7 +1375,7 @@
       <i c="3" l="1669495716141" />
     </e>
     <e n="SelectInProjectView">
-      <i c="6457" l="1669490779462" />
+      <i c="6465" l="1669562372356" />
     </e>
     <e n="Session.Close">
       <i c="3" l="1668551654104" />
@@ -1390,7 +1393,7 @@
       <i c="3" d="1" l="1658635879699" k="1654031467209" />
     </e>
     <e n="ShowErrorDescription">
-      <i c="4407" l="1669471352015" />
+      <i c="4419" l="1669562231130" />
     </e>
     <e n="ShowExecutionPoint">
       <i c="55" l="1668040129615" />
@@ -1402,13 +1405,13 @@
       <i c="1" l="1661282312783" />
     </e>
     <e n="ShowIntentionActions">
-      <i c="6026" l="1669495303917" />
+      <i c="6035" l="1669562064245" />
     </e>
     <e n="ShowNavBar">
       <i c="37" d="1" l="1669497707754" k="1669492125111" />
     </e>
     <e n="ShowPopupMenu">
-      <i c="2661" l="1669490616359" />
+      <i c="2664" l="1669561258761" />
     </e>
     <e n="ShowProjectStructureSettings">
       <i c="210" l="1669423166487" />
@@ -1417,7 +1420,7 @@
       <i c="12" d="12" l="1669493609152" k="1669493609152" />
     </e>
     <e n="ShowSettings">
-      <i c="446" l="1669493897574" />
+      <i c="448" l="1669563440418" />
     </e>
     <e n="ShowTips">
       <i c="1" l="1665410475947" />
@@ -1567,7 +1570,7 @@
       <i c="595" l="1667156792373" />
     </e>
     <e n="Tree-selectChild">
-      <i c="14079" l="1669502442405" />
+      <i c="14110" l="1669673791555" />
     </e>
     <e n="Tree-selectFirst">
       <i c="6" l="1658609108956" />
@@ -1576,16 +1579,16 @@
       <i c="7" l="1663346820816" />
     </e>
     <e n="Tree-selectNext">
-      <i c="81639" l="1669502445264" />
+      <i c="81820" l="1669673792841" />
     </e>
     <e n="Tree-selectNextExtendSelection">
-      <i c="2241" l="1669481450745" />
+      <i c="2242" l="1669561918350" />
     </e>
     <e n="Tree-selectParent">
-      <i c="19902" l="1669502436255" />
+      <i c="19949" l="1669673766238" />
     </e>
     <e n="Tree-selectPrevious">
-      <i c="45409" l="1669502441717" />
+      <i c="45488" l="1669673792499" />
     </e>
     <e n="Tree-selectPreviousExtendSelection">
       <i c="603" l="1669480262641" />
@@ -1672,7 +1675,7 @@
       <i c="87" d="3" l="1669491926058" k="1666490227502" />
     </e>
     <e n="VimPluginToggle">
-      <i c="1799" l="1669495203175" />
+      <i c="1803" l="1669562101268" />
     </e>
     <e n="VirtualFileInfo">
       <i c="1" l="1669422008770" />
@@ -1735,7 +1738,7 @@
       <i c="567" l="1668040346838" />
     </e>
     <e n="com.intellij.codeInsight.daemon.impl.DaemonTooltipWithActionRenderer$addActionsRow$2">
-      <i c="932" l="1669423395056" />
+      <i c="939" l="1669562232406" />
     </e>
     <e n="com.intellij.codeInsight.documentation.DocumentationLinkHandler$ActivateLinkAction">
       <i c="2" l="1658544226609" />
@@ -1747,7 +1750,7 @@
       <i c="493" l="1669491484416" />
     </e>
     <e n="com.intellij.codeInsight.hint.LineTooltipRenderer$ReloadHintAction">
-      <i c="85" l="1668638169331" />
+      <i c="87" l="1669561093935" />
     </e>
     <e n="com.intellij.codeInsight.template.impl.InvokeTemplateAction">
       <i c="15" l="1665080296985" />
@@ -1792,10 +1795,10 @@
       <i c="3" l="1659921066253" />
     </e>
     <e n="com.intellij.diagnostic.IdeErrorsDialog$ForwardAction">
-      <i c="7" l="1661211437547" />
+      <i c="9" l="1669563618407" />
     </e>
     <e n="com.intellij.diagnostic.IdeMessagePanel$4">
-      <i c="12" l="1667611321641" />
+      <i c="14" l="1669563615590" />
     </e>
     <e n="com.intellij.diagnostic.WindowsDefenderFixAction">
       <i c="2" l="1667666474453" />
@@ -1909,7 +1912,7 @@
       <i c="62" l="1653790105989" />
     </e>
     <e n="com.intellij.find.SearchReplaceComponent$CloseAction">
-      <i c="2220" l="1669508145759" />
+      <i c="2221" l="1669560314605" />
     </e>
     <e n="com.intellij.find.SearchReplaceComponent$ModeAction">
       <i c="11" l="1667675224419" />
@@ -1924,7 +1927,7 @@
       <i c="4" l="1654643097771" />
     </e>
     <e n="com.intellij.find.editorHeaderActions.NextOccurrenceAction">
-      <i c="2221" l="1669508144870" />
+      <i c="2222" l="1669560312496" />
     </e>
     <e n="com.intellij.find.editorHeaderActions.PrevOccurrenceAction">
       <i c="156" l="1664564160063" />
@@ -1960,7 +1963,7 @@
       <i c="2" l="1669422600486" />
     </e>
     <e n="com.intellij.ide.ReopenProjectAction">
-      <i c="484" l="1669423173438" />
+      <i c="487" l="1669562567077" />
     </e>
     <e n="com.intellij.ide.actions.EditFileTemplatesAction">
       <i c="1" l="1662406477415" />
@@ -2035,10 +2038,10 @@
       <i c="41" l="1665411154003" />
     </e>
     <e n="com.intellij.openapi.actionSystem.DefaultActionGroup">
-      <i c="14" l="1667410705886" />
+      <i c="19" l="1669560847727" />
     </e>
     <e n="com.intellij.openapi.actionSystem.EmptyAction$MyDelegatingAction">
-      <i c="1379492" l="1669508417421" />
+      <i c="1380173" l="1669673837061" />
     </e>
     <e n="com.intellij.openapi.diff.impl.dir.actions.ChangeCompareModeAction">
       <i c="3" l="1656444937461" />
@@ -2089,10 +2092,10 @@
       <i c="2" l="1654131074650" />
     </e>
     <e n="com.intellij.openapi.project.DumbAwareAction$SimpleDumbAwareAction">
-      <i c="2791" l="1669508407595" />
+      <i c="2799" l="1669562565521" />
     </e>
     <e n="com.intellij.openapi.project.LightEditActionFactory$SimpleLightEditCompatibleAction">
-      <i c="18508" l="1669498118564" />
+      <i c="18527" l="1669562254441" />
     </e>
     <e n="com.intellij.openapi.roots.ui.configuration.CommonContentEntriesEditor$AddContentEntryAction">
       <i c="1" l="1654193345092" />
@@ -2125,13 +2128,13 @@
       <i c="3" l="1656616027989" />
     </e>
     <e n="com.intellij.openapi.ui.DialogWrapper$4">
-      <i c="3761" l="1669493252189" />
+      <i c="3768" l="1669562567799" />
     </e>
     <e n="com.intellij.openapi.ui.MasterDetailsComponent$MyDeleteAction">
       <i c="1" l="1650368055198" />
     </e>
     <e n="com.intellij.openapi.ui.impl.DialogWrapperPeerImpl$AnCancelAction">
-      <i c="739" l="1669498007087" />
+      <i c="741" l="1669563446480" />
     </e>
     <e n="com.intellij.openapi.updateSettings.impl.UpdateSettingsEntryPointActionProvider$IdeUpdateAction">
       <i c="1" l="1654107199292" />
@@ -2245,7 +2248,7 @@
       <i c="1" l="1660147028409" />
     </e>
     <e n="com.intellij.ui.ScrollingUtil$ListMoveDownAction">
-      <i c="12205" l="1669498083571" />
+      <i c="12223" l="1669562253745" />
     </e>
     <e n="com.intellij.ui.ScrollingUtil$ListMoveEndAction">
       <i c="9" l="1664313687371" />
@@ -2254,10 +2257,10 @@
       <i c="15" l="1664289315181" />
     </e>
     <e n="com.intellij.ui.ScrollingUtil$ListMoveUpAction">
-      <i c="2793" l="1669496571577" />
+      <i c="2796" l="1669562254246" />
     </e>
     <e n="com.intellij.ui.ScrollingUtil$TableMoveDownAction">
-      <i c="2507" l="1669498121666" />
+      <i c="2528" l="1669561589263" />
     </e>
     <e n="com.intellij.ui.ScrollingUtil$TableMoveEndAction">
       <i c="6" l="1655729728880" />
@@ -2356,7 +2359,7 @@
       <i c="5" l="1655691078942" />
     </e>
     <e n="com.maddyhome.idea.vim.ui.ex.ExShortcutKeyAction">
-      <i c="2225" l="1669502141450" />
+      <i c="2238" l="1669560306638" />
     </e>
     <e n="copilot.applyInlays">
       <i c="2028" l="1661179248591" />
@@ -2397,6 +2400,9 @@
     <e n="liveplugin.implementation.PluginToolWindow$createSettingsGroup$1">
       <i c="4" l="1667610946777" />
     </e>
+    <e n="liveplugin.implementation.actions.AddExamplePluginAction">
+      <i c="2" l="1669560865082" />
+    </e>
     <e n="liveplugin.implementation.actions.DeletePluginAction">
       <i c="3" l="1667611334903" />
     </e>
@@ -2416,13 +2422,13 @@
       <i c="2" l="1667410708567" />
     </e>
     <e n="liveplugin.implementation.actions.settings.AddLivePluginAndIdeJarsAsDependencies">
-      <i c="1" l="1656428257931" />
+      <i c="2" l="1669560600842" />
     </e>
     <e n="liveplugin.implementation.actions.settings.RunPluginsOnIDEStartAction">
       <i c="1" l="1656513635055" />
     </e>
     <e n="liveplugin.implementation.actions.toolwindow.RenameFileAction">
-      <i c="1" l="1656428081865" />
+      <i c="2" l="1669560841223" />
     </e>
     <e n="liveplugin.pluginrunner.RunPluginAction">
       <i c="1" l="1650645555385" />

@@ -677,7 +677,7 @@ if has("ide")
     nmap <leader>q <Action>(ShowErrorDescription)
 else
 
-    nnoremap <leader>wr :w<CR>:source ~\.ideavimrc<CR>
+    nnoremap <leader>wr :source ~\.ideavimrc<CR>
 
 
 endif
@@ -691,7 +691,7 @@ require "user.plugins"
 require "user.colorscheme"
 require "user.cmp"
 
-vim.cmd "colorscheme darkplus"
+vim.cmd "colorscheme tokyonight"
 
 
 EOF

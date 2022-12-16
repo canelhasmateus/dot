@@ -1,3 +1,4 @@
+
 todo
 
     https://github.com/iamabhas/dotfiles
@@ -21,3 +22,10 @@ lvim
     Use <Leader>Vk to view the keybindings set by Lunarvim.
 
 <https://github.com/gpanders/nvim-moonwalk>
+<https://github.com/michaelb/sniprun>
+<https://github.com/nvim-orgmode/orgmode>
+<https://github.com/vimwiki/vimwiki>
+<https://github.com/Furkanzmc/zettelkasten.nvim>
+<https://github.com/michal-h21/vim-zettel>
+<https://github.com/renerocksai/telekasten.nvim>
+

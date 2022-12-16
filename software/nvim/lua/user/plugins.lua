@@ -22,7 +22,8 @@ local function packer_setup(plugins)
   augroup packer_user_config
     autocmd!
     autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
+    
+    augroup end
 ]]
 
   -- Use a protected call so we don't error out on first use
@@ -61,9 +62,10 @@ local function plugins()
 
     , "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
     , "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-
+    , "preservim/nerdtree" 
+    
     -- The ones from IJ
-    , "easymotion/vim-easymotion"
+    , "phaazon/hop.nvim"
     , "tpope/vim-surround"
 
     , "dbakker/vim-paragraph-motion"
@@ -86,7 +88,7 @@ local function plugins()
     , "hrsh7th/cmp-path" -- path completions
     , "hrsh7th/cmp-cmdline" -- cmdline completions
     , "saadparwaiz1/cmp_luasnip" -- snippet completions
-    , "hrsh7th/cpm-nvim-lsp" -- cmdline completions
+    , "hrsh7th/cmp-nvim-lsp" -- cmdline completions
     -- snippets
     , "L3MON4D3/LuaSnip" --snippet engine
     , "rafamadriz/friendly-snippets" -- a bunch of snippets to use  -- snippets
@@ -97,3 +99,6 @@ local function plugins()
 end
 
 packer_setup(plugins())
+require'hop'.setup{
+  uppercase_labels = true,
+}

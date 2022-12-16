@@ -593,17 +593,17 @@ if has('ide')
 
     map nd <Action>(GotoDeclaration)
     map nD <Action>(GotoTypeDeclaration)
-        map nt <Action>(GotoTest)
-        map ni <Action>(GotoImplementation)
+    map nt <Action>(GotoTest)
+    map ni <Action>(GotoImplementation)
     map nr <Action>(GotoRelated)
     map nS <Action>(GotoSuperMethod)
 
 
     map nn <Action>(SearchEverywhere)
     map na <Action>(GotoAction)
-        map nf <Action>(GotoFile)
-        map nc <Action>(GotoClass)
-        map ns <Action>(GotoSymbol)
+    map nf <Action>(GotoFile)
+    map nc <Action>(GotoClass)
+    map ns <Action>(GotoSymbol)
     map nl <Action>(GotoLine)
     map nb <Action>(ShowNavBar)
 
@@ -613,10 +613,6 @@ endif
 """ ________________________________ [M] prefix controls [M]ove aheads
 
 " All - next quote
-function! moveQuote()
-    normal! /"
-    normal! vi"
-endfunction
 
 nnoremap mq /"<CR>vi"
 nnoremap mQ ?"<CR>nvi"
@@ -642,11 +638,6 @@ vnoremap mF <Esc>?)<CR>vi(o
 
 
 " ms is being used by something
-function! moveBrace( next)
-    normal! /{
-    normal! zo
-    normal! vi}o
-endfunction
 
 nnoremap ma /{<CR>zovi}o
 vnoremap ma <Esc>/{<CR>zovi}o
@@ -734,14 +725,6 @@ nnoremap daa da>
 nnoremap dia di>
 nnoremap vaa va>
 nnoremap via vi>
-
-function! jsonProperty()
-    normal! /;
-    normal! "ayiw
-    normal! O@JsonProperty("
-    normal! "ap
-    normal! li")
-endfunction
 
 nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
 """vmap <leader>c <Plug>(multicursor-mc0)

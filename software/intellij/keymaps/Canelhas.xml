@@ -671,6 +671,9 @@
   <action id="Graph.ZoomOut" />
   <action id="GuiDesigner.EditComponent" />
   <action id="GuiDesigner.EditGroup" />
+  <action id="Hello World">
+    <keyboard-shortcut first-keystroke="shift alt h" />
+  </action>
   <action id="Hg.Commit.And.Push.Executor" />
   <action id="HideAllWindows">
     <keyboard-shortcut first-keystroke="alt w" second-keystroke="back_space" />
@@ -1020,6 +1023,9 @@
   <action id="ServiceView.GroupByServiceGroups" />
   <action id="ServiceView.ShowServices" />
   <action id="ShelvedChanges.Rename" />
+  <action id="Show Project Path">
+    <keyboard-shortcut first-keystroke="shift ctrl h" />
+  </action>
   <action id="Show Psi Viewer Dialog for Current File">
     <keyboard-shortcut first-keystroke="shift ctrl p" />
   </action>

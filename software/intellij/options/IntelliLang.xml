@@ -332,6 +332,20 @@
       <place><![CDATA[psiParameter().ofMethod(0, psiMethod().withName("query", "prepare", "preparedQuery", "preparedBatch", "rxQuery", "rxPreparedQuery", "rxPreparedBatch").definedInClass("io.vertx.reactivex.sqlclient.Pool"))]]></place>
       <place><![CDATA[psiParameter().ofMethod(0, psiMethod().withName("query", "prepare", "preparedQuery", "preparedBatch", "rxQuery", "rxPreparedQuery", "rxPreparedBatch").definedInClass("io.vertx.reactivex.sqlclient.SqlClient"))]]></place>
     </injection>
+    <injection language="JSON" injector-id="java">
+      <display-name>WireMock (com.github.tomakehurst.wiremock.client)</display-name>
+      <single-file value="false" />
+      <place><![CDATA[psiParameter().ofMethod(0, psiMethod().withName("equalToJson").withParameters("java.lang.String").definedInClass("com.github.tomakehurst.wiremock.client.WireMock"))]]></place>
+      <place><![CDATA[psiParameter().ofMethod(0, psiMethod().withName("jsonResponse").withParameters("java.lang.String", "int").definedInClass("com.github.tomakehurst.wiremock.client.WireMock"))]]></place>
+      <place><![CDATA[psiParameter().ofMethod(0, psiMethod().withName("okJson").withParameters("java.lang.String").definedInClass("com.github.tomakehurst.wiremock.client.WireMock"))]]></place>
+    </injection>
+    <injection language="XML" injector-id="java">
+      <display-name>WireMock (com.github.tomakehurst.wiremock.client)</display-name>
+      <single-file value="false" />
+      <place><![CDATA[psiParameter().ofMethod(0, psiMethod().withName("equalToXml").withParameters("java.lang.String").definedInClass("com.github.tomakehurst.wiremock.client.WireMock"))]]></place>
+      <place><![CDATA[psiParameter().ofMethod(0, psiMethod().withName("okTextXml").withParameters("java.lang.String").definedInClass("com.github.tomakehurst.wiremock.client.WireMock"))]]></place>
+      <place><![CDATA[psiParameter().ofMethod(0, psiMethod().withName("okXml").withParameters("java.lang.String").definedInClass("com.github.tomakehurst.wiremock.client.WireMock"))]]></place>
+    </injection>
     <injection language="JSONPath" injector-id="java">
       <display-name>WriteContext (com.jayway.jsonpath)</display-name>
       <single-file value="true" />

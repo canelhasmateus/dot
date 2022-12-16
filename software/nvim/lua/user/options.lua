@@ -1,3 +1,11 @@
+  vim.cmd [[
+  augroup packer_user_config_3
+    autocmd!
+    autocmd BufWritePost options.lua source <afile> 
+    
+    augroup end
+]]
+
 
 local options = {
 
@@ -17,11 +25,11 @@ local options = {
     
     mouse = "a",                             -- allow the mouse to be used in neovim
     number = true,                           -- set numbered lines
-    relativenumber = false,                  -- set relative numbered lines
+    relativenumber = true,                  -- set relative numbered lines
     
     numberwidth = 4,                         -- set number column width {default 4}
     pumheight = 10,                          -- pop up menu height
-    scrolloff = 8,                           -- is one of my fav
+    scrolloff = 0,                           -- is one of my fav
     shiftwidth = 2,                          -- the number of spaces inserted for each indentation
     showmode = true,                        -- we don't need to see things like -- INSERT -- anymore
     showtabline = 2,                         -- always show tabs
@@ -33,7 +41,7 @@ local options = {
     splitright = true,                       -- force all vertical splits to go to the right of current window
     swapfile = false,                        -- creates a swapfile
     tabstop = 2,                             -- insert 2 spaces for a tab
-    timeoutlen = 1000,                        -- time to wait for a mapped sequence to complete (in milliseconds)
+    timeoutlen = 1000,                       -- time to wait for a mapped sequence to complete (in milliseconds)
     termguicolors = true,                    -- set term gui colors (most terminals support this)
     undofile = true,                         -- enable persistent undo
     updatetime = 300,                        -- faster completion (4000ms default)
