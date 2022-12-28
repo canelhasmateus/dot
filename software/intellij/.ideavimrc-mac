@@ -289,7 +289,8 @@ vnoremap ej <Esc>`<i
 vnoremap el <Esc>`>a
 
 vnoremap eo <Esc>%i
-
+nnoremap eml ]w[b]wa
+nnoremap emj ]w[bi
 
 """ ____________________ [R] prefix controls [R]efactoring
 
@@ -415,6 +416,7 @@ nnoremap d<Space> "adf<Space>
 nnoremap dn :<C-u>call deleteUpTo
 nnoremap dl "adt
 nnoremap dj "adT
+nnoremap dk "adl
 nnoremap d<Home> "ad<Home>
 nnoremap dh "ad<Home>
 nnoremap d<End> "ad<End>
@@ -642,6 +644,9 @@ vnoremap mF o<Esc>?)<CR>vi(
 
 "nnoremap mP ?([^)]<CR>va(o
 "vnoremap mP <Esc>?([^)]<CR>nva(o
+
+nnoremap mz /.class/b-2<CR>viw 
+vnoremap mz <Esc>/.class/b-2<CR>viw
 
 
 " All - next | current curly
