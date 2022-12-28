@@ -706,7 +706,6 @@ vnoremap m<Space> /\s\+<CR>
 
 
 nnoremap m, v/,<CR>
-nnoremap mi /:\t|:\n<Space>{2,}/e<CR>
 
 """"todo: next unmatched
 """ todo: What exactly is a paragraph?
