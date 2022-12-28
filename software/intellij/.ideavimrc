@@ -18,7 +18,7 @@ set smartcase
 
 set scroll=0
 set scrolloff=0
-set scrolljump=5
+set scrolljump=0
 """set startofline
 
 """set keymodel="startsel,stopsel"
@@ -26,45 +26,40 @@ set scrolljump=5
 """set selectmode=""
 
 set clipboard+=unnamed
-
 """set digraph
 """set iskeyword
-let g:argtextobj_pairs="[:],(:),<:>"
-
-
 
 if has('ide')
+    set ideamarks
+    set ideajoin
+    set idearefactormode=select
+    set ideavimsupport=""
 
-set ideamarks
-set ideajoin
-set idearefactormode=select
-set ideavimsupport=""
 
-
-sethandler <ESC> a:ide
-sethandler <C-x> a:ide
-sethandler <A-F> a:ide
-sethandler <A-S> a:ide
-sethandler <A-f> a:ide
-sethandler <C-I> a:ide
-sethandler <C-B> a:ide
-sethandler <C-L> a:ide
-sethandler <A-N> a:ide
-sethandler <C-P> a:ide
-sethandler <C-R> a:ide
-sethandler <C-U> a:ide
-sethandler <A-X> a:ide
-sethandler <C-\> a:ide
-sethandler <M-F> a:ide
-sethandler <M-n> a:ide
-sethandler <C-w> a:ide
-sethandler <C-D> a:ide
-sethandler <C-c> a:ide
-sethandler <C-s> a:ide
-sethandler <C-]> a:ide
-sethandler <C-[> a:ide
-sethandler <C-v> a:ide
-sethandler <C-A> a:ide
+    sethandler <ESC> a:ide
+    sethandler <C-x> a:ide
+    sethandler <A-F> a:ide
+    sethandler <A-S> a:ide
+    sethandler <A-f> a:ide
+    sethandler <C-I> a:ide
+    sethandler <C-B> a:ide
+    sethandler <C-L> a:ide
+    sethandler <A-N> a:ide
+    sethandler <C-P> a:ide
+    sethandler <C-R> a:ide
+    sethandler <C-U> a:ide
+    sethandler <A-X> a:ide
+    sethandler <C-\> a:ide
+    sethandler <M-F> a:ide
+    sethandler <M-n> a:ide
+    sethandler <C-w> a:ide
+    sethandler <C-D> a:ide
+    sethandler <C-c> a:ide
+    sethandler <C-s> a:ide
+    sethandler <C-]> a:ide
+    sethandler <C-[> a:ide
+    sethandler <C-v> a:ide
+    sethandler <C-A> a:ide
 
 
 """Plug 'preservim/nerdtree'
@@ -72,6 +67,8 @@ sethandler <C-A> a:ide
 """Plug 'tpope/vim-commentary'
 """Plug 'vim-scripts/ReplaceWithRegister'
 """Plug 'vim-scripts/argtextobj.vim'
+"""let g:argtextobj_pairs="[:],(:),<:>"
+
 """set sneak
 """quickscope
 
@@ -93,16 +90,32 @@ nnoremap cie ciw
 
 """ Directionals and Extend Layer
 
-nnoremap <Tab> >>gv
-nnoremap <S-Tab> <<gv
+nnoremap <Tab> >>
+nnoremap <S-Tab> <<
 vnoremap <Tab> >>gv
+vnoremap <S-Tab> <<gv
+
 nnoremap <Enter> i<Enter><ESC>
 
-nnoremap i k
-nnoremap k j
+nnoremap i gk
+nnoremap k gj
 nnoremap j h
 nnoremap h g^
 nnoremap ç g$
+
+nnoremap <A-Right> W
+nnoremap <S-A-Right> vW
+nnoremap <S-A-Left> vB
+nnoremap <A-Left> B
+
+vnoremap <A-Right> W
+vnoremap <S-A-Right> W
+vnoremap <A-Left> B
+vnoremap <S-A-Left> B
+
+nnoremap <Up> gk
+nnoremap <Down> gj
+
 
 nnoremap <leader>i i
 nnoremap <leader>a a
@@ -140,6 +153,9 @@ inoremap <S-Right> <Esc>vl
 inoremap <S-Down> <Esc>vj
 inoremap <S-Left> <Esc>vh
 
+nnoremap <A-Right> W
+nnoremap <A-Left> B
+
 
 nnoremap <leader>i i
 nnoremap <leader>a a
@@ -174,15 +190,17 @@ nnoremap q <Nop>
 nnoremap qq <Esc>
 nnoremap qe zz
 
-nnoremap qo %
+nmap qo %
 nnoremap qu {
 nnoremap qp }
 
-nnoremap qi <C-U>
-nnoremap qk <C-D>
+nnoremap qi <C-U>zz
+nnoremap qk <C-D>zz
 
+nnoremap ql <C-I>
+nnoremap qj <C-O>
 
-
+vmap qo %
 vnoremap qu {
 vnoremap qp }
 
@@ -196,9 +214,13 @@ if has('ide')
     map qu <Plug>(ParagraphPrevMotion)
     map qp <Plug>(ParagraphNextMotion)
 
+
+    map qd <Action>(CompareTwoFiles)
     map qw <Action>(ShowErrorDescription)
+
     map qh <Action>(GotoPreviousError)
     map qç <Action>(GotoNextError)
+
     map qj <Action>(Back)
     map ql <Action>(Forward)
     map qJ <Action>(JumpToLastChange)
@@ -206,40 +228,55 @@ if has('ide')
 
     """todo quick evaluate expression map qe <Action>()
 
-else
-
-    nnoremap ql <C-I>
-    nnoremap qj <C-O>
-
 endif
 
 
 """ ____________________ [W] prefix is for [W]ord movement
 
 
+"""nnoremap w <Nop>
+"""nnoremap ww w
+
+"""nnoremap wl w
+"""nnoremap wj b
+"""nnoremap wç W
+"""nnoremap wh B
+
+"""nnoremap wo e
+"""nnoremap wu ge
 
 """ ____________________ [E] prefix controls [E]dit cursor
 
 nnoremap ee e
-nnoremap ea ea
+nnoremap ea a
 
 nnoremap ei O
 nnoremap ek o
 
 nnoremap el ea
 nnoremap ej bi
+
 nnoremap eç A
 nnoremap e<End> A
+
 nnoremap eh I
 nnoremap e<Home> I
 
 nnoremap eu {a
 nnoremap ep }i
 
-vnoremap ee e
-vnoremap ei O
-vnoremap ek o
+nnoremap eo %a
 
+vnoremap ee e
+vnoremap ei <Esc>`<O
+vnoremap ek <Esc>`>o
+
+vnoremap ej <Esc>`<i
+vnoremap el <Esc>`>a
+
+vnoremap eo <Esc>%i
+nnoremap eml ]w[b]wa
+nnoremap emj ]w[bi
 
 """ ____________________ [R] prefix controls [R]efactoring
 
@@ -254,26 +291,25 @@ vnoremap rr gq
 
 if has('ide')
 
-    map rsi <Action>(ChangeSignature)
-    map r<Del> <Action>(SafeDelete)
+        map rsi <Action>(ChangeSignature)
+        map r<Del> <Action>(SafeDelete)
 
-    map ra <Action>(IntroduceField)
-    map rd <Action>(EditorDuplicate)
-    map rf <Action>(ExtractMethod)
-    map ri <Action>(Inline)
-    map rj <Action>(EditorJoinLines)
-    map rk <Action>(IntroduceConstant)
-    map rm <Action>(Move)
-    map rn <Action>(RenameElement)
-    map ro <Action>(OptimizeImports)
-    nmap rr <Action>(ReformatCode)
-    """todo auto-indent instead of reformat
-    vmap rr <Action>(AutoIndentLines)
+        map ra <Action>(IntroduceField)
+        map rd <Action>(EditorDuplicate)
+        map rf <Action>(ExtractMethod)
+        map ri <Action>(Inline)
+        map rj <Action>(EditorJoinLines)
+        map rk <Action>(IntroduceConstant)
+        map rm <Action>(Move)
+        map rn <Action>(RenameElement)
+        map ro <Action>(OptimizeImports)
+        map rr <Action>(ReformatCode)
+    """vmap rr <Action>(AutoIndentLines)
 
-    map rt <Action>(MembersPullUp)
-    map ru <Action>(EditorToggleCase)
-    map rv <Action>(IntroduceVariable)
-    vnoremap rb :s/)\./)\r./g<CR>:action ReformatCode<CR>
+        map rt <Action>(MembersPullUp)
+        map ru <Action>(EditorToggleCase)
+        map rv <Action>(IntroduceVariable)
+        vnoremap rb :s/)\./)\r./g<CR>:action ReformatCode<CR>
 
 endif
 
@@ -283,9 +319,9 @@ endif
 """ ____________________ [Y] prefix is for yanking
 if has('ide')
 
-Plug 'machakann/vim-highlightedyank'
-let g:highlightedyank_highlight_duration = "1000"
-let g:highlightedyank_highlight_color = "rgba(100, 160, 100, 100)"
+    Plug 'machakann/vim-highlightedyank'
+    let g:highlightedyank_highlight_duration = "1000"
+    let g:highlightedyank_highlight_color = "rgba(100, 160, 100, 100)"
 
 endif
 
@@ -297,16 +333,20 @@ endif
 
 nnoremap o <Nop>
 vnoremap o <Nop>
+vnoremap oi o
 
 if has('ide')
 
-    map oe <Action>(RecentChangedFiles)
-    map or <Action>(RecentFiles)
-    map ox <Action>(FileStructurePopup)
-    map ou <Action>(ShowUsages)
+        map oe <Action>(RecentChangedFiles)
+        map or <Action>(RecentFiles)
+        map oR <Action>($LRU)
+        map ox <Action>(FileStructurePopup)
+        map ou <Action>(ShowUsages)
+        map op <Action>(PasteMultiple)
+        map oq <Action>(RecentLocations)
 
-    map op <Action>(PasteMultiple)
-
+    """todo ShowRecentTests
+    """todo RecentChanges
     """todo map oh <Action>(ProductivityGuide)
     """todo map os <Action>(ActivateTerminalToolWindow)
     """todo map ot <Action>(Rest Client)
@@ -315,12 +355,18 @@ if has('ide')
     """todo ViewBreakpoints
     """todo evaluate expression
 
+        map osm <Action>(RunMenu)
+        map osx <Action>(ChooseRunConfiguration)
+        map ovo <Action>(ImportTests)
+        map ovv <Action>(ShowRecentTests)
+
 endif
 
 
 
 """ ____________________ [P] prefix controls [P]asting
 vnoremap p "ad<Esc>p
+vnoremap P "ad<Esc>P
 
 """___________________________________________________________________________________________________________________________________________________
 
@@ -333,23 +379,18 @@ nnoremap ai a
 
 nnoremap s <Nop>
 if has('ide')
-
-    map st <Action>(InsertLiveTemplate)
-    map ss <Action>(SurroundWith)
-    map su <Action>(Unwrap)
-    map si <Action>(EditorSelectWord)
-    map sk <Action>(EditorUnSelectWord)
-
+        map ss <Action>(SurroundWith)
+        map su <Action>(Unwrap)
+        map si <Action>(EditorSelectWord)
+        map sk <Action>(EditorUnSelectWord)
 endif
 
 " Java - Remove generic
 nnoremap so vi<"ay/><CR>v?\<<CR>B"ap
+    " Java - surround with generic typings
 
-" Java - surround with generic typings
-nmap sqo viwS><leader>iOptional
-vmap sqo S><leader>iOptional
-nmap sql viwS><leader>iList
-vmap sql wS><leader>iList
+nnoremap sqo ea><Esc>biOptional<
+nnoremap sql viw<Esc>a><Esc>biList<
 
 " Java - surround with generic functions
 nmap sfl viwS)<leader>iCollections.singletonList
@@ -361,6 +402,7 @@ nnoremap d<Space> "adf<Space>
 nnoremap dn :<C-u>call deleteUpTo
 nnoremap dl "adt
 nnoremap dj "adT
+nnoremap dk "adl
 nnoremap d<Home> "ad<Home>
 nnoremap dh "ad<Home>
 nnoremap d<End> "ad<End>
@@ -393,7 +435,13 @@ nnoremap fi #
 nnoremap fn n
 nnoremap fe t
 
+""" todo: search for currently selected text vnoremap fk "ay/\V<C-R>=escape(@",'/\')<CR><CR>
+
+"""todo yank to search register
+nnoremap fy viw"/y
+vnoremap fy "/y
 nnoremap <A-f>f /
+
 nnoremap fr :s/
 nnoremap <leader>fr &
 vnoremap fr :s/
@@ -404,7 +452,11 @@ if has('ide')
 
     Plug 'easymotion/vim-easymotion'
     let g:EasyMotion_do_mapping = 0
-    
+    map <A-f><A-f> <Action>(Find)
+    map fK <Action>(SelectNextOccurrence)
+    map fI <Action>(UnselectPreviousOccurrence)
+    map f<C-I> <Action>(SelectAllOccurrences)
+
     map fl <Plug>(easymotion-w)
     map fj <Plug>(easymotion-b)
     map fç <Plug>(easymotion-eol-j)
@@ -415,11 +467,11 @@ if has('ide')
     map fÇ <Plug>(easymotion-sol-j)
     map fH <Plug>(easymotion-eol-k)
 
+    """map f. <Plug>(easymotion-bd-n)
 
-    map f. <Plug>(easymotion-bd-n)
     nmap fp <Plug>(easymotion-jumptoanywhere)
 
-    """todo map off <Action>(StructuralSearchPlugin.StructuralSearchAction)
+    map of <Action>(StructuralSearchPlugin.StructuralSearchAction)
     """todo map ofr <Action>(StructuralSearchPlugin.StructuralReplaceAction)
     """todo map ofp <Action>(FindInPath)
 
@@ -471,7 +523,6 @@ if has('ide')
     map xro <Action>(OverrideMethods)
     map xrd <Action>(DelegateMethods)
 
-
     map xi <Action>(MethodUp)
     map xk <Action>(MethodDown)
     map xl <Action>(SliceForward)
@@ -488,6 +539,9 @@ if has('ide')
     """todo better templates
     """todo better postfixes
     """todo create emmet engine for other languages
+    map xns <Action>(InsertLiveTemplate)
+    map xnv <Action>(GenerateTestMethod)
+
 endif
 
 
@@ -498,6 +552,8 @@ nnoremap cl "act
 nnoremap cj "acT
 nnoremap c<Home> "ac<Home>
 nnoremap c<End> "ac<End>
+nnoremap cç c<Home>
+nnoremap ch c0
 
 nnoremap C "act
 
@@ -512,12 +568,9 @@ nnoremap vk v
 " All - this paren
 nnoremap vp vi)
 nnoremap vd vi}
-"vnoremap mp <Esc>/\v(\()!@)<CR>nva(o
-
 " Java - select all scope
-nnoremap vsa va}
+nnoremap vss va}V
 nnoremap vsi vi}
-nnoremap vss Va}g$og^
 
 
 """ ________________________________ [B] prefix is unmodified
@@ -566,39 +619,38 @@ vnoremap mq /"<CR><Esc>/"<CR>vi"
 vnoremap mQ ?"<CR><Esc>?"<CR>nvi"
 
 " All - next fun
-nnoremap mf /(<CR>vi)o
-nnoremap mF ?)<CR>vi)o
-vnoremap mf <Esc>/(<CR>vi)o
-vnoremap mF <Esc>?)<CR>vi)o
+nnoremap mf /(<CR>vi)
+nnoremap mF ?)<CR>vi)
+vnoremap mf o<Esc>/(<CR>vi(
+vnoremap mF o<Esc>?)<CR>vi(
 
 
-nnoremap mp vi)o
-vnoremap mp <Esc>/(<CR>vi)o
 
-"vnoremap mP <Esc>?([^)]<CR>nva(o
+
+nnoremap mz /.class/b-2<CR>viw
+vnoremap mz <Esc>/.class/b-2<CR>viw
 
 
 " All - next | current curly
 
 " ms is being used by something
 
-nnoremap ma :call moveBrace()<CR>
-vnoremap ma <Esc>:call moveBrace()<CR>
+nnoremap ma /{<CR>zovi}
+vnoremap ma o<Esc>/{<CR>zovi}
 
 nnoremap mA ?{<CR>vi}
 vnoremap mA <Esc>?{<CR>nvi}
 
 " All - next angle
-
-
-nnoremap m> :call moveAngle()<CR>
-vnoremap m> <Esc>:call moveAngle()<CR>
-
-nnoremap m< ?<<CR>vi>
-vnoremap m< <Esc>?<<CR>vi>
+nnoremap m> /><CR>vi>
+vnoremap m> <Esc>/><CR>nvi>
+nnoremap m< ?><CR>vi>
+vnoremap m< <Esc>?><CR>vi>
 
 " All - seek ahead camel case
-nnoremap me [w
+nnoremap me ]w[bv]w
+vnoremap me <Esc>]w[bv]w
+
 nnoremap mE [b
 nnoremap vie ]wv[b
 
@@ -609,90 +661,97 @@ vnoremap mç /;<CR>
 vnoremap mÇ ?;<CR>
 
 " All - next [list]
-
-
-nnoremap ml :call moveList(1)<CR>
-vnoremap ml <Esc>:call moveList(1)<CR>
-
+nnoremap ml /]<CR>vi[
 nnoremap mL ?]<CR>vi[
+vnoremap ml /]<CR><Esc>nvi[
 vnoremap mL /[<CR><Esc>nvi[
 
-
 """ Java next var
-
 nnoremap mv /=/e-1<CR>v^
-vnoremap mv <Esc>/=/e-1<CR>nv^
-
 nnoremap mV ?=?e-1<CR>v^
+vnoremap mv <Esc>/=/e-1<CR>nv^
 vnoremap mV <Esc>?=?e-1<CR>v^
 
 """ Java next definition
-
-nnoremap md /= \+/e1<CR>v/;/e-1<CR>
-vnoremap md <Esc>/= \+/e1<CR>v/;/e-1<CR>
-nnoremap mD ?= \+?e1<CR>v/;/v-1<CR>o
-vnoremap mD <Esc>?= \+?e1<CR>v/;/v-1<CR>o
+nnoremap md /= \+/e1<CR>v/;/b-1<CR>
+nnoremap mD ?= \+?e1<CR>v/;/v-1<CR>
+vnoremap md o<Esc>/= \+/e1<CR>v/;/b-1<CR>
+vnoremap mD o<Esc>?= \+?e1<CR>v/;/v-1<CR>
 
 """ Java next call - cant use mc because of multicursor remaps.
-
 nnoremap mm /\S(/e-1<CR>v?\v[ ()=.]?e+1<CR>o
-vnoremap mm <Esc>/\S(/e-1<CR>v?\v[ ()=.]?e+1<CR>o
-
 nnoremap mM ?(?e-1<CR>vBo
+vnoremap mm <Esc>/\S(/e-1<CR>v?\v[ ()=.]?e+1<CR>o
 vnoremap mM <Esc>?(?e-1<CR>vBo
 
-""" ________________________________
+""" Move next literal number
+nnoremap mn /[0-9]\+/<CR>viw
+vnoremap mn <Esc>/[0-9]\+/<CR>viw
+nnoremap mN ?[0-9]\+?<CR>viw
+nnoremap mN <Esc>?[0-9]\+?<CR>viw
+
 
 """ ________________________________
 
 """ Experimental -----------------------------------------
+
+"""next whitespace
+nnoremap m<Space> v/\s<CR>
+vnoremap m<Space> /\s\+<CR>
+
+
+nnoremap m, v/,<CR>
+nnoremap mi /:\t|:\n<Space>{2,}/e<CR>
+
+""""todo: next unmatched
+""" todo: What exactly is a paragraph?
+""" todo: What exactly is a sentence
+""" todo: What exactly is a section
+""" todo visual P swap
+
+""" bring back
+"""vnoremap <Leader>qj "ad``"aP
+"""nnoremap <Leader>qj V"ad``"aP
+"""nnoremap <Leader>ql magv"ad`a"aP
+
+
+
 
 nnoremap daa da>
 nnoremap dia di>
 nnoremap vaa va>
 nnoremap via vi>
 
+nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
+"""vmap <leader>c <Plug>(multicursor-mc0)
+
 if has("ide")
+    set multicursor
 
-set multicursor
-
-vmap <leader>l <Plug>(multicursor-ms0)
-nmap <leader>c <Plug>(multicursor-mc/)
-vmap <leader>c <Plug>(multicursor-mc/)
-
+    vmap <leader>l <Plug>(multicursor-ms0)
+    nmap <leader>c <Plug>(multicursor-mc/)
 endif
 
+"""map <leader>sl viW<Plug>(VSurround)<Esc>
 
-""" mark
-nnoremap <leader>ma m
 nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
+nnoremap <leader>vim :e ~/.ideavimrc<CR>
 
-nnoremap <leader>vim :e ~\.ideavimrc<CR>
+
+" visual the rest of the screen / the next half / the next quarter the next scope / paren / etc
 if has("ide")
 
     map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
-    map <leader>w<A-p> <Action>(SelectInProjectView)
-    map <leader>wp <Action>(ActivateProjectToolWindow)
-
-    nmap <leader>q <Action>(ShowErrorDescription)
-else
-
-    nnoremap <leader>wr :source ~\.ideavimrc<CR>
-
-
+    noremap xM q
+    noremap xm @
+    else
+    nnoremap <leader>wr :w<CR>:source ~\.ideavimrc<CR>
 endif
 
 
 lua << EOF
 
-require "user.options"
-require "user.keymaps"
-require "user.plugins"
-require "user.colorscheme"
-require "user.cmp"
-
-vim.cmd "colorscheme tokyonight"
-
+require "init.mac"
 
 EOF
 

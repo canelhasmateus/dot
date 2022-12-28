@@ -8,7 +8,7 @@ set ruler
 
 
 set wrapscan
-"""set incsearch
+set incsearch
 set smartcase
 
 """set hlsearch
@@ -67,10 +67,6 @@ if has('ide')
     sethandler <A-Left> a:vim
     sethandler <S-A-Left> a:vim
 
-endif
-
-if has('ide')
-
 """Plug 'preservim/nerdtree'
 """Plug 'terryma/vim-multiple-cursor'
 """Plug 'tpope/vim-commentary'
@@ -82,21 +78,17 @@ if has('ide')
 """quickscope
 
 
+"""let g:match_words = '<:>,<tag>:</tag>'
+
+Plug 'michaeljsmith/vim-ident-object' """Additional text objects: ai, ii, aI
+
+Plug 'tommcdo/vim-exchange' """Commands: cx, cxx, X, cxc
+
+Plug 'tpope/vim-surround' """Commands: ys, cs, ds, S
 
 endif
-"""Additional text objects: ai, ii, aI
-Plug 'michaeljsmith/vim-ident-object'
 
-"""Commands: cx, cxx, X, cxc
-Plug 'tommcdo/vim-exchange'
-
-"""Commands: ys, cs, ds, S
-Plug 'tpope/vim-surround'
-
-
-
-
-""" Overrides ------------------------------------------------ 
+""" Overrides ------------------------------------------------
 
 """ typos
 nnoremap cie ciw
@@ -207,13 +199,13 @@ nmap qo %
 nnoremap qu {
 nnoremap qp }
 
-nnoremap qi <C-U>
-nnoremap qk <C-D>
+nnoremap qi <C-U>zz
+nnoremap qk <C-D>zz
 
 nnoremap ql <C-I>
 nnoremap qj <C-O>
 
-vnoremap qo %
+vmap qo %
 vnoremap qu {
 vnoremap qp }
 
@@ -259,7 +251,6 @@ endif
 """nnoremap wu ge
 
 """ ____________________ [E] prefix controls [E]dit cursor
-
 
 nnoremap ee e
 nnoremap ea a
@@ -399,14 +390,14 @@ if has('ide')
         map sk <Action>(EditorUnSelectWord)
 endif
 
-    " Java - Remove generic
+" Java - Remove generic
 nnoremap so vi<"ay/><CR>v?\<<CR>B"ap
     " Java - surround with generic typings
 
 nnoremap sqo ea><Esc>biOptional<
 nnoremap sql viw<Esc>a><Esc>biList<
 
-    " Java - surround with generic functions
+" Java - surround with generic functions
 nmap sfl viwS)<leader>iCollections.singletonList
 vmap sfl S)<leader>iCollections.singletonList
 
@@ -421,7 +412,6 @@ nnoremap d<Home> "ad<Home>
 nnoremap dh "ad<Home>
 nnoremap d<End> "ad<End>
 nnoremap dç "ad<End>
-
 
 nnoremap D "adt
 nnoremap DD "aD
@@ -470,7 +460,7 @@ if has('ide')
     map <A-f><A-f> <Action>(Find)
     map fK <Action>(SelectNextOccurrence)
     map fI <Action>(UnselectPreviousOccurrence)
-    map fI <Action>(SelectAllOccurrences)
+    map f<C-I> <Action>(SelectAllOccurrences)
 
     map fl <Plug>(easymotion-w)
     map fj <Plug>(easymotion-b)
@@ -558,7 +548,7 @@ if has('ide')
     map xnv <Action>(GenerateTestMethod)
 
 endif
- 
+
 
 """ ________________________________ [C] prefix controls [C]hanging
 
@@ -592,7 +582,7 @@ nnoremap vsi vi}
 
 """nnoremap bb b
 
-   
+
 """ ________________________________ [N] prefix controls [N]avigation
 
 nnoremap n <Nop>
@@ -612,7 +602,9 @@ if has('ide')
     map nr <Action>(GotoRelated)
     map nS <Action>(GotoSuperMethod)
 
+    map np <Action>(ShowNavBar)
 
+    map nn <Action>(SearchEverywhere)
     map na <Action>(GotoAction)
     map nf <Action>(GotoFile)
     map nc <Action>(GotoClass)
@@ -626,32 +618,25 @@ endif
 """ ________________________________ [M] prefix controls [M]ove aheads
 
 " All - next quote
-
 nnoremap mq /"<CR>vi"
 nnoremap mQ ?"<CR>nvi"
 vnoremap mq /"<CR><Esc>/"<CR>vi"
 vnoremap mQ ?"<CR><Esc>?"<CR>nvi"
-    
+
 " All - next fun
 nnoremap mf /(<CR>vi)
 nnoremap mF ?)<CR>vi)
 vnoremap mf o<Esc>/(<CR>vi(
 vnoremap mF o<Esc>?)<CR>vi(
 
-" All - next non-empty
-"nnoremap mp /\v(!@)<CR>va(o
-"vnoremap mp <Esc>/\v(\()!@)<CR>nva(o
 
-"nnoremap mP ?([^)]<CR>va(o
-"vnoremap mP <Esc>?([^)]<CR>nva(o
+
 
 nnoremap mz /.class/b-2<CR>viw 
 vnoremap mz <Esc>/.class/b-2<CR>viw
 
 
 " All - next | current curly
-
-
 
 " ms is being used by something
 
@@ -746,10 +731,10 @@ nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
 """vmap <leader>c <Plug>(multicursor-mc0)
 
 if has("ide")
-set multicursor
+    set multicursor
 
-map <leader>c <Plug>(multicursor-mc/)
-vmap <leader>l <Plug>(multicursor-ms0)
+    vmap <leader>l <Plug>(multicursor-ms0)
+    nmap <leader>c <Plug>(multicursor-mc/)
 endif
 
 """map <leader>sl viW<Plug>(VSurround)<Esc>
@@ -760,9 +745,19 @@ nnoremap <leader>vim :e ~/.ideavimrc<CR>
 
 " visual the rest of the screen / the next half / the next quarter the next scope / paren / etc
 if has("ide")
+
     map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
     noremap xM q
     noremap xm @
     else
     nnoremap <leader>wr :w<CR>:source ~\.ideavimrc<CR>
 endif
+
+
+lua << EOF
+
+require "init.mac"
+
+EOF
+
+

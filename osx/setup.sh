@@ -55,7 +55,8 @@ createSymLink "./software/intellij/quicklists" "$HOME/Library/Application Suppor
 createSymLink "./software/intellij/plugins/postfix" "$HOME/Library/Application Support/JetBrains/IntelliJIdea2022.2/intellij-postfix-templates_templates"
 createSymLink "./software/intellij/.ideavimrc-mac" "$HOME/.ideavimrc"
 createSymLink "./software/intellij/.ideavimrc-mac" "$HOME/.vimrc"
-createSymLink "./software/intellij/.ideavimrc-mac" "$HOME/.config/nvim/.vimrc"
+createSymLink "./software/intellij/.ideavimrc-mac" "$HOME/.config/nvim/init.vim"
+createSymLink "./software/nvim/lua" "$HOME/.config/nvim/lua"
 
 installFonts() {
     curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip -o ./mono.zip
