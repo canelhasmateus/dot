@@ -5636,11 +5636,11 @@
         "command": "-foam-vscode.open-daily-note"
     },
     {
-        "key": "alt+d n",
+        "key": "alt+a n",
         "command": "foam-vscode.create-note-from-default-template"
     },
     {
-        "key": "alt+a t",
+        "key": "alt+a cmd+n",
         "command": "foam-vscode.create-note-from-template"
     },
     {
@@ -6297,5 +6297,28 @@
         "command": "-cursorEndSelect",
         "when": "textInputFocus"
     },
-    
+    {
+        "key": "alt+a t",
+        "command": "foam-vscode.create-new-template"
+    },
+    {
+        "key": "alt+a cmd+d",
+        "command": "foam-vscode.open-daily-note-for-date"
+    },
+    {
+        "key": "alt+h",
+        "command": "-foam-vscode.open-daily-note-for-date"
+    },
+    {
+        "key": "alt+a r",
+        "command": "foam-vscode.open-random-note"
+    },
+    {
+        "key": "alt+a w",
+        "command": "note-macros.Weekly"
+    },
+    {
+        "key": "alt+a x",
+        "command": "markdown-link-expander.expand"
+    }
 ]

@@ -29,3 +29,11 @@ lvim
 <https://github.com/michal-h21/vim-zettel>
 <https://github.com/renerocksai/telekasten.nvim>
 
+
+autocmd 
+vim.cmd [[
+  augroup packer_user_config_2
+    autocmd!
+    autocmd BufWritePost keymaps.lua source <afile> 
+    augroup end
+]]

@@ -260,7 +260,6 @@
         "git-commit": true
     },
     "[python]": {
-        "editor.formatOnType": true
     },
     "markdown.extension.list.indentationSize": "inherit"
 }

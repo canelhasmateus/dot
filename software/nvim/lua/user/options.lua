@@ -1,12 +1,3 @@
-  vim.cmd [[
-  augroup packer_user_config_3
-    autocmd!
-    autocmd BufWritePost options.lua source <afile> 
-    
-    augroup end
-]]
-
-
 local options = {
 
     fileencoding = "utf-8",                  -- the encoding written to a file

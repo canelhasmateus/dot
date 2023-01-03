@@ -57,6 +57,7 @@ createSymLink "./software/intellij/.ideavimrc-mac" "$HOME/.ideavimrc"
 createSymLink "./software/intellij/.ideavimrc-mac" "$HOME/.vimrc"
 createSymLink "./software/intellij/.ideavimrc-mac" "$HOME/.config/nvim/init.vim"
 createSymLink "./software/nvim/lua" "$HOME/.config/nvim/lua"
+createSymLink "./software/alacritty/mac.yml" "$HOME/.config/alacritty/alacritty.yml"
 
 installFonts() {
     curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip -o ./mono.zip

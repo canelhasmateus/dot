@@ -199,8 +199,8 @@ nmap qo %
 nnoremap qu {
 nnoremap qp }
 
-nnoremap qi <C-U>zz
-nnoremap qk <C-D>zz
+nnoremap qi <C-U>
+nnoremap qk <C-D>
 
 nnoremap ql <C-I>
 nnoremap qj <C-O>
@@ -758,5 +758,3 @@ lua << EOF
 require "init.mac"
 
 EOF
-
-

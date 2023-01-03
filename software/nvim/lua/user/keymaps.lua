@@ -1,12 +1,4 @@
-vim.cmd [[
-  augroup packer_user_config_2
-    autocmd!
-    autocmd BufWritePost keymaps.lua source <afile> 
-    augroup end
-]]
-
 local function snoremap(mode, press, action)
-
   vim.keymap.set(mode, press, action)
   --vim.api.nvim_set_keymap(mode, press, action, { noremap = true, silent = false })
 end
