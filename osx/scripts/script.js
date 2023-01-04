@@ -60,7 +60,7 @@ function run() {
     utils = Utilities(app)
 
     function persist(transition) {
-        const content = `\n${transition.time}\t${transition.status}\t${transition.resource}`
+        const content = `\n${transition.date}\t${transition.status}\t${transition.resource}`
         utils.withFile(APPEND_FILE, file => utils.appendFile(file, content))
         utils.persistTransition(transition)
     }
@@ -69,7 +69,7 @@ function run() {
         previousTransitions = utils.findTransitions(currentUrl)
 
         list = previousTransitions.map(t => `${t.date}\t${t.status}`).join("\n")
-        const choices = ["Queue", "History", "Good", "Premium", "Bad", "Explore"]
+        const choices = ["Queue", "History", "Wrote", "Good", "Premium", "Bad", "Explore", "Skip","Tool"]
         const classification = app.chooseFromList(choices, {
             withPrompt: `About ${currentUrl}\n\n${list}`,
             defaultItems: [choices[0]]
