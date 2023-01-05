@@ -8,7 +8,7 @@ set ruler
 
 
 set wrapscan
-set incsearch
+"""set incsearch
 set smartcase
 
 """set hlsearch

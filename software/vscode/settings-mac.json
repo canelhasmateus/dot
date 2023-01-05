@@ -29,7 +29,8 @@
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "files.associations": {
-        "*.kws": "xml"
+        "*.kws": "xml",
+        "*.ts": "typescript"
     },
     "files.autoSave": "afterDelay",
     "files.eol": "\n",
@@ -56,20 +57,7 @@
     },
     "gitlens.keymap": "none",
     "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-    "julia.additionalArgs": [],
-    "julia.cellDelimiters": [
-        "^##(?!#)",
-        "^#(\\s?)%%",
-        "^#-"
-    ],
-    "julia.enableTelemetry": false,
-    "julia.environmentPath": "",
-    "julia.execution.inlineResults.colors": {},
-    "julia.runtimeCompletions": true,
-    "julia.symbolCacheDownload": true,
-    "redhat.telemetry.enabled": true,
     "settingsSync.keybindingsPerPlatform": false,
-    "svelte.enable-ts-plugin": true,
     "terminal.external.windowsExec": "C:\\Program Files\\Alacritty\\alacritty.exe",
     "terminal.integrated.commandsToSkipShell": [
         "language-julia.interrupt"
@@ -148,11 +136,7 @@
     "window.title": "${rootName}",
     "workbench.activityBar.iconClickBehavior": "focus",
     "zenMode.hideActivityBar": false,
-    "vim.handleKeys": {
-        "<C-p>": false,
-        "<C-c>": false,
-        "<Esc>": false
-    },
+    "vim.handleKeys": {},
     "vim.camelCaseMotion.enable": true,
     "vim.cursorStylePerMode.insert": "line",
     "vim.cursorStylePerMode.normal": "block",
@@ -231,7 +215,33 @@
                     "command": "editor.action.marker.prev"
                 }
             ]
-        }
+        },
+        {
+            "before": [
+                "n",
+                "f"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.quickOpen"
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "v",
+                "i",
+                "m",
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.openSettingsJson"
+                }
+            ]
+        },
     ],
     "vim.normalModeKeyBindingsNonRecursive": [],
     "vim.operatorPendingModeKeyBindings": [],
@@ -259,7 +269,16 @@
         "scminput": true,
         "git-commit": true
     },
-    "[python]": {
-    },
-    "markdown.extension.list.indentationSize": "inherit"
+    "[python]": {},
+    "markdown.extension.list.indentationSize": "inherit",
+    "errorLens.enabledDiagnosticLevels": [
+        "warning",
+        "info",
+        "error"
+    ],
+    "svelte.enable-ts-plugin": true,
+    "svelte.plugin.svelte.note-new-transformation": false,
+    "foam.files.attachmentExtensions": "pdf mp3 webm wav m4a mp4 avi mov rtf txt doc docx pages xls xlsx numbers ppt pptm pptx sh py js sql java kt",
+    "markdown-preview-enhanced.mermaidTheme": "dark",
+    "markdown-preview-enhanced.previewTheme": "monokai.css",
 }

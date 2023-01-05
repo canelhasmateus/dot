@@ -28,7 +28,7 @@ plugins=(
         ) 
     
     for plugin in $plugins; 
-    do code --install-extension $plugin
+    do code --install-extension "$plugin"
     done
 }
 
@@ -38,9 +38,10 @@ installCask() {
 createSymLink() {
 from=$(readlink -f "$1")
 dest="$2"
-mkdir -p $(dirname "$dest")
-echo $from 
-echo $dest
+mkdir -p "$(dirname "$dest")"
+echo "$dest"
+echo "    -> ${from}"
+echo "    == ${1}"
 rm -f "$dest" && ln -s "$from" "$dest"
 }
 
@@ -66,3 +67,5 @@ installFonts() {
     rm -rf ./mono
     rm ./mono.zip
     }
+
+# todo add pwd to git root dir

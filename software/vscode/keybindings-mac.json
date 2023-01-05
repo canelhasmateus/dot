@@ -591,91 +591,6 @@
         "when": "editorFocus"
     },
     {
-        "key": "alt+j alt+e",
-        "command": "-language-julia.changeCurrentEnvironment",
-        "when": "editorTextFocus && editorLangId == 'julia'"
-    },
-    {
-        "key": "meta+i meta+d",
-        "command": "-language-julia.clearCurrentInlineResult",
-        "when": "editorTextFocus && juliaHasInlineResult && !editorHasSelection && !findWidgetVisible && !inSnippetMode && !isInEmbeddedEditor && !markerNavigationVisible && !onTypeRenameInputVisible && !parameterHintsVisible && !renameInputVisible && !suggestWidgetVisible && editorLangId == 'julia'"
-    },
-    {
-        "key": "meta+i meta+c",
-        "command": "-language-julia.clearAllInlineResultsInEditor",
-        "when": "editorTextFocus && editorLangId == 'julia'"
-    },
-    {
-        "key": "shift+delete",
-        "command": "-language-julia.plotpane-delete-all",
-        "when": "jlplotpaneFocus"
-    },
-    {
-        "key": "delete",
-        "command": "-language-julia.plotpane-delete",
-        "when": "jlplotpaneFocus"
-    },
-    {
-        "key": "alt+enter",
-        "command": "-language-julia.executeCodeBlockOrSelectionAndMove",
-        "when": "editorTextFocus && editorLangId == 'julia'"
-    },
-    {
-        "key": "shift+enter",
-        "command": "-language-julia.executeCellAndMove",
-        "when": "editorTextFocus && editorLangId == 'julia'"
-    },
-    {
-        "key": "alt+j alt+m",
-        "command": "-language-julia.chooseModule",
-        "when": "editorTextFocus && editorLangId == 'julia'"
-    },
-    {
-        "key": "meta+enter",
-        "command": "-language-julia.executeJuliaCodeInREPL",
-        "when": "editorTextFocus && editorLangId == 'julia'"
-    },
-    {
-        "key": "meta+enter",
-        "command": "-language-julia.executeJuliaCodeInREPL",
-        "when": "editorTextFocus && editorLangId == 'juliamarkdown'"
-    },
-    {
-        "key": "home",
-        "command": "-language-julia.plotpane-first",
-        "when": "jlplotpaneFocus"
-    },
-    {
-        "key": "end",
-        "command": "-language-julia.plotpane-last",
-        "when": "jlplotpaneFocus"
-    },
-    {
-        "key": "right",
-        "command": "-language-julia.plotpane-next",
-        "when": "jlplotpaneFocus"
-    },
-    {
-        "key": "pagedown",
-        "command": "-language-julia.plotpane-next",
-        "when": "jlplotpaneFocus"
-    },
-    {
-        "key": "left",
-        "command": "-language-julia.plotpane-previous",
-        "when": "jlplotpaneFocus"
-    },
-    {
-        "key": "up",
-        "command": "-language-julia.plotpane-previous",
-        "when": "jlplotpaneFocus"
-    },
-    {
-        "key": "pageup",
-        "command": "-language-julia.plotpane-previous",
-        "when": "jlplotpaneFocus"
-    },
-    {
         "key": "meta+l alt+b",
         "command": "-latex-workshop.build",
         "when": "config.latex-workshop.bind.altKeymap.enabled && editorLangId =~ /latex|rsweave|jlweave/"
@@ -1745,10 +1660,6 @@
         "command": "-workbench.action.togglePanel"
     },
     {
-        "key": "alt+w e",
-        "command": "workbench.actions.view.problems"
-    },
-    {
         "key": "meta+shift+m",
         "command": "-workbench.actions.view.problems"
     },
@@ -2099,10 +2010,6 @@
     {
         "key": "alt+m alt+i",
         "command": "atlascode.views.jira.customJql.focus"
-    },
-    {
-        "key": "alt+w e",
-        "command": "workbench.panel.markers.view.focus"
     },
     {
         "key": "alt+w alt+t",
@@ -3024,24 +2931,6 @@
     {
         "key": "alt+s enter",
         "command": "code-runner.run"
-    },
-    {
-        "key": "alt+j alt+d",
-        "command": "-language-julia.show-documentation",
-        "when": "editorTextFocus && editorLangId == 'julia'"
-    },
-    {
-        "key": "alt+j alt+o",
-        "command": "-language-julia.startREPL"
-    },
-    {
-        "key": "alt+j alt+k",
-        "command": "-language-julia.stopREPL"
-    },
-    {
-        "key": "meta+enter",
-        "command": "language-julia.executeCell",
-        "when": "editorLangId == 'julia'"
     },
     {
         "key": "meta+alt+h",
@@ -4929,11 +4818,6 @@
         "when": "editorTextFocus && isWorkspaceTrusted && jupyter.ownsSelection && !findInputFocussed && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
     },
     {
-        "key": "meta+enter",
-        "command": "-language-julia.executeJuliaCodeInREPL",
-        "when": "editorTextFocus && editorLangId == 'julia' && activeEditor != 'workbench.editor.notebook'"
-    },
-    {
         "key": "meta+l alt+m",
         "command": "-latex-workshop.toggleMathPreviewPanel",
         "when": "config.latex-workshop.bind.altKeymap.enabled && editorLangId =~ /latex|rsweave|jlweave/"
@@ -4982,11 +4866,6 @@
         "when": "editorTextFocus && isWorkspaceTrusted && jupyter.hascodecells && !editorHasSelection && !jupyter.havenativecells && !notebookEditorFocused"
     },
     {
-        "key": "meta+c",
-        "command": "-language-julia.interrupt",
-        "when": "isJuliaEvaluating && isJuliaREPL && terminalFocus"
-    },
-    {
         "key": "meta+alt+o",
         "command": "-terminal.open"
     },
@@ -5004,11 +4883,6 @@
         "key": "alt+k",
         "command": "list.focusDown",
         "when": "listFocus && !inputFocus"
-    },
-    {
-        "key": "down",
-        "command": "-language-julia.plotpane-next",
-        "when": "jlplotpaneFocus"
     },
     {
         "key": "alt+k",
@@ -5637,7 +5511,7 @@
     },
     {
         "key": "alt+a n",
-        "command": "foam-vscode.create-note-from-default-template"
+        "command": "foam-vscode.create-note"
     },
     {
         "key": "alt+a cmd+n",
@@ -5890,42 +5764,6 @@
         "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
     },
     {
-        "key": "alt+x c",
-        "command": "toggleFindCaseSensitive",
-        "when": "editorFocus"
-    },
-    {
-        "key": "alt+x r",
-        "command": "toggleFindRegex",
-        "when": "editorFocus"
-    },
-    {
-        "key": "alt+x s",
-        "command": "actions.findWithSelection"
-    },
-    {
-        "key": "alt+o f",
-        "command": "workbench.action.files.openFolderViaWorkspace"
-    },
-    {
-        "key": "alt+x e",
-        "command": "extension.multiCommand.execute",
-        "args": {
-            "interval": 4000,
-            "sequence": [
-                {
-                    "command": "workbench.action.terminal.sendSequence",
-                    "args": {
-                        "text": "cd C:/Users/Mateus/Desktop/workspace/canalhaclub/jewel ; npm install ; vsce package ; code --install-extension ./jewel-0.0.4.vsix --force\n"
-                    }
-                },
-                {
-                    "command": "workbench.action.reloadWindow",
-                },
-            ]
-        }
-    },
-    {
         "key": "alt+w x",
         "command": "workbench.view.extensions"
     },
@@ -5937,10 +5775,6 @@
         "key": "meta+oem_1 meta+o",
         "command": "-testing.showMostRecentOutput",
         "when": "testing.hasAnyResults"
-    },
-    {
-        "key": "alt+w o",
-        "command": "workbench.panel.output.focus"
     },
     {
         "key": "alt+w meta+c",
@@ -6159,24 +5993,6 @@
         "when": "terminalFocus"
     },
     {
-        "key": "alt+j alt+r",
-        "command": "-language-julia.restartREPL"
-    },
-    {
-        "key": "alt+j alt+m",
-        "command": "-language-julia.chooseModule",
-        "when": "editorLangId == 'juliamarkdown' || editorTextFocus && editorLangId == 'julia' && activeEditor != 'workbench.editor.notebook'"
-    },
-    {
-        "key": "alt+j alt+d",
-        "command": "-language-julia.show-documentation",
-        "when": "editorLangId == 'juliamarkdown' || editorTextFocus && editorLangId == 'julia' && activeEditor != 'workbench.editor.notebook'"
-    },
-    {
-        "key": "alt+j alt+p",
-        "command": "-language-julia.show-plotpane"
-    },
-    {
         "key": "alt+n alt+k",
         "command": "paragraphjump.down",
         "when": "!terminalFocus"
@@ -6244,21 +6060,6 @@
         "command": "toggleVim"
     },
     {
-        "key": "escape",
-        "command": "-language-julia.clearCurrentInlineResult",
-        "when": "editorLangId == 'juliamarkdown' || editorLangId == 'markdown' || editorTextFocus && juliaHasInlineResult && !editorHasSelection && !findWidgetVisible && !inSnippetMode && !isInEmbeddedEditor && !markerNavigationVisible && !onTypeRenameInputVisible && !parameterHintsVisible && !renameInputVisible && !suggestWidgetVisible && editorLangId == 'julia'"
-    },
-    {
-        "key": "escape",
-        "command": "-language-julia.clearCurrentInlineResult",
-        "when": "editorLangId == 'juliamarkdown' || editorTextFocus && juliaHasInlineResult && !editorHasSelection && !findWidgetVisible && !inSnippetMode && !isInEmbeddedEditor && !markerNavigationVisible && !onTypeRenameInputVisible && !parameterHintsVisible && !renameInputVisible && !suggestWidgetVisible && editorLangId == 'julia'"
-    },
-    {
-        "key": "meta+i meta+c",
-        "command": "-language-julia.clearAllInlineResultsInEditor",
-        "when": "editorLangId == 'juliamarkdown' || editorLangId == 'markdown' || editorTextFocus && editorLangId == 'julia' && activeEditor != 'workbench.editor.notebook'"
-    },
-    {
         "key": "alt+f r",
         "command": "editor.action.startFindReplaceAction"
     },
@@ -6306,10 +6107,6 @@
         "command": "foam-vscode.open-daily-note-for-date"
     },
     {
-        "key": "alt+h",
-        "command": "-foam-vscode.open-daily-note-for-date"
-    },
-    {
         "key": "alt+a r",
         "command": "foam-vscode.open-random-note"
     },
@@ -6320,5 +6117,17 @@
     {
         "key": "alt+a x",
         "command": "markdown-link-expander.expand"
+    },
+    {
+        "key": "alt+w b",
+        "command": "foam-vscode.backlinks.focus"
+    },
+    {
+        "key": "alt+w e",
+        "command": "foam-vscode.tags-explorer.focus"
+    },
+    {
+        "key": "alt+w o",
+        "command": "foam-vscode.orphans.focus"
     }
 ]

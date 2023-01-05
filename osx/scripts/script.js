@@ -1,7 +1,9 @@
 
 function Utilities(app) {
 
-    const DATABASE = "/Users/mateus.canelhas/Desktop/revolut/priv/limni/lists/state/limni.db"
+    const LIMNI = "/Users/mateus.canelhas/Desktop/pers/limni"
+    const DATABASE = `${LIMNI}/lists/state/limni.db`
+    const APPEND_FILE = `${LIMNI}/lists/stream/articles.tsv`
 
     function quotedForm(s) { return "'" + s.replace(/'/g, "'\\''") + "'" }
 
@@ -21,8 +23,10 @@ function Utilities(app) {
 
     }
 
-    function appendFile(openedFile, content) {
-        app.write(content, { to: openedFile, startingAt: app.getEof(openedFile) })
+    function appendToFile(content) {
+        withFile(APPEND_FILE, openedFile => {
+            app.write(content, { to: openedFile, startingAt: app.getEof(openedFile) })
+        })
     }
 
 
@@ -37,14 +41,14 @@ function Utilities(app) {
 
     function persistTransition(transition) {
 
-        const content = JSON.stringify([...transition.previous, { date: transition.date, status: transition.status }]).replaceAll("\"","\\\"")
+        const content = JSON.stringify([...transition.previous, { date: transition.date, status: transition.status }]).replaceAll("\"", "\\\"")
         const sql = `sqlite3 "${DATABASE}" "replace into state( url, transitions) values ('${transition.resource}' , '${content}') "`
         app.doShellScript(sql)
 
     }
     return {
         withFile: withFile,
-        appendFile: appendFile,
+        appendToFile: appendToFile,
         findTransitions: findTransitions,
         persistTransition: persistTransition,
     }
@@ -52,30 +56,27 @@ function Utilities(app) {
 
 function run() {
 
-
-    const APPEND_FILE = "/Users/mateus.canelhas/Desktop/revolut/priv/limni/lists/stream/articles.tsv"
-
     var app = Application.currentApplication()
     app.includeStandardAdditions = true
     utils = Utilities(app)
 
     function persist(transition) {
         const content = `\n${transition.date}\t${transition.status}\t${transition.resource}`
-        utils.withFile(APPEND_FILE, file => utils.appendFile(file, content))
+        utils.appendToFile(content)
         utils.persistTransition(transition)
     }
 
-    function showPrompt(currentUrl) {
+    function promptTransition(currentUrl) {
         previousTransitions = utils.findTransitions(currentUrl)
 
         list = previousTransitions.map(t => `${t.date}\t${t.status}`).join("\n")
-        const choices = ["Queue", "History", "Wrote", "Good", "Premium", "Bad", "Explore", "Skip","Tool"]
+        const choices = ["Queue", "History", "Wrote", "Good", "Premium", "Bad", "Explore", "Skip", "Tool"]
         const classification = app.chooseFromList(choices, {
             withPrompt: `About ${currentUrl}\n\n${list}`,
             defaultItems: [choices[0]]
         })
         if (classification) {
-            const brazilTime = new Date( new Date().getTime() - 1000*60*60*3);
+            const brazilTime = new Date(new Date().getTime() - 1000 * 60 * 60 * 3);
             const currentTime = brazilTime.toISOString().replace("T", " ").substring(0, 19)
             return { date: currentTime, status: classification[0], resource: currentUrl, previous: previousTransitions }
         }
@@ -83,7 +84,7 @@ function run() {
 
 
     const currentUrl = Application('Chrome').windows[0].activeTab.url()
-    const transition = showPrompt(currentUrl)
+    const transition = promptTransition(currentUrl)
     if (transition) {
         persist(transition)
     }
