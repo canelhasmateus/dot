@@ -202,6 +202,9 @@ nnoremap qp }
 nnoremap qi <C-U>
 nnoremap qk <C-D>
 
+vnoremap qi {
+vnoremap qk }
+
 nnoremap ql <C-I>
 nnoremap qj <C-O>
 
@@ -565,6 +568,7 @@ nnoremap C "act
 
 """ ________________________________ [V] prefix controls [V]isual selections
 
+nnoremap vb <C-v>
 nnoremap V vt
 nnoremap vv V
 nnoremap viv g^vg_

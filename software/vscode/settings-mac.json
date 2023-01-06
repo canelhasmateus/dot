@@ -1,22 +1,33 @@
 {
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    },
+    "[python]": {},
     "debug.inlineValues": "auto",
     "diffEditor.codeLens": true,
     "editor.bracketPairColorization.enabled": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
     "editor.cursorSmoothCaretAnimation": true,
     "editor.cursorWidth": 3,
+    "editor.find.autoFindInSelection": "multiline",
+    "editor.find.seedSearchStringFromSelection": "selection",
     "editor.fontFamily": "'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
     "editor.fontLigatures": true,
     "editor.fontSize": 18,
+    "editor.fontWeight": "1",
     "editor.formatOnPaste": true,
     "editor.inlineSuggest.enabled": true,
+    "editor.largeFileOptimizations": true,
     "editor.letterSpacing": 0.4,
     "editor.minimap.scale": 2,
     "editor.minimap.showSlider": "always",
     "editor.parameterHints.cycle": true,
     "editor.quickSuggestions": {
         "comments": "on",
-        "strings": "on",
-        "other": "on"
+        "other": "on",
+        "strings": "on"
     },
     "editor.scrollBeyondLastLine": false,
     "editor.semanticHighlighting.enabled": "configuredByTheme",
@@ -25,6 +36,21 @@
     "editor.suggest.localityBonus": true,
     "editor.suggest.shareSuggestSelections": true,
     "editor.suggestSelection": "first",
+    "emojisense.languages": {
+        ".mmd": true,
+        "git-commit": true,
+        "markdown": true,
+        "plaintext": {
+            "emojiDecoratorsEnabled": false,
+            "markupCompletionsEnabled": false
+        },
+        "scminput": true
+    },
+    "errorLens.enabledDiagnosticLevels": [
+        "warning",
+        "info",
+        "error"
+    ],
     "explorer.autoReveal": false,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
@@ -48,16 +74,25 @@
         "**/.bloop": true,
         "**/.metals": true
     },
-    "github.copilot.enable": {
-        "*": true,
-        "markdown": false,
-        "nim": false,
-        "plaintext": false,
-        "yaml": false
-    },
+    "foam.files.attachmentExtensions": "pdf mp3 webm wav m4a mp4 avi mov rtf txt doc docx pages xls xlsx numbers ppt pptm pptx sh py js sql java kt",
+    "foam.graph.titleMaxLength": 0,
     "gitlens.keymap": "none",
     "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "markdown-preview-enhanced.mermaidTheme": "dark",
+    "markdown-preview-enhanced.previewTheme": "monokai.css",
+    "markdown.extension.list.indentationSize": "inherit",
+    "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serifr",
+    "markdown.preview.openMarkdownLinks": "inEditor",
+    "markdownlint.config": {
+        "code-block-style": {
+            "style": "fenced"
+        }
+    },
+    "markdownlint.run": "onSave",
+    "security.workspace.trust.untrustedFiles": "open",
     "settingsSync.keybindingsPerPlatform": false,
+    "svelte.enable-ts-plugin": true,
+    "svelte.plugin.svelte.note-new-transformation": false,
     "terminal.external.windowsExec": "C:\\Program Files\\Alacritty\\alacritty.exe",
     "terminal.integrated.commandsToSkipShell": [
         "language-julia.interrupt"
@@ -81,14 +116,14 @@
             "icon": "terminal-powershell",
             "source": "PowerShell"
         },
-        "Windows PowerShell": {
-            "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
-        },
         "pwsh": {
-            "path": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
             "args": [
                 "-nologo"
-            ]
+            ],
+            "path": "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
+        },
+        "Windows PowerShell": {
+            "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
         }
     },
     "typescript.check.npmIsInstalled": false,
@@ -100,6 +135,8 @@
     "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
     "typescript.tsserver.maxTsServerMemory": 0,
     "typescript.tsserver.useSyntaxServer": "always",
+    "window.title": "${rootName}",
+    "workbench.activityBar.iconClickBehavior": "focus",
     "workbench.colorCustomizations": {
         "editorBracketHighlight.foreground1": "#E8BA36",
         "editorBracketHighlight.foreground2": "#54A857",
@@ -114,29 +151,9 @@
     "workbench.list.openMode": "doubleClick",
     "workbench.settings.enableNaturalLanguageSearch": false,
     "workbench.startupEditor": "none",
-    "zenMode.hideLineNumbers": false,
-    "zenMode.hideTabs": false,
-    "editor.fontWeight": "1",
-    "editor.find.autoFindInSelection": "multiline",
-    "editor.find.seedSearchStringFromSelection": "selection",
-    "foam.graph.titleMaxLength": 0,
-    "editor.largeFileOptimizations": false,
-    "[markdown]": {
-        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
-    },
-    "markdownlint.config": {
-        "code-block-style": {
-            "style": "fenced"
-        }
-    },
-    "markdownlint.run": "onSave",
-    "editor.codeActionsOnSave": {
-        "source.fixAll": true
-    },
-    "window.title": "${rootName}",
-    "workbench.activityBar.iconClickBehavior": "focus",
     "zenMode.hideActivityBar": false,
-    "vim.handleKeys": {},
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideTabs": true,
     "vim.camelCaseMotion.enable": true,
     "vim.cursorStylePerMode.insert": "line",
     "vim.cursorStylePerMode.normal": "block",
@@ -144,48 +161,51 @@
     "vim.cursorStylePerMode.visual": "block-outline",
     "vim.cursorStylePerMode.visualblock": "block-outline",
     "vim.cursorStylePerMode.visualline": "block-outline",
+    "vim.digraphs": {},
     "vim.easymotion": true,
-    "vim.easymotionKeys": "qwerasdfzxcvuiopjklçnm,.",
+    "vim.easymotionKeys": "asdfjklçzxcvmqweruiop",
+    "vim.handleKeys": {},
     "vim.highlightedyank.enable": true,
     "vim.hlsearch": false,
     "vim.insertModeKeyBindings": [],
     "vim.insertModeKeyBindingsNonRecursive": [],
     "vim.leader": "<Space>",
-    "vim.normalModeKeyBindings": [
+    "vim.normalModeKeyBindings": [],
+    "vim.normalModeKeyBindingsNonRecursive": [
         {
+            "after": [],
             "before": [
                 "o",
                 "r"
             ],
-            "after": [],
             "commands": [
                 {
+                    "args": {},
                     "command": "extension.intellijRecentFiles",
-                    "when": "editorTextFocus",
-                    "args": {}
+                    "when": "editorTextFocus"
                 }
             ]
         },
         {
+            "after": [],
             "before": [
                 "r",
                 "r"
             ],
-            "after": [],
             "commands": [
                 {
+                    "args": {},
                     "command": "editor.action.formatDocument",
-                    "when": "editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus",
-                    "args": {}
+                    "when": "editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus"
                 }
             ]
         },
         {
+            "after": [],
             "before": [
                 "r",
                 "d"
             ],
-            "after": [],
             "commands": [
                 {
                     "command": "editor.action.duplicateSelection"
@@ -193,11 +213,11 @@
             ]
         },
         {
+            "after": [],
             "before": [
                 "q",
                 "ç"
             ],
-            "after": [],
             "commands": [
                 {
                     "command": "editor.action.marker.next"
@@ -205,11 +225,11 @@
             ]
         },
         {
+            "after": [],
             "before": [
                 "q",
                 "h"
             ],
-            "after": [],
             "commands": [
                 {
                     "command": "editor.action.marker.prev"
@@ -217,11 +237,11 @@
             ]
         },
         {
+            "after": [],
             "before": [
                 "n",
                 "f"
             ],
-            "after": [],
             "commands": [
                 {
                     "command": "workbench.action.quickOpen"
@@ -229,56 +249,240 @@
             ]
         },
         {
+            "after": [],
             "before": [
                 "<leader>",
                 "v",
                 "i",
-                "m",
+                "m"
             ],
-            "after": [],
             "commands": [
                 {
                     "command": "workbench.action.openSettingsJson"
                 }
             ]
         },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "w"
+            ],
+            "before": [
+                "f",
+                "l"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "b"
+            ],
+            "before": [
+                "f",
+                "j"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "s"
+            ],
+            "before": [
+                "f",
+                "f"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "<leader>",
+                "b",
+                "d",
+                "w"
+            ],
+            "before": [
+                "f",
+                "w"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "<leader>",
+                "b",
+                "d",
+                "e"
+            ],
+            "before": [
+                "f",
+                "e"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "j"
+            ],
+            "before": [
+                "f",
+                "ç"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "k"
+            ],
+            "before": [
+                "f",
+                "h"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "/"
+            ],
+            "before": [
+                "f",
+                "/"
+            ]
+        }
     ],
-    "vim.normalModeKeyBindingsNonRecursive": [],
     "vim.operatorPendingModeKeyBindings": [],
     "vim.operatorPendingModeKeyBindingsNonRecursive": [],
+    "vim.showMarksInGutter": true,
     "vim.smartRelativeLine": true,
-    "vim.sneak": true,
-    "vim.sneakReplacesF": true,
-    "vim.sneakUseIgnorecaseAndSmartcase": true,
     "vim.useSystemClipboard": true,
-    "vim.visualModeKeyBindings": [],
-    "vim.visualModeKeyBindingsNonRecursive": [],
-    "vim.whichwrap": "b,s,",
-    "security.workspace.trust.untrustedFiles": "open",
     "vim.vimrc.enable": true,
     "vim.vimrc.path": "$HOME/.ideavimrc",
-    "markdown.preview.openMarkdownLinks": "inEditor",
-    "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serifr",
-    "emojisense.languages": {
-        "markdown": true,
-        ".mmd": true,
-        "plaintext": {
-            "markupCompletionsEnabled": false,
-            "emojiDecoratorsEnabled": false
+    "vim.visualModeKeyBindings": [],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "commands": [
+                {
+                    "command": "editor.action.duplicateSelection"
+                }
+            ],
+            "before": [
+                "r",
+                "d"
+            ],
+            "after": []
         },
-        "scminput": true,
-        "git-commit": true
-    },
-    "[python]": {},
-    "markdown.extension.list.indentationSize": "inherit",
-    "errorLens.enabledDiagnosticLevels": [
-        "warning",
-        "info",
-        "error"
+        {
+            "before": [
+                "f",
+                "l"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "w"
+            ]
+        },
+        {
+            "before": [
+                "f",
+                "j"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "b"
+            ]
+        },
+        {
+            "before": [
+                "f",
+                "f"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "s"
+            ]
+        },
+        {
+            "before": [
+                "f",
+                "w"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "<leader>",
+                "b",
+                "d",
+                "w"
+            ]
+        },
+        {
+            "before": [
+                "f",
+                "e"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "<leader>",
+                "b",
+                "d",
+                "e"
+            ]
+        },
+        {
+            "before": [
+                "f",
+                "ç"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "f",
+                "h"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "k"
+            ]
+        },
+        {
+            "before": [
+                "f",
+                "/"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "/"
+            ]
+        },
     ],
-    "svelte.enable-ts-plugin": true,
-    "svelte.plugin.svelte.note-new-transformation": false,
-    "foam.files.attachmentExtensions": "pdf mp3 webm wav m4a mp4 avi mov rtf txt doc docx pages xls xlsx numbers ppt pptm pptx sh py js sql java kt",
-    "markdown-preview-enhanced.mermaidTheme": "dark",
-    "markdown-preview-enhanced.previewTheme": "monokai.css",
-}
+    "vim.whichwrap": "b,s,",
+} {
+            "before": ["<leader>", "m"],
+            "commands": [
+                "bookmarks.toggle"
+            ]
+        },
+        {
+            "before": ["<leader>", "b"],
+            "commands": [
+                "bookmarks.list"
+            ]
+        }
