@@ -177,7 +177,7 @@ M.packer_sync = function(...)
   end
 
   if packer_exists then
-    packer.sync(...)
+    packer.colour(...)
 
     local plugins = M.load_config().plugins
     local old_style_options = plugins.user or plugins.override or plugins.remove

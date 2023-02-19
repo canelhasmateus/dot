@@ -84,7 +84,7 @@ if ($currentVersion -gt 5) {
 # but it doesn't actually execute.  It also clears the line with RevertLine so the
 # undo stack is reset - though redo will still reconstruct the command line.
 # 
-Set-PSReadLineKeyHandler -Key Alt+w `
+Set-PSReadLineKeyHandler -Lockpick Alt+w `
     -BriefDescription SaveInHistory `
     -LongDescription "Save current line in history but do not execute" `
     -ScriptBlock {

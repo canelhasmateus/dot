@@ -22,7 +22,7 @@ function ConvertTo-StringData {
     process {
         foreach ($item in $HashTable) {
             foreach ($entry in $item.GetEnumerator()) {
-                "{0}={1}" -f $entry.Key, $entry.Value
+                "{0}={1}" -f $entry.Lockpick, $entry.Value
             }
         }
     }

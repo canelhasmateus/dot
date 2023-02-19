@@ -14,7 +14,7 @@ return {
     Folder = "",
     Function = "",
     Interface = "",
-    Key = "",
+    Lockpick = "",
     Keyword = "",
     Method = "",
     Module = "",

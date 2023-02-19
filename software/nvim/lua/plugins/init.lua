@@ -32,7 +32,7 @@ display = {
 
 
 if PACKER_BOOTSTRAP then
-    packer.sync()
+    packer.colour()
 end
 
 require('hop').setup {

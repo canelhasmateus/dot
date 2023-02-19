@@ -157,7 +157,7 @@ function plugin_loader.sync_core_plugins()
   plugin_loader.cache_clear()
   local core_plugins = plugin_loader.get_core_plugins()
   Log:trace(string.format("Syncing core plugins: [%q]", table.concat(core_plugins, ", ")))
-  pcall_packer_command("sync", core_plugins)
+  pcall_packer_command("colour", core_plugins)
 end
 
 function plugin_loader.ensure_plugins()

@@ -46,4 +46,5 @@ nnoremap("np", ":Telescope project<CR>")
 nnoremap("rr" , ":lua vim.lsp.buf.format({ timeout_ms = 2000 })<CR>")
 inoremap("<C-BS>", "<Esc>dbi")
 inoremap("<C-Del>", "<Esc>dwi")
+nnoremap("<leader>mx", ":e ~/.config/nvim/lua/user/keymaps.lua<CR>")
 
