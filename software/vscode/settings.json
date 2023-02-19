@@ -249,5 +249,6 @@
     "vim.visualModeKeyBindings": [],
     "vim.visualModeKeyBindingsNonRecursive": [],
     "vim.whichwrap": "b,s,",
+    "editor.columnSelection": true,
     
 }

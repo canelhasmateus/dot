@@ -8,7 +8,7 @@ set ruler
 
 
 set wrapscan
-set incsearch
+"""set incsearch
 set smartcase
 
 """set hlsearch
@@ -75,13 +75,12 @@ if has('ide')
 
 """let g:match_words = '<:>,<tag>:</tag>'
 
+
+endif
 Plug 'michaeljsmith/vim-ident-object' """Additional text objects: ai, ii, aI
 
 Plug 'tommcdo/vim-exchange' """Commands: cx, cxx, X, cxc
-
-Plug 'tpope/vim-surround' """Commands: ys, cs, ds, S
-
-endif
+Plug 'tpope/vim-surround'
 
 """ Overrides ------------------------------------------------
 
@@ -194,8 +193,11 @@ nmap qo %
 nnoremap qu {
 nnoremap qp }
 
-nnoremap qi <C-U>zz
-nnoremap qk <C-D>zz
+nnoremap qi <C-U>
+nnoremap qk <C-D>
+
+vnoremap qi {
+vnoremap qk }
 
 nnoremap ql <C-I>
 nnoremap qj <C-O>
@@ -204,13 +206,13 @@ vmap qo %
 vnoremap qu {
 vnoremap qp }
 
+Plug 'chrisbra/matchit'
+Plug 'dbakker/vim-paragraph-motion'
 if has('ide')
 
-    Plug 'chrisbra/matchit'
     map qo <Plug>(MatchitMotion)
 
 
-    Plug 'dbakker/vim-paragraph-motion'
     map qu <Plug>(ParagraphPrevMotion)
     map qp <Plug>(ParagraphNextMotion)
 
@@ -255,7 +257,15 @@ nnoremap ek o
 
 nnoremap el ea
 nnoremap ej bi
-
+nnoremap eJ Bi
+nnoremap eL Ea
+nnoremap e, /,<CR>i
+nnoremap e; /;<CR>i
+nnoremap e) /)<CR>i
+nnoremap e( /(<CR>i
+nnoremap e? /?<CR>i
+nnoremap ed /{<CR>i
+nnoremap ew wi
 nnoremap eç A
 nnoremap e<End> A
 
@@ -275,8 +285,11 @@ vnoremap ej <Esc>`<i
 vnoremap el <Esc>`>a
 
 vnoremap eo <Esc>%i
-nnoremap eml ]w[b]wa
-nnoremap emj ]w[bi
+vnoremap eo <Esc>%i
+nnoremap eml ]wa
+nnoremap emj [bi
+vnoremap eml <Esc>`>]wa
+vnoremap emj <Esc>`<[bi
 
 """ ____________________ [R] prefix controls [R]efactoring
 
@@ -289,6 +302,8 @@ nnoremap rsP vip:sort! i<CR>
 nnoremap rd "ayy"ap
 vnoremap rr gq
 
+vnoremap rb :s/)\./)\r./g<CR>
+vnoremap r, :s/,/,\r/g<CR>
 if has('ide')
 
         map rsi <Action>(ChangeSignature)
@@ -310,7 +325,7 @@ if has('ide')
         map ru <Action>(EditorToggleCase)
         map rv <Action>(IntroduceVariable)
         vnoremap rb :s/)\./)\r./g<CR>:action ReformatCode<CR>
-
+        vnoremap r, :s/,/,\r/g<CR>:action ReformatCode<CR>
 endif
 
 
@@ -341,7 +356,6 @@ if has('ide')
         map or <Action>(RecentFiles)
         map oR <Action>($LRU)
         map ox <Action>(FileStructurePopup)
-        map ou <Action>(ShowUsages)
         map op <Action>(PasteMultiple)
         map oq <Action>(RecentLocations)
 
@@ -374,6 +388,8 @@ vnoremap P "ad<Esc>P
 """ ____________________ [A] prefix is Undetermined
 
 nnoremap ai a
+nnoremap al f
+nnoremap aj F
 
 """ ____________________ [S] Prefix Controls [S]urroundings
 
@@ -407,6 +423,10 @@ nnoremap d<Home> "ad<Home>
 nnoremap dh "ad<Home>
 nnoremap d<End> "ad<End>
 nnoremap dç "ad<End>
+nnoremap do d%
+nnoremap dp d}
+nnoremap du d{
+nnoremap d; dt;
 
 nnoremap D "adt
 nnoremap DD "aD
@@ -443,8 +463,10 @@ vnoremap fy "/y
 nnoremap <A-f>f /
 
 nnoremap fr :s/
-nnoremap <leader>fr &
 vnoremap fr :s/
+nnoremap f. &
+vnoremap f. &
+
 nnoremap ff f
 vnoremap ff f
 
@@ -496,6 +518,21 @@ vnoremap zk zt
 nnoremap zl zL
 nnoremap zj zH
 
+if has('ide')
+
+    map znl <Action>(SplitVertically)
+    map znk <Action>(SplitHorizontally)
+    map zno <Action>(ChangeSplitOrientation)
+
+    map z<Del>(Unsplit)
+    map z<Backspace> <Action>(UnsplitAll)
+
+    map zml <Action>(NextSplitter)
+    map zmj <Action>(PrevSplitter)
+    map qml <Action>(NextSplitter)
+    map qmj <Action>(PrevSplitter)
+
+endif
 """ ________________________________ [X] prefix controls code stuff
 
 nnoremap x <Nop>
@@ -552,15 +589,19 @@ nnoremap cl "act
 nnoremap cj "acT
 nnoremap c<Home> "ac<Home>
 nnoremap c<End> "ac<End>
-nnoremap cç c<Home>
+nnoremap cç c$
 nnoremap ch c0
+nnoremap co c%
 
 nnoremap C "act
 
 
 """ ________________________________ [V] prefix controls [V]isual selections
 
+nnoremap vb <C-v>
 nnoremap V vt
+nnoremap vl vt
+nnoremap vj vT
 nnoremap vv V
 nnoremap viv g^vg_
 nnoremap vk v
@@ -568,9 +609,11 @@ nnoremap vk v
 " All - this paren
 nnoremap vp vi)
 nnoremap vd vi}
+nnoremap vq vi"
 " Java - select all scope
 nnoremap vss va}V
 nnoremap vsi vi}
+nnoremap vsp va)V
 
 
 """ ________________________________ [B] prefix is unmodified
@@ -590,23 +633,21 @@ nnoremap <A-n>i gg
 
 if has('ide')
 
+    map nc <Action>(GotoClass)
+    map nf <Action>(GotoFile)
+    map ns <Action>(GotoSymbol)
+
     map nd <Action>(GotoDeclaration)
     map nD <Action>(GotoTypeDeclaration)
-    map nt <Action>(GotoTest)
     map ni <Action>(GotoImplementation)
-    map nr <Action>(GotoRelated)
+
     map nS <Action>(GotoSuperMethod)
-
-    map np <Action>(ShowNavBar)
-
-    map nn <Action>(SearchEverywhere)
-    map na <Action>(GotoAction)
-    map nf <Action>(GotoFile)
-    map nc <Action>(GotoClass)
-    map ns <Action>(GotoSymbol)
     map nl <Action>(GotoLine)
-    map nb <Action>(ShowNavBar)
 
+    map nr <Action>(GotoRelated)
+    map nt <Action>(GotoTest)
+
+    map nu <Action>(ShowUsages)
 
 endif
 
@@ -655,10 +696,8 @@ nnoremap mE [b
 nnoremap vie ]wv[b
 
 " Java - next semicolon
-nnoremap mç v/;<CR>
-nnoremap mÇ v?;<CR>
-vnoremap mç /;<CR>
-vnoremap mÇ ?;<CR>
+nnoremap m; v/;<CR>
+vnoremap m; /;<CR>
 
 " All - next [list]
 nnoremap ml /]<CR>vi[
@@ -690,18 +729,17 @@ vnoremap mn <Esc>/[0-9]\+/<CR>viw
 nnoremap mN ?[0-9]\+?<CR>viw
 nnoremap mN <Esc>?[0-9]\+?<CR>viw
 
+nnoremap mo v%
+
 
 """ ________________________________
 
 """ Experimental -----------------------------------------
 
 """next whitespace
-nnoremap m<Space> v/\s<CR>
-vnoremap m<Space> /\s\+<CR>
 
 
-nnoremap m, v/,<CR>
-nnoremap mi /:\t|:\n<Space>{2,}/e<CR>
+nnoremap m, v/,/e-1<CR>
 
 """"todo: next unmatched
 """ todo: What exactly is a paragraph?
@@ -732,18 +770,17 @@ if has("ide")
     nmap <leader>c <Plug>(multicursor-mc/)
 endif
 
-"""map <leader>sl viW<Plug>(VSurround)<Esc>
 
 nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
 nnoremap <leader>vim :e ~/.ideavimrc<CR>
 
 
-" visual the rest of the screen / the next half / the next quarter the next scope / paren / etc
-if has("ide")
+noremap Q q
+noremap am @
+noremap a. @@
 
+if has('ide')
     map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
-    noremap xM q
-    noremap xm @
     else
     nnoremap <leader>wr :w<CR>:source ~\.ideavimrc<CR>
 endif
