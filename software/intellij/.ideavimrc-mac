@@ -238,8 +238,8 @@ endif
 
 
 """ ____________________ [W] prefix is for [W]ord movement
-    
-    
+
+
 """nnoremap w <Nop>
 """nnoremap ww w
 

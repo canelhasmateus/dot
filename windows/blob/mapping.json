@@ -10,7 +10,7 @@
         {
             "destinationRoot": "UserProfile",
             "destinationName": "/.win-vind/.vindrc",
-            "type": "hard",
+            "type": "noop",
             "targetRoot": "",
             "targetName": "/software/winvind/.vindrc"
         },
@@ -70,7 +70,6 @@
             "targetRoot": "",
             "targetName": "/windows/blob/MarbleScroll.exe"
         },
-        
         {
             "destinationRoot": "LocalApplicationData",
             "destinationName": "/nvim/init.vim",
@@ -120,181 +119,174 @@
             "targetRoot": "",
             "targetName": "/software/powershell/lib"
         },
-
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2022.2/codestyles",
+            "destinationName": "/JetBrains/IntelliJIdea2022.3/codestyles",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/codestyles"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2022.2/colors",
+            "destinationName": "/JetBrains/IntelliJIdea2022.3/colors",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/colors"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2022.2/templates",
+            "destinationName": "/JetBrains/IntelliJIdea2022.3/templates",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/templates"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2022.2/keymaps",
+            "destinationName": "/JetBrains/IntelliJIdea2022.3/keymaps",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/keymaps"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2022.2/options",
+            "destinationName": "/JetBrains/IntelliJIdea2022.3/options",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/options"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2022.2/tools",
+            "destinationName": "/JetBrains/IntelliJIdea2022.3/tools",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/tools"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2022.2/quicklists",
+            "destinationName": "/JetBrains/IntelliJIdea2022.3/quicklists",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/quicklists"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2022.2/live-plugins",
+            "destinationName": "/JetBrains/IntelliJIdea2022.3/live-plugins",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/plugins/live-plugins"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2022.2/plugins/intellij-postfix-templates_templates",
+            "destinationName": "/JetBrains/IntelliJIdea2022.3/plugins/intellij-postfix-templates_templates",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/plugins/postfix"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2022.2/jba_config/installed_plugins.txt",
+            "destinationName": "/JetBrains/IntelliJIdea2022.3/jba_config/installed_plugins.txt",
             "type": "hard",
             "targetRoot": "",
             "targetName": "/software/intellij/installed_plugins.txt"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2022.2/jba_config/disabled_plugins.txt",
+            "destinationName": "/JetBrains/IntelliJIdea2022.3/jba_config/disabled_plugins.txt",
             "type": "hard",
             "targetRoot": "",
             "targetName": "/software/intellij/disabled_plugins.txt"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/IntelliJIdea2022.2/idea64.exe.vmoptions",
+            "destinationName": "/JetBrains/IntelliJIdea2022.3/idea64.exe.vmoptions",
             "type": "hard",
             "targetRoot": "",
             "targetName": "/software/intellij/idea64.exe.vmoptions"
         },
-
-
-
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/CLion2022.2/codestyles",
+            "destinationName": "/JetBrains/CLion2022.3/codestyles",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/codestyles"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/CLion2022.2/colors",
+            "destinationName": "/JetBrains/CLion2022.3/colors",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/colors"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/CLion2022.2/templates",
-            "type": "sym", 
+            "destinationName": "/JetBrains/CLion2022.3/templates",
+            "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/templates"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/CLion2022.2/keymaps",
+            "destinationName": "/JetBrains/CLion2022.3/keymaps",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/keymaps"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/CLion2022.2/options",
+            "destinationName": "/JetBrains/CLion2022.3/options",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/options"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/CLion2022.2/tools",
+            "destinationName": "/JetBrains/CLion2022.3/tools",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/tools"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/CLion2022.2/quicklists",
+            "destinationName": "/JetBrains/CLion2022.3/quicklists",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/quicklists"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/CLion2022.2/live-plugins",
+            "destinationName": "/JetBrains/CLion2022.3/live-plugins",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/plugins/live-plugins"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/CLion2022.2/plugins/intellij-postfix-templates_templates",
+            "destinationName": "/JetBrains/CLion2022.3/plugins/intellij-postfix-templates_templates",
             "type": "sym",
             "targetRoot": "",
             "targetName": "/software/intellij/plugins/postfix"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/CLion2022.2/jba_config/installed_plugins.txt",
+            "destinationName": "/JetBrains/CLion2022.3/jba_config/installed_plugins.txt",
             "type": "hard",
             "targetRoot": "",
             "targetName": "/software/intellij/installed_plugins.txt"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/CLion2022.2/jba_config/disabled_plugins.txt",
+            "destinationName": "/JetBrains/CLion2022.3/jba_config/disabled_plugins.txt",
             "type": "hard",
             "targetRoot": "",
             "targetName": "/software/intellij/disabled_plugins.txt"
         },
         {
             "destinationRoot": "ApplicationData",
-            "destinationName": "/JetBrains/CLion2022.2/idea64.exe.vmoptions",
+            "destinationName": "/JetBrains/CLion2022.3/idea64.exe.vmoptions",
             "type": "hard",
             "targetRoot": "",
             "targetName": "/software/intellij/idea64.exe.vmoptions"
         },
-
-
-
         {
             "destinationRoot": "$Home",
             "destinationName": "/.ideavimrc",

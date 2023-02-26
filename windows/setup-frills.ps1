@@ -177,6 +177,7 @@ function Set-Code {
 
         Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
         Install-Module -Name PackageManagement -Force -MinimumVersion 1.4.6 -Scope CurrentUser -AllowClobber -Repository PSGallery    
+        Install-Module -Name posh-git
         npm install -g vsce
 
     }
