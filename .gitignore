@@ -5,5 +5,5 @@
 **/TmpColemak/*
 **/*.diag
 
-
+/osx/zsh/.zshrc
 **/.DS_Store
