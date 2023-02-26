@@ -77,7 +77,6 @@
     ],
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.cursorWidth": 3,
-    "terminal.integrated.defaultProfile.windows": "pwsh",
     "terminal.integrated.profiles.windows": {
         "Command Prompt": {
             "args": [],
@@ -104,6 +103,7 @@
             ]
         }
     },
+    "terminal.integrated.gpuAcceleration": "on",
     "typescript.check.npmIsInstalled": false,
     "typescript.disableAutomaticTypeAcquisition": true,
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
@@ -129,18 +129,6 @@
     "workbench.startupEditor": "none",
     "zenMode.hideLineNumbers": false,
     "zenMode.hideTabs": false,
-    "cSpell.enabledLanguageIds": [
-        "asciidoc",
-        "json",
-        "jsonc",
-        "latex",
-        "markdown",
-        "plaintext",
-        "restructuredtext",
-        "text",
-        "yaml",
-        "yml"
-    ],
     "editor.fontWeight": "1",
     "editor.find.autoFindInSelection": "multiline",
     "editor.find.seedSearchStringFromSelection": "selection",
@@ -250,5 +238,6 @@
     "vim.visualModeKeyBindingsNonRecursive": [],
     "vim.whichwrap": "b,s,",
     "editor.columnSelection": true,
-    
+    "vim.vimrc.enable": true,
+    "vim.vimrc.path": "C:\\Users\\Mateus\\.ideavimrc",
 }

@@ -1,5 +1,5 @@
 function FindCommand ($command) {
-    Get-Command -Name $command -ErrorAction SilentlyContinue |
+   Get-Command -Name $command -ErrorAction SilentlyContinue |
     Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
 }
 

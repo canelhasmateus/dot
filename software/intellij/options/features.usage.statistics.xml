@@ -16,7 +16,7 @@
     <feature id="spring.inject.entities" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="editing.convert.line.separators" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="db.console.execute" count="1" last-shown="0" last-used="1653418530541" shown-count="0" />
-    <feature id="navigation.recent.files" count="18066" last-shown="0" last-used="1677377781428" shown-count="0" />
+    <feature id="navigation.recent.files" count="18071" last-shown="0" last-used="1677431078595" shown-count="0" />
     <feature id="scratch" count="218" last-shown="0" last-used="1676769066270" shown-count="0" />
     <feature id="refactoring.move.moveInner" count="1028" last-shown="0" last-used="1669560288563" shown-count="0" />
     <feature id="vcs.pull.requests" count="0" last-shown="0" last-used="0" shown-count="0" />
@@ -69,7 +69,7 @@
     <feature id="editing.clipboard.history" count="26" last-shown="0" last-used="1669497042229" shown-count="0" />
     <feature id="editing.compare.editor.with.clipboard" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="refactoring.rename" count="10331" last-shown="0" last-used="1676772480620" shown-count="0" />
-    <feature id="navigation.popup.action" count="546" last-shown="0" last-used="1669561261458" shown-count="0" />
+    <feature id="navigation.popup.action" count="549" last-shown="0" last-used="1677384519150" shown-count="0" />
     <feature id="refactoring.show.quick.list" count="117" last-shown="0" last-used="1667697942761" shown-count="0" />
     <feature id="db.forget.cached.schemas" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="editing.completion.cancelByControlArrows" count="0" last-shown="0" last-used="0" shown-count="0" />
@@ -91,7 +91,7 @@
     <feature id="codeassists.generate.code" count="46" last-shown="0" last-used="1668464380679" shown-count="0" />
     <feature id="navigation.goto.declaration" count="23627" last-shown="0" last-used="1676769054597" shown-count="0" />
     <feature id="editing.completion.finishByDotEtc" count="44" last-shown="0" last-used="1668552646246" shown-count="0" />
-    <feature id="ui.open.project.tool.window" count="19972" last-shown="0" last-used="1677378423582" shown-count="0" />
+    <feature id="ui.open.project.tool.window" count="19982" last-shown="0" last-used="1677431095500" shown-count="0" />
     <feature id="editing.join.lines" count="3189" last-shown="0" last-used="1676767621478" shown-count="0" />
     <feature id="navigation.goto.implementation" count="242" last-shown="0" last-used="1669560336697" shown-count="0" />
     <feature id="debugger.breakpoint.non.suspending" count="1" last-shown="0" last-used="1662419062941" shown-count="0" />
@@ -100,7 +100,7 @@
     <feature id="navigation.select.in" count="3" last-shown="0" last-used="1669495716166" shown-count="0" />
     <feature id="editing.completion.global.member.name" count="37" last-shown="0" last-used="1668541674402" shown-count="0" />
     <feature id="intentions.fix.javadoc" count="0" last-shown="0" last-used="0" shown-count="0" />
-    <feature id="ui.tree.speedsearch" count="1357" last-shown="0" last-used="1676766575263" shown-count="0" />
+    <feature id="ui.tree.speedsearch" count="1359" last-shown="0" last-used="1677431078975" shown-count="0" />
     <feature id="ui.horizontal.scrolling" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="navigation.replace" count="424" last-shown="0" last-used="1669496912127" shown-count="0" />
     <feature id="refactoring.copyClass" count="32" last-shown="0" last-used="1669473145972" shown-count="0" />

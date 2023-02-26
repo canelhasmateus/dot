@@ -12,4 +12,5 @@ FileEncoding, UTF-8 ;
 *SC073::Shift
 ; remaps \ | to Ctrl
 *SC056::Ctrl
-
+; remaps ctrl+esc to esc ( avoids windows opening the tray )
+^Esc::Send {Esc}

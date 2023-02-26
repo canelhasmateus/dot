@@ -21,3 +21,15 @@ $Terminal = Join-Path $PSScriptRoot "/lib/terminal.ps1"
 
 # Todo: Read this.
 # https://docs.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline?view=powershell-7.2
+
+function OptimizePowershell() {
+    $env:PATH = [Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()
+    [AppDomain]::CurrentDomain.GetAssemblies() | ForEach-Object {
+        $path = $_.Location
+        if ($path) { 
+            $name = Split-Path $path -Leaf
+            Write-Host -ForegroundColor Yellow "`r`nRunning ngen.exe on '$name'"
+            ngen.exe install $path /nologo
+        }
+    }
+}
