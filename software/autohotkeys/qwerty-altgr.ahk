@@ -6,7 +6,6 @@ SetWorkingDir, %A_ScriptDir%
 #Include %A_ScriptDir%\lib\VisualUtils.ahk
 #Include %A_ScriptDir%\lib\Flowtime.ahk
 
-
 <^>!SC01E:: 
   {
     ; AltGr + "A"

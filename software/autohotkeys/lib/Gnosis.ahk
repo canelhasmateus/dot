@@ -29,7 +29,7 @@ GrabUrl(){
     chosenQuality := AutoCompletingListView("Saving " url , ["Premium" , "Good" , "History" , "Bookmark" , "Bad", "Queue" , "Revisit" , "Tool" , "Utility" , "Explore" , "Done" ]) 
     if (chosenQuality) { 
         currentTime := CurrentDatetime()
-        content := "`n" currentTime "`t" chosenQuality "`t" url
+        content := currentTime "`t" chosenQuality "`t" url "`n"
         FileAppend , %content% ,C:\Users\Mateus\OneDrive\gnosis\limni\lists\stream\articles.tsv
         WriteTip("Saved url as " chosenQuality)
     }

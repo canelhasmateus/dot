@@ -147,7 +147,7 @@ Set-Alias -Name grep -Value findstr
 Set-Alias -Name tig -Value 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias -Name less -Value 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias -Name sublime -Value "C:\Program Files\Sublime Text\sublime_text.exe"
-Set-Alias -Name idea -Value "C:\Program Files\JetBrains\IntelliJ IDEA 2022.2\bin\idea64.exe"
+Set-Alias -Name idea -Value "C:\Users\Mateus\AppData\Local\JetBrains\Toolbox\apps\IDEA-U\ch-0\223.8617.56\bin\idea64.exe"
 Set-Alias -Name which -Value FindCommand
 Set-Alias -Name to -Value z
 

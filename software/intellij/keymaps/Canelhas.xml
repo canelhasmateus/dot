@@ -256,6 +256,7 @@
   <action id="EditPropertyValue" />
   <action id="EditSource">
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="ctrl alt k" />
+    <keyboard-shortcut first-keystroke="alt q" second-keystroke="s" />
   </action>
   <action id="EditSourceInNewWindow" />
   <action id="Editor LRU">
