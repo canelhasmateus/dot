@@ -37,29 +37,29 @@ function Install-Frills {
     
 
     
-        $Script = { param($name) 
+    $Script = { param($name) 
         $Installs = @(  
-        "alacritty"
-        "python"
+            "alacritty"
+            "python"
         
-        "discord"
-        "neovim"  
-        "obsidian"
+            "discord"
+            "neovim"  
+            "obsidian"
 
-        "docker-desktop"
-        "intellijidea-ultimate"
-        "spotify" 
+            "docker-desktop"
+            "intellijidea-ultimate"
+            "spotify" 
 
-        "insomnia-rest-api-client"
-        "krita"
-        "sumatrapdf"
+            "insomnia-rest-api-client"
+            "krita"
+            "sumatrapdf"
         )
-            choco install $Installs -y  
-        } 
+        choco install $Installs -y  
+    } 
 
-        $Parameter = @{ }
+    $Parameter = @{ }
 
-        return Start-Background $Script $Parameter 
+    return Start-Background $Script $Parameter 
     
     return $Installs
     
@@ -83,89 +83,32 @@ function Set-Code {
             return "code " + (Join-Prefix $List  " --install-extension ")
         }
         
-    
         $Priority = @(
             "alefragnani.project-manager",
             "canelhasmateus.jewel",
-            "canelhasmateus.partial",
             "mark-wiemer.vscode-autohotkey-plus-plus",
             "percygrunwald.vscode-intellij-recent-files",
             "ryuta46.multi-command",
             "usernamehw.errorlens",
-            "wmaurer.vscode-jumpy",
-            "ms-vscode.powershell"
-        
+            "DavidAnson.vscode-markdownlint"
         ) 
         $Zettel = @(
-    
             "bierner.markdown-mermaid",
             "bpruitt-goddard.mermaid-markdown-syntax-highlighting",
             "foam.foam-vscode",
-            "mushan.vscode-paste-image",        
             "tht13.html-preview-vscode",
             "yzhang.markdown-all-in-one",
-            "brokenprogrammer.paragraphjump"
-            "DavidAnson.vscode-markdownlint",
             "znck.grammarly"
-
         )
     
         $BaseSupport = @(
-
-            "ms-python.python",
-            "ms-vscode.anycode-typescript",
-            "ms-vscode.anycode",
-            "rbbit.typescript-hero",
-            "VisualStudioExptTeam.vscodeintellicode",
-            "eamodio.gitlens",
+            "ms-vscode.powershell",
             "formulahendry.code-runner"
-
-
         )
         $Others = @( 
-    
-            "GitHub.copilot",
-            "coolchyni.beyond-debug",
-            "ms-vscode-remote.remote-containers",
-            "ms-vscode-remote.remote-ssh-edit",
-            "ms-vscode-remote.remote-ssh",
-            "ms-vscode-remote.remote-wsl",
-            "tintinweb.vscode-inline-bookmarks",        
-            "vadimcn.vscode-lldb",
-            "webfreak.debug",
-            "ms-python.vscode-pylance",
-            "ms-vscode.anycode-python",
-            "svelte.svelte-vscode",
-            "ardenivanov.svelte-intellisense",
-            "cschlosser.doxdocgen",
-            "evgeniypeshkov.syntax-highlighter",
-            "jeff-hykin.better-cpp-syntax",
-            "julialang.language-julia",
-            "kakumei.ts-debug",
-            "ms-azuretools.vscode-docker",
-            "ms-toolsai.jupyter-renderers",
-            "ms-toolsai.jupyter",
-            "ms-vscode.anycode-c-sharp",
-            "ms-vscode.anycode-cpp",
-            "ms-vscode.anycode-go",
-            "ms-vscode.anycode-java",
-            "ms-vscode.anycode-php",
-            "ms-vscode.anycode-rust",
-            "ms-vscode.cmake-tools",
-            "ms-vscode.cpptools-extension-pack",
-            "ms-vscode.cpptools-themes"
-            "ms-vscode.cpptools",
-            "ms-vscode.vscode-typescript-next",
-            "nadako.vshaxe",
-            "nimsaem.nimvscode",
-            "redhat.vscode-yaml",
-            "rust-lang.rust",
             "tomoki1207.pdf",
-            "twxs.cmake",
             "zero-plusplus.vscode-autohotkey-debug"
         ) 
-
-
 
         choco install nodejs yarn  -y 
         Convert-Install $Priority | Invoke-Expression

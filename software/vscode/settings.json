@@ -1,11 +1,8 @@
 {
-    "[julia]": {
-        "editor.defaultFormatter": "julialang.language-julia"
-    },
     "debug.inlineValues": "auto",
     "diffEditor.codeLens": true,
     "editor.bracketPairColorization.enabled": true,
-    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorSmoothCaretAnimation": "on",
     "editor.cursorWidth": 3,
     "editor.fontFamily": "'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
     "editor.fontLigatures": true,
@@ -57,24 +54,10 @@
     },
     "gitlens.keymap": "none",
     "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-    "julia.additionalArgs": [],
-    "julia.cellDelimiters": [
-        "^##(?!#)",
-        "^#(\\s?)%%",
-        "^#-"
-    ],
-    "julia.enableTelemetry": false,
-    "julia.environmentPath": "",
-    "julia.execution.inlineResults.colors": {},
-    "julia.runtimeCompletions": true,
-    "julia.symbolCacheDownload": true,
     "redhat.telemetry.enabled": true,
     "settingsSync.keybindingsPerPlatform": false,
     "svelte.enable-ts-plugin": true,
     "terminal.external.windowsExec": "C:\\Program Files\\Alacritty\\alacritty.exe",
-    "terminal.integrated.commandsToSkipShell": [
-        "language-julia.interrupt"
-    ],
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.cursorWidth": 3,
     "terminal.integrated.profiles.windows": {
@@ -104,15 +87,6 @@
         }
     },
     "terminal.integrated.gpuAcceleration": "on",
-    "typescript.check.npmIsInstalled": false,
-    "typescript.disableAutomaticTypeAcquisition": true,
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
-    "typescript.format.insertSpaceAfterTypeAssertion": true,
-    "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
-    "typescript.tsserver.maxTsServerMemory": 0,
-    "typescript.tsserver.useSyntaxServer": "always",
     "workbench.colorCustomizations": {
         "editorBracketHighlight.foreground1": "#E8BA36",
         "editorBracketHighlight.foreground2": "#54A857",
@@ -133,7 +107,6 @@
     "editor.find.autoFindInSelection": "multiline",
     "editor.find.seedSearchStringFromSelection": "selection",
     "foam.graph.titleMaxLength": 0,
-    
     "editor.largeFileOptimizations": false,
     "cSpell.enabled": false,
     "[markdown]": {
@@ -151,7 +124,7 @@
     "window.title": "${rootName}",
     "workbench.activityBar.iconClickBehavior": "focus",
     "zenMode.hideActivityBar": false,
-    "vale.core.useCLI": true,
+    "editor.columnSelection": true,
     "vim.camelCaseMotion.enable": true,
     "vim.cursorStylePerMode.insert": "line",
     "vim.cursorStylePerMode.normal": "block",
@@ -159,85 +132,331 @@
     "vim.cursorStylePerMode.visual": "block-outline",
     "vim.cursorStylePerMode.visualblock": "block-outline",
     "vim.cursorStylePerMode.visualline": "block-outline",
+    "vim.digraphs": {},
     "vim.easymotion": true,
-    "vim.easymotionKeys": "qwerasdfzxcvuiopjklçnm,.",
+    "vim.easymotionKeys": "asdfjklçzxcvmqweruiop",
+    "vim.handleKeys": {},
     "vim.highlightedyank.enable": true,
-    "vim.hlsearch": true,
+    "vim.hlsearch": false,
     "vim.insertModeKeyBindings": [],
     "vim.insertModeKeyBindingsNonRecursive": [],
     "vim.leader": "<Space>",
-    "vim.normalModeKeyBindings": [
+    "vim.normalModeKeyBindings": [],
+    "vim.normalModeKeyBindingsNonRecursive": [
         {
+            "after": [],
             "before": [
-                "Down"
+                "o",
+                "r"
             ],
+            "commands": [
+                {
+                    "args": {},
+                    "command": "extension.intellijRecentFiles",
+                    "when": "editorTextFocus"
+                }
+            ]
+        },
+        {
+            "after": [],
+            "before": [
+                "r",
+                "r"
+            ],
+            "commands": [
+                {
+                    "args": {},
+                    "command": "editor.action.formatDocument",
+                    "when": "editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus"
+                }
+            ]
+        },
+        {
+            "after": [],
+            "before": [
+                "r",
+                "d"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.duplicateSelection"
+                }
+            ]
+        },
+        {
+            "after": [],
+            "before": [
+                "q",
+                "ç"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.marker.next"
+                }
+            ]
+        },
+        {
+            "after": [],
+            "before": [
+                "q",
+                "h"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.marker.prev"
+                }
+            ]
+        },
+        {
+            "after": [],
+            "before": [
+                "n",
+                "f"
+            ],
+            "commands": [
+                {
+                    "command": "workbench.action.quickOpen"
+                }
+            ]
+        },
+        {
+            "after": [],
+            "before": [
+                "<leader>",
+                "v",
+                "i",
+                "m"
+            ],
+            "commands": [
+                {
+                    "command": "workbench.action.openSettingsJson"
+                }
+            ]
+        },
+        {
             "after": [
-                "g",
+                "<leader>",
+                "<leader>",
+                "w"
+            ],
+            "before": [
+                "f",
+                "l"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "b"
+            ],
+            "before": [
+                "f",
                 "j"
             ]
         },
         {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "<leader>",
+                "b",
+                "d",
+                "w"
+            ],
             "before": [
+                "f",
+                "w"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "<leader>",
+                "b",
+                "d",
+                "e"
+            ],
+            "before": [
+                "f",
+                "e"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
                 "j"
             ],
+            "before": [
+                "f",
+                "ç"
+            ]
+        },
+        {
             "after": [
-                "g",
-                "j"
+                "<leader>",
+                "<leader>",
+                "k"
+            ],
+            "before": [
+                "f",
+                "h"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "/"
+            ],
+            "before": [
+                "f",
+                "q"
             ]
         },
         {
             "before": [
-                "k"
+                "M",
+                "M"
             ],
-            "after": [
-                "g",
-                "k"
+            "commands": [
+                "bookmarks.toggleLabeled"
             ]
         },
         {
             "before": [
-                "Up"
+                "M",
+                "C"
             ],
-            "after": [
-                "g",
-                "k"
+            "commands": [
+                "bookmarks.clear"
             ]
         },
         {
             "before": [
-                "<leader>", "right"
+                "M",
+                "R"
             ],
             "commands": [
-                "editor.action.marker.next"
+                "bookmarks.clearFromAllFiles"
             ]
-        },{
+        },
+        {
             "before": [
-                "<leader>", "left"
+                "o",
+                "m"
             ],
             "commands": [
-                "editor.action.marker.prev"
-            ]
-        },{
-            "before": [
-                "<leader>", "up"
-            ],
-            "commands": [
-                "editor.action.quickFix"
+                "bookmarks.list"
             ]
         }
     ],
-    "vim.normalModeKeyBindingsNonRecursive": [],
     "vim.operatorPendingModeKeyBindings": [],
     "vim.operatorPendingModeKeyBindingsNonRecursive": [],
+    "vim.showMarksInGutter": true,
     "vim.smartRelativeLine": true,
-    "vim.sneak": true,
-    "vim.sneakReplacesF": true,
-    "vim.sneakUseIgnorecaseAndSmartcase": true,
     "vim.useSystemClipboard": true,
-    "vim.visualModeKeyBindings": [],
-    "vim.visualModeKeyBindingsNonRecursive": [],
-    "vim.whichwrap": "b,s,",
-    "editor.columnSelection": true,
     "vim.vimrc.enable": true,
-    "vim.vimrc.path": "C:\\Users\\Mateus\\.ideavimrc",
+    "vim.vimrc.path": "$HOME/.ideavimrc",
+    "vim.visualModeKeyBindings": [],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "commands": [
+                {
+                    "command": "editor.action.duplicateSelection"
+                }
+            ],
+            "before": [
+                "r",
+                "d"
+            ],
+            "after": []
+        },
+        {
+            "before": [
+                "f",
+                "l"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "w"
+            ]
+        },
+        {
+            "before": [
+                "f",
+                "j"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "b"
+            ]
+        },
+        {
+            "before": [
+                "f",
+                "w"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "<leader>",
+                "b",
+                "d",
+                "w"
+            ]
+        },
+        {
+            "before": [
+                "f",
+                "e"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "<leader>",
+                "b",
+                "d",
+                "e"
+            ]
+        },
+        {
+            "before": [
+                "f",
+                "ç"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "f",
+                "h"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "k"
+            ]
+        },
+        {
+            "before": [
+                "f",
+                "/"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "/"
+            ]
+        },
+    ],
+    "vim.whichwrap": "b,s,"
 }
