@@ -1,7 +1,9 @@
 let mapleader=" "
 
-set showmode
+scriptencoding utf-8
+set encoding=utf-8
 set visualbell
+set showmode
 set number
 set ruler
 
@@ -26,6 +28,25 @@ set clipboard+=unnamed
 "set digraph
 "set iskeyword
 
+if !has('nvim')
+
+    call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+    " Plugins will be downloaded under the specified directory.
+
+    Plug 'michaeljsmith/vim-ident-object' 
+    Plug 'tpope/vim-surround'
+
+    Plug 'easymotion/vim-easymotion'
+    let g:EasyMotion_do_mapping = 0
+
+    Plug 'machakann/vim-highlightedyank'
+    let g:highlightedyank_highlight_duration = "1000"
+    let g:highlightedyank_highlight_color = "rgba(100, 160, 100, 100)"
+
+    " List ends here. Plugins become visible to Vim after this call.
+    call plug#end()
+
+endif
 """ Overrides ------------------------------------------------
 
 " typos
@@ -134,11 +155,11 @@ nnoremap qp }
 
 nnoremap qi <C-U>
 nnoremap qk <C-D>
-nnoremap qI gg
-nnoremap qK G
 
 vnoremap qi {
 vnoremap qk }
+vnoremap qI gg
+vnoremap qK G
 
 nnoremap ql <C-I>
 nnoremap qj <C-O>
@@ -150,7 +171,6 @@ vnoremap qp }
 """ ____________________ [W] prefix is for [W]ord movement
 
 "Additional text objects: ai, ii, aI
-Plug 'michaeljsmith/vim-ident-object' 
     
 "nnoremap w <Nop>
 "nnoremap ww w
@@ -217,8 +237,8 @@ nnoremap rj J
 nnoremap rr gq
 vnoremap rr gq
 
-vnoremap rsp :sort i<CR>
-vnoremap rsP :sort! i<CR>
+vnoremap r> :sort i<CR>
+vnoremap r< :sort! i<CR>
 
 nnoremap rd "ayy"ap
 vnoremap r. :s/)\./)\r./g<CR>
@@ -227,10 +247,6 @@ vnoremap r, :s/,/,\r/g<CR>
 """ ____________________ [T] prefix is unmodified
 
 """ ____________________ [Y] prefix is for yanking
-
-Plug 'machakann/vim-highlightedyank'
-let g:highlightedyank_highlight_duration = "1000"
-let g:highlightedyank_highlight_color = "rgba(100, 160, 100, 100)"
 
 """ ____________________ [U] prefix is unmodified
 
@@ -253,7 +269,6 @@ vnoremap P "ad<Esc>P
 
 """ ____________________ [S] Prefix Controls [S]urroundings
 
-Plug 'tpope/vim-surround'
 
 nnoremap s <Nop>
 
@@ -270,7 +285,6 @@ nnoremap d<Space> "adf<Space>
 nnoremap dl "adt
 nnoremap dj "adT
 nnoremap dk "adl
-nnoremap di "adl
 
 nnoremap d<Home> "ad<Home>
 nnoremap dh "ad<Home>
@@ -284,7 +298,7 @@ nnoremap du d{
 
 " nnoremap D "adt
 " nnoremap DD "aD
-" nnoremap dip "adipO<Esc>
+nnoremap dip "adip<Esc>
 
 nnoremap <Del> "adl
 nnoremap <C-Del> "adw
@@ -298,8 +312,6 @@ vnoremap <C-Backspace> "ad
 
 """ ____________________ [F] Prefix Controls [F]ind
 
-Plug 'easymotion/vim-easymotion'
-let g:EasyMotion_do_mapping = 0
 
 nnoremap f <Nop>
 
@@ -309,21 +321,22 @@ nnoremap fn ;
 nnoremap fN ,
 nnoremap fk *
 nnoremap fi #
-nnoremap f. &
-vnoremap f. &
 
 nnoremap fl <leader><leader>w
 nnoremap fj <leader><leader>b
 nnoremap fç <leader><leader>j
 nnoremap fh <leader><leader>k
 nnoremap f/ <leader><leader>/
-nnoremap fw <leader><leader><leader>bdw
-nnoremap fe <leader><leader><leader>bde
 
 nnoremap fu :set invhlsearch<CR>
 nnoremap <A-f><A-f> /
 nnoremap fs :s/
 vnoremap fs :s/
+nnoremap f. &
+vnoremap f. &
+
+vnoremap r. :s/)\./)\r./g<CR>gq
+vnoremap r, :s/,/,\r/g<CR>gq
 
 " todo: finish these
 "     search for currently selected text 
@@ -353,7 +366,6 @@ nnoremap zj zH
 
 """ ________________________________ [X] prefix controls code stuff
 
-
 nnoremap x <Nop>
 
 " region collapse
@@ -373,13 +385,13 @@ nnoremap cL "acf
 nnoremap cj "acT
 nnoremap cJ "acF
 
-nnoremap c<Home> "ac<Home>
-nnoremap cç "ac<Home>
-nnoremap c<End> "ac0
-nnoremap ch "ac0
+nnoremap ch "ac^
+nnoremap c<Home> "ac^
+nnoremap cç "aC
+nnoremap c<End> "aC
 
 nnoremap ck "acl
-nnoremap ci "acl
+" ci is inside dummy
 
 nnoremap co c%
 
@@ -403,8 +415,10 @@ vnoremap V <C-v>
 
 nnoremap vv V
 nnoremap viv g^vg_
-nnoremap vpa va}V
-nnoremap vpf va)V
+nnoremap voa va}V
+vnoremap voa a}V
+nnoremap vof va)V
+vnoremap vof a)V
 
 """ ________________________________ [B] prefix is unmodified
 
@@ -415,10 +429,10 @@ nnoremap nn n
 nnoremap nd gD
 vnoremap nd <Esc>gD
 
-nnoremap nI G
-vnoremap nI G
-nnoremap nK gg
-vnoremap nK gg
+nnoremap nI gg
+vnoremap nI gg
+nnoremap nK G
+vnoremap nK G
 
 """ ________________________________ [M] prefix controls [M]ovements
 
@@ -462,8 +476,8 @@ nnoremap mL ?]<CR>vi[
 vnoremap mL /[<CR><Esc>nvi[
 
 " move class
-nnoremap mz /class/b-1<CR>viw 
-vnoremap mz <Esc>/class/b-1<CR>viw
+nnoremap mz /class/b-3<CR>viw
+vnoremap mz <Esc>/class/b-3<CR>viw
 
 " mc is busy
 

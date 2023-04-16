@@ -388,8 +388,6 @@
     "vim.showMarksInGutter": true,
     "vim.smartRelativeLine": true,
     "vim.useSystemClipboard": true,
-    "vim.vimrc.enable": true,
-    "vim.vimrc.path": "$HOME/.ideavimrc",
     "vim.visualModeKeyBindings": [],
     "vim.visualModeKeyBindingsNonRecursive": [
         {
@@ -494,4 +492,5 @@
     "workbench.editor.enablePreview": false,
     "terminal.integrated.defaultProfile.osx": "zsh",
     "editor.columnSelection": true,
+    "vim.vimrc.enable": true,
 }

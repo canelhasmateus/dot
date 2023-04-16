@@ -1,5 +1,7 @@
 <keymap version="1" name="Macnelhas" parent="$default">
-  <action id="$Copy" />
+  <action id="$Copy">
+    <keyboard-shortcut first-keystroke="meta c" />
+  </action>
   <action id="$Cut">
     <keyboard-shortcut first-keystroke="meta x" />
   </action>
@@ -14,6 +16,10 @@
   </action>
   <action id="$SearchWeb">
     <keyboard-shortcut first-keystroke="alt e" second-keystroke="f" />
+  </action>
+  <action id="$SelectAll">
+    <keyboard-shortcut first-keystroke="ctrl a" />
+    <keyboard-shortcut first-keystroke="meta a" />
   </action>
   <action id="$Undo">
     <keyboard-shortcut first-keystroke="meta z" />
@@ -173,9 +179,6 @@
   <action id="Console.Execute" />
   <action id="Console.Execute.Multiline" />
   <action id="Console.History.Browse" />
-  <action id="Console.Jdbc.Execute">
-    <keyboard-shortcut first-keystroke="alt enter" />
-  </action>
   <action id="Console.Jdbc.Execute.2" />
   <action id="Console.Jpa.GenerateDDL" />
   <action id="Console.Jpa.GenerateSql" />
@@ -188,6 +191,7 @@
   <action id="Console.TableResult.EditFilterCriteria" />
   <action id="Console.TableResult.EditValue">
     <keyboard-shortcut first-keystroke="enter" />
+    <keyboard-shortcut first-keystroke="alt enter" />
   </action>
   <action id="Console.TableResult.EditValueMaximized" />
   <action id="Console.TableResult.MaximizeEditingCell" />
@@ -214,8 +218,14 @@
   <action id="CopyElement">
     <keyboard-shortcut first-keystroke="alt r" second-keystroke="c" />
   </action>
+  <action id="CopyPathFromRepositoryRootProvider">
+    <keyboard-shortcut first-keystroke="alt p" second-keystroke="r" />
+  </action>
   <action id="CopyReference">
     <keyboard-shortcut first-keystroke="alt p" second-keystroke="l" />
+  </action>
+  <action id="CopySourceRootPath">
+    <keyboard-shortcut first-keystroke="alt p" second-keystroke="s" />
   </action>
   <action id="DatabaseView.CopyDdlAction" />
   <action id="DatabaseView.OpenDdlInConsole" />
@@ -227,6 +237,9 @@
   <action id="Debug" />
   <action id="Debugger.AddInlineWatch">
     <keyboard-shortcut first-keystroke="alt b" second-keystroke="w" />
+  </action>
+  <action id="Debugger.AddToWatch">
+    <keyboard-shortcut first-keystroke="alt b" second-keystroke="v" />
   </action>
   <action id="Debugger.EditTypeSource" />
   <action id="Debugger.RemoveAllBreakpoints">
@@ -251,8 +264,13 @@
     <keyboard-shortcut first-keystroke="f10" />
   </action>
   <action id="EditPropertyValue" />
-  <action id="EditSource" />
+  <action id="EditSource">
+    <keyboard-shortcut first-keystroke="alt q" second-keystroke="s" />
+  </action>
   <action id="EditSourceInNewWindow" />
+  <action id="Editor Copy">
+    <keyboard-shortcut first-keystroke="meta c" />
+  </action>
   <action id="Editor Cut">
     <keyboard-shortcut first-keystroke="meta x" />
   </action>
@@ -267,6 +285,9 @@
   </action>
   <action id="Editor SearchWeb">
     <keyboard-shortcut first-keystroke="alt e" second-keystroke="f" />
+  </action>
+  <action id="Editor SelectAll">
+    <keyboard-shortcut first-keystroke="meta a" />
   </action>
   <action id="Editor Undo">
     <keyboard-shortcut first-keystroke="meta z" />
@@ -319,7 +340,15 @@
   </action>
   <action id="EditorCreateRectangularSelection" />
   <action id="EditorCreateRectangularSelectionOnMouseDrag" />
-  <action id="EditorDecreaseFontSize" />
+  <action id="EditorCutLineBackward">
+    <keyboard-shortcut first-keystroke="alt enter" />
+  </action>
+  <action id="EditorCutLineEnd">
+    <keyboard-shortcut first-keystroke="alt enter" />
+  </action>
+  <action id="EditorDecreaseFontSize">
+    <keyboard-shortcut first-keystroke="alt w" second-keystroke="minus" />
+  </action>
   <action id="EditorDeleteLine">
     <keyboard-shortcut first-keystroke="meta alt back_space" />
   </action>
@@ -353,7 +382,9 @@
   <action id="EditorForwardParagraphWithSelection">
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="shift alt k" />
   </action>
-  <action id="EditorIncreaseFontSize" />
+  <action id="EditorIncreaseFontSize">
+    <keyboard-shortcut first-keystroke="alt w" second-keystroke="equals" />
+  </action>
   <action id="EditorIndentLineOrSelection">
     <keyboard-shortcut first-keystroke="tab" />
   </action>
@@ -449,7 +480,9 @@
     <keyboard-shortcut first-keystroke="shift alt up" />
   </action>
   <action id="EditorShowGutterIconTooltip" />
-  <action id="EditorSortLines" />
+  <action id="EditorSortLines">
+    <keyboard-shortcut first-keystroke="alt r" second-keystroke="meta s" />
+  </action>
   <action id="EditorSplitLine" />
   <action id="EditorSwapSelectionBoundaries">
     <keyboard-shortcut first-keystroke="alt e" second-keystroke="shift i" />
@@ -570,6 +603,9 @@
   <action id="Generate">
     <keyboard-shortcut first-keystroke="alt r" second-keystroke="g" />
   </action>
+  <action id="GenerateTestMethod">
+    <keyboard-shortcut first-keystroke="alt t" second-keystroke="n" />
+  </action>
   <action id="Git.Branches" />
   <action id="Git.Commit.And.Push.Executor" />
   <action id="Git.Log.Branches.Change.Branch.Filter" />
@@ -623,7 +659,9 @@
   <action id="GotoPreviousError" />
   <action id="GotoRelated" />
   <action id="GotoSuperMethod" />
-  <action id="GotoTest" />
+  <action id="GotoTest">
+    <keyboard-shortcut first-keystroke="alt n" second-keystroke="t" />
+  </action>
   <action id="GotoTypeDeclaration" />
   <action id="Graph.ActualSize" />
   <action id="Graph.ApplyCurrentLayout" />
@@ -651,6 +689,10 @@
   <action id="Images.Thumbnails.ToggleRecursive" />
   <action id="Images.Thumbnails.UpFolder" />
   <action id="ImplementMethods" />
+  <action id="ImportTests">
+    <keyboard-shortcut first-keystroke="alt s" second-keystroke="h" />
+    <keyboard-shortcut first-keystroke="alt t" second-keystroke="h" />
+  </action>
   <action id="Inline">
     <keyboard-shortcut first-keystroke="alt r" second-keystroke="i" />
   </action>
@@ -746,8 +788,9 @@
   <action id="Mvc.RunTarget" />
   <action id="NewElement" />
   <action id="NewElementSamePlace" />
-  <action id="NewScratchFile">
-    <keyboard-shortcut first-keystroke="alt m" second-keystroke="meta n" />
+  <action id="NextDiff">
+    <keyboard-shortcut first-keystroke="f7" />
+    <keyboard-shortcut first-keystroke="meta alt k" />
   </action>
   <action id="NextEditorTab" />
   <action id="NextOccurence">
@@ -757,11 +800,6 @@
     <keyboard-shortcut first-keystroke="alt z" second-keystroke="alt l" />
   </action>
   <action id="NextTab" />
-  <action id="NotebookRunAllAction" />
-  <action id="NotebookRunCellAction">
-    <keyboard-shortcut first-keystroke="alt enter" />
-  </action>
-  <action id="NotebookRunCellSelectBelowAction" />
   <action id="OptimizeImports">
     <keyboard-shortcut first-keystroke="alt r" second-keystroke="o" />
   </action>
@@ -784,6 +822,10 @@
   <action id="PopupHector" />
   <action id="PrevSplitter">
     <keyboard-shortcut first-keystroke="alt z" second-keystroke="alt j" />
+  </action>
+  <action id="PreviousDiff">
+    <keyboard-shortcut first-keystroke="shift f7" />
+    <keyboard-shortcut first-keystroke="meta alt i" />
   </action>
   <action id="PreviousEditorTab" />
   <action id="PreviousOccurence" />
@@ -824,6 +866,7 @@
   </action>
   <action id="QuickList.New">
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="tab" />
+    <keyboard-shortcut first-keystroke="alt m" second-keystroke="meta n" />
   </action>
   <action id="QuickList.New File" />
   <action id="QuickList.Open">
@@ -850,6 +893,9 @@
   <action id="QuickPreview" />
   <action id="Rainbow.ScopeHighlightingAction" />
   <action id="Rainbow.ScopeOutsideHighlightingRestrainAction" />
+  <action id="RecentChangedFiles">
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="e" />
+  </action>
   <action id="RecentChanges">
     <keyboard-shortcut first-keystroke="alt o" second-keystroke="c" />
   </action>
@@ -879,7 +925,9 @@
   <action id="Rerun">
     <keyboard-shortcut first-keystroke="alt s" second-keystroke="meta s" />
   </action>
-  <action id="RerunTests" />
+  <action id="RerunTests">
+    <keyboard-shortcut first-keystroke="alt s" second-keystroke="t" />
+  </action>
   <action id="ResizeToolWindowDown">
     <keyboard-shortcut first-keystroke="alt w" second-keystroke="down" />
   </action>
@@ -965,7 +1013,10 @@
   <action id="ServiceView.ShowServices" />
   <action id="ShelvedChanges.Rename" />
   <action id="Show Psi Viewer Dialog for Current File" />
-  <action id="ShowBookmarks" />
+  <action id="ShowBookmarks">
+    <keyboard-shortcut first-keystroke="alt b" second-keystroke="escape" />
+    <keyboard-shortcut first-keystroke="alt b" second-keystroke="tab" />
+  </action>
   <action id="ShowErrorDescription">
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="w" />
   </action>
@@ -984,7 +1035,9 @@
     <keyboard-shortcut first-keystroke="ctrl 9" />
   </action>
   <action id="ShowProjectStructureSettings" />
-  <action id="ShowRecentTests" />
+  <action id="ShowRecentTests">
+    <keyboard-shortcut first-keystroke="alt t" second-keystroke="r" />
+  </action>
   <action id="ShowReformatFileDialog" />
   <action id="ShowSettings" />
   <action id="ShowSettingsAndFindUsages" />
@@ -1020,6 +1073,9 @@
   <action id="Stop">
     <keyboard-shortcut first-keystroke="alt s" second-keystroke="back_space" />
   </action>
+  <action id="StructuralSearchPlugin.StructuralSearchAction">
+    <keyboard-shortcut first-keystroke="alt f" second-keystroke="s" />
+  </action>
   <action id="SurroundWith">
     <keyboard-shortcut first-keystroke="alt r" second-keystroke="open_bracket" />
   </action>
@@ -1042,7 +1098,9 @@
   <action id="TodoViewGroupByFlattenPackage" />
   <action id="TodoViewGroupByShowModules" />
   <action id="TodoViewGroupByShowPackages" />
-  <action id="ToggleBookmark" />
+  <action id="ToggleBookmark">
+    <keyboard-shortcut first-keystroke="alt b" second-keystroke="q" />
+  </action>
   <action id="ToggleBookmark0" />
   <action id="ToggleBookmark1">
     <keyboard-shortcut first-keystroke="alt b" second-keystroke="1" />
@@ -1126,7 +1184,9 @@
   <action id="VcsHistory.ShowAllAffected" />
   <action id="VcsShowNextChangeMarker" />
   <action id="VcsShowPrevChangeMarker" />
-  <action id="ViewBreakpoints" />
+  <action id="ViewBreakpoints">
+    <keyboard-shortcut first-keystroke="alt w" second-keystroke="x" />
+  </action>
   <action id="VimActions" />
   <action id="VimFindActionIdAction">
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="meta alt b" />
@@ -1161,6 +1221,9 @@
     <keyboard-shortcut first-keystroke="alt d" second-keystroke="alt i" />
   </action>
   <action id="copilot.requestCompletions" />
+  <action id="editRunConfigurations">
+    <keyboard-shortcut first-keystroke="alt s" second-keystroke="x" />
+  </action>
   <action id="emacsIDEAs.AceJump" />
   <action id="emacsIDEAs.AceJumpSelect" />
   <action id="emacsIDEAs.AceJumpWord">

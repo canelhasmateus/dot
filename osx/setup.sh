@@ -26,7 +26,7 @@ installCodePlugins() {
         "eamodio.gitlens"
     )
 
-    for plugin in $plugins; do
+    for plugin in "${plugin[@]}"; do
         code --install-extension "$plugin"
     done
 }
@@ -48,20 +48,27 @@ createSymLink() {
 #todo : stow or something
 
 createSymLink "./osx/zsh/.zshrc" "$HOME/.zshrc"
-createSymLink "./software/nvim/.vimrc" "$HOME/.vimrc"
-createSymLink "./software/nvim/lua" "$HOME/.config/nvim/lua"
-createSymLink "./software/intellij/.ideavimrc-mac" "$HOME/.ideavimrc"
-createSymLink "./software/intellij/.ideavimrc-mac" "$HOME/.config/nvim/init.vim"
+createSymLink "./osx/zsh/.git-magic.sh" "$HOME/.git-magic.sh"
 createSymLink "./software/alacritty/mac.yml" "$HOME/.config/alacritty/alacritty.yml"
+
+vimplug="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs "$vimplug"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs "$vimplug"
+createSymLink "./software/nvim/lua" "$HOME/.config/nvim/lua"
+createSymLink "./software/nvim/.vimrc" "$HOME/.vimrc"
+createSymLink "./software/nvim/.vimrc" "$HOME/.config/nvim/init.vim"
+createSymLink "./software/intellij/.ideavimrc-split" "$HOME/.ideavimrc"
 
 createSymLink "./software/vscode/settings-mac.json" "$HOME/Library/Application Support/Code/User/settings.json"
 createSymLink "./software/vscode/keybindings-mac.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
 
 versions=(
+    "$HOME/Library/Application Support/JetBrains/IntelliJIdea2021.3"
     "$HOME/Library/Application Support/JetBrains/IntelliJIdea2022.2"
+    "$HOME/Library/Application Support/JetBrains/IntelliJIdea2023.1"
 )
 
-for version in $versions; do
+for version in "${versions[@]}"; do
     createSymLink "./software/intellij/keymaps/macnelhas.xml" "$version/settingsRepository/repository/keymaps/macnelha.xml"
     createSymLink "./software/intellij/keymaps/macnelhas.xml" "$version/keymaps/macnelha.xml"
     createSymLink "./software/intellij/templates" "$version/templates"

@@ -1,0 +1,273 @@
+:source ~/.vimrc
+
+Plug 'michaeljsmith/vim-ident-object'
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+let g:EasyMotion_do_mapping = 0
+
+Plug 'machakann/vim-highlightedyank'
+let g:highlightedyank_highlight_duration = "1000"
+let g:highlightedyank_highlight_color = "rgba(100, 160, 100, 100)"
+
+"""Plug 'preservim/nerdtree'
+"""Plug 'terryma/vim-multiple-cursor'
+"""Plug 'tpope/vim-commentary'
+"""Plug 'vim-scripts/ReplaceWithRegisters
+"""Plug 'vim-scripts/argtextobj.vim'
+"""let g:argtextobj_pairs="[:],(:),<:>"
+"""set sneak
+"""quickscope
+"""let g:match_words = '<:>,<tag>:</tag>'
+
+set ideamarks
+set ideajoin
+set idearefactormode=select
+set incsearch!
+
+sethandler <ESC> a:ide
+sethandler <C-x> a:ide
+sethandler <A-F> a:ide
+sethandler <A-S> a:ide
+sethandler <A-f> a:ide
+sethandler <C-I> a:ide
+sethandler <C-B> a:ide
+sethandler <C-L> a:ide
+sethandler <A-N> a:ide
+sethandler <C-P> a:ide
+sethandler <C-R> a:ide
+sethandler <C-U> a:ide
+sethandler <A-X> a:ide
+sethandler <C-\> a:ide
+sethandler <M-F> a:ide
+sethandler <M-n> a:ide
+sethandler <C-w> a:ide
+sethandler <C-D> a:ide
+sethandler <C-c> a:ide
+sethandler <C-s> a:ide
+sethandler <C-]> a:ide
+sethandler <C-[> a:ide
+sethandler <C-v> a:ide
+sethandler <C-A> a:ide
+
+sethandler <M-A> a:ide
+sethandler <A-Right> a:vim
+sethandler <S-A-Right> a:vim
+sethandler <A-Left> a:vim
+sethandler <S-A-Left> a:vim
+
+""" ____________________ [Q] prefix controls [Q]uick commands
+
+map I <Action>(EditorSelectWord)
+map K <Action>(EditorUnSelectWord)
+
+""" ____________________ [Q] prefix controls [Q]uick commands
+
+Plug 'chrisbra/matchit'
+Plug 'dbakker/vim-paragraph-motion'
+
+map qo <Plug>(MatchitMotion)
+
+map qu <Plug>(ParagraphPrevMotion)
+map qp <Plug>(ParagraphNextMotion)
+
+map qd <Action>(CompareTwoFiles)
+
+map qh <Action>(GotoPreviousError)
+map qç <Action>(GotoNextError)
+
+map qj <Action>(Back)
+map ql <Action>(Forward)
+map qJ <Action>(JumpToLastChange)
+map qL <Action>(JumpToNextChange)
+
+"todo quick evaluate expression map qe <Action>(...)
+
+""" ____________________ [W] prefix is for [W]ord movement
+
+""" ____________________ [E] prefix controls [E]dit cursor
+
+""" ____________________ [R] prefix controls [R]efactoring
+
+map rf <Action>(ExtractMethod)
+map rv <Action>(IntroduceVariable)
+map rk <Action>(IntroduceConstant)
+map ra <Action>(IntroduceField)
+map ri <Action>(Inline)
+map r<Del> <Action>(SafeDelete)
+map rs <Action>(ChangeSignature)
+map rn <Action>(RenameElement)
+map rm <Action>(Move)
+
+map rd <Action>(EditorDuplicate)
+map rj <Action>(EditorJoinLines)
+map ru <Action>(EditorToggleCase)
+map ro <Action>(OptimizeImports)
+map rr <Action>(ReformatCode)
+
+vnoremap r. :s/)\./)\r./g<CR>:action ReformatCode<CR>
+vnoremap r, :s/,/,\r/g<CR>:action ReformatCode<CR>
+
+""" ____________________ [T] prefix is unmodified
+
+""" ____________________ [Y] prefix is for yanking
+
+""" ____________________ [U] prefix is unmodified
+
+""" ____________________ [I] prefix is directional
+
+""" ____________________ [O] prefix controls [O]pening of popups
+
+map oe <Action>(RecentChangedFiles)
+map or <Action>(RecentFiles)
+map om <Action>($LRU)
+map ox <Action>(FileStructurePopup)
+map op <Action>(PasteMultiple)
+map oq <Action>(RecentLocations)
+
+""" ____________________ [P] prefix controls [P]asting
+
+""" __________________________________________________________________________________________________________________________________________________
+
+""" ____________________ [A] prefix is Undetermined
+
+""" ____________________ [S] Prefix Controls [S]urroundings
+
+map ss <Action>(SurroundWith)
+map su <Action>(Unwrap)
+
+""" ____________________ [D] Prefix Controls [D]eletions
+
+""" ____________________ [F] Prefix Controls [F]ind
+
+Plug 'easymotion/vim-easymotion'
+let g:EasyMotion_do_mapping = 0
+
+map <A-f><A-f> <Action>(Find)
+map fp <Plug>(easymotion-jumptoanywhere)
+
+map fl <Plug>(easymotion-w)
+map fj <Plug>(easymotion-b)
+map fç <Plug>(easymotion-eol-j)
+map fh <Plug>(easymotion-sol-k)
+
+map fL <Plug>(easymotion-e)
+map fJ <Plug>(easymotion-ge)
+map fÇ <Plug>(easymotion-sol-j)
+map fH <Plug>(easymotion-eol-k)
+
+"""map f. <Plug>(easymotion-bd-n)
+
+""" ____________________ [G] Prefix is directional ( Home )
+""" ____________________ [J] Prefix is directional ( Left )
+""" ____________________ [K] Prefix is directional ( Down )
+""" ____________________ [L] Prefix is directional ( Right )
+""" ____________________ [Ç] Prefix is directional ( End )
+
+map zm <Action>(NextSplitter)
+map zM <Action>(PrevSplitter)
+
+map z> <Action>(SplitVertically)
+map zo <Action>(ChangeSplitOrientation)
+map zu <Action>(Unsplit)
+map z<Backspace> <Action>(UnsplitAll)
+map z<C-Backspace> <Action>(UnsplitAll)
+
+"""___________________________________________________________________________________________________________________________________________________
+
+""" ________________________________ [Z] prefix controls [Z]ooming, [Z]ips and Scroll
+
+""" ________________________________ [X] prefix controls code stuff
+
+
+map x1 <Action>(ExpandAllToLevel1)
+map x2 <Action>(ExpandAllToLevel2)
+map x3 <Action>(ExpandAllToLevel3)
+
+map xi <Action>(MethodUp)
+map xk <Action>(MethodDown)
+
+map xc <Action>(CallHierarchy)
+map xm <Action>(MethodHierarchy)
+
+"""todo a quick list of some actions map xo <>
+"""todo complete current statement
+"""todo better templates
+"""todo better postfixes
+"""todo create emmet engine for other languages
+map xI <Action>(RunInspection)
+map xK <Action>(InsertLiveTemplate)
+
+map xv <Action>(ImportTests)
+map xr <Action>(ShowRecentTests)
+""" ________________________________ [C] prefix controls [C]hanging
+
+""" ________________________________ [V] prefix controls [V]isual selections
+
+"Commands: cx, cxx, X, cxc
+Plug 'tommcdo/vim-exchange' 
+Plug 'terryma/vim-multiple-cursors'
+
+vmap vs <Plug>(Exchange)
+"vmap xl <Plug>(multicursor-ms0)
+"vmap xç <Plug>(multicursor-ms$)
+"nmap x/ <Plug>(multicursor-mc/)
+
+map vn <Action>(SelectNextOccurrence)
+map vN <Action>(UnselectPreviousOccurrence)
+map vI <Action>(SelectAllOccurrences)
+
+
+""" ________________________________ [B] prefix is unmodified
+
+""" ________________________________ [N] prefix controls [N]avigation
+
+" remember: nnoremap nn n
+map nc <Action>(GotoClass)
+map nf <Action>(GotoFile)
+map ns <Action>(GotoSymbol)
+map nl <Action>(GotoLine)
+
+map nt <Action>(GotoTest)
+map nd <Action>(GotoDeclaration)
+map nD <Action>(GotoTypeDeclaration)
+map ni <Action>(GotoImplementation)
+map nS <Action>(GotoSuperMethod)
+map nr <Action>(GotoRelated)
+
+map nu <Action>(ShowUsages)
+
+""" ________________________________ [M] prefix controls [M]ovements
+
+"""___________________________________________________________________________________________________________________________________________________
+
+""" Experimental -----------------------------------------
+
+map rt <Action>(MembersPullUp)
+map rxi <Action>(ImplementMethods)
+map rxo <Action>(OverrideMethods)
+map rxd <Action>(DelegateMethods)
+
+map of <Action>(StructuralSearchPlugin.StructuralSearchAction)
+"todo map ofr <Action>(StructuralSearchPlugin.StructuralReplaceAction)
+"todo map ofp <Action>(FindInPath)
+
+map os <Action>(RunMenu)
+map oc <Action>(ChooseRunConfiguration)
+
+
+"""todo ShowRecentTests
+"""todo RecentChanges
+"""todo map oh <Action>(ProductivityGuide)
+"""todo map os <Action>(ActivateTerminalToolWindow)
+"""todo map ot <Action>(Rest Client)
+"""todo map ot <Action>(Quick Swithc scheme)
+"""todo EditBreakpoint
+"""todo ViewBreakpoints
+"""todo evaluate expression
+
+""" Meta -------------------------------------------------
+
+map <leader>vii :e ~/.vimrc<CR>
+map <leader>vim :e ~/.ideavimrc<CR>
+map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
+map <leader><leader<leader><leader><leader><leader>k <Esc>
