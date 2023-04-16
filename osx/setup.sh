@@ -1,30 +1,21 @@
 installCodePlugins() {
 
     plugins=(
-        "alefragnani.project-manager" "canelhasmateus.jewel"
-        "canelhasmateus.partial"
-        "mark-wiemer.vscode-autohotkey-plus-plus"
-        "percygrunwald.vscode-intellij-recent-files"
-        "ryuta46.multi-command"
+        "canelhasmateus.jewel"
+        "alefragnani.project-manager"
         "usernamehw.errorlens"
-        "wmaurer.vscode-jumpy"
-
-        "bierner.markdown-mermaid"
-        "bpruitt-goddard.mermaid-markdown-syntax-highlighting"
-        "foam.foam-vscode"
-        "yzhang.markdown-all-in-one"
-        "brokenprogrammer.paragraphjump"
         "DavidAnson.vscode-markdownlint"
         "znck.grammarly"
 
-        "ms-python.python"
-        "ms-vscode.anycode-typescript"
-        "ms-vscode.anycode"
-        "rbbit.typescript-hero"
-        "VisualStudioExptTeam.vscodeintellicode"
-        "eamodio.gitlens"
         "formulahendry.code-runner"
-
+        "ryuta46.multi-command"
+        "canelhasmateus.partial"
+        "percygrunwald.vscode-intellij-recent-files"
+        "foam.foam-vscode"
+        "bierner.markdown-mermaid"
+        "bpruitt-goddard.mermaid-markdown-syntax-highlighting"
+        "yzhang.markdown-all-in-one"
+        "eamodio.gitlens"
     )
 
     for plugin in $plugins; do
