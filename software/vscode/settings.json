@@ -359,7 +359,7 @@
     "vim.smartRelativeLine": true,
     "vim.useSystemClipboard": true,
     "vim.vimrc.enable": true,
-    "vim.vimrc.path": "$HOME/.ideavimrc",
+    "vim.vimrc.path": "$HOME/.vimrc",
     "vim.visualModeKeyBindings": [],
     "vim.visualModeKeyBindingsNonRecursive": [
         {

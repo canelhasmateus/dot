@@ -9,30 +9,29 @@ set wrapscan
 set incsearch
 set smartcase
 
-"""set hlsearch
-"""set maxmapdepth
-"""set history
+"set hlsearch
+"set maxmapdepth
+"set history
 
 set scroll=0
 set scrolloff=0
 set scrolljump=0
-"""set startofline
+"set startofline
 
-"""set keymodel="startsel,stopsel"
-"""set selection='inclusive'
-"""set selectmode=""
+"set keymodel="startsel,stopsel"
+"set selection='inclusive'
+"set selectmode=""
 
 set clipboard+=unnamed
-"""set digraph
-"""set iskeyword
+"set digraph
+"set iskeyword
 
 """ Overrides ------------------------------------------------
 
-""" typos
+" typos
 nnoremap cie ciw
 
-""" Directionals and Extend Layer
-
+" Directionals and Extend Layer
 nnoremap <Tab> >>
 nnoremap <S-Tab> <<
 vnoremap <Tab> >>gv
@@ -113,10 +112,10 @@ vnoremap <C-End> $
 vnoremap <C-S-End> $
 vnoremap <S-End> $
 
-"""vnoremap <Up> k
-"""vnoremap <Down> j
-"""vnoremap <Left> h
-"""vnoremap <Right> l
+"vnoremap <Up> k
+"vnoremap <Down> j
+"vnoremap <Left> h
+"vnoremap <Right> l
 
 vnoremap <S-Up> k
 vnoremap <S-Down> j
@@ -150,26 +149,27 @@ vnoremap qp }
 
 """ ____________________ [W] prefix is for [W]ord movement
 
-Plug 'michaeljsmith/vim-ident-object' """Additional text objects: ai, ii, aI
-   
+"Additional text objects: ai, ii, aI
+Plug 'michaeljsmith/vim-ident-object' 
     
-"""nnoremap w <Nop>
-"""nnoremap ww w
+"nnoremap w <Nop>
+"nnoremap ww w
 
-"""nnoremap wl w
-"""nnoremap wj b
-"""nnoremap wç W
-"""nnoremap wh B
+"nnoremap wl w
+"nnoremap wj b
+"nnoremap wç W
+"nnoremap wh B
 
-"""nnoremap wo e
-"""nnoremap wu ge
+"nnoremap wo e
+"nnoremap wu ge
 
 """ ____________________ [E] prefix controls [E]dit cursor
 
 nnoremap ee e
 vnoremap ee e
 
-nnoremap ea a """ Todo could be better
+" Todo - could be better
+nnoremap ea a 
 
 nnoremap ei O
 nnoremap ek o
@@ -183,7 +183,7 @@ vnoremap el <Esc>`>a
 
 nnoremap eL Ea
 nnoremap eJ Bi
-""" no visual counterpart
+" no visual counterpart
 
 nnoremap eç A
 vnoremap eç A
@@ -192,7 +192,7 @@ vnoremap eh I
 
 nnoremap eu {a
 nnoremap ep }i
-""" no visual counterpart
+" no visual counterpart
 
 nnoremap eo %a
 vnoremap eo <Esc>%i
@@ -202,7 +202,7 @@ nnoremap emj [bi
 vnoremap eml <Esc>`>]wa
 vnoremap emj <Esc>`<[bi
 
-"" Experimental
+" Experimental
 nnoremap e, /,<CR>i
 nnoremap e; /;<CR>i
 nnoremap e) /)<CR>i
@@ -243,6 +243,7 @@ vnoremap o <Nop>
 vnoremap oi o
 
 """ ____________________ [P] prefix controls [P]asting
+
 vnoremap p "ad<Esc>p
 vnoremap P "ad<Esc>P
 
@@ -250,19 +251,10 @@ vnoremap P "ad<Esc>P
 
 """ ____________________ [A] prefix is Undetermined
 
-nnoremap an <C-a>
-vnoremap an <C-a>gv
-nnoremap aN <C-x>
-vnoremap aN <C-x>gv
-
-nnoremap An g<C-a>
-vnoremap An g<C-a>
-nnoremap AN g<C-x>
-vnoremap AN g<C-x>
-
 """ ____________________ [S] Prefix Controls [S]urroundings
 
 Plug 'tpope/vim-surround'
+
 nnoremap s <Nop>
 
 " Java
@@ -290,9 +282,9 @@ nnoremap do d%
 nnoremap dp d}
 nnoremap du d{
 
-""" nnoremap D "adt
-""" nnoremap DD "aD
-""" nnoremap dip "adipO<Esc>
+" nnoremap D "adt
+" nnoremap DD "aD
+" nnoremap dip "adipO<Esc>
 
 nnoremap <Del> "adl
 nnoremap <C-Del> "adw
@@ -310,27 +302,36 @@ Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_do_mapping = 0
 
 nnoremap f <Nop>
-nnoremap fu :set invhlsearch<CR>
-nnoremap fk *
-nnoremap fi #
 
-nnoremap fn n
-nnoremap fe t
-
-nnoremap fr :s/
-vnoremap fr :s/
-nnoremap f. &
-vnoremap f. &
 nnoremap ff f
 vnoremap ff f
+nnoremap fn ;
+nnoremap fN ,
+nnoremap fk *
+nnoremap fi #
+nnoremap f. &
+vnoremap f. &
+
+nnoremap fl <leader><leader>w
+nnoremap fj <leader><leader>b
+nnoremap fç <leader><leader>j
+nnoremap fh <leader><leader>k
+nnoremap f/ <leader><leader>/
+nnoremap fw <leader><leader><leader>bdw
+nnoremap fe <leader><leader><leader>bde
+
+nnoremap fu :set invhlsearch<CR>
+nnoremap <A-f><A-f> /
+nnoremap fs :s/
+vnoremap fs :s/
 
 " todo: finish these
-" search for currently selected text 
-""" vnoremap fk "ay/\V<C-R>=escape(@",'/\')<CR><CR>
-" yank to search register
-""" nnoremap fy viw"/y
-""" vnoremap fy "/y
-""" nnoremap <A-f>f /
+"     search for currently selected text 
+"     noremap fk "ay/\V<C-R>=escape(@",'/\')<CR><CR>
+"     ank to search register
+"     noremap fy viw"/y
+"     noremap fy "/y
+"     noremap <A-f>f /
 
 """ ____________________ [G] Prefix is directional ( Home )
 """ ____________________ [J] Prefix is directional ( Left )
@@ -502,10 +503,23 @@ vnoremap mM <Esc>?(?e-1<CR>vBo
 
 """ Experimental -----------------------------------------
 
+" [A] layer
+nnoremap an <C-a>
+vnoremap an <C-a>gv
+nnoremap aN <C-x>
+vnoremap aN <C-x>gv
+
+nnoremap An g<C-a>
+vnoremap An g<C-a>
+nnoremap AN g<C-x>
+vnoremap AN g<C-x>
+
+" Macro
 noremap Q q
 noremap am @
 noremap a. @@
 xnoremap <Leader>, :<UP><CR>
+
 
 " Java
 nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
@@ -513,6 +527,9 @@ nmap <leader>jt viveç}<Esc>vivehassertThatThrownBy{<Esc>ek.isInstanceOf(
 vmap <leader>je el)<Esc>gvejassertThat(<Esc>qo<leader>a.isEqualTo(
 nmap <leader>je el)<Esc>ejassertThat(<Esc>qo<leader>a.isEqualTo(
 nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
+
+" Literal insertion
+nnoremap <leader><Tab> i<C-v><Tab><Esc>
 
 """ Meta ------------------------------------------------- 
 
