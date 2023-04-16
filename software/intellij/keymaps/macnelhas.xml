@@ -757,6 +757,11 @@
     <keyboard-shortcut first-keystroke="alt z" second-keystroke="alt l" />
   </action>
   <action id="NextTab" />
+  <action id="NotebookRunAllAction" />
+  <action id="NotebookRunCellAction">
+    <keyboard-shortcut first-keystroke="alt enter" />
+  </action>
+  <action id="NotebookRunCellSelectBelowAction" />
   <action id="OptimizeImports">
     <keyboard-shortcut first-keystroke="alt r" second-keystroke="o" />
   </action>

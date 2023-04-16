@@ -2,7 +2,9 @@
     "[markdown]": {
         "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
     },
-    "[python]": {},
+    "[python]": {
+        "editor.formatOnType": true
+    },
     "debug.inlineValues": "auto",
     "diffEditor.codeLens": true,
     "editor.bracketPairColorization.enabled": true,
@@ -491,4 +493,5 @@
     "workbench.editor.showTabs": false,
     "workbench.editor.enablePreview": false,
     "terminal.integrated.defaultProfile.osx": "zsh",
+    "editor.columnSelection": true,
 }

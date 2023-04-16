@@ -554,8 +554,6 @@ nnoremap xk ]m
 
 if has('ide')
 
-    nmap xx vkxx
-    vmap xx <Plug>(Exchange)
 
 
     map x1 <Action>(ExpandAllToLevel1)

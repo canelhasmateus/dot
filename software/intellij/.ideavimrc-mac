@@ -3,7 +3,7 @@ let mapleader=" "
 set showmode
 set visualbell
 set number
-set relativenumber
+"""set relativenumber
 set ruler
 
 
@@ -81,10 +81,10 @@ if has('ide')
 """let g:match_words = '<:>,<tag>:</tag>'
 
 
-endif
 Plug 'michaeljsmith/vim-ident-object' """Additional text objects: ai, ii, aI
 Plug 'tommcdo/vim-exchange' """Commands: cx, cxx, X, cxc
 Plug 'tpope/vim-surround'
+endif
 
 """ Overrides ------------------------------------------------
 
@@ -199,6 +199,8 @@ nnoremap qp }
 
 nnoremap qi <C-U>
 nnoremap qk <C-D>
+nnoremap qI gg
+nnoremap qK G
 
 vnoremap qi {
 vnoremap qk }
@@ -210,9 +212,9 @@ vmap qo %
 vnoremap qu {
 vnoremap qp }
 
+if has('ide')
 Plug 'chrisbra/matchit'
 Plug 'dbakker/vim-paragraph-motion'
-if has('ide')
 
     map qo <Plug>(MatchitMotion)
 
@@ -236,6 +238,11 @@ if has('ide')
 
 endif
 
+"""if has('ide')
+"""    set multicursor
+"""    vmap <leader>l <Plug>(multicursor-ms0)
+"""    nmap <leader>c <Plug>(multicursor-mc/)
+"""endif
 
 """ ____________________ [W] prefix is for [W]ord movement
 
@@ -305,6 +312,8 @@ nnoremap rj J
 nnoremap rr gq
 nnoremap rsp vip:sort i<CR>
 nnoremap rsP vip:sort! i<CR>
+vnoremap rsp :sort i<CR>
+vnoremap rsP :sort! i<CR>
 
 nnoremap rd "ayy"ap
 vnoremap rr gq
@@ -330,6 +339,10 @@ if has('ide')
         map rt <Action>(MembersPullUp)
         map ru <Action>(EditorToggleCase)
         map rv <Action>(IntroduceVariable)
+        
+        map rxi <Action>(ImplementMethods)
+        map rxo <Action>(OverrideMethods)
+        map rxd <Action>(DelegateMethods)
         vnoremap rb :s/)\./)\r./g<CR>:action ReformatCode<CR>
         vnoremap r, :s/,/,\r/g<CR>:action ReformatCode<CR>
 endif
@@ -393,9 +406,16 @@ vnoremap P "ad<Esc>P
 
 """ ____________________ [A] prefix is Undetermined
 
-nnoremap ai a
-nnoremap al f
-nnoremap aj F
+nnoremap an <C-a>
+vnoremap an <C-a>gv
+nnoremap aN <C-x>
+vnoremap aN <C-x>gv
+
+nnoremap An g<C-a>
+vnoremap An g<C-a>
+nnoremap AN g<C-x>
+vnoremap AN g<C-x>
+
 
 """ ____________________ [S] Prefix Controls [S]urroundings
 
@@ -562,10 +582,7 @@ if has('ide')
     map x2 <Action>(ExpandAllToLevel2)
     map x3 <Action>(ExpandAllToLevel3)
 
-    map xri <Action>(ImplementMethods)
-    map xro <Action>(OverrideMethods)
-    map xrd <Action>(DelegateMethods)
-
+    
     map xi <Action>(MethodUp)
     map xk <Action>(MethodDown)
     map xl <Action>(SliceForward)
@@ -693,6 +710,8 @@ nnoremap me ]w[bv]w
 vnoremap me <Esc>]w[bv]w
 
 nnoremap mE [bv]w
+vnoremap mE <Esc>[b[bv]w
+
 nnoremap vie ]wv[b
 
 " All - move punctuation
@@ -706,8 +725,8 @@ nnoremap m; v/;<CR>
 vnoremap m; /;<CR>
 
 " All - move [list]
-nnoremap ml /]<CR>vi[
-vnoremap ml /]<CR><Esc>nvi[
+nnoremap ml /[<CR>vi[
+vnoremap ml o<Esc>/[<CR>vi[
 nnoremap msl ?]<CR>vi[
 vnoremap msl /[<CR><Esc>nvi[
 
@@ -748,22 +767,21 @@ nnoremap vaa va>
 nnoremap via vi>
 
 nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
+nmap <leader>jt viveç}<Esc>vivehassertThatThrownBy{<Esc>ek.isInstanceOf(
+vmap <leader>je el)<Esc>gvejassertThat(<Esc>qo<leader>a.isEqualTo(
+nmap <leader>je el)<Esc>ejassertThat(<Esc>qo<leader>a.isEqualTo(
+nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
 """vmap <leader>c <Plug>(multicursor-mc0)
 
-if has('ide')
-    set multicursor
-    vmap <leader>l <Plug>(multicursor-ms0)
-    nmap <leader>c <Plug>(multicursor-mc/)
-endif
 
 
-nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
 nnoremap <leader>vim :e ~/.ideavimrc<CR>
 
 
 noremap Q q
 noremap am @
 noremap a. @@
+xnoremap <Leader>, :<UP><CR>
 
 if has('ide')
     map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
@@ -771,10 +789,10 @@ else
     nnoremap <leader>wr :w<CR>:source ~\.ideavimrc<CR>
 endif
 
-
+if has('neovim')
 lua << EOF
 
 require "init.mac"
 
 EOF
-
+endif
