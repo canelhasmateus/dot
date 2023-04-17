@@ -130,10 +130,38 @@ map oq <Action>(RecentLocations)
 
 """ ____________________ [A] prefix is Undetermined
 
-""" ____________________ [S] Prefix Controls [S]urroundings
+""" ____________________ [S] Prefix Controls [S]elections and [S]urround 
+
+set multicursor
+nnoremap mc <Nop>
+vnoremap mc <Nop>
+nnoremap ms <Nop>
+vnoremap ms <Nop>
+
+Plug 'tommcdo/vim-exchange'
+
+vmap x <Plug>(Exchange)
 
 map ss <Action>(SurroundWith)
 map su <Action>(Unwrap)
+
+vmap / <Plug>(multicursor-ms/)
+vmap sh <C-V>v<Plug>(multicursor-ms^)
+vmap sç <C-V>V<Plug>(multicursor-ms$)
+
+vmap sc <Plug>(multicursor-msgU)
+vmap sw <Plug>(multicursor-msgU)
+vmap sW <Plug>(multicursor-msgU)
+vmap se <Plug>(multicursor-msgU)
+vmap sE <Plug>(multicursor-msgU)
+
+map <leader>aa <Plug>(multicursor-mcr)
+vmap <leader>sE <Plug>(multicursor-msE)
+vmap <leader>sF <Plug>(multicursor-msF)
+vmap <leader>sT <Plug>(multicursor-msT)
+vmap <leader>se <Plug>(multicursor-mse)
+vmap <leader>su <Plug>(multicursor-msgu)
+vmap <leader>st <Plug>(multicursor-mst)
 
 """ ____________________ [D] Prefix Controls [D]eletions
 
@@ -167,8 +195,8 @@ map zm <Action>(NextSplitter)
 map zM <Action>(PrevSplitter)
 
 map z> <Action>(SplitVertically)
+map z< <Action>(Unsplit)
 map zo <Action>(ChangeSplitOrientation)
-map zu <Action>(Unsplit)
 map z<Backspace> <Action>(UnsplitAll)
 map z<C-Backspace> <Action>(UnsplitAll)
 
@@ -199,23 +227,19 @@ map xK <Action>(InsertLiveTemplate)
 
 map xv <Action>(ImportTests)
 map xr <Action>(ShowRecentTests)
+
 """ ________________________________ [C] prefix controls [C]hanging
 
 """ ________________________________ [V] prefix controls [V]isual selections
 
-"Commands: cx, cxx, X, cxc
-Plug 'tommcdo/vim-exchange' 
 Plug 'terryma/vim-multiple-cursors'
 
-vmap vs <Plug>(Exchange)
-"vmap xl <Plug>(multicursor-ms0)
-"vmap xç <Plug>(multicursor-ms$)
-"nmap x/ <Plug>(multicursor-mc/)
-
-map vn <Action>(SelectNextOccurrence)
-map vN <Action>(UnselectPreviousOccurrence)
-map vI <Action>(SelectAllOccurrences)
-
+vmap v<Del> <Plug>SkipOccurrence
+vmap vd <Plug>SkipOccurrence
+vmap v<Backspace> <Plug>RemoveOccurrence
+vmap vi <Plug>RemoveOccurrence
+vmap vk <Plug>NextOccurrence
+vmap vI <Plug>AllOccurrences
 
 """ ________________________________ [B] prefix is unmodified
 
@@ -270,4 +294,4 @@ map oc <Action>(ChooseRunConfiguration)
 map <leader>vii :e ~/.vimrc<CR>
 map <leader>vim :e ~/.ideavimrc<CR>
 map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
-map <leader><leader<leader><leader><leader><leader>k <Esc>
+map <leader><leader<leader><leader><leader><leader>d <Esc>

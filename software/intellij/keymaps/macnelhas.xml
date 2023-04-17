@@ -179,6 +179,9 @@
   <action id="Console.Execute" />
   <action id="Console.Execute.Multiline" />
   <action id="Console.History.Browse" />
+  <action id="Console.Jdbc.Execute">
+    <keyboard-shortcut first-keystroke="meta enter" />
+  </action>
   <action id="Console.Jdbc.Execute.2" />
   <action id="Console.Jpa.GenerateDDL" />
   <action id="Console.Jpa.GenerateSql" />

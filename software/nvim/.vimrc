@@ -28,7 +28,7 @@ set clipboard+=unnamed
 "set digraph
 "set iskeyword
 
-if !has('nvim')
+if !has('nvim') && !has('ide')
 
     call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
     " Plugins will be downloaded under the specified directory.
@@ -233,6 +233,9 @@ nnoremap ed /{<CR>i
 """ ____________________ [R] prefix controls [R]efactoring
 
 nnoremap r <Nop>
+vnoremap r <Nop>
+vnoremap R r
+
 nnoremap rj J
 nnoremap rr gq
 vnoremap rr gq
@@ -397,6 +400,7 @@ nnoremap co c%
 
 """ ________________________________ [V] prefix controls [V]isual selections
 
+vnoremap v <Nop>
 nnoremap vl vt
 nnoremap vL vf
 nnoremap vj vT
@@ -410,10 +414,11 @@ nnoremap vk v
 nnoremap vK <C-v>j
 " nnoremap vi -> vi is inside dummy
 
-nnoremap V <C-v>
-vnoremap V <C-v>
-
+vnoremap V V
 nnoremap vv V
+nnoremap vb <C-V>
+vnoremap vb <C-V>
+
 nnoremap viv g^vg_
 nnoremap voa va}V
 vnoremap voa a}V
@@ -551,10 +556,10 @@ nnoremap <leader>wr :w<CR>:source ~\.vimrc<CR>
 nnoremap <leader>vim :e ~/.vimrc<CR>
 nnoremap <leader>vii :e ~/.ideavimrc<CR>
 
-if has('neovim')
+if has('nvim')
+
 lua << EOF
-
 require "init.mac"
-
 EOF
+
 endif
