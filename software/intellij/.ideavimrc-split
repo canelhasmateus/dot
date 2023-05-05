@@ -55,22 +55,21 @@ sethandler <S-A-Right> a:vim
 sethandler <A-Left> a:vim
 sethandler <S-A-Left> a:vim
 
-""" ____________________ [Q] prefix controls [Q]uick commands
+""" Overrides ------------------------------------------------
 
 map I <Action>(EditorSelectWord)
 map K <Action>(EditorUnSelectWord)
 
-""" ____________________ [Q] prefix controls [Q]uick commands
+"" ____________________ [Q] prefix controls [Q]uick commands
 
 Plug 'chrisbra/matchit'
 Plug 'dbakker/vim-paragraph-motion'
 
 map qo <Plug>(MatchitMotion)
+map qO <Plug>(ReverseMatchitMotion)
 
 map qu <Plug>(ParagraphPrevMotion)
 map qp <Plug>(ParagraphNextMotion)
-
-map qd <Action>(CompareTwoFiles)
 
 map qh <Action>(GotoPreviousError)
 map qç <Action>(GotoNextError)
@@ -79,6 +78,8 @@ map qj <Action>(Back)
 map ql <Action>(Forward)
 map qJ <Action>(JumpToLastChange)
 map qL <Action>(JumpToNextChange)
+
+map qd <Action>(CompareTwoFiles)
 
 "todo quick evaluate expression map qe <Action>(...)
 
@@ -117,11 +118,13 @@ vnoremap r, :s/,/,\r/g<CR>:action ReformatCode<CR>
 
 """ ____________________ [O] prefix controls [O]pening of popups
 
+map op <Action>(PasteMultiple)
+
 map oe <Action>(RecentChangedFiles)
 map or <Action>(RecentFiles)
 map om <Action>($LRU)
 map ox <Action>(FileStructurePopup)
-map op <Action>(PasteMultiple)
+map ol <Action>(RecentLocations)
 map oq <Action>(RecentLocations)
 
 """ ____________________ [P] prefix controls [P]asting
@@ -138,9 +141,6 @@ vnoremap mc <Nop>
 nnoremap ms <Nop>
 vnoremap ms <Nop>
 
-Plug 'tommcdo/vim-exchange'
-
-vmap x <Plug>(Exchange)
 
 map ss <Action>(SurroundWith)
 map su <Action>(Unwrap)
@@ -148,13 +148,12 @@ map su <Action>(Unwrap)
 vmap / <Plug>(multicursor-ms/)
 vmap sh <C-V>v<Plug>(multicursor-ms^)
 vmap sç <C-V>V<Plug>(multicursor-ms$)
-
 vmap sc <Plug>(multicursor-msgU)
+
 vmap sw <Plug>(multicursor-msgU)
 vmap sW <Plug>(multicursor-msgU)
 vmap se <Plug>(multicursor-msgU)
 vmap sE <Plug>(multicursor-msgU)
-
 map <leader>aa <Plug>(multicursor-mcr)
 vmap <leader>sE <Plug>(multicursor-msE)
 vmap <leader>sF <Plug>(multicursor-msF)
@@ -171,6 +170,7 @@ Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_do_mapping = 0
 
 map <A-f><A-f> <Action>(Find)
+map <A-f><f> <Action>(Find)
 map fp <Plug>(easymotion-jumptoanywhere)
 
 map fl <Plug>(easymotion-w)
@@ -185,11 +185,31 @@ map fH <Plug>(easymotion-eol-k)
 
 """map f. <Plug>(easymotion-bd-n)
 
-""" ____________________ [G] Prefix is directional ( Home )
+""" ____________________ [G] Prefix is undefined
+
+"Doesn't work for some reason
+"map gi <Action>(PreviousDiff)
+"map gk <Action>(NextDiff)
+
+map gi <Action>(VcsShowPrevChangeMarker)
+map gk <Action>(VcsShowNextChangeMarker)
+map gu <Action>(Vcs.RollbackChangedLines)
+map gl <Action>(Vcs.MoveChangedLinesToChangelist)
+map gd <Action>(Vcs.ShowDiffChangedLines)
+"Majera.CodeReview.Bitbucket.LeaveCommentForLineAction
+"Majera.CodeReview.Bitbucket.ShowContextPullRequestFileDiff
+"ActivateBitbucketPullRequestsToolWindow
+
+""" ____________________ [H] Prefix is directional ( Home )
 """ ____________________ [J] Prefix is directional ( Left )
 """ ____________________ [K] Prefix is directional ( Down )
 """ ____________________ [L] Prefix is directional ( Right )
 """ ____________________ [Ç] Prefix is directional ( End )
+
+
+"""___________________________________________________________________________________________________________________________________________________
+
+""" ________________________________ [Z] prefix controls [Z]ooming, [Z]ips and Scroll
 
 map zm <Action>(NextSplitter)
 map zM <Action>(PrevSplitter)
@@ -200,19 +220,23 @@ map zo <Action>(ChangeSplitOrientation)
 map z<Backspace> <Action>(UnsplitAll)
 map z<C-Backspace> <Action>(UnsplitAll)
 
-"""___________________________________________________________________________________________________________________________________________________
-
-""" ________________________________ [Z] prefix controls [Z]ooming, [Z]ips and Scroll
-
 """ ________________________________ [X] prefix controls code stuff
 
+Plug 'tommcdo/vim-exchange'
+
+vmap xx <Plug>(Exchange)
+
+map xi <Action>(MethodUp)
+map xk <Action>(MethodDown)
 
 map x1 <Action>(ExpandAllToLevel1)
 map x2 <Action>(ExpandAllToLevel2)
 map x3 <Action>(ExpandAllToLevel3)
 
-map xi <Action>(MethodUp)
-map xk <Action>(MethodDown)
+" Experimental
+
+vmap xj <Action>(CollapseSelection)
+vmap xl <Action>(GotoCustomRegion)
 
 map xc <Action>(CallHierarchy)
 map xm <Action>(MethodHierarchy)
@@ -222,6 +246,7 @@ map xm <Action>(MethodHierarchy)
 """todo better templates
 """todo better postfixes
 """todo create emmet engine for other languages
+
 map xI <Action>(RunInspection)
 map xK <Action>(InsertLiveTemplate)
 
@@ -238,8 +263,9 @@ vmap v<Del> <Plug>SkipOccurrence
 vmap vd <Plug>SkipOccurrence
 vmap v<Backspace> <Plug>RemoveOccurrence
 vmap vi <Plug>RemoveOccurrence
+vmap vI <Esc><Esc>
 vmap vk <Plug>NextOccurrence
-vmap vI <Plug>AllOccurrences
+vmap vK <Plug>AllOccurrences
 
 """ ________________________________ [B] prefix is unmodified
 
@@ -278,6 +304,8 @@ map of <Action>(StructuralSearchPlugin.StructuralSearchAction)
 map os <Action>(RunMenu)
 map oc <Action>(ChooseRunConfiguration)
 
+map qe <Action>(QuickEvaluateExpression)
+map qw <Action>(EvaluateExpression)
 
 """todo ShowRecentTests
 """todo RecentChanges
@@ -294,4 +322,4 @@ map oc <Action>(ChooseRunConfiguration)
 map <leader>vii :e ~/.vimrc<CR>
 map <leader>vim :e ~/.ideavimrc<CR>
 map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
-map <leader><leader<leader><leader><leader><leader>d <Esc>
+map <leader><leader<leader><leader><leader><leader>c <Esc>

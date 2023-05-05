@@ -176,4 +176,9 @@
       <option name="Python_Top_Level" value="true" />
     </context>
   </template>
+  <template name="test" value="@org.junit.jupiter.api.Test&#10;    fun `should do something when something if condition`() {&#10;        // given&#10;&#10;        // when&#10;&#10;        // then&#10;        org.assertj.core.api.Assertions.assertThat(&quot;result&quot;).isEqualTo(&quot;state after action&quot;)&#10;    }" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN_CLASS" value="true" />
+    </context>
+  </template>
 </templateSet>

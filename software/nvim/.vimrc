@@ -146,27 +146,33 @@ vnoremap <S-Right> l
 """ ____________________ [Q] prefix controls [Q]uick commands
 
 nnoremap q <Nop>
-nnoremap qq <Esc>
-nnoremap qe zz
 
-nmap qo %
+nnoremap qq <Esc>
+vnoremap qq <Esc>
+
+nnoremap qo %
 nnoremap qu {
 nnoremap qp }
 
+vnoremap qo %
+vnoremap qu {
+vnoremap qp }
+
 nnoremap qi <C-U>
 nnoremap qk <C-D>
+nnoremap qI gg
+nnoremap qK G
 
-vnoremap qi {
-vnoremap qk }
+vnoremap qi <C-U>
+vnoremap qk <C-D>
 vnoremap qI gg
 vnoremap qK G
 
 nnoremap ql <C-I>
 nnoremap qj <C-O>
+nnoremap qL ''
+nnoremap qJ '.
 
-vmap qo %
-vnoremap qu {
-vnoremap qp }
 
 """ ____________________ [W] prefix is for [W]ord movement
 
@@ -228,7 +234,7 @@ nnoremap e; /;<CR>i
 nnoremap e) /)<CR>i
 nnoremap e( /(<CR>i
 nnoremap e? /?<CR>i
-nnoremap ed /{<CR>i
+nnoremap e= /=<CR>i
 
 """ ____________________ [R] prefix controls [R]efactoring
 
@@ -289,11 +295,13 @@ nnoremap dl "adt
 nnoremap dj "adT
 nnoremap dk "adl
 
-nnoremap d<Home> "ad<Home>
-nnoremap dh "ad<Home>
+nnoremap d<Home> d^
+nnoremap dh d^
+nnoremap dH d0
 
-nnoremap d<End> "ad<End>
-nnoremap dç "ad<End>
+nnoremap d<End> d$
+nnoremap dç d$
+nnoremap dÇ dg_
 
 nnoremap do d%
 nnoremap dp d}
@@ -301,7 +309,7 @@ nnoremap du d{
 
 " nnoremap D "adt
 " nnoremap DD "aD
-nnoremap dip "adip<Esc>
+nnoremap dip "adip
 
 nnoremap <Del> "adl
 nnoremap <C-Del> "adw
@@ -314,7 +322,6 @@ vnoremap <Backspace> "ad
 vnoremap <C-Backspace> "ad
 
 """ ____________________ [F] Prefix Controls [F]ind
-
 
 nnoremap f <Nop>
 
@@ -349,7 +356,8 @@ vnoremap r, :s/,/,\r/g<CR>gq
 "     noremap fy "/y
 "     noremap <A-f>f /
 
-""" ____________________ [G] Prefix is directional ( Home )
+""" ____________________ [G] Prefix is undefined
+""" ____________________ [H] Prefix is directional ( Home )
 """ ____________________ [J] Prefix is directional ( Left )
 """ ____________________ [K] Prefix is directional ( Down )
 """ ____________________ [L] Prefix is directional ( Right )
@@ -390,8 +398,8 @@ nnoremap cJ "acF
 
 nnoremap ch "ac^
 nnoremap c<Home> "ac^
-nnoremap cç "aC
-nnoremap c<End> "aC
+nnoremap cç "ac$
+nnoremap c<End> "ac$
 
 nnoremap ck "acl
 " ci is inside dummy
@@ -424,7 +432,7 @@ nnoremap voa va}V
 vnoremap voa a}V
 nnoremap vof va)V
 vnoremap vof a)V
-
+nnoremap vif vi)
 """ ________________________________ [B] prefix is unmodified
 
 """ ________________________________ [N] prefix controls [N]avigation
@@ -543,12 +551,14 @@ xnoremap <Leader>, :<UP><CR>
 " Java
 nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
 nmap <leader>jt viveç}<Esc>vivehassertThatThrownBy{<Esc>ek.isInstanceOf(
+vmap <leader>jt eç}<Esc>vivehassertThatThrownBy{<Esc>ek.isInstanceOf(
 vmap <leader>je el)<Esc>gvejassertThat(<Esc>qo<leader>a.isEqualTo(
-nmap <leader>je el)<Esc>ejassertThat(<Esc>qo<leader>a.isEqualTo(
+nmap <leader>je vivel)<Esc>ejassertThat(<Esc>qo<leader>a.isEqualTo(
 nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
 
 " Literal insertion
 nnoremap <leader><Tab> i<C-v><Tab><Esc>
+vnoremap <leader>x :w !python<CR>
 
 """ Meta ------------------------------------------------- 
 

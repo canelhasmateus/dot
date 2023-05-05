@@ -491,6 +491,5 @@
     "workbench.editor.showTabs": false,
     "workbench.editor.enablePreview": false,
     "terminal.integrated.defaultProfile.osx": "zsh",
-    "editor.columnSelection": true,
     "vim.vimrc.enable": true,
 }
