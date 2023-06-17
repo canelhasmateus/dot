@@ -171,6 +171,7 @@ nnoremap qK G
 
 vnoremap qi <C-U>
 vnoremap qk <C-D>
+
 vnoremap qI gg
 vnoremap qK G
 
@@ -178,7 +179,6 @@ nnoremap ql <C-I>
 nnoremap qj <C-O>
 nnoremap qL g;
 nnoremap qJ g,
-
 
 """ ____________________ [W] prefix is for [W]ord movement
 
@@ -448,14 +448,8 @@ vnoremap vof a)V
 nnoremap vif vi)
 """ ________________________________ [B] prefix is unmodified
 
-nnoremap nn n
 nnoremap nd gD
 vnoremap nd <Esc>gD
-
-nnoremap nI gg
-vnoremap nI gg
-nnoremap nK G
-vnoremap nK G
 
 """ ________________________________ [M] prefix controls [M]ovements
 
@@ -577,6 +571,8 @@ nnoremap <leader>wr :w<CR>:source ~\.vimrc<CR>
 nnoremap <leader>vii :e ~/.vimrc<CR>
 nnoremap <leader>vij :e ~/.ideavimrc<CR>
 nnoremap <leader>vim :e ~/.config/nvim/lua/user/keymaps.lua<CR>
+nnoremap <leader>oc :! code :f
+nnoremap <leader>oj :! idea :f
 
 if has('nvim')
 

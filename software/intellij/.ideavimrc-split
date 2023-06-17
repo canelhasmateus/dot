@@ -182,8 +182,8 @@ map fj <Plug>(easymotion-b)
 map fç <Plug>(easymotion-eol-j)
 map fh <Plug>(easymotion-sol-k)
 
-map fL <Plug>(easymotion-e)
-map fJ <Plug>(easymotion-ge)
+map fL n
+map fJ N
 map fÇ <Plug>(easymotion-sol-j)
 map fH <Plug>(easymotion-eol-k)
 
