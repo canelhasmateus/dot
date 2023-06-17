@@ -6136,5 +6136,28 @@
     "key": "escape",
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "!editorFocus"
+  },
+  {
+    "key": "alt+r m",
+    "command": "fileutils.moveFile"
+  },
+  {
+    "key": "alt+a p",
+    "command": "editor.action.insertSnippet"
+  },
+  {
+    "key": "alt+a v",
+    "command": "open-in-vim.open"
+  },
+  {
+    "key": "alt+w alt+k",
+    "command": "workbench.action.terminal.newWithCwd",
+    "args": {
+      "cwd": "${fileDirname}"
+    }
+  },
+  {
+    "key": "alt+r shift+r",
+    "command": "editor.action.formatDocument.multiple"
   }
 ]

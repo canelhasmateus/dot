@@ -56,9 +56,6 @@ function Utilities(app) {
 
 function run() {
 
-    var app = Application.currentApplication()
-    app.includeStandardAdditions = true
-    utils = Utilities(app)
 
     function persist(transition) {
         const content = `\n${transition.date}\t${transition.status}\t${transition.resource}`
@@ -82,6 +79,9 @@ function run() {
         }
     }
 
+    var app = Application.currentApplication()
+    app.includeStandardAdditions = true
+    utils = Utilities(app)
 
     const currentUrl = Application('Chrome').windows[0].activeTab.url()
     const transition = promptTransition(currentUrl)

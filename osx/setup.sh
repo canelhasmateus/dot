@@ -61,11 +61,14 @@ createSymLink "./software/intellij/.ideavimrc-split" "$HOME/.ideavimrc"
 
 createSymLink "./software/vscode/settings-mac.json" "$HOME/Library/Application Support/Code/User/settings.json"
 createSymLink "./software/vscode/keybindings-mac.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
+createSymLink "./software/dev/mac_colima.yaml" "$HOME/.colima/_templates/colima.yaml"
+createSymLink "./software/dev/mac_colima.yaml" "$HOME/.colima/default/colima.yaml"
 
 versions=(
     "$HOME/Library/Application Support/JetBrains/IntelliJIdea2021.3"
     "$HOME/Library/Application Support/JetBrains/IntelliJIdea2022.2"
     "$HOME/Library/Application Support/JetBrains/IntelliJIdea2023.1"
+    "$HOME/Library/Application Support/JetBrains/DataSpell2023.1"
 )
 
 for version in "${versions[@]}"; do

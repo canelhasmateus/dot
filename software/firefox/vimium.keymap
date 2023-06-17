@@ -9,6 +9,7 @@ map od duplicateTab
 map or visitPreviousTab
 map / enterFindMode
 map ? enterFindMode
+map nf enterFindMode
 map . performFind
 map , performBackwardsFind
 map vi focusInput
@@ -77,7 +78,8 @@ map ow removeTab
 map o<a-w> closeOtherTabs
 map ox moveTabToNewWindow
 map oc copyCurrentUrl
-map oy openCopiedUrlInCurrentTab
+map oy copyCurrentUrl
+map oY openCopiedUrlInCurrentTab
 
 #Rando
 map <a-a> previousTab

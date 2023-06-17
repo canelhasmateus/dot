@@ -1,16 +1,10 @@
 {
     "[markdown]": {
-        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
-    },
-    "[python]": {
-        "editor.formatOnType": true
+        "editor.defaultFormatter": "unifiedjs.vscode-remark",
     },
     "debug.inlineValues": "auto",
     "diffEditor.codeLens": true,
     "editor.bracketPairColorization.enabled": true,
-    "editor.codeActionsOnSave": {
-        "source.fixAll": true
-    },
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.cursorWidth": 3,
     "editor.find.autoFindInSelection": "multiline",
@@ -19,10 +13,9 @@
     "editor.fontLigatures": true,
     "editor.fontSize": 16,
     "editor.fontWeight": "normal",
-    "editor.formatOnPaste": true,
     "editor.inlineSuggest.enabled": true,
     "editor.largeFileOptimizations": true,
-    "editor.letterSpacing": 0.4,
+    "editor.letterSpacing": 0.5,
     "editor.minimap.scale": 2,
     "editor.minimap.showSlider": "always",
     "editor.parameterHints.cycle": true,
@@ -36,18 +29,7 @@
     "editor.showFoldingControls": "always",
     "editor.smoothScrolling": true,
     "editor.suggest.localityBonus": true,
-    "editor.suggest.shareSuggestSelections": true,
     "editor.suggestSelection": "first",
-    "emojisense.languages": {
-        ".mmd": true,
-        "git-commit": true,
-        "markdown": true,
-        "plaintext": {
-            "emojiDecoratorsEnabled": false,
-            "markupCompletionsEnabled": false
-        },
-        "scminput": true
-    },
     "errorLens.enabledDiagnosticLevels": [
         "warning",
         "info",
@@ -58,24 +40,12 @@
     "explorer.confirmDragAndDrop": false,
     "files.associations": {
         "*.kws": "xml",
-        "*.ts": "typescript"
+        "*.ts": "typescript",
+        "*.mdx": "Markdown"
     },
     "files.autoSave": "afterDelay",
     "files.eol": "\n",
-    "files.exclude": {
-        "**/.classpath": true,
-        "**/.factorypath": true,
-        "**/.project": true,
-        "**/.settings": true,
-        "**/.tmp.drivedownload": true,
-        "**/.tmp.driveupload": true,
-        "**/*.jar": true
-    },
-    "files.watcherExclude": {
-        "**/.ammonite": true,
-        "**/.bloop": true,
-        "**/.metals": true
-    },
+    "files.watcherExclude": { },
     "foam.files.attachmentExtensions": "pdf mp3 webm wav m4a mp4 avi mov rtf txt doc docx pages xls xlsx numbers ppt pptm pptx sh py js sql java kt",
     "foam.graph.titleMaxLength": 0,
     "gitlens.keymap": "none",
@@ -101,6 +71,9 @@
     ],
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.cursorWidth": 3,
+    "terminal.integrated.env.osx": {
+        "PATH": ":${env:PATH}"
+    },
     "terminal.integrated.defaultProfile.windows": "pwsh",
     "terminal.integrated.profiles.windows": {
         "Command Prompt": {
@@ -265,6 +238,21 @@
             ]
         },
         {
+            "after": [],
+            "before": [
+                "<leader>",
+                "v",
+                "i",
+                "i"
+            ],
+            "commands": [
+                {
+                    "command": "workbench.action.quickOpen",
+                    "args": "~/.vimrc\r\n"
+                }
+            ]
+        },
+        {
             "after": [
                 "<leader>",
                 "<leader>",
@@ -364,7 +352,8 @@
             "commands": [
                 "bookmarks.clear"
             ]
-        },        {
+        },
+        {
             "before": [
                 "M",
                 "R"
@@ -487,9 +476,23 @@
         },
     ],
     "vim.whichwrap": "b,s,",
-    "workbench.activityBar.visible": false,
     "workbench.editor.showTabs": false,
     "workbench.editor.enablePreview": false,
     "terminal.integrated.defaultProfile.osx": "zsh",
     "vim.vimrc.enable": true,
+    "D2.execPath": "/opt/homebrew/bin/d2",
+    "D2.autoUpdate": false,
+    "excalidraw.theme": "auto",
+    "open-in-vim.useNeovim": true,
+    "open-in-vim.integrated-terminal.pathToShell": "",
+    "eslint.format.enable": true,
+    "scss.format.enable": false,
+    "less.format.enable": false,
+    "css.format.enable": false,
+    "typescript.format.enable": false,
+    "json.format.enable": false,
+    "javascript.format.enable": false,
+    "html.format.enable": false,
+    "open-in-vim.openMethod": "macos.iterm",
+
 }

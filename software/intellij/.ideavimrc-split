@@ -28,6 +28,10 @@ sethandler <ESC> a:ide
 sethandler <C-x> a:ide
 sethandler <A-F> a:ide
 sethandler <A-S> a:ide
+sethandler <A-e> a:ide
+sethandler <A-E> a:ide
+sethandler <M-e> a:ide
+sethandler <M-E> a:ide
 sethandler <A-f> a:ide
 sethandler <C-I> a:ide
 sethandler <C-B> a:ide
@@ -154,7 +158,7 @@ vmap sw <Plug>(multicursor-msgU)
 vmap sW <Plug>(multicursor-msgU)
 vmap se <Plug>(multicursor-msgU)
 vmap sE <Plug>(multicursor-msgU)
-map <leader>aa <Plug>(multicursor-mcr)
+""map <leader>aa <Plug>(multicursor-mcr)
 vmap <leader>sE <Plug>(multicursor-msE)
 vmap <leader>sF <Plug>(multicursor-msF)
 vmap <leader>sT <Plug>(multicursor-msT)
@@ -301,11 +305,11 @@ map of <Action>(StructuralSearchPlugin.StructuralSearchAction)
 "todo map ofr <Action>(StructuralSearchPlugin.StructuralReplaceAction)
 "todo map ofp <Action>(FindInPath)
 
-map os <Action>(RunMenu)
-map oc <Action>(ChooseRunConfiguration)
+map os <Action>(ChooseRunConfiguration)
 
 map qe <Action>(QuickEvaluateExpression)
 map qw <Action>(EvaluateExpression)
+
 
 """todo ShowRecentTests
 """todo RecentChanges
@@ -316,10 +320,26 @@ map qw <Action>(EvaluateExpression)
 """todo EditBreakpoint
 """todo ViewBreakpoints
 """todo evaluate expression
+"""todo ActivateBitbucketPullRequestsToolWindow
 
 """ Meta -------------------------------------------------
 
 map <leader>vii :e ~/.vimrc<CR>
 map <leader>vim :e ~/.ideavimrc<CR>
 map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
-map <leader><leader<leader><leader><leader><leader>c <Esc>
+map gl <Action>(ChangesView.Move)
+map g> <Action>(Diff.ApplyLeftSide)
+
+
+map ti <Action>(NotebookSelectCellAboveAction)
+map tk <Action>(NotebookSelectCellBelowAction)
+
+map tI <Action>(NotebookInsertCellAboveAction)
+map tK <Action>(NotebookInsertCellBelowAction)
+
+map td <Action>(NotebookDeleteCellAction)
+map tt <Action>(JupyterConvertCellActions)
+map tx <Action>(NotebookSplitCellAction)
+map tX <Action>(NotebookMergeCellAboveAction)
+
+map <leader><leader<leader><leader><leader><leader>7 <Esc>

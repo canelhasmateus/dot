@@ -54,6 +54,9 @@
   <action id="AceWordStartAction">
     <keyboard-shortcut first-keystroke="alt f" second-keystroke="space" />
   </action>
+  <action id="ActivateBitbucketPullRequestsToolWindow">
+    <keyboard-shortcut first-keystroke="alt w" second-keystroke="r" />
+  </action>
   <action id="ActivateBookmarksToolWindow">
     <keyboard-shortcut first-keystroke="alt 2" />
     <keyboard-shortcut first-keystroke="alt w" second-keystroke="q" />
@@ -200,7 +203,6 @@
   <action id="Console.TableResult.MaximizeEditingCell" />
   <action id="Console.TableResult.NavigateExportedAction" />
   <action id="Console.TableResult.NavigateForeignAction">
-    <keyboard-shortcut first-keystroke="alt q" second-keystroke="up" />
     <mouse-shortcut keystroke="control button1" />
   </action>
   <action id="Console.TableResult.NextPage" />
@@ -351,12 +353,6 @@
   </action>
   <action id="EditorCreateRectangularSelection" />
   <action id="EditorCreateRectangularSelectionOnMouseDrag" />
-  <action id="EditorCutLineBackward">
-    <keyboard-shortcut first-keystroke="alt enter" />
-  </action>
-  <action id="EditorCutLineEnd">
-    <keyboard-shortcut first-keystroke="alt enter" />
-  </action>
   <action id="EditorDecreaseFontSizeGlobal">
     <keyboard-shortcut first-keystroke="alt w" second-keystroke="minus" />
   </action>
@@ -523,9 +519,6 @@
   <action id="EditorToggleColumnMode">
     <keyboard-shortcut first-keystroke="alt e" second-keystroke="enter" />
   </action>
-  <action id="EditorToggleInsertState">
-    <keyboard-shortcut first-keystroke="alt e" second-keystroke="i" />
-  </action>
   <action id="EditorToggleStickySelection">
     <keyboard-shortcut first-keystroke="alt e" second-keystroke="shift enter" />
   </action>
@@ -662,8 +655,11 @@
   <action id="GotoBookmark9" />
   <action id="GotoClass" />
   <action id="GotoDeclaration">
-    <keyboard-shortcut first-keystroke="alt q" second-keystroke="up" />
     <mouse-shortcut keystroke="control button1" />
+  </action>
+  <action id="GotoFile">
+    <keyboard-shortcut first-keystroke="shift ctrl n" />
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="q" />
   </action>
   <action id="GotoImplementation" />
   <action id="GotoLine">
@@ -745,6 +741,33 @@
   <action id="Jdbc.OpenConsole.New" />
   <action id="Julia.Tools.REPL.SendSelection" />
   <action id="JumpToLastChange" />
+  <action id="JupyterNotebookCollapseOutputsCommandModeAction" />
+  <action id="JupyterNotebookConvertToCodeCellCommandModeAction" />
+  <action id="JupyterNotebookConvertToMarkdownCellCommandModeAction" />
+  <action id="JupyterNotebookCopyCellCommandModeAction">
+    <keyboard-shortcut first-keystroke="ctrl c" />
+  </action>
+  <action id="JupyterNotebookCutCellCommandModeAction">
+    <keyboard-shortcut first-keystroke="ctrl x" />
+  </action>
+  <action id="JupyterNotebookDeleteCellCommandModeAction">
+    <keyboard-shortcut first-keystroke="delete" />
+  </action>
+  <action id="JupyterNotebookInsertCellAboveCommandModeAction" />
+  <action id="JupyterNotebookInsertCellBelowCommandModeAction" />
+  <action id="JupyterNotebookInterruptKernelCommandModeAction" />
+  <action id="JupyterNotebookPasteCellAboveCommandModeAction">
+    <keyboard-shortcut first-keystroke="shift ctrl v" />
+  </action>
+  <action id="JupyterNotebookPasteCellCommandModeAction">
+    <keyboard-shortcut first-keystroke="ctrl v" />
+  </action>
+  <action id="JupyterNotebookRestartKernelCommandModeAction">
+    <keyboard-shortcut first-keystroke="numpad0" second-keystroke="numpad0" />
+  </action>
+  <action id="JupyterNotebookRunCellInsertBelowCommandModeAction" />
+  <action id="JupyterSelectCellAboveCommandModeAction" />
+  <action id="JupyterSelectCellBelowCommandModeAction" />
   <action id="Kotlin.RunScratch" />
   <action id="KotlinShellExecute" />
   <action id="LivePlugin.RunPlugin">
@@ -773,6 +796,33 @@
     <keyboard-shortcut first-keystroke="alt m" second-keystroke="tab" />
   </action>
   <action id="MaintenanceAction" />
+  <action id="Majera.CodeReview.Bitbucket.ChangePullRequestCommentsMode">
+    <keyboard-shortcut first-keystroke="alt e" second-keystroke="b" />
+  </action>
+  <action id="Majera.CodeReview.Bitbucket.ChangeToolWindowOrientation">
+    <keyboard-shortcut first-keystroke="alt e" second-keystroke="o" />
+  </action>
+  <action id="Majera.CodeReview.Bitbucket.CheckoutPullRequestBranch">
+    <keyboard-shortcut first-keystroke="alt e" second-keystroke="c" />
+  </action>
+  <action id="Majera.CodeReview.Bitbucket.FindPullRequestByCommit">
+    <keyboard-shortcut first-keystroke="alt e" second-keystroke="p" />
+  </action>
+  <action id="Majera.CodeReview.Bitbucket.MarkdownEditorTable">
+    <keyboard-shortcut first-keystroke="alt e" second-keystroke="t" />
+  </action>
+  <action id="Majera.CodeReview.Bitbucket.ShowContextPullRequestFileDiff">
+    <keyboard-shortcut first-keystroke="alt w" second-keystroke="alt r" />
+  </action>
+  <action id="Majera.CodeReview.Bitbucket.ShowInlineCommentsInDiff">
+    <keyboard-shortcut first-keystroke="alt e" second-keystroke="i" />
+  </action>
+  <action id="Majera.CodeReview.Bitbucket.ShowPullRequestDiffPreview">
+    <keyboard-shortcut first-keystroke="alt e" second-keystroke="alt d" />
+  </action>
+  <action id="Majera.CodeReview.Bitbucket.SubmitAllDraftsForPullRequest">
+    <keyboard-shortcut first-keystroke="alt e" second-keystroke="s" />
+  </action>
   <action id="MakeStatic">
     <keyboard-shortcut first-keystroke="alt r" second-keystroke="alt s" />
   </action>
@@ -819,13 +869,26 @@
     <keyboard-shortcut first-keystroke="meta alt k" />
   </action>
   <action id="NextEditorTab" />
-  <action id="NextOccurence">
-    <keyboard-shortcut first-keystroke="alt q" second-keystroke="down" />
-  </action>
+  <action id="NextOccurence" />
   <action id="NextSplitter">
     <keyboard-shortcut first-keystroke="alt z" second-keystroke="alt l" />
   </action>
   <action id="NextTab" />
+  <action id="NotebookRunAllAction">
+    <keyboard-shortcut first-keystroke="meta alt enter" />
+  </action>
+  <action id="NotebookRunCellAction">
+    <keyboard-shortcut first-keystroke="meta enter" />
+  </action>
+  <action id="NotebookRunCellSelectBelowAction" />
+  <action id="NotebookSelectCellAboveAction">
+    <keyboard-shortcut first-keystroke="ctrl up" />
+    <keyboard-shortcut first-keystroke="alt q" second-keystroke="up" />
+  </action>
+  <action id="NotebookSelectCellBelowAction">
+    <keyboard-shortcut first-keystroke="ctrl down" />
+    <keyboard-shortcut first-keystroke="alt q" second-keystroke="down" />
+  </action>
   <action id="OptimizeImports">
     <keyboard-shortcut first-keystroke="alt r" second-keystroke="o" />
   </action>

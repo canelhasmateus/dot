@@ -66,6 +66,12 @@ nnoremap j h
 nnoremap h g^
 nnoremap ç g$
 
+vnoremap I gk
+vnoremap k gj
+vnoremap j h
+vnoremap h g^
+vnoremap ç g$
+
 nnoremap <A-Right> W
 nnoremap <S-A-Right> vW
 nnoremap <S-A-Left> vB
@@ -170,8 +176,8 @@ vnoremap qK G
 
 nnoremap ql <C-I>
 nnoremap qj <C-O>
-nnoremap qL ''
-nnoremap qJ '.
+nnoremap qL g;
+nnoremap qJ g,
 
 
 """ ____________________ [W] prefix is for [W]ord movement
@@ -216,8 +222,8 @@ vnoremap eç A
 nnoremap eh I
 vnoremap eh I
 
-nnoremap eu {a
-nnoremap ep }i
+nnoremap eu {i
+nnoremap ep }a
 " no visual counterpart
 
 nnoremap eo %a
@@ -230,6 +236,7 @@ vnoremap emj <Esc>`<[bi
 
 " Experimental
 nnoremap e, /,<CR>i
+nnoremap e. /.<CR>i
 nnoremap e; /;<CR>i
 nnoremap e) /)<CR>i
 nnoremap e( /(<CR>i
@@ -243,6 +250,8 @@ vnoremap r <Nop>
 vnoremap R r
 
 nnoremap rj J
+nnoremap ru g~
+vnoremap ru ~
 nnoremap rr gq
 vnoremap rr gq
 
@@ -330,7 +339,9 @@ vnoremap ff f
 nnoremap fn ;
 nnoremap fN ,
 nnoremap fk *
+nnoremap fK g*
 nnoremap fi #
+nnoremap fI g#
 
 nnoremap fl <leader><leader>w
 nnoremap fj <leader><leader>b
@@ -343,7 +354,7 @@ nnoremap <A-f><A-f> /
 nnoremap fs :s/
 vnoremap fs :s/
 nnoremap f. &
-vnoremap f. &
+vnoremap f. :&<CR>
 
 vnoremap r. :s/)\./)\r./g<CR>gq
 vnoremap r, :s/,/,\r/g<CR>gq
@@ -430,14 +441,13 @@ vnoremap vb <C-V>
 nnoremap viv g^vg_
 nnoremap voa va}V
 vnoremap voa a}V
+nnoremap vol va]V
+vnoremap vol a]V
 nnoremap vof va)V
 vnoremap vof a)V
 nnoremap vif vi)
 """ ________________________________ [B] prefix is unmodified
 
-""" ________________________________ [N] prefix controls [N]avigation
-
-nnoremap n <Nop>
 nnoremap nn n
 nnoremap nd gD
 vnoremap nd <Esc>gD
@@ -450,8 +460,9 @@ vnoremap nK G
 """ ________________________________ [M] prefix controls [M]ovements
 
 nnoremap mo v%
+nnoremap M m
 
-""" todo: Declare this properly as functions here, 
+""" todo: Declare this properly as functions here,
 """       use these hardcoded as a fallback for 
 """       emulators without vimscript support
 
@@ -563,8 +574,9 @@ vnoremap <leader>x :w !python<CR>
 """ Meta ------------------------------------------------- 
 
 nnoremap <leader>wr :w<CR>:source ~\.vimrc<CR>
-nnoremap <leader>vim :e ~/.vimrc<CR>
-nnoremap <leader>vii :e ~/.ideavimrc<CR>
+nnoremap <leader>vii :e ~/.vimrc<CR>
+nnoremap <leader>vij :e ~/.ideavimrc<CR>
+nnoremap <leader>vim :e ~/.config/nvim/lua/user/keymaps.lua<CR>
 
 if has('nvim')
 
@@ -573,3 +585,6 @@ require "init.mac"
 EOF
 
 endif
+
+"todo https://learnbyexample.github.io/tips/vim-tip-23/
+"todo https://vimhelp.org/motion.txt.html#jump-motions
