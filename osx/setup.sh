@@ -51,7 +51,7 @@ function linkTo() {
     cd - || exit
 }
 
-linkTo "./osx/zsh/.zshrc" "$HOME/.zshrc"
+linkTo "./osx/.zshrc" "$HOME/.zshrc"
 linkTo "./shell/.git-magic.sh" "$HOME/.git-magic.sh"
 linkTo "./osx/shortcuts" "$HOME/.canelhasmateus/shortcuts"
 linkTo "./osx/scripts" "$HOME/.canelhasmateus/scripts"
