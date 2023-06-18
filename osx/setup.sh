@@ -52,9 +52,9 @@ function linkTo() {
 }
 
 linkTo "./osx/zsh/.zshrc" "$HOME/.zshrc"
-linkTo "./osx/zsh/.git-magic.sh" "$HOME/.git-magic.sh"
-linkTo "./osx/shortcuts" "$HOME/.automation/shortcuts"
-linkTo "./osx/scripts" "$HOME/.automation/scripts"
+linkTo "./shell/.git-magic.sh" "$HOME/.git-magic.sh"
+linkTo "./osx/shortcuts" "$HOME/.canelhasmateus/shortcuts"
+linkTo "./osx/scripts" "$HOME/.canelhasmateus/scripts"
 
 vimplug="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs "$vimplug"
