@@ -1,96 +1,94 @@
-#
+unmapAll
 ##############################
 
-unmapAll
-
-
-# Search and selection
-map / enterFindMode
-
-
-map vi focusInput
-map vv enterVisualLineMode
 
 # Jump
-map fl LinkHints.activateMode
-map fç LinkHints.activateModeToOpenInNewTab
-map fj LinkHints.activateMode
-map fh LinkHints.activateModeToOpenInNewTab
-map fi LinkHints.activateModeToOpenIncognito
-map fm LinkHints.activateModeWithQueue
-map fy LinkHints.activateModeToCopyLinkUrl
+map nc LinkHints.activateModeToDownloadLink
+map nC LinkHints.activateModeToCopyLinkUrl
 map fY LinkHints.activateModeToDownloadLink
-
-# scrolling
-
-map i scrollUp
-map j scrollLeft
-map k scrollDown
-map l scrollRight
-map w scrollUp
-map a scrollLeft
-map s scrollDown
-map d scrollRight
-map h previousTab
-map ç nextTab
-
-map <a-a> previousTab
-map æ previousTab 
-map <a-d> nextTab
-map ð nextTab
+map ni LinkHints.activateModeToOpenIncognito
+map fy LinkHints.activateModeToCopyLinkUrl
+map nn LinkHints.activateMode
+map fj LinkHints.activateMode
+map fl LinkHints.activateMode
+map gg LinkHints.activateMode
+map nN LinkHints.activateModeToOpenInNewTab
+map NN LinkHints.activateModeToOpenInNewTab
+map fç LinkHints.activateModeToOpenInNewTab
+map fh LinkHints.activateModeToOpenInNewTab
+map np LinkHints.activateModeWithQueue
+map fm LinkHints.activateModeWithQueue
 map <a-i> goUp
 map <a-I> goToRoot
 
-map J scrollToLeft
-map L scrollToRight
+#Vim scrolling
+map k scrollUp
+map j scrollDown
+map h scrollLeft
+map l scrollRight
 
-# Quick
-map qj goBack
-map ql goForward
-map qk scrollPageDown
-map qi scrollPageUp
+#Normie Scrolling
+map w scrollUp
+map s scrollDown
+map a scrollLeft
+map d scrollRight
+map <a-W> scrollToTop
 map qI scrollToTop
-map qK scrollToBottom 
+map <a-S> scrollToBottom
+map qK scrollToBottom
+map <a-s> scrollPageDown
+map qk scrollPageDown
+map <a-w> scrollPageUp
+map qi scrollPageUp
 
+# History
+map A goBack
+map qj goBack
+map D goForward
+map ql goForward
 
-# Navigate
-
-map nn Vomnibar.activateBookmarks
-map nN Vomnibar.activateBookmarksInNewTab
+#Omnibar / tab
+map oe Vomnibar.activateEditUrl
+map oE Vomnibar.activateInNewTab
 map nf Vomnibar.activateTabSelection
-
-
-
-# Open / Navigate
-
-map or visitPreviousTab
-map oR restoreTab
+map nq Vomnibar.activateBookmarks
+map nQ Vomnibar.activateBookmarksInNewTab
 map oq createTab
+map u restoreTab
 map ow removeTab
 map oW closeOtherTabs
 map ox moveTabToNewWindow
-map od duplicateTab
+map y copyCurrentUrl
+map Y openCopiedUrlInCurrentTab
 
-# Misc
+# Tab Mov
+map <a-a> previousTab
+map æ previousTab
+map zl previousTab
+map <a-d> nextTab
+map ð nextTab
+map zl nextTab
 map < goPrevious
 map > goNext
-map gg showHelp
-map yw copyCurrentUrl
+map <a-m><a-a> moveTabLeft
+map <a-m><a-d> moveTabRight
+map zJ moveTabLeft
+map zL moveTabRight
+
+# Need to use more
+map / enterFindMode
+map tl performFind
+map tj performFindBackwards
+map vi focusInput
+map vv enterVisualLineMode
+map od duplicateTab
+map or visitPreviousTab
 
 # Experimental
-map nd LinkHints.activateModeToOpenInNewForegroundTab
-map nD LinkHints.activateModeToOpenInNewForegroundTab
-map <space>i enterInsertMode
-map on Vomnibar.activate 
-map oe Vomnibar.activateEditUrl
-map oE Vomnibar.activateInNewTab
-
-map M Marks.activateCreateMode
+map MM Marks.activateCreateMode
+map mm Marks.activateGotoMode
 map tt mainFrame
 map t> nextFrame
 map tk passNextKey
-map m> moveTabRight
-map m< moveTabLeft
-
-map tl performFind
-map tj performFindBackwards
+map <space>i enterInsertMode
+map oo Vomnibar.activate

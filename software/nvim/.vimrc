@@ -448,8 +448,14 @@ vnoremap vof a)V
 nnoremap vif vi)
 """ ________________________________ [B] prefix is unmodified
 
+nnoremap nn n
 nnoremap nd gD
 vnoremap nd <Esc>gD
+
+nnoremap nI gg
+vnoremap nI gg
+nnoremap nK G
+vnoremap nK G
 
 """ ________________________________ [M] prefix controls [M]ovements
 
