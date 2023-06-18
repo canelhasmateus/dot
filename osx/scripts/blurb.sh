@@ -14,6 +14,6 @@ EOF
 
 )
 
-  echo "$content" >> "/Users/mateus.canelhas/Desktop/pers/ormos/osx/scripts/blurb"
+  echo "$content" >> "~/.canelhasmateus/limni/blurbs.md"
 
 }

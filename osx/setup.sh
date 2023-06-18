@@ -40,25 +40,26 @@ function ormosRoot() {
 function linkTo() {
     from="$1"
     dest="$2"
-    repoRoot=$(ormosRoot)
+    repoRoot="$(ormosRoot)"
     cd "$repoRoot" || exit
     mkdir -p "$(dirname "$dest")"
     rm -f "$dest" && ln -s "$(realpath "$from")" "$dest"
 
-    echo "Linked!"
+    echo 'Linked!'
     echo "    -> ${from}"
     echo "    == ${dest}"
     cd - || exit
 }
 
-linkTo "./osx/.zshrc" "$HOME/.zshrc"
-linkTo "./shell/.git-magic.sh" "$HOME/.git-magic.sh"
-linkTo "./osx/shortcuts" "$HOME/.canelhasmateus/shortcuts"
-linkTo "./osx/scripts" "$HOME/.canelhasmateus/scripts"
-
 vimplug="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs "$vimplug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs "$vimplug"
+
+linkTo "./osx/revolut.zshrc" "$HOME/.zshrc"
+linkTo "./shell/git-magic.sh" "$HOME/.canelhasmateus/git-magic.sh"
+linkTo "./osx/shortcuts" "$HOME/.canelhasmateus/shortcuts"
+linkTo "./osx/scripts" "$HOME/.canelhasmateus/scripts"
+
 linkTo "./software/alacritty/mac.yml" "$HOME/.config/alacritty/alacritty.yml"
 linkTo "./software/nvim/lua" "$HOME/.config/nvim/lua"
 linkTo "./software/nvim/.vimrc" "$HOME/.vimrc"
@@ -84,3 +85,5 @@ for version in "${versions[@]}"; do
     linkTo "./software/intellij/quicklists" "$version/quicklists"
     linkTo "./software/intellij/plugins/postfix" "$version/intellij-postfix-templates_templates"
 done
+
+alias sl='tail -n 100 ~/.bash\_history ~/.zsh\_history | nvim'
