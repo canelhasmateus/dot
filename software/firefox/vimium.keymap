@@ -13,9 +13,9 @@ map vv enterVisualLineMode
 
 # Jump
 map fl LinkHints.activateMode
-map fL LinkHints.activateModeToOpenInNewTab
+map fç LinkHints.activateModeToOpenInNewTab
 map fj LinkHints.activateMode
-map fJ LinkHints.activateModeToOpenInNewTab
+map fh LinkHints.activateModeToOpenInNewTab
 map fi LinkHints.activateModeToOpenIncognito
 map fm LinkHints.activateModeWithQueue
 map fy LinkHints.activateModeToCopyLinkUrl
