@@ -55,7 +55,8 @@ vimplug="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs "$vimplug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs "$vimplug"
 
-linkTo "./osx/revolut.zshrc" "$HOME/.zshrc"
+linkTo "./nisi/zshrc" "$HOME/.zshrc"
+linkTo "./nisi/blurbs.md" "$HOME/.canelhasmateus/blurbs.md"
 linkTo "./shell/git-magic.sh" "$HOME/.canelhasmateus/git-magic.sh"
 linkTo "./osx/shortcuts" "$HOME/.canelhasmateus/shortcuts"
 linkTo "./osx/scripts" "$HOME/.canelhasmateus/scripts"
@@ -86,4 +87,3 @@ for version in "${versions[@]}"; do
     linkTo "./software/intellij/plugins/postfix" "$version/intellij-postfix-templates_templates"
 done
 
-alias sl='tail -n 100 ~/.bash\_history ~/.zsh\_history | nvim'

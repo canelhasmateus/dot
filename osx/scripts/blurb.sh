@@ -1,7 +1,6 @@
 #! /bin/zsh
 f="$(mktemp)"
-
-/opt/homebrew/bin/nvim -c 'startinsert' -c 'imap <A-s> <Esc>:wq<CR>' -c 'imap <A-d> <Esc>:q!<CR>' -- "$f"
+/opt/homebrew/bin/nvim -c 'startinsert' -c 'imap <A-s> <Esc>:wq<CR>' -c 'imap ß <Esc>:wq<CR>' -c 'imap <A-d> <Esc>:q!<CR>' -c 'imap ð <Esc>:q!<CR>' -- "$f"
 written=$(cat "$f")
 [[ -n $written ]] && {
 content=$(
@@ -14,6 +13,6 @@ EOF
 
 )
 
-  echo "$content" >> "~/.canelhasmateus/limni/blurbs.md"
+  echo "$content" >> "${HOME}/.canelhasmateus/blurbs.md"
 
 }
