@@ -1,11 +1,8 @@
 
 function Utilities(app) {
 
-    const LIMNI = "/Users/mateus.canelhas/Desktop/pers/limni"
-    const DATABASE = `${LIMNI}/lists/state/limni.db`
-    const APPEND_FILE = `${LIMNI}/lists/stream/articles.tsv`
-
-    function quotedForm(s) { return "'" + s.replace(/'/g, "'\\''") + "'" }
+    const DATABASE = "${HOME}/.canelhasmateus/state.db"
+    const APPEND_FILE = "${HOME}/.canelhasmateus/articles.tsv"
 
     function withFile(filePath, callback) {
 
@@ -31,8 +28,13 @@ function Utilities(app) {
 
 
     function findTransitions(currentUrl) {
-        const sql = `sqlite3 "${DATABASE}" "select transitions from state where url like '${currentUrl}' "`
-        const transitions = app.doShellScript(sql)
+        const create = `sqlite3 "${DATABASE}" "create table if not exists bookmarks(
+		url text not null unique,
+		transitions text not null)"
+		`
+        const select = `sqlite3 "${DATABASE}" "select transitions from bookmarks where url like '${currentUrl}'"`
+        app.doShellScript(create)
+        const transitions = app.doShellScript(select)
         if (transitions) {
             return JSON.parse(transitions)
         }
@@ -42,7 +44,7 @@ function Utilities(app) {
     function persistTransition(transition) {
 
         const content = JSON.stringify([...transition.previous, { date: transition.date, status: transition.status }]).replaceAll("\"", "\\\"")
-        const sql = `sqlite3 "${DATABASE}" "replace into state( url, transitions) values ('${transition.resource}' , '${content}') "`
+        const sql = `sqlite3 "${DATABASE}" "replace into bookmarks(url, transitions) values ('${transition.resource}' , '${content}') "`
         app.doShellScript(sql)
 
     }

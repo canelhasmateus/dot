@@ -1,7 +1,6 @@
 unmapAll
 ##############################
 
-
 # Jump
 map nc LinkHints.activateModeToDownloadLink
 map nC LinkHints.activateModeToCopyLinkUrl
@@ -77,8 +76,9 @@ map zL moveTabRight
 
 # Need to use more
 map / enterFindMode
-map tl performFind
-map tj performFindBackwards
+map ee enterFindMode
+map el performFind
+map ej performFindBackwards
 map vi focusInput
 map vv enterVisualLineMode
 map od duplicateTab
@@ -90,5 +90,5 @@ map mm Marks.activateGotoMode
 map tt mainFrame
 map t> nextFrame
 map tk passNextKey
-map <space>i enterInsertMode
+map I enterInsertMode
 map oo Vomnibar.activate

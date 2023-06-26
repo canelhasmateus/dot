@@ -36,6 +36,7 @@ sleep 1
 if test -d ./canelhas
 
 then
+alias hs=' history 16 | head -n 15'
 
 git subtree pull --prefix canelhas origin canelhas_vault -m "subtree pull"
 

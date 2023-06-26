@@ -55,11 +55,15 @@ vimplug="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs "$vimplug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs "$vimplug"
 
-linkTo "./nisi/zshrc" "$HOME/.zshrc"
-linkTo "./nisi/blurbs.md" "$HOME/.canelhasmateus/blurbs.md"
-linkTo "./shell/git-magic.sh" "$HOME/.canelhasmateus/git-magic.sh"
-linkTo "./osx/shortcuts" "$HOME/.canelhasmateus/shortcuts"
+
+linkTo "../limni/lists/stream/articles.tsv" "$HOME/.canelhasmateus/articles.tsv"
+
 linkTo "./osx/scripts" "$HOME/.canelhasmateus/scripts"
+linkTo "./nisi/blurbs.md" "$HOME/.canelhasmateus/blurbs.md"
+linkTo "./nisi/journal" "$HOME/.canelhasmateus/journal"
+
+linkTo "./nisi/zshrc" "$HOME/.zshrc"
+linkTo "./shell/git-magic.sh" "$HOME/.canelhasmateus/git-magic.sh"
 
 linkTo "./software/alacritty/mac.yml" "$HOME/.config/alacritty/alacritty.yml"
 linkTo "./software/nvim/lua" "$HOME/.config/nvim/lua"

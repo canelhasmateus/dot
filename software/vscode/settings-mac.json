@@ -483,16 +483,4 @@
     "D2.execPath": "/opt/homebrew/bin/d2",
     "D2.autoUpdate": false,
     "excalidraw.theme": "auto",
-    "open-in-vim.useNeovim": true,
-    "open-in-vim.integrated-terminal.pathToShell": "",
-    "eslint.format.enable": true,
-    "scss.format.enable": false,
-    "less.format.enable": false,
-    "css.format.enable": false,
-    "typescript.format.enable": false,
-    "json.format.enable": false,
-    "javascript.format.enable": false,
-    "html.format.enable": false,
-    "open-in-vim.openMethod": "macos.iterm",
-
 }
