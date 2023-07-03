@@ -129,7 +129,7 @@ map or <Action>(RecentFiles)
 map om <Action>($LRU)
 map ox <Action>(FileStructurePopup)
 map ol <Action>(RecentLocations)
-map oq <Action>(RecentLocations)
+map oq <Action>(ShowBookmarks)
 
 """ ____________________ [P] prefix controls [P]asting
 
@@ -200,6 +200,7 @@ map gk <Action>(VcsShowNextChangeMarker)
 map gu <Action>(Vcs.RollbackChangedLines)
 map gl <Action>(Vcs.MoveChangedLinesToChangelist)
 map gd <Action>(Vcs.ShowDiffChangedLines)
+map gc <Action>(ShowBlankDiffWindow)
 "Majera.CodeReview.Bitbucket.LeaveCommentForLineAction
 "Majera.CodeReview.Bitbucket.ShowContextPullRequestFileDiff
 "ActivateBitbucketPullRequestsToolWindow

@@ -247,6 +247,9 @@
     <keyboard-shortcut first-keystroke="alt b" second-keystroke="v" />
   </action>
   <action id="Debugger.EditTypeSource" />
+  <action id="Debugger.PopFrame">
+    <keyboard-shortcut first-keystroke="alt s" second-keystroke="delete" />
+  </action>
   <action id="Debugger.RemoveAllBreakpoints">
     <keyboard-shortcut first-keystroke="alt b" second-keystroke="alt back_space" />
   </action>
@@ -862,7 +865,9 @@
     <keyboard-shortcut first-keystroke="meta up" />
   </action>
   <action id="Mvc.RunTarget" />
-  <action id="NewElement" />
+  <action id="NewElement">
+    <keyboard-shortcut first-keystroke="alt m" second-keystroke="n" />
+  </action>
   <action id="NewElementSamePlace" />
   <action id="NextDiff">
     <keyboard-shortcut first-keystroke="f7" />
@@ -1103,8 +1108,8 @@
   <action id="ShelvedChanges.Rename" />
   <action id="Show Psi Viewer Dialog for Current File" />
   <action id="ShowBookmarks">
-    <keyboard-shortcut first-keystroke="alt b" second-keystroke="escape" />
     <keyboard-shortcut first-keystroke="alt b" second-keystroke="tab" />
+    <keyboard-shortcut first-keystroke="alt q" second-keystroke="q" />
   </action>
   <action id="ShowErrorDescription">
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="w" />
@@ -1121,7 +1126,7 @@
   <action id="ShowNavBar" />
   <action id="ShowPopupMenu">
     <keyboard-shortcut first-keystroke="context_menu" />
-    <keyboard-shortcut first-keystroke="ctrl 9" />
+    <keyboard-shortcut first-keystroke="shift ctrl meta alt 9" />
   </action>
   <action id="ShowProjectStructureSettings" />
   <action id="ShowRecentTests">

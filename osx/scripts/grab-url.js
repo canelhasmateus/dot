@@ -2,7 +2,7 @@
 function Utilities(app) {
 
     const DATABASE = "${HOME}/.canelhasmateus/state.db"
-    const APPEND_FILE = "${HOME}/.canelhasmateus/articles.tsv"
+    const APPEND_FILE = "/Users/mateus.canelhas/.canelhasmateus/articles.tsv"
 
     function withFile(filePath, callback) {
 
@@ -60,7 +60,7 @@ function run() {
 
 
     function persist(transition) {
-        const content = `\n${transition.date}\t${transition.status}\t${transition.resource}`
+        const content = `\n${transition.date}\t${transition.status}\t${transition.resource}\n`
         utils.appendToFile(content)
         utils.persistTransition(transition)
     }
