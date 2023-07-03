@@ -452,10 +452,6 @@ nnoremap nn n
 nnoremap nd gD
 vnoremap nd <Esc>gD
 
-nnoremap nI gg
-vnoremap nI gg
-nnoremap nK G
-vnoremap nK G
 
 """ ________________________________ [M] prefix controls [M]ovements
 
@@ -497,7 +493,7 @@ vnoremap mF o<Esc>?)<CR>vi(
 nnoremap ml /[<CR>vi[
 vnoremap ml o<Esc>/[<CR>vi[
 nnoremap mL ?]<CR>vi[
-vnoremap mL /[<CR><Esc>nvi[
+vnoremap mL <Esc>?]<CR>vi[
 
 " move class
 nnoremap mz /class/b-3<CR>viw
@@ -541,37 +537,8 @@ vnoremap mM <Esc>?(?e-1<CR>vBo
 
 """ Experimental -----------------------------------------
 
-" [A] layer
-nnoremap an <C-a>
-vnoremap an <C-a>gv
-nnoremap aN <C-x>
-vnoremap aN <C-x>gv
 
-nnoremap An g<C-a>
-vnoremap An g<C-a>
-nnoremap AN g<C-x>
-vnoremap AN g<C-x>
-
-" Macro
-noremap Q q
-noremap am @
-noremap a. @@
-xnoremap <Leader>, :<UP><CR>
-
-
-" Java
-nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
-nmap <leader>jt viveç}<Esc>vivehassertThatThrownBy{<Esc>ek.isInstanceOf(
-vmap <leader>jt eç}<Esc>vivehassertThatThrownBy{<Esc>ek.isInstanceOf(
-vmap <leader>je el)<Esc>gvejassertThat(<Esc>qo<leader>a.isEqualTo(
-nmap <leader>je vivel)<Esc>ejassertThat(<Esc>qo<leader>a.isEqualTo(
-nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
-
-" Literal insertion
-nnoremap <leader><Tab> i<C-v><Tab><Esc>
-vnoremap <leader>x :w !python<CR>
-
-""" Meta ------------------------------------------------- 
+""" Meta -------------------------------------------------
 
 nnoremap <leader>wr :w<CR>:source ~\.vimrc<CR>
 nnoremap <leader>vii :e ~/.vimrc<CR>

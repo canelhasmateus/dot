@@ -2,21 +2,21 @@ unmapAll
 ##############################
 
 # Jump
-map nc LinkHints.activateModeToDownloadLink
-map nC LinkHints.activateModeToCopyLinkUrl
-map fY LinkHints.activateModeToDownloadLink
-map ni LinkHints.activateModeToOpenIncognito
-map fy LinkHints.activateModeToCopyLinkUrl
-map nn LinkHints.activateMode
 map fj LinkHints.activateMode
 map fl LinkHints.activateMode
 map gg LinkHints.activateMode
-map nN LinkHints.activateModeToOpenInNewTab
-map NN LinkHints.activateModeToOpenInNewTab
+map ll LinkHints.activateMode
+
+map fc LinkHints.activateModeToDownloadLink
+map fC LinkHints.activateModeToCopyLinkUrl
+map fY LinkHints.activateModeToDownloadLink
+map fi LinkHints.activateModeToOpenIncognito
+map fy LinkHints.activateModeToCopyLinkUrl
+
 map fç LinkHints.activateModeToOpenInNewTab
 map fh LinkHints.activateModeToOpenInNewTab
-map np LinkHints.activateModeWithQueue
 map fm LinkHints.activateModeWithQueue
+
 map <a-i> goUp
 map <a-I> goToRoot
 
@@ -49,16 +49,18 @@ map ql goForward
 #Omnibar / tab
 map oe Vomnibar.activateEditUrl
 map oE Vomnibar.activateInNewTab
-map nf Vomnibar.activateTabSelection
-map nq Vomnibar.activateBookmarks
-map nQ Vomnibar.activateBookmarksInNewTab
+map of Vomnibar.activateTabSelection
+map oq Vomnibar.activateBookmarks
+map oQ Vomnibar.activateBookmarksInNewTab
 map oq createTab
-map u restoreTab
+map ou restoreTab
 map ow removeTab
 map oW closeOtherTabs
 map ox moveTabToNewWindow
-map y copyCurrentUrl
-map Y openCopiedUrlInCurrentTab
+map oy copyCurrentUrl
+map oY openCopiedUrlInCurrentTab
+map <a-i> goUp
+map <a-I> goToRoot
 
 # Tab Mov
 map <a-a> previousTab
@@ -76,11 +78,12 @@ map zL moveTabRight
 
 # Need to use more
 map / enterFindMode
-map ee enterFindMode
-map el performFind
-map ej performFindBackwards
+map ff enterFindMode
+map n performFind
+map N performFindBackwards
+map vv enterVisualMode
 map vi focusInput
-map vv enterVisualLineMode
+map V enterVisualLineMode
 map od duplicateTab
 map or visitPreviousTab
 

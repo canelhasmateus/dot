@@ -1,13 +1,19 @@
 :source ~/.vimrc
 
 Plug 'michaeljsmith/vim-ident-object'
-Plug 'tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
-let g:EasyMotion_do_mapping = 0
+Plug 'chrisbra/matchit'
+Plug 'dbakker/vim-paragraph-motion'
 
+Plug 'tpope/vim-surround'
+Plug 'tommcdo/vim-exchange'
 Plug 'machakann/vim-highlightedyank'
 let g:highlightedyank_highlight_duration = "1000"
 let g:highlightedyank_highlight_color = "rgba(100, 160, 100, 100)"
+
+Plug 'easymotion/vim-easymotion'
+let g:EasyMotion_do_mapping = 0
+
+Plug 'terryma/vim-multiple-cursors'
 
 """Plug 'preservim/nerdtree'
 """Plug 'terryma/vim-multiple-cursor'
@@ -16,7 +22,7 @@ let g:highlightedyank_highlight_color = "rgba(100, 160, 100, 100)"
 """Plug 'vim-scripts/argtextobj.vim'
 """let g:argtextobj_pairs="[:],(:),<:>"
 """set sneak
-"""quickscope
+"""set quickscope
 """let g:match_words = '<:>,<tag>:</tag>'
 
 set ideamarks
@@ -66,8 +72,6 @@ map K <Action>(EditorUnSelectWord)
 
 "" ____________________ [Q] prefix controls [Q]uick commands
 
-Plug 'chrisbra/matchit'
-Plug 'dbakker/vim-paragraph-motion'
 
 map qo <Plug>(MatchitMotion)
 map qO <Plug>(ReverseMatchitMotion)
@@ -83,9 +87,6 @@ map ql <Action>(Forward)
 map qJ <Action>(JumpToLastChange)
 map qL <Action>(JumpToNextChange)
 
-map qd <Action>(CompareTwoFiles)
-
-"todo quick evaluate expression map qe <Action>(...)
 
 """ ____________________ [W] prefix is for [W]ord movement
 
@@ -124,12 +125,13 @@ vnoremap r, :s/,/,\r/g<CR>:action ReformatCode<CR>
 
 map op <Action>(PasteMultiple)
 
+map oI <Action>(RunInspection) """ oi is invert, but maybe change it to ov?
 map oe <Action>(RecentChangedFiles)
 map or <Action>(RecentFiles)
-map om <Action>($LRU)
-map ox <Action>(FileStructurePopup)
-map ol <Action>(RecentLocations)
 map oq <Action>(ShowBookmarks)
+map os <Action>(ChooseRunConfiguration)
+map ol <Action>(RecentLocations)
+map ox <Action>(FileStructurePopup)
 
 """ ____________________ [P] prefix controls [P]asting
 
@@ -139,12 +141,235 @@ map oq <Action>(ShowBookmarks)
 
 """ ____________________ [S] Prefix Controls [S]elections and [S]urround 
 
+""" ____________________ [D] Prefix Controls [D]eletions
+
+""" ____________________ [F] Prefix Controls [F]ind
+
+map <A-f><A-f> <Action>(Find)
+map <A-f><f> <Action>(Find)
+map fp <Plug>(easymotion-jumptoanywhere)
+
+""" Possibly use a single keystroke
+map fl <Plug>(easymotion-w)
+map fj <Plug>(easymotion-b)
+map fç <Plug>(easymotion-eol-j)
+map fh <Plug>(easymotion-sol-k)
+
+""" These were never used - Probably remove and make more space, since f* is __premium__ realstate
+map fL <Plug>(easymotion-e)
+map fJ <Plug>(easymotion-ge)
+map fÇ <Plug>(easymotion-sol-j)
+map fH <Plug>(easymotion-eol-k)
+"""map f. <Plug>(easymotion-bd-n)
+
+""" ____________________ [G] Prefix is undefined
+""" ____________________ [H] Prefix is directional ( Home )
+""" ____________________ [J] Prefix is directional ( Left )
+""" ____________________ [K] Prefix is directional ( Down )
+""" ____________________ [L] Prefix is directional ( Right )
+""" ____________________ [Ç] Prefix is directional ( End )
+
+"""___________________________________________________________________________________________________________________________________________________
+
+""" ________________________________ [Z] prefix controls [Z]ooming, [Z]ips and Scroll
+map zn <Action>(SplitVertically)
+map zN <Action>(SplitHorizontally)
+map zo <Action>(ChangeSplitOrientation)
+map zO zhzçzDznqjqjzh
+
+""" Possibly use zu and zp if map zç and zh to base scrolls?
+map zç <Action>(NextSplitter)
+map zh <Action>(PrevSplitter)
+
+""" zl and zj are alreadnd zj are already for scrolling left and right
+map ZJ <Action>(StretchSplitToLeft)
+map ZL <Action>(StretchSplitToRight)
+map ZK <Action>(StretchSplitToBottom)
+map ZI <Action>(StretchSplitToTop)
+
+map zd <Action>(Unsplit)
+map z<Del> <Action>(Unsplit)
+
+map zD <Action>(UnsplitAll)
+map z<Backspace> <Action>(UnsplitAll)
+
+""" ________________________________ [X] prefix controls code stuff
+
+vmap xx <Plug>(Exchange)
+
+map xi <Action>(MethodUp)
+map xk <Action>(MethodDown)
+
+map xl <Action>(ExpandRegion)
+map xj <Action>(CollapseRegion)
+vmap xj <Action>(CollapseSelection)
+vmap xm <Action>(GotoCustomRegion)
+
+map xh <Action>(CollapseAllRegions)
+map xç <Action>(ExpandAllRegions)
+
+map x1 <Action>(ExpandAllToLevel1)
+map x8 <Action>(ExpandAllToLevel1)
+
+map x2 <Action>(ExpandAllToLevel2)
+map x9 <Action>(ExpandAllToLevel2)
+
+map x3 <Action>(ExpandAllToLevel3)
+map x0 <Action>(ExpandAllToLevel3)
+
+""" ________________________________ [C] prefix controls [C]hanging
+
+""" ________________________________ [V] prefix controls [V]isual selections
+
+""" ________________________________ [B] prefix is unmodified
+
+""" ________________________________ [N] prefix controls [N]avigation
+
+" remember: nnoremap nn n
+map nc <Action>(GotoClass)
+map nf <Action>(GotoFile)
+map ns <Action>(GotoSymbol)
+map nl <Action>(GotoLine)
+
+map nt <Action>(GotoTest)
+map nd <Action>(GotoDeclaration)
+map nD <Action>(GotoTypeDeclaration)
+map ni <Action>(GotoImplementation)
+map nS <Action>(GotoSuperMethod)
+map nr <Action>(GotoRelated)
+
+map nu <Action>(ShowUsages)
+
+map nI <Nop>
+map nK <Nop>
+
+""" ________________________________ [M] prefix controls [M]ovements
+
+"""___________________________________________________________________________________________________________________________________________________
+
+""" Meta -------------------------------------------------
+
+map <leader>vii :e ~/.vimrc<CR>
+map <leader>vim :e ~/.ideavimrc<CR>
+map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
+
+""" Experimental -----------------------------------------
+
+""todo vnoremap <leader>x :w !python<CR>
+"""todo map xv <Action>(ImportTests)
+"""todo map xr <Action>(ShowRecentTests)
+"""todo map ofr <Action>(StructuralSearchPlugin.StructuralReplaceAction)
+"""todo map ofp <Action>(FindInPath)
+"""todo a quick list of some actions map xo <>
+"""todo complete current statement
+"""todo better templates
+"""todo better postfixes
+"""todo create emmet engine for other languages
+"""todo ShowRecentTests
+"""todo RecentChanges
+"""todo map oh <Action>(ProductivityGuide)
+"""todo map os <Action>(ActivateTerminalToolWindow)
+"""todo map ot <Action>(Rest Client)
+"""todo map ot <Action>(Quick Swithc scheme)
+"""todo EditBreakpoint
+"""todo ViewBreakpoints
+"""todo evaluate expression
+"""todo quick evaluate expression map qe <Action>(...)
+"""todo ActivateBitbucketPullRequestsToolWindow
+
+" Macro
+noremap Q q
+noremap am @
+noremap a. @@
+xnoremap <Leader>, :<UP><CR>
+
+" Literal insertion
+nnoremap <leader><Tab> i<C-v><Tab><Esc>
+
+" Java
+nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
+nmap <leader>jt viveç}<Esc>vivehassertThatThrownBy{<Esc>ek.isInstanceOf(
+vmap <leader>jt eç}<Esc>vivehassertThatThrownBy{<Esc>ek.isInstanceOf(
+vmap <leader>je el)<Esc>gvejassertThat(<Esc>qo<leader>a.isEqualTo(
+nmap <leader>je vivel)<Esc>ejassertThat(<Esc>qo<leader>a.isEqualTo(
+nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
+
+""" [G]
+"Doesn't work for some reason
+"map gi <Action>(PreviousDiff)
+"map gk <Action>(NextDiff)
+map qd <Action>(CompareTwoFiles)
+map gi <Action>(VcsShowPrevChangeMarker)
+map gk <Action>(VcsShowNextChangeMarker)
+map gu <Action>(Vcs.RollbackChangedLines)
+map gl <Action>(Vcs.MoveChangedLinesToChangelist)
+map gd <Action>(Vcs.ShowDiffChangedLines)
+map gc <Action>(ShowBlankDiffWindow)
+
+"Majera.CodeReview.Bitbucket.LeaveCommentForLineAction
+"Majera.CodeReview.Bitbucket.ShowContextPullRequestFileDiff
+"ActivateBitbucketPullRequestsToolWindow
+
+""" [R]
+map rt <Action>(InsertLiveTemplate)
+map rt <Action>(MembersPullUp)
+map rxi <Action>(ImplementMethods)
+map rxo <Action>(OverrideMethods)
+map rxd <Action>(DelegateMethods)
+
+
+""" [Q]
+map qe <Action>(QuickEvaluateExpression)
+map qw <Action>(EvaluateExpression)
+
+""" [O]
+map of <Action>(StructuralSearchPlugin.StructuralSearchAction)
+map ow <Action>(CloseContent)
+map ohc <Action>(CallHierarchy)
+map ohm <Action>(MethodHierarchy)
+map oht <Action>(TypeHierarchy)
+
+""" [V]
+vmap v<Del> <Plug>SkipOccurrence
+vmap vd <Plug>SkipOccurrence
+vmap v<Backspace> <Plug>RemoveOccurrence
+vmap vi <Plug>RemoveOccurrence
+vmap vI <Esc><Esc>
+vmap vk <Plug>NextOccurrence
+vmap vK <Plug>AllOccurrences
+
+map gl <Action>(ChangesView.Move)
+map g> <Action>(Diff.ApplyLeftSide)
+
+""" [T]
+map ti <Action>(NotebookSelectCellAboveAction)
+map tk <Action>(NotebookSelectCellBelowAction)
+
+map tI <Action>(NotebookInsertCellAboveAction)
+map tK <Action>(NotebookInsertCellBelowAction)
+
+map td <Action>(NotebookDeleteCellAction)
+map tt <Action>(JupyterConvertCellActions)
+map tx <Action>(NotebookSplitCellAction)
+map tX <Action>(NotebookMergeCellAboveAction)
+
+" [A] layer
+nnoremap an <C-a>
+vnoremap an <C-a>gv
+nnoremap aN <C-x>
+vnoremap aN <C-x>gv
+
+nnoremap An g<C-a>
+vnoremap An g<C-a>
+nnoremap AN g<C-x>
+vnoremap AN g<C-x>
+
+""" [S]
 set multicursor
 nnoremap mc <Nop>
 vnoremap mc <Nop>
 nnoremap ms <Nop>
 vnoremap ms <Nop>
-
 
 map ss <Action>(SurroundWith)
 map su <Action>(Unwrap)
@@ -166,181 +391,5 @@ vmap <leader>se <Plug>(multicursor-mse)
 vmap <leader>su <Plug>(multicursor-msgu)
 vmap <leader>st <Plug>(multicursor-mst)
 
-""" ____________________ [D] Prefix Controls [D]eletions
-
-""" ____________________ [F] Prefix Controls [F]ind
-
-Plug 'easymotion/vim-easymotion'
-let g:EasyMotion_do_mapping = 0
-
-map <A-f><A-f> <Action>(Find)
-map <A-f><f> <Action>(Find)
-map fp <Plug>(easymotion-jumptoanywhere)
-
-map fl <Plug>(easymotion-w)
-map fj <Plug>(easymotion-b)
-map fç <Plug>(easymotion-eol-j)
-map fh <Plug>(easymotion-sol-k)
-
-map fL <Plug>(easymotion-e)
-map fJ <Plug>(easymotion-ge)
-map fÇ <Plug>(easymotion-sol-j)
-map fH <Plug>(easymotion-eol-k)
-
-"""map f. <Plug>(easymotion-bd-n)
-
-""" ____________________ [G] Prefix is undefined
-
-"Doesn't work for some reason
-"map gi <Action>(PreviousDiff)
-"map gk <Action>(NextDiff)
-
-map gi <Action>(VcsShowPrevChangeMarker)
-map gk <Action>(VcsShowNextChangeMarker)
-map gu <Action>(Vcs.RollbackChangedLines)
-map gl <Action>(Vcs.MoveChangedLinesToChangelist)
-map gd <Action>(Vcs.ShowDiffChangedLines)
-map gc <Action>(ShowBlankDiffWindow)
-"Majera.CodeReview.Bitbucket.LeaveCommentForLineAction
-"Majera.CodeReview.Bitbucket.ShowContextPullRequestFileDiff
-"ActivateBitbucketPullRequestsToolWindow
-
-""" ____________________ [H] Prefix is directional ( Home )
-""" ____________________ [J] Prefix is directional ( Left )
-""" ____________________ [K] Prefix is directional ( Down )
-""" ____________________ [L] Prefix is directional ( Right )
-""" ____________________ [Ç] Prefix is directional ( End )
-
-
-"""___________________________________________________________________________________________________________________________________________________
-
-""" ________________________________ [Z] prefix controls [Z]ooming, [Z]ips and Scroll
-
-map zm <Action>(NextSplitter)
-map zM <Action>(PrevSplitter)
-
-map z> <Action>(SplitVertically)
-map z< <Action>(Unsplit)
-map zo <Action>(ChangeSplitOrientation)
-map z<Backspace> <Action>(UnsplitAll)
-map z<C-Backspace> <Action>(UnsplitAll)
-
-""" ________________________________ [X] prefix controls code stuff
-
-Plug 'tommcdo/vim-exchange'
-
-vmap xx <Plug>(Exchange)
-
-map xi <Action>(MethodUp)
-map xk <Action>(MethodDown)
-
-map x1 <Action>(ExpandAllToLevel1)
-map x2 <Action>(ExpandAllToLevel2)
-map x3 <Action>(ExpandAllToLevel3)
-
-" Experimental
-
-vmap xj <Action>(CollapseSelection)
-vmap xl <Action>(GotoCustomRegion)
-
-map xc <Action>(CallHierarchy)
-map xm <Action>(MethodHierarchy)
-
-"""todo a quick list of some actions map xo <>
-"""todo complete current statement
-"""todo better templates
-"""todo better postfixes
-"""todo create emmet engine for other languages
-
-map xI <Action>(RunInspection)
-map xK <Action>(InsertLiveTemplate)
-
-map xv <Action>(ImportTests)
-map xr <Action>(ShowRecentTests)
-
-""" ________________________________ [C] prefix controls [C]hanging
-
-""" ________________________________ [V] prefix controls [V]isual selections
-
-Plug 'terryma/vim-multiple-cursors'
-
-vmap v<Del> <Plug>SkipOccurrence
-vmap vd <Plug>SkipOccurrence
-vmap v<Backspace> <Plug>RemoveOccurrence
-vmap vi <Plug>RemoveOccurrence
-vmap vI <Esc><Esc>
-vmap vk <Plug>NextOccurrence
-vmap vK <Plug>AllOccurrences
-
-""" ________________________________ [B] prefix is unmodified
-
-""" ________________________________ [N] prefix controls [N]avigation
-
-" remember: nnoremap nn n
-map nc <Action>(GotoClass)
-map nf <Action>(GotoFile)
-map ns <Action>(GotoSymbol)
-map nl <Action>(GotoLine)
-
-map nt <Action>(GotoTest)
-map nd <Action>(GotoDeclaration)
-map nD <Action>(GotoTypeDeclaration)
-map ni <Action>(GotoImplementation)
-map nS <Action>(GotoSuperMethod)
-map nr <Action>(GotoRelated)
-
-map nu <Action>(ShowUsages)
-
-""" ________________________________ [M] prefix controls [M]ovements
-
-"""___________________________________________________________________________________________________________________________________________________
-
-""" Experimental -----------------------------------------
-
-map rt <Action>(MembersPullUp)
-map rxi <Action>(ImplementMethods)
-map rxo <Action>(OverrideMethods)
-map rxd <Action>(DelegateMethods)
-
-map of <Action>(StructuralSearchPlugin.StructuralSearchAction)
-"todo map ofr <Action>(StructuralSearchPlugin.StructuralReplaceAction)
-"todo map ofp <Action>(FindInPath)
-
-map os <Action>(ChooseRunConfiguration)
-
-map qe <Action>(QuickEvaluateExpression)
-map qw <Action>(EvaluateExpression)
-
-
-"""todo ShowRecentTests
-"""todo RecentChanges
-"""todo map oh <Action>(ProductivityGuide)
-"""todo map os <Action>(ActivateTerminalToolWindow)
-"""todo map ot <Action>(Rest Client)
-"""todo map ot <Action>(Quick Swithc scheme)
-"""todo EditBreakpoint
-"""todo ViewBreakpoints
-"""todo evaluate expression
-"""todo ActivateBitbucketPullRequestsToolWindow
-
-""" Meta -------------------------------------------------
-
-map <leader>vii :e ~/.vimrc<CR>
-map <leader>vim :e ~/.ideavimrc<CR>
-map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
-map gl <Action>(ChangesView.Move)
-map g> <Action>(Diff.ApplyLeftSide)
-
-
-map ti <Action>(NotebookSelectCellAboveAction)
-map tk <Action>(NotebookSelectCellBelowAction)
-
-map tI <Action>(NotebookInsertCellAboveAction)
-map tK <Action>(NotebookInsertCellBelowAction)
-
-map td <Action>(NotebookDeleteCellAction)
-map tt <Action>(JupyterConvertCellActions)
-map tx <Action>(NotebookSplitCellAction)
-map tX <Action>(NotebookMergeCellAboveAction)
-
-map <leader><leader<leader><leader><leader><leader>7 <Esc>
+""" Quick change scapehatch
+map <leader><leader<leader><leader><leader><leader>9 <Esc>
