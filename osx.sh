@@ -57,7 +57,7 @@ vimGroup=(
 
 curl -fL "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" --create-dirs -o "$plugfile"
 rm -rf ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-rm -rf ~/.cache/nvim
+rm -rf ~/.cache/nvim.local/share/nvim/site/pack/packer/start/packer.nvim
 for dest in "${plugdests[@]}"; do
     mkdir -p "$(dirname "$dest") " && cp "$plugfile" "$dest"
 done
