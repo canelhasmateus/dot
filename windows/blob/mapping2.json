@@ -1,7 +1,0 @@
-{
-    "destinationRoot": "Startup",
-    "destinationName": "/win-vind.lnk",
-    "type": "shortcut",
-    "targetName": "/bin/win-vind.exe",
-    "targetRoot": "$env:ChocolateyInstall"
-}
