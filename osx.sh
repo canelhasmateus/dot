@@ -12,16 +12,15 @@ function linkGroup() {
         for pair in "$@"; do
 
             read -r from to <<<"$pair"
-            original="$ormosRoot/$from"
+            original=$"$ormosRoot/$from"
             symbol="$HOME/$to"
 
             {
                 mkdir -p "$(dirname "$symbol")"
                 rm -rf "$symbol"
                 ln -s "$original" "$symbol"
-            } &>/dev/null
+            } &>/dev/null && echo "$from <<- $to" || echo "Failed $from $to"
 
-            echo "$from <<- $to"
         done
     )
 }
@@ -44,7 +43,11 @@ baseGroup=(
 linkGroup "${baseGroup[@]}"
 
 # vim
-dest=$(mktemp)
+plugfile=$(mktemp)
+plugdests=(
+    ~/.local/share/nvim/site/autoload/plug.vim
+    ~/.vim/autoload/plug.vi
+)
 vimGroup=(
     "./settings-nvim/lua .config/nvim/lua"
     "./settings-nvim/.vimrc .vimrc"
@@ -52,11 +55,13 @@ vimGroup=(
     "./settings-nvim/.ideavimrc .ideavimrc"
 )
 
-curl -fL "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" --create-dirs -o "$dest"
-cp "$dest" ~/.local/share/nvim/site/autoload/plug.vim
-cp "$dest" ~/.vim/autoload/plug.vim
+curl -fL "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" --create-dirs -o "$plugfile"
+rm -rf ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+rm -rf ~/.cache/nvim
+for dest in "${plugdests[@]}"; do
+    mkdir -p "$(dirname "$dest") " && cp "$plugfile" "$dest"
+done
 linkGroup "${vimGroup[@]}"
-
 # vscode
 plugins=(
     "canelhasmateus.jewel"
