@@ -30,7 +30,7 @@ function linkGroup() {
 #
 
 baseGroup=(
-    '../limni/lists/stream/articles.tsv .canelhasmateus/articles.tsv'
+    '../limni/vault/articles.tsv .canelhasmateus/articles.tsv'
     '../nisi/blurbs.md .canelhasmateus/blurbs.md'
     '../nisi/zshrc .zshrc'
     '../nisi/journal .canelhasmateus/journal'
