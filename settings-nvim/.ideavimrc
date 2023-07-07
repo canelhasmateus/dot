@@ -126,6 +126,7 @@ vnoremap r, :s/,/,\r/g<CR>:action ReformatCode<CR>
 map op <Action>(PasteMultiple)
 
 map oI <Action>(RunInspection) """ oi is invert, but maybe change it to ov?
+map od <Action>(ShowBlankDiffWindow)
 map oe <Action>(RecentChangedFiles)
 map or <Action>(RecentFiles)
 map oq <Action>(ShowBookmarks)
@@ -203,19 +204,12 @@ map xk <Action>(MethodDown)
 map xl <Action>(ExpandRegion)
 map xj <Action>(CollapseRegion)
 vmap xj <Action>(CollapseSelection)
-vmap xm <Action>(GotoCustomRegion)
 
-map xh <Action>(CollapseAllRegions)
-map xç <Action>(ExpandAllRegions)
-
-map x1 <Action>(ExpandAllToLevel1)
-map x8 <Action>(ExpandAllToLevel1)
-
-map x2 <Action>(ExpandAllToLevel2)
-map x9 <Action>(ExpandAllToLevel2)
-
-map x3 <Action>(ExpandAllToLevel3)
-map x0 <Action>(ExpandAllToLevel3)
+map xm <Action>(CollapseAllRegions)
+map x; <Action>(ExpandAllRegions)
+map xm <Action>(ExpandAllToLevel1)
+map x, <Action>(ExpandAllToLevel2)
+map x. <Action>(ExpandAllToLevel3)
 
 """ ________________________________ [C] prefix controls [C]hanging
 
@@ -255,7 +249,9 @@ map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
 
 """ Experimental -----------------------------------------
 
-""todo vnoremap <leader>x :w !python<CR>
+
+"""vmap oX <Action>(GotoCustomRegion)
+"""todo vnoremap <leader>x :w !python<CR>
 """todo map xv <Action>(ImportTests)
 """todo map xr <Action>(ShowRecentTests)
 """todo map ofr <Action>(StructuralSearchPlugin.StructuralReplaceAction)
@@ -304,7 +300,6 @@ map gk <Action>(VcsShowNextChangeMarker)
 map gu <Action>(Vcs.RollbackChangedLines)
 map gl <Action>(Vcs.MoveChangedLinesToChangelist)
 map gd <Action>(Vcs.ShowDiffChangedLines)
-map gc <Action>(ShowBlankDiffWindow)
 
 "Majera.CodeReview.Bitbucket.LeaveCommentForLineAction
 "Majera.CodeReview.Bitbucket.ShowContextPullRequestFileDiff

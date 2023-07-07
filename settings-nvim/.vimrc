@@ -63,14 +63,14 @@ nnoremap <Enter> i<Enter><ESC>
 nnoremap i gk
 nnoremap k gj
 nnoremap j h
-nnoremap h g^
-nnoremap ç g$
+nnoremap h ^
+nnoremap ç $
 
 vnoremap I gk
 vnoremap k gj
 vnoremap j h
-vnoremap h g^
-vnoremap ç g$
+vnoremap h ^
+vnoremap ç $
 
 nnoremap <A-Right> W
 nnoremap <S-A-Right> vW

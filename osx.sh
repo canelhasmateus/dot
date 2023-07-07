@@ -96,15 +96,17 @@ versions=(
     "Library/Application Support/JetBrains/IntelliJIdea2022.2"
     "Library/Application Support/JetBrains/IntelliJIdea2023.1"
     "Library/Application Support/JetBrains/DataSpell2023.1"
+    "Library/Application Support/JetBrains/DataSpell2023.1"
+    "/Users/mateus.canelhas/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/231.9161.38/IntelliJ Idea.app/Contents"
 )
 
 for version in "${versions[@]}"; do
     group=(
-        "./config-intellij/keymaps/macnelhas.xml $version/settingsRepository/repository/keymaps/macnelha.xml"
-        "./config-intellij/keymaps/macnelhas.xml $version/keymaps/macnelha.xml"
-        "./config-intellij/templates $version/templates"
-        "./config-intellij/quicklists $version/quicklists"
-        "./config-intellij/plugins/postfix $version/intellij-postfix-templates_templates"
+        "./settings-intellij/keymaps/macnelhas.xml $version/settingsRepository/repository/keymaps/macnelha.xml"
+        "./settings-intellij/keymaps/macnelhas.xml $version/keymaps/macnelhas.xml"
+        "./settings-intellij/templates $version/templates"
+        "./settings-intellij/quicklists $version/quicklists"
+        "./settings-intellij/plugins/postfix $version/intellij-postfix-templates_templates"
     )
     linkGroup "${group[@]}"
 done
@@ -114,4 +116,8 @@ done
 # curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip -o "$dest"
 # todo resolve *.ttf expansion - unzip "$dest" && mv "$(dirname $dest)/*.ttf" ~/Library/Fonts
 
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/mateus.canelhas/.zprofile
+   eval "$(/opt/homebrew/bin/brew shellenv)"
+brew install jq sqlite3 node python
 echo "Finished!"
