@@ -1,5 +1,19 @@
 #! /bin/bash
 
+function setupGcloud() {
+
+
+    echo "Setting up Google Cloud."
+    
+    curl https://sdk.cloud.google.com | bash
+
+    $SHELL
+    gcloud init
+    gcloud auth login
+    gcloud auth application-default login
+    gcloud auth configure-docker
+}
+
 function scriptDir() {
     cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd
 }
@@ -25,9 +39,12 @@ function linkGroup() {
     )
 }
 
+
 #
 #
 #
+
+defaults write -g AppleSpacesSwitchOnActivate -bool false
 
 baseGroup=(
     '../limni/vault/articles.tsv .canelhasmateus/articles.tsv'
@@ -86,9 +103,9 @@ codeGroup=(
 )
 
 linkGroup "${codeGroup[@]}"
-# for plugin in "${plugins[@]}"; do
-#     code --install-extension "$plugin"
-# done
+for plugin in "${plugins[@]}"; do
+    code --install-extension "$plugin"
+done
 
 # IntelliJ
 versions=(
@@ -112,12 +129,14 @@ for version in "${versions[@]}"; do
 done
 
 # system
-# dest=$(mktemp)
-# curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip -o "$dest"
-# todo resolve *.ttf expansion - unzip "$dest" && mv "$(dirname $dest)/*.ttf" ~/Library/Fonts
+dest=$(mktemp)
+parentDir=$(dirname $dest)
+curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip -o "$dest"
+unzip "$dest" -d "$parentDir" && mv $parentDir/*.ttf ~/Library/Fonts
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/mateus.canelhas/.zprofile
-   eval "$(/opt/homebrew/bin/brew shellenv)"
-brew install jq sqlite3 node python
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+brew install jq sqlite node python jetbrains-toolbox visual-studio-code git alt-tab nvim iterm2
 echo "Finished!"

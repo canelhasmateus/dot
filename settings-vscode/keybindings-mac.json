@@ -6130,7 +6130,7 @@
   },
   {
     "key": "alt+o r",
-    "command": "scratch.recentFiles"
+    "command": "extension.intellijRecentFiles"
   },
   {
     "key": "escape",
