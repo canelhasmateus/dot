@@ -58,6 +58,7 @@ function gitPush() {
 }
 
 function gitSwap() {
+
     git add .
     git commit -m "tmp"
     git checkout -
@@ -98,28 +99,29 @@ function gitStagger {
         git commit -m "$name" "$file"
     done
 }
-function gitPreserve() {
 
-    allowlist=($(cat))
-    lastMessage=$(git log -1 --pretty=%B)
+function gshove() {
 
-    git reset --soft head~ && {
-
-        git diff --name-only --staged | while read -r file; do
-            git restore --staged "${file}"
-        done
-
-        git status &&
-            for file in "${allowlist[@]}"; do
-                git add file
-            done
-
-        git status &&
-            git commit -m "${lastMessage}" &&
-            git add . && git reset --hard
+    gitRepos() {
+        argument="$1"
+        depth="${argument:=2}"
+        find . -maxdepth $depth -type d -name ".git" | xargs realpath | xargs dirname
     }
-}
 
+    commitMessage=$1
+    depth=$2
+    [[ -z $commitMessage ]] && {
+        echo "Supply message"
+        exit 1
+    }
+
+    gitRepos "$depth" | while read -r gitRoot; do
+        git -C "$gitRoot" add . &>/dev/null
+        git -C "$gitRoot" commit -m "$commitMessage" &>/dev/null
+        echo -n "[$gitRoot]" && echo -ne "\t" && git -C "$gitRoot" push
+    done
+
+}
 alias gammend="atGitRoot gitAmmend"
 alias gpush="atGitRoot gitPush"
 
@@ -127,4 +129,3 @@ alias gswap="atGitRoot gitSwap"
 alias gstagger="atGitRoot gitStagger"
 
 alias gadvance="atGitRoot gitAdvance"
-alias gpreserve="atGitRoot gitPreserve"
