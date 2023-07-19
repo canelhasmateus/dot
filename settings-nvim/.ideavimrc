@@ -390,8 +390,7 @@ vmap <leader>se <Plug>(multicursor-mse)
 vmap <leader>su <Plug>(multicursor-msgu)
 vmap <leader>st <Plug>(multicursor-mst)
 
+vmap <leader>x "ay:let @b=@+<CR>:let @+=@a<CR>:!(pbpaste \| ~/.canelhasmateus/lib/eval.py \| pbcopy)<CR>gvp:let @+=@b<CR>
 """ Quick change scapehatch
-
-
-imap <leader>x <c-o>:r !uname<cr>
+""":let @"=@1<CR>
 map <leader><leader<leader><leader><leader><leader>9 <Esc>
