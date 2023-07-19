@@ -1,5 +1,4 @@
 #! /opt/homebrew/bin/python3
-import fileinput
 import builtins
 import re
 
@@ -51,16 +50,30 @@ def dedent(text):
 def echo( x , end = "" , **kwargs):
     x and builtins.print( x , end = end)
 
+def readinput():
+    while True:
+        try:
+            yield input()
+        except EOFError:
+            return
+
 globaloutput = []
 def print(x , **kwargs): 
     globaloutput.append( x )
+
+##
+##
+##
+##
+##
 
 def id():
     import uuid
     return str(uuid.uuid4())
 
+    
 if __name__ == "__main__":
-    cmd = dedent( "".join( fileinput.input() ))
+    cmd = dedent("\n".join(readinput()))
     try:
         echo( eval( cmd ) )
     except SyntaxError:
