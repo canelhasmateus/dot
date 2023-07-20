@@ -266,6 +266,9 @@ vnoremap r, :s/,/,\r/g<CR>
 
 """ ____________________ [Y] prefix is for yanking
 
+nnoremap Y <nop>
+vnoremap Y "by:let @+=@+ . ',' . @b<CR>
+
 """ ____________________ [U] prefix is unmodified
 
 """ ____________________ [I] prefix is directional
@@ -456,7 +459,9 @@ vnoremap nd <Esc>gD
 """ ________________________________ [M] prefix controls [M]ovements
 
 nnoremap mo v%
-nnoremap M m
+
+nnoremap J m
+nnoremap L `
 
 """ todo: Declare this properly as functions here,
 """       use these hardcoded as a fallback for 
@@ -502,10 +507,10 @@ vnoremap mz <Esc>/class/b-3<CR>viw
 " mc is busy
 
 " move number
-nnoremap mn /[0-9]\+/<CR>viw
-vnoremap mn <Esc>/[0-9]\+/<CR>viw
-nnoremap mN ?[0-9]\+?<CR>viw
-nnoremap mN <Esc>?[0-9]\+?<CR>viw
+nnoremap mk /[0-9][0-9._]*/<CR>gn
+vnoremap mk <Esc>/[0-9][0-9._]*/<CR>gn
+nnoremap mK ?[0-9][0-9._]*?<CR>gn
+nnoremap mK <Esc>?[0-9][0-9._]*?<CR>gn
 
 " next angle
 nnoremap m> /><CR>vi>

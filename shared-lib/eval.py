@@ -22,7 +22,7 @@ def dedent(text):
     # all lines.
     text = _whitespace_only_re.sub('', text)
     indents = _leading_whitespace_re.findall(text)
-    margin = indents[0]
+    margin = indents[0] if indents else None
     for indent in indents:
         # Current line more deeply indented than previous winner:
         # no change (previous winner is still on top).
@@ -76,7 +76,7 @@ if __name__ == "__main__":
     cmd = dedent("\n".join(readinput()))
     try:
         echo( eval( cmd ) )
-    except SyntaxError:
+    except Exception:
         try: 
             exec( cmd )
             match len( globaloutput ):

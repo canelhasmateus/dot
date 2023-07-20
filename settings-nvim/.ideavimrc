@@ -392,6 +392,8 @@ vmap <leader>st <Plug>(multicursor-mst)
 
 map <leader>x viv:let @b = @+<CR>y:!(pbpaste \| ~/.canelhasmateus/lib/eval.py \| pbcopy)<CR>gvP:let @+ = @b<CR>
 vmap <leader>x :let @b = @+<CR>y:!(pbpaste \| ~/.canelhasmateus/lib/eval.py \| pbcopy)<CR>gvP:let @+ = @b<CR>
+
 """ Quick change scapehatch
 """:let @"=@1<CR>
-map <leader><leader<leader><leader><leader><leader>10 <Esc>
+map <leader><leader<leader><leader><leader><leader>12 <Esc>
+
