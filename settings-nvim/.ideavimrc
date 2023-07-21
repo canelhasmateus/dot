@@ -73,6 +73,8 @@ map K <Action>(EditorUnSelectWord)
 "" ____________________ [Q] prefix controls [Q]uick commands
 
 
+
+
 map qo <Plug>(MatchitMotion)
 map qO <Plug>(ReverseMatchitMotion)
 
@@ -84,9 +86,18 @@ map qç <Action>(GotoNextError)
 
 map qj <Action>(Back)
 map ql <Action>(Forward)
-map qJ <Action>(JumpToLastChange)
-map qL <Action>(JumpToNextChange)
 
+map qJ <Action>(JumpToLastChange)
+map QJ <Action>(JumpToLastChange)
+
+map qL <Action>(JumpToNextChange)
+map QL <Action>(JumpToNextChange)
+
+
+map qq <Action>(QuickEvaluateExpression)
+map qw <Action>(EvaluateExpression)
+map qw <Action>(EvaluateExpression)
+map oa <Action>(ShowIntentionActions)
 
 """ ____________________ [W] prefix is for [W]ord movement
 
@@ -215,8 +226,8 @@ vmap xx <Plug>(Exchange)
 map xi <Action>(MethodUp)
 map xk <Action>(MethodDown)
 
-map xl <Action>(ExpandRegion)
-map xj <Action>(CollapseRegion)
+map xl <Action>(SliceForward)
+map xj <Action>(SliceBackward)
 vmap xj <Action>(CollapseSelection)
 
 map xm <Action>(CollapseAllRegions)
@@ -286,7 +297,8 @@ map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
 """todo ActivateBitbucketPullRequestsToolWindow
 """
 " Macro
-noremap Q q
+
+""" noremap Q q
 noremap am @
 noremap a. @@
 xnoremap <Leader>, :<UP><CR>
@@ -303,15 +315,17 @@ nmap <leader>je vivel)<Esc>ejassertThat(<Esc>qo<leader>a.isEqualTo(
 nnoremap <leader>jj $h"ayiw^i@JsonProperty("<Esc>"apli")<Space><Esc>
 
 """ [G]
-"Doesn't work for some reason
-map qd <Action>(CompareTwoFiles)
-map gd <Action>(CompareTwoFiles)
 map gi <Action>(VcsShowPrevChangeMarker)
 map gk <Action>(VcsShowNextChangeMarker)
+
 map gu <Action>(Vcs.RollbackChangedLines)
 map go <Action>(Vcs.ShowDiffChangedLines)
 map gL <Action>(Vcs.MoveChangedLinesToChangelist)
 
+map qd <Action>(CompareTwoFiles)
+map gd <Action>(CompareTwoFiles)
+
+"Doesn't work for some reason
 "Majera.CodeReview.Bitbucket.LeaveCommentForLineAction
 "Majera.CodeReview.Bitbucket.ShowContextPullRequestFileDiff
 "ActivateBitbucketPullRequestsToolWindow
@@ -324,9 +338,6 @@ map rO <Action>(OverrideMethods)
 map rD <Action>(DelegateMethods)
 
 
-""" [Q]
-map qe <Action>(QuickEvaluateExpression)
-map qw <Action>(EvaluateExpression)
 
 """ [V]
 vmap v<Del> <Plug>SkipOccurrence
@@ -395,5 +406,6 @@ vmap <leader>x :let @b = @+<CR>y:!(pbpaste \| ~/.canelhasmateus/lib/eval.py \| p
 
 """ Quick change scapehatch
 """:let @"=@1<CR>
-map <leader><leader<leader><leader><leader><leader>12 <Esc>
+map <leader><leader<leader><leader><leader><leader>13 <Esc>
+
 

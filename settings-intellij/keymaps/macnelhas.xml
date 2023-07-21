@@ -1104,6 +1104,9 @@
   <action id="ServiceView.GroupByContributor" />
   <action id="ServiceView.GroupByServiceGroups" />
   <action id="ServiceView.ShowServices" />
+  <action id="SetShortcutAction">
+    <keyboard-shortcut first-keystroke="meta alt x" />
+  </action>
   <action id="ShelvedChanges.Rename" />
   <action id="Show Psi Viewer Dialog for Current File" />
   <action id="ShowBookmarks">
@@ -1119,8 +1122,7 @@
   <action id="ShowFilePath" />
   <action id="ShowFilterPopup" />
   <action id="ShowIntentionActions">
-    <keyboard-shortcut first-keystroke="alt q" second-keystroke="enter" />
-    <keyboard-shortcut first-keystroke="alt q" second-keystroke="space" />
+    <keyboard-shortcut first-keystroke="ctrl k" />
   </action>
   <action id="ShowNavBar" />
   <action id="ShowPopupMenu">

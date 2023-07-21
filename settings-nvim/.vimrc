@@ -178,7 +178,9 @@ vnoremap qK G
 nnoremap ql <C-I>
 nnoremap qj <C-O>
 nnoremap qL g;
+nnoremap QL g;
 nnoremap qJ g,
+nnoremap QJ g,
 
 """ ____________________ [W] prefix is for [W]ord movement
 

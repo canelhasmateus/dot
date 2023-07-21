@@ -2,9 +2,8 @@
 
 function setupGcloud() {
 
-
     echo "Setting up Google Cloud."
-    
+
     curl https://sdk.cloud.google.com | bash
 
     $SHELL
@@ -38,7 +37,6 @@ function linkGroup() {
         done
     )
 }
-
 
 #
 #
@@ -108,16 +106,11 @@ for plugin in "${plugins[@]}"; do
 done
 
 # IntelliJ
-versions=(
-    "Library/Application Support/JetBrains/IntelliJIdea2021.3"
-    "Library/Application Support/JetBrains/IntelliJIdea2022.2"
-    "Library/Application Support/JetBrains/IntelliJIdea2023.1"
-    "Library/Application Support/JetBrains/DataSpell2023.1"
-    "Library/Application Support/JetBrains/DataSpell2023.1"
-    "/Users/mateus.canelhas/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/231.9161.38/IntelliJ Idea.app/Contents"
-)
+{
+    find ~/Library/Application\ Support/JetBrains/*Idea* -depth 0
+    find ~/Library/Application\ Support/JetBrains/Toolbox/apps/**/Contents -not -path "*jbr*" -depth 0
+} | while read -r version; do
 
-for version in "${versions[@]}"; do
     group=(
         "./settings-intellij/keymaps/macnelhas.xml $version/settingsRepository/repository/keymaps/macnelha.xml"
         "./settings-intellij/keymaps/macnelhas.xml $version/keymaps/macnelhas.xml"
@@ -125,6 +118,7 @@ for version in "${versions[@]}"; do
         "./settings-intellij/quicklists $version/quicklists"
         "./settings-intellij/plugins/postfix $version/intellij-postfix-templates_templates"
     )
+
     linkGroup "${group[@]}"
 done
 
@@ -135,7 +129,10 @@ curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrai
 unzip "$dest" -d "$parentDir" && mv $parentDir/*.ttf ~/Library/Fonts
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/mateus.canelhas/.zprofile
+(
+    echo
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"'
+) >>/Users/mateus.canelhas/.zprofile
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew install jq sqlite node python jetbrains-toolbox visual-studio-code git alt-tab nvim iterm2
