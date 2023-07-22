@@ -354,7 +354,7 @@ nnoremap fç <leader><leader>j
 nnoremap fh <leader><leader>k
 nnoremap f/ <leader><leader>/
 
-nnoremap fu :set invhlsearch<CR>
+nnoremap fU :set invhlsearch<CR>
 nnoremap <A-f><A-f> /
 nnoremap fs :s/
 vnoremap fs :s/
@@ -462,9 +462,6 @@ vnoremap nd <Esc>gD
 
 nnoremap mo v%
 
-nnoremap J m
-nnoremap L `
-
 """ todo: Declare this properly as functions here,
 """       use these hardcoded as a fallback for 
 """       emulators without vimscript support
@@ -482,7 +479,7 @@ nnoremap mE [bv]w
 vnoremap mE <Esc>[b[bv]w
 nnoremap vie ]wv[b
 
-" move curly 
+" move curly
 nnoremap ma /{<CR>zovi}
 vnoremap ma o<Esc>/{<CR>zovi}
 nnoremap mA ?}<CR>vi}
@@ -508,7 +505,11 @@ vnoremap mz <Esc>/class/b-3<CR>viw
 
 " mc is busy
 
-" move number
+"move parameter
+nnoremap mp Eviw
+nnoremap mP Bviw
+
+" move konstant
 nnoremap mk /[0-9][0-9._]*/<CR>gn
 vnoremap mk <Esc>/[0-9][0-9._]*/<CR>gn
 nnoremap mK ?[0-9][0-9._]*?<CR>gn
@@ -544,6 +545,8 @@ vnoremap mM <Esc>?(?e-1<CR>vBo
 
 """ Experimental -----------------------------------------
 
+nnoremap J m
+nnoremap L `
 
 """ Meta -------------------------------------------------
 
@@ -564,3 +567,4 @@ endif
 
 "todo https://learnbyexample.github.io/tips/vim-tip-23/
 "todo https://vimhelp.org/motion.txt.html#jump-motions
+
