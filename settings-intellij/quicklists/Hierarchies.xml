@@ -1,0 +1,10 @@
+<list display="Hierarchies">
+  <action id="TypeHierarchy" />
+  <action id="MethodHierarchy" />
+  <action id="CallHierarchy" />
+  <action id="QuickList.$Separator$" />
+  <action id="ActivateHierarchyToolWindow" />
+  <action id="TypeHierarchy.Class" />
+  <action id="TypeHierarchy.Subtypes" />
+  <action id="TypeHierarchy.Supertypes" />
+</list>

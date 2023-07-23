@@ -54,8 +54,11 @@
   <action id="AceWordStartAction">
     <keyboard-shortcut first-keystroke="alt f" second-keystroke="space" />
   </action>
+  <action id="ActivateAnalyzeDataflowfromToolWindow">
+    <keyboard-shortcut first-keystroke="alt w" second-keystroke="x" />
+  </action>
   <action id="ActivateAnalyzeDataflowtoToolWindow">
-    <keyboard-shortcut first-keystroke="alt w" second-keystroke="shift d" />
+    <keyboard-shortcut first-keystroke="alt w" second-keystroke="alt x" />
   </action>
   <action id="ActivateBitbucketPullRequestsToolWindow">
     <keyboard-shortcut first-keystroke="alt w" second-keystroke="r" />
@@ -101,7 +104,9 @@
   <action id="ActivateServicesToolWindow">
     <keyboard-shortcut first-keystroke="alt w" second-keystroke="alt s" />
   </action>
-  <action id="ActivateStructureToolWindow" />
+  <action id="ActivateStructureToolWindow">
+    <keyboard-shortcut first-keystroke="alt w" second-keystroke="o" />
+  </action>
   <action id="ActivateTerminalToolWindow">
     <keyboard-shortcut first-keystroke="alt w" second-keystroke="t" />
   </action>
@@ -109,6 +114,9 @@
     <keyboard-shortcut first-keystroke="alt w" second-keystroke="g" />
   </action>
   <action id="Activatesbt-shell-toolwindowToolWindow" />
+  <action id="AddAnotherBookmark">
+    <keyboard-shortcut first-keystroke="alt r" second-keystroke="m" />
+  </action>
   <action id="AddToFavoritesPopup" />
   <action id="Adtui.ZoomInAction" />
   <action id="Adtui.ZoomOutAction" />
@@ -125,6 +133,10 @@
   <action id="Back">
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="left" />
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="j" />
+  </action>
+  <action id="BookmarksView.Rename">
+    <keyboard-shortcut first-keystroke="f2" />
+    <keyboard-shortcut first-keystroke="alt r" second-keystroke="n" />
   </action>
   <action id="BraceOrQuoteOut" />
   <action id="CallHierarchy" />
@@ -276,6 +288,9 @@
   <action id="DumpMLCompletionFeatures" />
   <action id="DuplicatesForm.SendToLeft" />
   <action id="DuplicatesForm.SendToRight" />
+  <action id="EditBookmark">
+    <keyboard-shortcut first-keystroke="alt r" second-keystroke="n" />
+  </action>
   <action id="EditBreakpoint">
     <keyboard-shortcut first-keystroke="alt b" second-keystroke="b" />
   </action>
@@ -807,9 +822,6 @@
   <action id="Majera.CodeReview.Bitbucket.ChangePullRequestCommentsMode">
     <keyboard-shortcut first-keystroke="alt g" second-keystroke="v" />
   </action>
-  <action id="Majera.CodeReview.Bitbucket.ChangeToolWindowOrientation">
-    <keyboard-shortcut first-keystroke="alt w" second-keystroke="o" />
-  </action>
   <action id="Majera.CodeReview.Bitbucket.CheckoutPullRequestBranch">
     <keyboard-shortcut first-keystroke="alt g" second-keystroke="shift c" />
   </action>
@@ -859,6 +871,9 @@
   </action>
   <action id="MoveStatementUp">
     <keyboard-shortcut first-keystroke="meta up" />
+  </action>
+  <action id="MoveTabRight">
+    <keyboard-shortcut first-keystroke="alt q" second-keystroke="a" />
   </action>
   <action id="Mvc.RunTarget" />
   <action id="NewElement">
@@ -921,6 +936,9 @@
   <action id="PreviousOccurence" />
   <action id="PreviousTab" />
   <action id="ProjectViewChangeView" />
+  <action id="PsiViewerForContext">
+    <keyboard-shortcut first-keystroke="alt w" second-keystroke="shift x" />
+  </action>
   <action id="PublishGroup.UploadTo" />
   <action id="QuickActionPopup" />
   <action id="QuickEvaluateExpression">
@@ -951,11 +969,13 @@
   <action id="QuickList.FindTab">
     <keyboard-shortcut first-keystroke="alt f" second-keystroke="tab" />
   </action>
+  <action id="QuickList.Head">
+    <keyboard-shortcut first-keystroke="alt q" second-keystroke="tab" />
+  </action>
   <action id="QuickList.Meta">
     <keyboard-shortcut first-keystroke="alt e" second-keystroke="tab" />
   </action>
   <action id="QuickList.New">
-    <keyboard-shortcut first-keystroke="alt n" second-keystroke="tab" />
     <keyboard-shortcut first-keystroke="alt m" second-keystroke="meta n" />
   </action>
   <action id="QuickList.New File" />
@@ -1122,14 +1142,16 @@
   <action id="ShowFilePath" />
   <action id="ShowFilterPopup" />
   <action id="ShowIntentionActions">
-    <keyboard-shortcut first-keystroke="ctrl k" />
+    <keyboard-shortcut first-keystroke="alt q" second-keystroke="enter" />
   </action>
   <action id="ShowNavBar" />
   <action id="ShowPopupMenu">
     <keyboard-shortcut first-keystroke="context_menu" />
     <keyboard-shortcut first-keystroke="shift ctrl meta alt 9" />
   </action>
-  <action id="ShowProjectStructureSettings" />
+  <action id="ShowProjectStructureSettings">
+    <keyboard-shortcut first-keystroke="alt m" second-keystroke="meta p" />
+  </action>
   <action id="ShowRecentTests">
     <keyboard-shortcut first-keystroke="alt t" second-keystroke="r" />
   </action>
@@ -1310,7 +1332,7 @@
   <action id="VcsShowNextChangeMarker" />
   <action id="VcsShowPrevChangeMarker" />
   <action id="ViewBreakpoints">
-    <keyboard-shortcut first-keystroke="alt w" second-keystroke="x" />
+    <keyboard-shortcut first-keystroke="alt s" second-keystroke="alt x" />
   </action>
   <action id="VimActions" />
   <action id="VimFindActionIdAction">
@@ -1357,6 +1379,12 @@
   <action id="hg4idea.QFold" />
   <action id="hg4idea.QGotoFromPatches" />
   <action id="hg4idea.QPushAction" />
+  <action id="sql.ExtractNamedQueryAction">
+    <keyboard-shortcut first-keystroke="alt r" second-keystroke="v" />
+  </action>
+  <action id="sql.IntroduceAliasAction">
+    <keyboard-shortcut first-keystroke="alt r" second-keystroke="n" />
+  </action>
   <action id="symbolizeKeyWords" />
   <action id="tasks.close" />
   <action id="tasks.goto" />

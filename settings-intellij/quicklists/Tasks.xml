@@ -1,0 +1,15 @@
+<list display="Overlay Task">
+  <action id="tasks.switch" />
+  <action id="tasks.goto" />
+  <action id="tasks.close" />
+  <action id="tasks.edit" />
+  <action id="tasks.create.changelist" />
+  <action id="tasks.show.task.description" />
+  <action id="tasks.open.in.browser" />
+  <action id="tasks.analyze.stacktrace" />
+  <action id="tasks.configure.servers" />
+  <action id="start.stop.timer" />
+  <action id="context.save" />
+  <action id="context.load" />
+  <action id="context.clear" />
+</list>

@@ -114,13 +114,12 @@ map rm <Action>(Move)
 map rd <Action>(EditorDuplicate)
 map rj <Action>(EditorJoinLines)
 map ru <Action>(EditorToggleCase)
-map ro <Action>(OptimizeImports)
 map rr <Action>(ReformatCode)
+map rO <Action>(OptimizeImports)
 
 vnoremap r. :s/)\./)\r./g<CR>:action ReformatCode<CR>
 vnoremap r, :s/,/,\r/g<CR>:action ReformatCode<CR>
 
-vnoremap r<Tab> <Action>(QuickList.Refactor)
 
 """ ____________________ [T] prefix is unmodified
 
@@ -136,18 +135,15 @@ map op <Action>(PasteMultiple)
 map oe <Action>(RecentChangedFiles)
 map or <Action>(RecentFiles)
 map os <Action>(ChooseRunConfiguration)
+map oS <Action>(ChooseDebugConfiguration)
 map ox <Action>(FileStructurePopup)
 map ot <Action>(ImportTests)
 map ow <Action>(CloseContent)
 
-map ol <Action>(RecentLocations)
-map oq <Action>(ShowBookmarks)
-map oh <Action>(QuickList.Hierarchies)
-
-map oI <Action>(RunInspection) """ oi is invert, but maybe change it to ov?
 map on <Action>(ShowNavBar)
 map oT <Action>(ShowRecentTests)
-map o<Tab> <Action>(QuickList.Head)
+
+map ol <Action>(RecentLocations)
 
 
 """ ____________________ [P] prefix controls [P]asting
@@ -176,7 +172,6 @@ map fl <Plug>(easymotion-w)
 map fj <Plug>(easymotion-b)
 map fç <Plug>(easymotion-eol-j)
 map fh <Plug>(easymotion-sol-k)
-map f<Tab>(QuickList.Find)
 
 """ Probably remove and make more space, since f* is __premium__ realstate
 map fL <Plug>(easymotion-e)
@@ -185,7 +180,6 @@ map fJ <Plug>(easymotion-ge)
 """ ____________________ [G] Prefix is [G]it
 map gi <Action>(VcsShowPrevChangeMarker)
 map gk <Action>(VcsShowNextChangeMarker)
-map g<Tab> <Action>(QuickList.Git)
 
 """ ____________________ [H] Prefix is directional ( Home )
 """ ____________________ [J] Prefix is directional ( Left )
@@ -231,7 +225,7 @@ map x; <Action>(ExpandAllRegions)
 map x, <Action>(ExpandAllToLevel1)
 map x. <Action>(ExpandAllToLevel2)
 
-vmap x<Tab> <Action>(QuickList.Analyze)
+
 """ ________________________________ [C] prefix controls [C]hanging
 
 """ ________________________________ [V] prefix controls [V]isual selections
@@ -317,9 +311,10 @@ nnoremap ms <Nop>
 vnoremap ms <Nop>
 
 vmap ? <Plug>(multicursor-ms/)
+vmap sç <Action>(EditorAddCaretPerSelectedLine)
 
 vmap sh <C-V>v<Plug>(multicursor-ms^)
-vmap sç <C-V>V<Plug>(multicursor-ms$)
+"""vmap sç <C-V>V<Plug>(multicursor-ms$)
 vmap sc <Plug>(multicursor-msgU)
 vmap sw <Plug>(multicursor-msgU)
 vmap sW <Plug>(multicursor-msgU)
@@ -334,18 +329,8 @@ vmap <leader>su <Plug>(multicursor-msgu)
 vmap <leader>st <Plug>(multicursor-mst)
 
 """ --------------------------------------------------
-""" Quick lists?
-""map oF <Action>(StructuralSearchPlugin.StructuralSearchAction)
-"""map ofr <Action>(StructuralSearchPlugin.StructuralReplaceAction)
-"""vmap oX <Action>(GotoCustomRegion)
-"""map ofp <Action>(FindInPath)
-"""RecentChanges
 
-"""map ot <Action>(Rest Client)
-"""map ot <Action>(Quick Swithc scheme)
 
-"""EditBreakpoint
-"""ViewBreakpoints
 
 "Doesn't work for some reason
 "Majera.CodeReview.Bitbucket.LeaveCommentForLineAction
@@ -365,37 +350,43 @@ map g> <Action>(Diff.ApplyLeftSide)
 
 """ [TODO]
 """completions
-"""better templates
-"""better postfixes
+"""codewithme
+"""tasks
+"""quick lists
+"""templates
+"""postfixes
+"""map gK <Action>(Majera.CodeReview.Bitbucket.NextCommentInOrdinaryEditor)
+"""map gI <Action>(Majera.CodeReview.Bitbucket.PrevCommentInOrdinaryEditor)
+
 """map zO zhzçzDznqjqjzh
 """Macros
 
 """ [USE MORE]
 """map on <Action>(ShowNavBar)
-"""map oh <Action>(QuickList.Hierarchies)
 """map oT <Action>(ShowRecentTests)
 """map oI <Action>(RunInspection) """ oi is invert, but maybe change it to ov?
-"""map oq <Action>(ShowBookmarks)
 """map ou <Action>(LocalHistory.ShowHistory)
 """map oU <Action>(UML.ShowChanges)
 """map fL <Plug>(easymotion-e)
 """map fJ <Plug>(easymotion-ge)
-
 """map xl <Action>(SliceForward)
 """map xj <Action>(SliceBackward)
 
-"""map xm <Action>(CollapseAllRegions)
-"""map x; <Action>(ExpandAllRegions)
-"""map x, <Action>(ExpandAllToLevel1)
-"""map x. <Action>(ExpandAllToLevel2)
-""" vmap v<Del> <Plug>SkipOccurrence
-""" map qO <Plug>(ReverseMatchitMotion)
 map qq <Action>(QuickEvaluateExpression)
 map qe <Action>(EvaluateExpression)
 map oa <Action>(ShowIntentionActions)
 vmap qd <Action>(ShowBlankDiffWindow)
 
+map <leader>oq <Action>(QuickList.Bookmarks)
+map <leader>oh <Action>(QuickList.Hierarchies)
+map <leader>oi <Action>(QuickList.Inspections)
+map <leader>oy <Action>(QuickList.Copy)
+map <leader>oj <Action>(QuickList.Java)
+map <leader>of <Action>(QuickList.Find)
+map <leader>og <Action>(QuickList.Git)
+map <leader>ox <Action>(QuickList.Analyze)
+map <leader>or <Action>(QuickList.Refactor)
+map <leader>oo <Action>(QuickList.Head)
+
 """ Quick change scapehatch
 map <leader>17 <Esc>
-
-map f<Tab>(QuickList.Find)

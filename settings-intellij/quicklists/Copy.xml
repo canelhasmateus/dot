@@ -1,0 +1,15 @@
+<list display="Copy">
+  <action id="CopyPathFromRepositoryRootProvider" />
+  <action id="CopyReference" />
+  <action id="QuickList.Copy Path" />
+  <action id="GithubCopyPathProvider" />
+  <action id="CopyTBXReference" />
+  <action id="JsonCopyPointer" />
+  <action id="EditorPasteSimple" />
+  <action id="QuickList.$Separator$" />
+  <action id="CopyPaths" />
+  <action id="CopyAbsolutePath" />
+  <action id="CopyPathWithLineNumber" />
+  <action id="CopyContentRootPath" />
+  <action id="CopySourceRootPath" />  
+</list>

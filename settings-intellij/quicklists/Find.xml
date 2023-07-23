@@ -1,0 +1,9 @@
+<list display="Find">
+  <action id="ShowSettingsAndFindUsages" />
+  <action id="DupLocate" />
+  <action id="FindUsagesInFile" />
+  <action id="MethodDuplicates" />
+  <action id="XPathView.Actions.FindByExpression" />
+  <action id="StructuralSearchPlugin.StructuralSearchAction" />
+  <action id="StructuralSearchPlugin.StructuralReplaceAction" />
+</list>

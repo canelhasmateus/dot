@@ -1,0 +1,17 @@
+<list display="Overlay">
+  <action id="RecentLocations" />
+  <action id="RecentChanges" />
+  <action id="ActivateAnalyzeDataflowfromToolWindow" />
+  <action id="ActivateAnalyzeDataflowtoToolWindow" />
+  <action id="QuickList.$Separator$" />
+  <action id="MaximizeEditorInSplit" />
+  <action id="RecentFiles" />
+  <action id="RecentChangedFiles" />
+  <action id="PsiViewer" />
+  <action id="PsiViewerForContext" />
+  <action id="ViewImportPopups" />
+  <action id="QuickList.$Separator$" />
+  <action id="CWMHostShowPopupAction" />
+  <action id="QuickList.OverlayTask" />
+  <action id="CloseAllNotifications" />
+</list>

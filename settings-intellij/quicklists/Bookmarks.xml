@@ -1,0 +1,30 @@
+<list display="Bookmarks">
+  <action id="ToggleBookmark" />
+  <action id="AddAnotherBookmark" />
+  <action id="BookmarkOpenTabs" />
+  <action id="ShowBookmarks" />
+
+  <action id="QuickList.$Separator$"/>
+  <action id="GotoNextBookmark" />
+  <action id="GotoNextBookmarkInEditor" />
+  <action id="GotoPreviousBookmark" />
+  <action id="GotoPreviousBookmarkInEditor" />
+  <action id="BookmarksView.DefaultGroup" />
+
+  <action id="QuickList.$Separator$"/>
+  <action id="BookmarksView.Delete" />
+  <action id="BookmarksView.DeleteType" />
+  <action id="BookmarksView.ChooseType" />
+  <action id="ShowTypeBookmarks" />
+
+  <action id="QuickList.$Separator$"/>
+  <action id="BookmarksView.SortGroupBookmarks" />
+  <action id="OpenBookmarkGroup" />
+  <action id="BookmarksView.ShowPreview" />
+  <action id="BookmarksView.GroupLineBookmarks" />
+  <action id="BookmarksView.RewriteBookmarkType" />
+  <action id="BookmarksView.AskBeforeDeletingLists" />
+  <action id="BookmarksView.OpenInPreviewTab" />
+  <action id="BookmarksView.AutoscrollToSource" />
+  <action id="BookmarksView.AutoscrollFromSource" />
+</list>

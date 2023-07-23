@@ -1,0 +1,16 @@
+<list display="Analyze">
+  <action id="SliceBackward" />
+  <action id="SliceForward" />
+  <action id="Unscramble" />
+
+  <action id="QuickList.$Separator$"/>
+  <action id="ByteCodeDecompiler" />
+  <action id="ByteCodeViewer" />
+  <action id="ConvertJavaToKotlin" />
+  <action id="DecompileKotlinToJava" />
+  <action id="ShowKotlinBytecode" />
+
+  <action id="QuickList.$Separator$"/>
+  <action id="JShell.Console" />
+  <action id="QuickList.Inspections" />
+</list>

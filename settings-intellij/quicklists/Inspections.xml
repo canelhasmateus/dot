@@ -1,0 +1,8 @@
+<list display="Inspections">
+  <action id="PopupHector" />
+  <action id="ViewOfflineInspection" />
+  <action id="RunInspection" />
+  <action id="CodeCleanup" />
+  <action id="SilentCodeCleanup" />
+  <action id="InspectCode" />
+</list>

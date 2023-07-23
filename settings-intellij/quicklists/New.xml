@@ -6,4 +6,5 @@
   <action id="Scala.NewClass" />
   <action id="NewFile" />
   <action id="NewScratchFile" />
+  <action id="BookmarksView.Create" />
 </list>

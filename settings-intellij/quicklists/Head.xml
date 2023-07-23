@@ -1,0 +1,13 @@
+<list display="Head">
+  <action id="QuickList.New" />
+  <action id="QuickList.Hierarchies" />
+  <action id="QuickList.Analyze" />
+  <action id="QuickList.Inspections" />
+  <action id="QuickList.Find" />
+  <action id="QuickList.Copy" />
+  <action id="QuickList.Git" />
+  <action id="QuickList.Refactor" />
+  <action id="QuickList.Bookmarks" />
+  <action id="QuickList.Java" />
+  <action id="QuickList.Overlay" />
+</list>

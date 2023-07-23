@@ -205,8 +205,12 @@ vnoremap ee e
 " Todo - could be better
 nnoremap ea a 
 
+nnoremap eI ggO
 nnoremap ei O
+
 nnoremap ek o
+nnoremap eK Go
+
 vnoremap ei <Esc>`<O
 vnoremap ek <Esc>`>o
 
@@ -554,8 +558,8 @@ nnoremap <leader>wr :w<CR>:source ~\.vimrc<CR>
 nnoremap <leader>vii :e ~/.vimrc<CR>
 nnoremap <leader>vij :e ~/.ideavimrc<CR>
 nnoremap <leader>vim :e ~/.config/nvim/lua/user/keymaps.lua<CR>
-nnoremap <leader>oc :! code :f
-nnoremap <leader>oj :! idea :f
+nnoremap <leader>Oc :! code :f
+nnoremap <leader>Oj :! idea :f
 
 if has('nvim')
 

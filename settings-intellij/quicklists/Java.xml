@@ -1,0 +1,23 @@
+<list display="Java">
+  <action id="AnalyzeJavaMenu" />
+  <action id="ShowProjectStructureSettings" />
+  <action id="ProjectViewAnalysisGroup" />
+  <action id="ProjectViewCompileGroup" />
+  <action id="JavaControlBreak" />
+  <action id="ConvertModuleGroupsToQualifiedNames" />
+  <action id="JavaSoftExit" />
+  <action id="ExportThreads" />
+  <action id="DumpThreads" />
+  <action id="ToggleFieldBreakpoint" />
+  <action id="TemplateProjectStructure" />
+  <action id="ManageProjectTemplates" />
+  <action id="Debugger.ViewText" />
+  <action id="ToggleMethodBreakpoint" />
+  <action id="KotlinCodeMigrationToggle" />
+  <action id="KotlinShellExecute" />
+  <action id="JShell.Console" />
+  <action id="QuickList.$Separator$" />
+  <action id="ExpressionTypeInfo" />
+  <action id="ParameterInfo" />
+  <action id="EditorContextInfo" />
+</list>

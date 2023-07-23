@@ -70,7 +70,8 @@ def print(x , **kwargs):
 def id():
     import uuid
     return str(uuid.uuid4())
-
+def hello():
+    return "Hey you there!"
     
 if __name__ == "__main__":
     cmd = dedent("\n".join(readinput()))

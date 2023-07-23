@@ -1,0 +1,39 @@
+<list display="Git">
+    <action id="Vcs.Diff.ToggleDiffAligningMode"/>
+    <action id="Majera.CodeReview.Bitbucket.PullRequestsAllFilters"/>
+    <action id="Majera.CodeReview.Bitbucket.ShowCommentListInOrdinaryEditor"/>
+    <action id="Majera.CodeReview.Bitbucket.RefreshContextPullRequests"/>
+
+    <action id="QuickList.$Separator$"/>
+    <action id="Majera.CodeReview.Bitbucket.NextCommentInOrdinaryEditor"/>
+    <action id="Majera.CodeReview.Bitbucket.PrevCommentInOrdinaryEditor"/>
+    <action id="Majera.CodeReview.Bitbucket.CreatePullRequest"/>
+    <action id="Majera.CodeReview.Bitbucket.FindPullRequestByWebUrl"/>
+    <action id="Majera.CodeReview.Bitbucket.OpenPullRequestInBrowser"/>
+    <action id="Majera.CodeReview.Bitbucket.ShowContextPullRequestFileDiff"/>
+    <action id="Bitbucket.CommitRelatedPullRequests"/>
+    <action id="Majera.CodeReview.Bitbucket.LeaveFileComment"/>
+    
+    <action id="QuickList.$Separator$"/>
+    <action id="Majera.CodeReview.Bitbucket.LeaveCommentForLineAction"/>
+    <action id="Majera.CodeReview.Bitbucket.ShowNotifications"/>
+    <action id="Majera.CodeReview.Bitbucket.ReadAllNotifications"/>
+   
+    <action id="QuickList.$Separator$"/>
+    <action id="Majera.CodeReview.Bitbucket.GoToNextColumn"/>
+    <action id="Diff.PrevChange"/>
+    <action id="Diff.NextChange"/>
+    <action id="NextDiff"/>
+    <action id="PreviousDiff"/>
+    <action id="Diff.ApplyNonConflicts"/>
+    <action id="Vcs.ShowDiffChangedLines"/>
+    <action id="Vcs.Diff.ToggleDiffAligningMode"/>
+    <action id="Vcs.Diff.ShowDiffInEditorTab"/>
+    <action id="Vcs.Diff.ShowDiffInNewWindow"/>
+    <action id="Vcs.Log.ShowDiffPreview"/>
+    <action id="Uml.ShowDiff"/>
+    <action id="Diff.FocusOppositePane"/>
+    <action id="Diff.FocusOppositePaneAndScroll"/>
+    <action id="ToggleThreeSideInBlankDiffWindow"/>
+    <action id="SwapSidesInDiffWindow"/>
+</list>
