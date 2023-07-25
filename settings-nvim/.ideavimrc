@@ -94,7 +94,11 @@ map qq <Action>(QuickEvaluateExpression)
 map qe <Action>(EvaluateExpression)
 map oa <Action>(ShowIntentionActions)
 vmap qd <Action>(ShowBlankDiffWindow)
-
+map qd <Action>(ToggleBookmark)
+""" nnoremap <expr> qm "m" . toupper(nr2char(getchar()))
+nnoremap qm m
+nnoremap qn `
+map qM <Action>(ShowBookmarks)
 """ ____________________ [W] prefix is for [W]ord movement
 
 """ ____________________ [E] prefix controls [E]dit cursor
@@ -375,6 +379,7 @@ map g> <Action>(Diff.ApplyLeftSide)
 map qq <Action>(QuickEvaluateExpression)
 map qe <Action>(EvaluateExpression)
 map oa <Action>(ShowIntentionActions)
+map qd <Action>(ToggleBookmark)
 vmap qd <Action>(ShowBlankDiffWindow)
 
 map <leader>oq <Action>(QuickList.Bookmarks)
@@ -390,3 +395,7 @@ map <leader>oo <Action>(QuickList.Head)
 
 """ Quick change scapehatch
 map <leader>17 <Esc>
+
+
+map gc <Action>(Compare.Selected)
+map gl <Action>(Vcs.ShowDiffChangedLines)

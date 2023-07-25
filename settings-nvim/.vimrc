@@ -421,7 +421,7 @@ nnoremap c<Home> "ac^
 nnoremap cç "ac$
 nnoremap c<End> "ac$
 
-nnoremap ck "acl
+nnoremap ck r
 " ci is inside dummy
 
 nnoremap co c%
@@ -549,8 +549,8 @@ vnoremap mM <Esc>?(?e-1<CR>vBo
 
 """ Experimental -----------------------------------------
 
-nnoremap J m
-nnoremap L `
+nnoremap J `
+nnoremap M m
 
 """ Meta -------------------------------------------------
 
