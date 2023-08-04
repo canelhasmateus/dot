@@ -135,7 +135,6 @@
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="j" />
   </action>
   <action id="BookmarksView.Rename">
-    <keyboard-shortcut first-keystroke="f2" />
     <keyboard-shortcut first-keystroke="alt r" second-keystroke="n" />
   </action>
   <action id="BraceOrQuoteOut" />
@@ -175,7 +174,9 @@
   <action id="CollapseAllRegions">
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="meta alt comma" />
   </action>
-  <action id="CollapseBlock" />
+  <action id="CollapseBlock">
+    <keyboard-shortcut first-keystroke="ctrl q" />
+  </action>
   <action id="CollapseExpandableComponent" />
   <action id="CollapseRegion">
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="comma" />
@@ -702,6 +703,9 @@
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="t" />
   </action>
   <action id="GotoTypeDeclaration" />
+  <action id="Gradle.ToggleOfflineAction">
+    <keyboard-shortcut first-keystroke="alt q" second-keystroke="q" />
+  </action>
   <action id="Graph.ActualSize" />
   <action id="Graph.ApplyCurrentLayout" />
   <action id="Graph.ZoomIn" />
@@ -982,9 +986,6 @@
   <action id="QuickList.Quick">
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="tab" />
   </action>
-  <action id="QuickList.QuickLists">
-    <keyboard-shortcut first-keystroke="alt q" second-keystroke="q" />
-  </action>
   <action id="QuickList.Random">
     <keyboard-shortcut first-keystroke="alt a" second-keystroke="tab" />
   </action>
@@ -1132,7 +1133,6 @@
   <action id="Show Psi Viewer Dialog for Current File" />
   <action id="ShowBookmarks">
     <keyboard-shortcut first-keystroke="alt b" second-keystroke="tab" />
-    <keyboard-shortcut first-keystroke="alt q" second-keystroke="q" />
   </action>
   <action id="ShowErrorDescription">
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="w" />

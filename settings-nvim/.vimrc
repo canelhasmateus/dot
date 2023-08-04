@@ -11,6 +11,7 @@ set wrapscan
 set incsearch
 set smartcase
 
+"set nrformats+=alpha
 "set hlsearch
 "set maxmapdepth
 "set history
@@ -421,7 +422,10 @@ nnoremap c<Home> "ac^
 nnoremap cç "ac$
 nnoremap c<End> "ac$
 
-nnoremap ck r
+nnoremap cK r
+nnoremap ck "acl
+nnoremap cx "adl"aph
+
 " ci is inside dummy
 
 nnoremap co c%
@@ -442,10 +446,9 @@ nnoremap vk v
 nnoremap vK <C-v>j
 " nnoremap vi -> vi is inside dummy
 
-vnoremap V V
+vnoremap V <C-v>
 nnoremap vv V
-nnoremap vb <C-V>
-vnoremap vb <C-V>
+vnoremap v. gv
 
 nnoremap viv g^vg_
 nnoremap voa va}V
@@ -558,8 +561,8 @@ nnoremap <leader>wr :w<CR>:source ~\.vimrc<CR>
 nnoremap <leader>vii :e ~/.vimrc<CR>
 nnoremap <leader>vij :e ~/.ideavimrc<CR>
 nnoremap <leader>vim :e ~/.config/nvim/lua/user/keymaps.lua<CR>
-nnoremap <leader>Oc :! code :f
-nnoremap <leader>Oj :! idea :f
+nnoremap <leader>Oc :! code %<CR>
+nnoremap <leader>Oj :! idea %<CR>
 
 if has('nvim')
 

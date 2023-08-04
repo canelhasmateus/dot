@@ -54,9 +54,9 @@ baseGroup=(
     './shared-config .canelhasmateus/config'
     './shared-config/osx-colima.yaml .colima/default/colima.yaml'
     './shared-config/osx-alacritty.yml .config/alacritty/alacritty.yml'
+    './shared-config/osx-gradle.kts .gradle/init.d/configure-resolution-strategy.gradle' 
 )
 linkGroup "${baseGroup[@]}"
-
 # vim
 plugfile=$(mktemp)
 plugdests=(

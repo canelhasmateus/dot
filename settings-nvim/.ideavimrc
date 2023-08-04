@@ -69,6 +69,7 @@ sethandler <S-A-Left> a:vim
 
 map I <Action>(EditorSelectWord)
 map K <Action>(EditorUnSelectWord)
+map gq <Action>(FillParagraph)
 
 "" ____________________ [Q] prefix controls [Q]uick commands
 
@@ -93,12 +94,9 @@ map QL <Action>(JumpToNextChange)
 map qq <Action>(QuickEvaluateExpression)
 map qe <Action>(EvaluateExpression)
 map oa <Action>(ShowIntentionActions)
+
 vmap qd <Action>(ShowBlankDiffWindow)
-map qd <Action>(ToggleBookmark)
-""" nnoremap <expr> qm "m" . toupper(nr2char(getchar()))
-nnoremap qm m
-nnoremap qn `
-map qM <Action>(ShowBookmarks)
+map qm <Action>(ToggleBookmark)
 """ ____________________ [W] prefix is for [W]ord movement
 
 """ ____________________ [E] prefix controls [E]dit cursor
@@ -123,6 +121,7 @@ map rO <Action>(OptimizeImports)
 
 vnoremap r. :s/)\./)\r./g<CR>:action ReformatCode<CR>
 vnoremap r, :s/,/,\r/g<CR>:action ReformatCode<CR>
+vnoremap r<space> :s/ / \r/g<CR>
 
 
 """ ____________________ [T] prefix is unmodified
@@ -228,7 +227,6 @@ map xm <Action>(CollapseAllRegions)
 map x; <Action>(ExpandAllRegions)
 map x, <Action>(ExpandAllToLevel1)
 map x. <Action>(ExpandAllToLevel2)
-
 
 """ ________________________________ [C] prefix controls [C]hanging
 
@@ -340,7 +338,8 @@ vmap <leader>st <Plug>(multicursor-mst)
 "Majera.CodeReview.Bitbucket.LeaveCommentForLineAction
 "Majera.CodeReview.Bitbucket.ShowContextPullRequestFileDiff
 "ActivateBitbucketPullRequestsToolWindow
-map oG Action<>(Bitbucket.OpenFileInBitbucket)
+map oq <Action>(ShowBookmarks)
+map oG <Action>(Bitbucket.OpenFileInBitbucket)
 map ou <Action>(LocalHistory.ShowHistory)
 map oU <Action>(UML.ShowChanges)
 vmap ou <Action>(LocalHistory.ShowSelectionHistory)
@@ -379,14 +378,13 @@ map g> <Action>(Diff.ApplyLeftSide)
 map qq <Action>(QuickEvaluateExpression)
 map qe <Action>(EvaluateExpression)
 map oa <Action>(ShowIntentionActions)
-map qd <Action>(ToggleBookmark)
-vmap qd <Action>(ShowBlankDiffWindow)
 
 map <leader>oq <Action>(QuickList.Bookmarks)
 map <leader>oh <Action>(QuickList.Hierarchies)
 map <leader>oi <Action>(QuickList.Inspections)
 map <leader>oy <Action>(QuickList.Copy)
 map <leader>oj <Action>(QuickList.Java)
+map <leader>ob <Action>(QuickList.Build)
 map <leader>of <Action>(QuickList.Find)
 map <leader>og <Action>(QuickList.Git)
 map <leader>ox <Action>(QuickList.Analyze)
@@ -396,6 +394,7 @@ map <leader>oo <Action>(QuickList.Head)
 """ Quick change scapehatch
 map <leader>17 <Esc>
 
+nnoremap X q
 
 map gc <Action>(Compare.Selected)
 map gl <Action>(Vcs.ShowDiffChangedLines)
