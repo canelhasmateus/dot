@@ -1,11 +1,14 @@
 #! /bin/bash
 today=$(date +'%Y-%m-%d')
 f="${HOME}/.canelhasmateus/journal/${today}.md"
+p=$(dirname "$f")
+p=$(realpath "$p")
+
 [[ ! -f "$f" ]] && echo "$today" >"$f"
 
 /opt/homebrew/bin/nvim -c 'normal Gek' \
-    -c 'map <A-s> <Esc>:wq<CR>' -c 'imap <A-s> <Esc>:wq<CR>' \
-    -c 'map <A-d> <Esc>:q!<CR>' -c 'imap <A-d> <Esc>:q!<CR>' \
-    -- "$f"
+    -c 'nmap ß <Esc>:wq<CR>' -c 'imap ß <Esc>:wq<CR>' \
+    -c 'map ð <Esc>:q!<CR>' -c 'imap ð <Esc>:q!<CR>' \
+    -c "nnoremap nf :Telescope find_files find_command=/opt/homebrew/bin/rg,--sortr,path,--files,${p}<CR>" -- "$f"
 
 echo "___" >>"$f"

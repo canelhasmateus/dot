@@ -1,4 +1,5 @@
 <list display="Copy">
+  <action id="Bitbucket.CopyFileUrlInBitbucket"/>
   <action id="CopyPathFromRepositoryRootProvider" />
   <action id="CopyReference" />
   <action id="QuickList.Copy Path" />

@@ -12,7 +12,7 @@ set incsearch
 set smartcase
 
 "set nrformats+=alpha
-"set hlsearch
+set invhlsearch
 "set maxmapdepth
 "set history
 
@@ -277,6 +277,8 @@ nnoremap Y <nop>
 vnoremap Y "by:let @+=@+ . ',' . @b<CR>
 
 """ ____________________ [U] prefix is unmodified
+nnoremap U <C-R>
+vnoremap U U
 
 """ ____________________ [I] prefix is directional
 
@@ -400,6 +402,7 @@ nnoremap zj zH
 
 nnoremap x <Nop>
 
+nnoremap X q
 " region collapse
 nnoremap x. zo
 nnoremap x, zc

@@ -174,9 +174,7 @@
   <action id="CollapseAllRegions">
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="meta alt comma" />
   </action>
-  <action id="CollapseBlock">
-    <keyboard-shortcut first-keystroke="ctrl q" />
-  </action>
+  <action id="CollapseBlock" />
   <action id="CollapseExpandableComponent" />
   <action id="CollapseRegion">
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="comma" />
@@ -278,8 +276,12 @@
     <keyboard-shortcut first-keystroke="ctrl alt a" />
     <keyboard-shortcut first-keystroke="alt g" second-keystroke="right" />
   </action>
-  <action id="Diff.FocusOppositePane" />
-  <action id="Diff.FocusOppositePaneAndScroll" />
+  <action id="Diff.FocusOppositePane">
+    <keyboard-shortcut first-keystroke="alt q" second-keystroke="m" />
+  </action>
+  <action id="Diff.FocusOppositePaneAndScroll">
+    <keyboard-shortcut first-keystroke="alt q" second-keystroke="shift m" />
+  </action>
   <action id="Diff.NextChange" />
   <action id="Diff.PrevChange" />
   <action id="Diff.ShowDiff" />
@@ -681,10 +683,6 @@
   <action id="GotoDeclaration">
     <mouse-shortcut keystroke="control button1" />
   </action>
-  <action id="GotoFile">
-    <keyboard-shortcut first-keystroke="shift ctrl n" />
-    <keyboard-shortcut first-keystroke="alt o" second-keystroke="q" />
-  </action>
   <action id="GotoImplementation" />
   <action id="GotoLine">
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="l" />
@@ -949,8 +947,14 @@
   <action id="QuickJavaDoc">
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="d" />
   </action>
+  <action id="QuickList.Analyze">
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="x" />
+  </action>
   <action id="QuickList.Bookmarks">
-    <keyboard-shortcut first-keystroke="alt b" second-keystroke="tab" />
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="q" />
+  </action>
+  <action id="QuickList.Build">
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="b" />
   </action>
   <action id="QuickList.Code">
     <keyboard-shortcut first-keystroke="alt x" second-keystroke="tab" />
@@ -958,11 +962,21 @@
   <action id="QuickList.Completion">
     <keyboard-shortcut first-keystroke="alt d" second-keystroke="tab" />
   </action>
+  <action id="QuickList.Copy">
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="y" />
+    <keyboard-shortcut first-keystroke="meta o" />
+  </action>
   <action id="QuickList.Copy / Paste">
     <keyboard-shortcut first-keystroke="alt c" second-keystroke="tab" />
   </action>
+  <action id="QuickList.Debug">
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="d" />
+  </action>
   <action id="QuickList.File Menu">
     <keyboard-shortcut first-keystroke="alt m" second-keystroke="f" />
+  </action>
+  <action id="QuickList.Find">
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="f" />
   </action>
   <action id="QuickList.Find / Replace">
     <keyboard-shortcut first-keystroke="alt f" second-keystroke="tab" />
@@ -970,18 +984,43 @@
   <action id="QuickList.FindTab">
     <keyboard-shortcut first-keystroke="alt f" second-keystroke="tab" />
   </action>
+  <action id="QuickList.Generate">
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="shift r" />
+  </action>
+  <action id="QuickList.Git">
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="g" />
+  </action>
   <action id="QuickList.Head">
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="tab" />
+  </action>
+  <action id="QuickList.Hierarchies">
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="h" />
+  </action>
+  <action id="QuickList.Inspections">
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="i" />
+  </action>
+  <action id="QuickList.Java">
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="j" />
   </action>
   <action id="QuickList.Meta">
     <keyboard-shortcut first-keystroke="alt e" second-keystroke="tab" />
   </action>
+  <action id="QuickList.Misc">
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="m" />
+  </action>
   <action id="QuickList.New">
     <keyboard-shortcut first-keystroke="alt m" second-keystroke="meta n" />
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="n" />
   </action>
   <action id="QuickList.New File" />
   <action id="QuickList.Open">
     <keyboard-shortcut first-keystroke="alt o" second-keystroke="tab" />
+  </action>
+  <action id="QuickList.Overlay">
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="o" />
+  </action>
+  <action id="QuickList.Overlay Task">
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="c" />
   </action>
   <action id="QuickList.Quick">
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="tab" />
@@ -995,6 +1034,9 @@
   <action id="QuickList.Search">
     <keyboard-shortcut first-keystroke="alt f" second-keystroke="tab" />
   </action>
+  <action id="QuickList.Todo">
+    <keyboard-shortcut first-keystroke="alt o" second-keystroke="t" />
+  </action>
   <action id="QuickList.Wut">
     <keyboard-shortcut first-keystroke="alt a" second-keystroke="tab" />
   </action>
@@ -1004,9 +1046,7 @@
   <action id="RecentChangedFiles">
     <keyboard-shortcut first-keystroke="alt o" second-keystroke="e" />
   </action>
-  <action id="RecentChanges">
-    <keyboard-shortcut first-keystroke="alt o" second-keystroke="c" />
-  </action>
+  <action id="RecentChanges" />
   <action id="RecentFiles">
     <keyboard-shortcut first-keystroke="alt o" second-keystroke="r" />
   </action>

@@ -93,10 +93,14 @@ map QL <Action>(JumpToNextChange)
 
 map qq <Action>(QuickEvaluateExpression)
 map qe <Action>(EvaluateExpression)
-map oa <Action>(ShowIntentionActions)
 
-vmap qd <Action>(ShowBlankDiffWindow)
+
 map qm <Action>(ToggleBookmark)
+map qn <Action>(GotoNextBookmark)
+map qN <Action>(GotoPreviousBookmark)
+map QN <Action>(GotoPreviousBookmark)
+
+
 """ ____________________ [W] prefix is for [W]ord movement
 
 """ ____________________ [E] prefix controls [E]dit cursor
@@ -132,22 +136,31 @@ vnoremap r<space> :s/ / \r/g<CR>
 
 """ ____________________ [I] prefix is directional
 
-""" ____________________ [O] prefix Controls [O]verlays
+""" ____________________ [O] prefix Controls [O]penings and [O]verlays
 
-map op <Action>(PasteMultiple)
-map oe <Action>(RecentChangedFiles)
-map or <Action>(RecentFiles)
-map os <Action>(ChooseRunConfiguration)
-map oS <Action>(ChooseDebugConfiguration)
-map ox <Action>(FileStructurePopup)
-map ot <Action>(ImportTests)
+map oa <Action>(ShowIntentionActions)
 map ow <Action>(CloseContent)
-
+map ox <Action>(FileStructurePopup)
+map oF <Action>(StructuralSearchPlugin.StructuralSearchAction)
 map on <Action>(ShowNavBar)
-map oT <Action>(ShowRecentTests)
+map op <Action>(PasteMultiple)
+vmap od <Action>(ShowBlankDiffWindow)
 
+map oq <Action>(ShowBookmarks)
 map ol <Action>(RecentLocations)
 
+map or <Action>(RecentFiles)
+map oe <Action>(RecentChangedFiles)
+
+map oS <Action>(ChooseDebugConfiguration)
+map os <Action>(ChooseRunConfiguration)
+
+map ot <Action>(ImportTests)
+map oT <Action>(ShowRecentTests)
+
+map ou <Action>(LocalHistory.ShowHistory)
+vmap ou <Action>(LocalHistory.ShowSelectionHistory)
+map oU <Action>(UML.ShowChanges)
 
 """ ____________________ [P] prefix controls [P]asting
 
@@ -183,6 +196,16 @@ map fJ <Plug>(easymotion-ge)
 """ ____________________ [G] Prefix is [G]it
 map gi <Action>(VcsShowPrevChangeMarker)
 map gk <Action>(VcsShowNextChangeMarker)
+map gy <Action>(Bitbucket.CopyFileUrlInBitbucket)
+
+map gm <Action>(Diff.FocusOppositePane)
+map gu <Action>(Vcs.RollbackChangedLines)
+nmap go <Action>(Vcs.ShowDiffChangedLines)
+
+map g< <Action>(Diff.ApplyRightSide)
+map g> <Action>(Diff.ApplyLeftSide)
+nmap gs <Action>(Vcs.MoveChangedLinesToChangelist)
+vmap gd <Action>(Compare.Selected)
 
 """ ____________________ [H] Prefix is directional ( Home )
 """ ____________________ [J] Prefix is directional ( Left )
@@ -219,14 +242,12 @@ vmap xx <Plug>(Exchange)
 map xi <Action>(MethodUp)
 map xk <Action>(MethodDown)
 
-map xl <Action>(SliceForward)
-map xj <Action>(SliceBackward)
 vmap xj <Action>(CollapseSelection)
 
-map xm <Action>(CollapseAllRegions)
-map x; <Action>(ExpandAllRegions)
-map x, <Action>(ExpandAllToLevel1)
-map x. <Action>(ExpandAllToLevel2)
+map x <Action>(CollapseAllRegions)
+map x9 <Action>(ExpandAllRegions)
+map x1 <Action>(ExpandAllToLevel1)
+map x2 <Action>(ExpandAllToLevel2)
 
 """ ________________________________ [C] prefix controls [C]hanging
 
@@ -267,18 +288,16 @@ vmap <leader>x :let @b = @+<CR>y:!(pbpaste \| ~/.canelhasmateus/lib/eval.py \| p
 nnoremap <leader><Tab> i<C-v><Tab><Esc>
 
 """ [G]
-map gu <Action>(Vcs.RollbackChangedLines)
-map gO <Action>(Vcs.ShowDiffChangedLines)
-map gl <Action>(ChangesView.Move)
-map gL <Action>(Vcs.MoveChangedLinesToChangelist)
-map g> <Action>(Diff.ApplyLeftSide)
+""" map oG <Action>(Bitbucket.OpenFileInBitbucket)
+map <leader>oh <Action>(QuickList.Hierarchies)
+map <leader>oo <Action>(QuickList.Head)
+map <leader>oq <Action>(QuickList.Bookmarks)
+map <leader>oy <Action>(QuickList.Copy)
 
 """ [V]
 vmap v<Del> <Plug>SkipOccurrence
-vmap vd <Plug>SkipOccurrence
 vmap v<Backspace> <Plug>RemoveOccurrence
 vmap vi <Plug>RemoveOccurrence
-vmap vI <Esc><Esc>
 vmap vk <Plug>NextOccurrence
 vmap vK <Plug>AllOccurrences
 
@@ -295,15 +314,10 @@ map tx <Action>(NotebookSplitCellAction)
 map tX <Action>(NotebookMergeCellAboveAction)
 
 " [A] layer
-nnoremap an <C-a>
-vnoremap an <C-a>gv
-nnoremap aN <C-x>
-vnoremap aN <C-x>gv
-
-nnoremap An g<C-a>
-vnoremap An g<C-a>
-nnoremap AN g<C-x>
-vnoremap AN g<C-x>
+vnoremap an <C-a>
+vnoremap aN <C-x>
+vnoremap am g<C-a>
+vnoremap aM g<C-x>
 
 """ [S]
 set multicursor
@@ -315,54 +329,22 @@ vnoremap ms <Nop>
 vmap ? <Plug>(multicursor-ms/)
 vmap sç <Action>(EditorAddCaretPerSelectedLine)
 
-vmap sh <C-V>v<Plug>(multicursor-ms^)
-"""vmap sç <C-V>V<Plug>(multicursor-ms$)
-vmap sc <Plug>(multicursor-msgU)
-vmap sw <Plug>(multicursor-msgU)
-vmap sW <Plug>(multicursor-msgU)
-vmap se <Plug>(multicursor-msgU)
-vmap sE <Plug>(multicursor-msgU)
-""map <leader>aa <Plug>(multicursor-mcr)
-vmap <leader>sE <Plug>(multicursor-msE)
-vmap <leader>sF <Plug>(multicursor-msF)
-vmap <leader>sT <Plug>(multicursor-msT)
-vmap <leader>se <Plug>(multicursor-mse)
-vmap <leader>su <Plug>(multicursor-msgu)
-vmap <leader>st <Plug>(multicursor-mst)
 
 """ --------------------------------------------------
-
-
-
-"Doesn't work for some reason
-"Majera.CodeReview.Bitbucket.LeaveCommentForLineAction
-"Majera.CodeReview.Bitbucket.ShowContextPullRequestFileDiff
-"ActivateBitbucketPullRequestsToolWindow
-map oq <Action>(ShowBookmarks)
-map oG <Action>(Bitbucket.OpenFileInBitbucket)
-map ou <Action>(LocalHistory.ShowHistory)
-map oU <Action>(UML.ShowChanges)
-vmap ou <Action>(LocalHistory.ShowSelectionHistory)
-
-vmap gd <Action>(ShowBlankDiffWindow)
-map gu <Action>(Vcs.RollbackChangedLines)
-map gO <Action>(Vcs.ShowDiffChangedLines)
-map gl <Action>(ChangesView.Move)
-map gL <Action>(Vcs.MoveChangedLinesToChangelist)
-map g> <Action>(Diff.ApplyLeftSide)
-
 """ [TODO]
+"""Macros
 """completions
 """codewithme
 """tasks
 """quick lists
 """templates
 """postfixes
+""" multicursor
+
 """map gK <Action>(Majera.CodeReview.Bitbucket.NextCommentInOrdinaryEditor)
 """map gI <Action>(Majera.CodeReview.Bitbucket.PrevCommentInOrdinaryEditor)
-
+""" EditorMatchBrace
 """map zO zhzçzDznqjqjzh
-"""Macros
 
 """ [USE MORE]
 """map on <Action>(ShowNavBar)
@@ -372,29 +354,15 @@ map g> <Action>(Diff.ApplyLeftSide)
 """map oU <Action>(UML.ShowChanges)
 """map fL <Plug>(easymotion-e)
 """map fJ <Plug>(easymotion-ge)
-"""map xl <Action>(SliceForward)
-"""map xj <Action>(SliceBackward)
 
-map qq <Action>(QuickEvaluateExpression)
-map qe <Action>(EvaluateExpression)
-map oa <Action>(ShowIntentionActions)
-
-map <leader>oq <Action>(QuickList.Bookmarks)
-map <leader>oh <Action>(QuickList.Hierarchies)
 map <leader>oi <Action>(QuickList.Inspections)
-map <leader>oy <Action>(QuickList.Copy)
+map <leader>og <Action>(QuickList.Git)
 map <leader>oj <Action>(QuickList.Java)
 map <leader>ob <Action>(QuickList.Build)
 map <leader>of <Action>(QuickList.Find)
-map <leader>og <Action>(QuickList.Git)
 map <leader>ox <Action>(QuickList.Analyze)
 map <leader>or <Action>(QuickList.Refactor)
-map <leader>oo <Action>(QuickList.Head)
+map <leader>m <Action>(SelectIn)
 
 """ Quick change scapehatch
 map <leader>17 <Esc>
-
-nnoremap X q
-
-map gc <Action>(Compare.Selected)
-map gl <Action>(Vcs.ShowDiffChangedLines)

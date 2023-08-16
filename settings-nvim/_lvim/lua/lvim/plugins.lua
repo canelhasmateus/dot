@@ -29,7 +29,11 @@ local core_plugins = {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     config = function()
-      require("lvim.core.telescope").setup()
+      require("lvim.core.telescope").setup({
+        defaults = {
+           sorting_strategy = 'ascending'
+        }
+      })
     end,
     disable = not lvim.builtin.telescope.active,
   },
