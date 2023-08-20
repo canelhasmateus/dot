@@ -135,5 +135,6 @@ unzip "$dest" -d "$parentDir" && mv $parentDir/*.ttf ~/Library/Fonts
 ) >>/Users/mateus.canelhas/.zprofile
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-brew install jq sqlite node python jetbrains-toolbox visual-studio-code git alt-tab nvim iterm2
+brew install jq sqlite node python jetbrains-toolbox visual-studio-code git alt-tab nvim iterm2 rg
 echo "Finished!"
+

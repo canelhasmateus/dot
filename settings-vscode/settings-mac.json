@@ -41,7 +41,8 @@
     "files.associations": {
         "*.kws": "xml",
         "*.ts": "typescript",
-        "*.mdx": "Markdown"
+        "*.mdx": "Markdown",
+        "*.d2": "d2"
     },
     "files.autoSave": "afterDelay",
     "files.eol": "\n",

@@ -50,6 +50,8 @@ if !has('nvim') && !has('ide')
 endif
 """ Overrides ------------------------------------------------
 
+inoremap <C-Backspace> <Esc>"adba
+
 " typos
 nnoremap cie ciw
 

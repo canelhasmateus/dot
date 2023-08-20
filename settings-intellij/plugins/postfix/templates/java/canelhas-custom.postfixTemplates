@@ -106,8 +106,8 @@
 .writeString : writeString
 	java.nio.file.Path [java.nio.file.Files]  →  java.nio.file.Files.writeString($expr$, $arg$)
 
-.walk : walk
-	java.nio.file.Path [java.nio.file.Files]  →  java.nio.file.Files.walk($expr$, $arg$)
+.dfs : dfs
+	java.nio.file.Path [java.nio.file.Files]  →  java.nio.file.Files.dfs($expr$, $arg$)
 
 .createFile : createFile
 	java.nio.file.Path [java.nio.file.Files]  →  java.nio.file.Files.createFile($expr$, $arg$)
