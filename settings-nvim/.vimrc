@@ -12,7 +12,7 @@ set incsearch
 set smartcase
 
 "set nrformats+=alpha
-set invhlsearch
+set nohlsearch
 "set maxmapdepth
 "set history
 

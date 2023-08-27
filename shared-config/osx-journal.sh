@@ -1,11 +1,10 @@
 #! /bin/bash
 today=$(date +'%Y-%m-%d')
 f="${HOME}/.canelhasmateus/journal/${today}.md"
-[[ ! -f "$f" ]] && echo "$today" >"$f"
-
-tomorrow=$(date -v+1d +'%Y-%m-%d')
-t="${HOME}/.canelhasmateus/journal/${tomorrow}.md"
-[[ ! -f "$t" ]] && echo "$tomorrow" >"$t"
+[[ ! -f "$f" ]] && {
+    echo "$today" >"$f"
+    /usr/local/bin/journal create >>"$f"
+}
 
 p=$(dirname "$f")
 p=$(realpath "$p")

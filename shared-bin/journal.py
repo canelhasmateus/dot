@@ -45,7 +45,7 @@ class Arguments:
     @classmethod
     def parse(cls) -> Arguments:
         today: date = date.today()
-        yesterday: date = today - timedelta(days=1)
+        d3: date = today - timedelta(days=3)
 
         parser = argparse.ArgumentParser(
             prog='Journal',
@@ -53,7 +53,7 @@ class Arguments:
         )
         parser.add_argument('action', choices=["create"])  # positional argument
         parser.add_argument('--dir', default="~/.canelhasmateus/journal")  # positional argument
-        parser.add_argument('--start', default=yesterday.isoformat())  # positional argument
+        parser.add_argument('--start', default=d3.isoformat())  # positional argument
         parser.add_argument('--end', default=today.isoformat())  # positional argument
 
         parsed_args = parser.parse_args()
@@ -73,6 +73,7 @@ class Arguments:
         return sorted(
             filter(in_range, self.directory.expanduser().glob('*.md')),
             key=lambda f: f.stem,
+            reverse=True
         ).__iter__()
 
 
@@ -88,41 +89,23 @@ class Journal:
 @dataclass
 class Todo:
     token: Token
+    content: str
 
 
 todo_pattern = re.compile(r"\s*\*?\s*\[ ]")
 
 
-def __from_item(item: ListItem) -> Todo:
-    content = "???"
-    childs = []
-    for child in item.children:
-
-        if isinstance(child, Paragraph):
-            for txt in child.children:
-                if isinstance(txt, RawText):
-                    if todo_pattern.match(txt.content):
-                        content = txt.content
-
-        elif isinstance(child, mistletoe.block_token.List):
-            for subitem in child.children:
-                if isinstance(subitem, ListItem):
-                    childs.append(__from_item(subitem))
-
-    return Todo(token=item)
-
-
 def todos(block: BlockToken) -> Iterable[Todo]:
     for tk in dfs(block, ListItem.__instancecheck__):
         if isinstance(tk, RawText) and todo_pattern.match(tk.content):
-            yield Todo(token=tk)
+            yield Todo(token=tk, content=tk.content.strip())
 
         elif isinstance(tk, ListItem):
             for child in tk.children:
                 if isinstance(child, Paragraph):
                     for txt in child.children:
                         if isinstance(txt, RawText) and todo_pattern.match(txt.content):
-                            yield Todo(token=tk)
+                            yield Todo(token=tk, content=txt.content.strip())
 
 
 def dfs(block: BlockToken, filter=lambda x: False) -> Iterable[Token]:
@@ -145,17 +128,30 @@ def dfs(block: BlockToken, filter=lambda x: False) -> Iterable[Token]:
             stack.append(children)
 
 
+def seen():
+    s = set()
+
+    def was_added(t: Todo):
+        key = t.content.strip().lower()
+        if key in s:
+            return False
+        s.add(key)
+        return True
+
+    return was_added
+
+
 if __name__ == '__main__':
     import mistletoe
 
     args = Arguments.parse()
-
+    predicate = seen()
     fragments = []
     with MarkdownRenderer() as renderer:
         for file in args:
             with file.open() as f:
                 doc = mistletoe.Document(f)
-                for todo in todos(doc):
+                for todo in filter(predicate, todos(doc)):
                     fragments.append(
                         renderer.render(todo.token)
                     )

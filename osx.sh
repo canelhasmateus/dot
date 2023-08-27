@@ -25,14 +25,17 @@ function linkGroup() {
         for pair in "$@"; do
 
             read -r from to <<<"$pair"
-            original=$"$ormosRoot/$from"
+            original="$ormosRoot/$from"
             symbol="$HOME/$to"
 
             {
                 mkdir -p "$(dirname "$symbol")"
                 rm -rf "$symbol"
-                ln -s "$original" "$symbol"
-            } &>/dev/null && echo "$from <<- $to" || echo "Failed $from $to"
+            } &>/dev/null
+
+            sudo ln -s "$original" "$symbol" &&
+                echo "$original <<- $symbol" ||
+                echo "Failed $from $to"
 
         done
     )
@@ -54,7 +57,8 @@ baseGroup=(
     './shared-config .canelhasmateus/config'
     './shared-config/osx-colima.yaml .colima/default/colima.yaml'
     './shared-config/osx-alacritty.yml .config/alacritty/alacritty.yml'
-    './shared-config/osx-gradle.kts .gradle/init.d/configure-resolution-strategy.gradle' 
+    './shared-config/osx-gradle.kts .gradle/init.d/configure-resolution-strategy.gradle'
+    './shared-bin/journal.py ../../usr/local/bin/journal'
 )
 linkGroup "${baseGroup[@]}"
 # vim
@@ -137,4 +141,3 @@ unzip "$dest" -d "$parentDir" && mv $parentDir/*.ttf ~/Library/Fonts
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew install jq sqlite node python jetbrains-toolbox visual-studio-code git alt-tab nvim iterm2 rg
 echo "Finished!"
-
