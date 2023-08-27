@@ -59,6 +59,7 @@ baseGroup=(
     './shared-config/osx-alacritty.yml .config/alacritty/alacritty.yml'
     './shared-config/osx-gradle.kts .gradle/init.d/configure-resolution-strategy.gradle'
     './shared-bin/journal.py ../../usr/local/bin/journal'
+    './shared-bin/bookmarks.py ../../usr/local/bin/bookmarks'
 )
 linkGroup "${baseGroup[@]}"
 # vim
