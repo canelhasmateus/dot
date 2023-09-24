@@ -1,4 +1,5 @@
 let mapleader=" "
+let g:auto_save=1
 
 scriptencoding utf-8
 set encoding=utf-8
@@ -10,7 +11,6 @@ set ruler
 set wrapscan
 set incsearch
 set smartcase
-
 "set nrformats+=alpha
 set nohlsearch
 "set maxmapdepth

@@ -18,7 +18,9 @@ def batched(rows: Iterable[T], size=100) -> List[T]:
         if len(current) == size:
             yield current
             current = []
-    yield current
+
+    if current:
+        yield current
 
 
 #
@@ -90,3 +92,4 @@ if __name__ == '__main__':
     for batch in batched(rows(contents(reads))):
         # noinspection SqlNoDataSourceInspection
         connection.executemany("replace into bookmarks(url, transitions) values (?,?)", batch)
+    connection.commit()

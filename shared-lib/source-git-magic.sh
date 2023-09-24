@@ -80,7 +80,7 @@ function gitAdvance() {
         return 0
     }
 
-    git add . && ./gradlew build --offline -x detekt && {
+    git add . && ./gradlew build --offline && {
 
         pendingChanges && doCommit && inRebase &&
             prompt "Would you like to revert newly commited change to avoid conflicts in your rebase? (y/n) " &&

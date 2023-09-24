@@ -1,7 +1,6 @@
 <templateSet group="user">
-  <template name="sof" value="public static $class$ of ( $var$ input ) {&#10;&#10;    return $class$.builder().build();&#10;}" description="Static Constructor Of" toReformat="false" toShortenFQNames="true" useStaticImport="true">
+  <template name="sof" value="public static $class$ $class$( String input ) {&#10;&#10;    return new $class$(input$END$);&#10;}" description="Static Constructor Of" toReformat="false" toShortenFQNames="true" useStaticImport="true">
     <variable name="class" expression="" defaultValue="className()" alwaysStopAt="false" />
-    <variable name="var" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="true" />
     </context>
@@ -171,14 +170,14 @@
       <option name="Python_Top_Level" value="true" />
     </context>
   </template>
-  <template name="&lt;abbreviation&gt;" value="def binarysearch( self, nums: List[ int ], target: int ) -&gt; int:&#10;&#9;left, right = 0, len( nums ) - 1&#10;&#9;while left &lt;= right:&#10;&#9;&#9;pivot = left + (right - left) // 2&#10;&#9;&#9;if nums[ pivot ] == target:&#10;&#9;&#9;&#9;return pivot&#10;&#9;&#9;if target &lt; nums[ pivot ]:&#10;&#9;&#9;&#9;right = pivot - 1&#10;&#9;&#9;else:&#10;&#9;&#9;&#9;left = pivot + 1&#10;&#9;return -1" description="" toReformat="true" toShortenFQNames="true">
-    <context>
-      <option name="Python_Top_Level" value="true" />
-    </context>
-  </template>
   <template name="test" value="@org.junit.jupiter.api.Test&#10;    fun `should do something when something if condition`() {&#10;        // given&#10;&#10;        // when&#10;&#10;        // then&#10;        org.assertj.core.api.Assertions.assertThat(&quot;result&quot;).isEqualTo(&quot;state after action&quot;)&#10;    }" description="" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="KOTLIN_CLASS" value="true" />
+    </context>
+  </template>
+  <template name="testt" value="@org.junit.jupiter.api.Test&#10;public void should_do_when_then() {&#10;    // given&#10;    $END$&#10;&#10;    // when&#10;&#10;    // then&#10;    org.assertj.core.api.Assertions.assertThat(true).isEqualTo(false);&#10;}&#10;" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
     </context>
   </template>
 </templateSet>

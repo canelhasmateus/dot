@@ -314,10 +314,10 @@ map tx <Action>(NotebookSplitCellAction)
 map tX <Action>(NotebookMergeCellAboveAction)
 
 " [A] layer
-vnoremap an <C-a>
-vnoremap aN <C-x>
-vnoremap am g<C-a>
-vnoremap aM g<C-x>
+noremap an <C-a>
+noremap aN <C-x>
+noremap am g<C-a>
+noremap aM g<C-x>
 
 """ [S]
 set multicursor
