@@ -568,6 +568,8 @@ nnoremap <leader>vij :e ~/.ideavimrc<CR>
 nnoremap <leader>vim :e ~/.config/nvim/lua/user/keymaps.lua<CR>
 nnoremap <leader>Oc :! code %<CR>
 nnoremap <leader>Oj :! idea %<CR>
+nnoremap <leader>Ov :! nvim %<CR>
+nnoremap <leader>Ow :! /opt/homebrew/bin/pandoc % -s -o ~/Google\ Drive/My\ Drive/%:t:r.docx <CR>
 
 if has('nvim')
 
@@ -579,4 +581,5 @@ endif
 
 "todo https://learnbyexample.github.io/tips/vim-tip-23/
 "todo https://vimhelp.org/motion.txt.html#jump-motions
+
 

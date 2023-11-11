@@ -1,9 +1,8 @@
 #! /bin/bash
 today=$(date +'%Y-%m-%d')
-f="${HOME}/.canelhasmateus/journal/${today}.md"
+f="${HOME}/.canelhasmateus/work/${today}.md"
 [[ ! -f "$f" ]] && {
-    echo "# $today" >"$f"
-    /usr/local/bin/journal create >>"$f"
+    echo "$today" >"$f"
 }
 
 p=$(dirname "$f")

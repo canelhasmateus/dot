@@ -1,3 +1,4 @@
+// cache dependencies
 allprojects {
     afterEvaluate {
         configurations.configureEach {

@@ -97,6 +97,7 @@ todo_pattern = re.compile(r"\s*\*?\s*\[ ]")
 
 def todos(block: BlockToken) -> Iterable[Todo]:
     for tk in dfs(block, ListItem.__instancecheck__):
+
         if isinstance(tk, RawText) and todo_pattern.match(tk.content):
             yield Todo(token=tk, content=tk.content.strip())
 

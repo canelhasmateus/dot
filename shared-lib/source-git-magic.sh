@@ -50,6 +50,9 @@ function gitAmmend() {
     git add .
     git commit --amend --no-edit
 }
+function gitLease() {
+    git push --force-with-lease
+}
 
 function gitPush() {
     remote="origin"
@@ -122,8 +125,14 @@ function gshove() {
     done
 
 }
+
+function gupdate() {
+    git fetch origin master && git rebase origin/master && git push --force-with-lease
+}
+
 alias gammend="atGitRoot gitAmmend"
-alias gpush="atGitRoot gitPush"
+alias glease="gitLease"
+alias gpush="gitPush"
 
 alias gswap="atGitRoot gitSwap"
 alias gstagger="atGitRoot gitStagger"

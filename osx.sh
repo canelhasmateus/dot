@@ -52,6 +52,7 @@ baseGroup=(
     '../nisi/blurbs.md .canelhasmateus/blurbs.md'
     '../nisi/zshrc .zshrc'
     '../nisi/journal .canelhasmateus/journal'
+    '../nisi/work .canelhasmateus/work'
 
     './shared-lib .canelhasmateus/lib'
     './shared-config .canelhasmateus/config'
@@ -142,3 +143,5 @@ unzip "$dest" -d "$parentDir" && mv $parentDir/*.ttf ~/Library/Fonts
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew install jq sqlite node python jetbrains-toolbox visual-studio-code git alt-tab nvim iterm2 rg
 echo "Finished!"
+
+curl -s "https://get.sdkman.io" | bash

@@ -180,4 +180,15 @@
       <option name="JAVA_DECLARATION" value="true" />
     </context>
   </template>
+  <template name="meth" value="public void method() {&#10;            $END$    &#10;}" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="sob" value="public static $class$.Builder $END$$class$(  ) {&#10;&#10;    return new $class$.Builder();&#10;}" description="Static Construction of Builder" toReformat="true" toShortenFQNames="true">
+    <variable name="class" expression="" defaultValue="className()" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
 </templateSet>

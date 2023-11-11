@@ -1,6 +1,6 @@
 :source ~/.vimrc
 
-Plug 'michaeljsmith/vim-ident-object'
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'chrisbra/matchit'
 Plug 'dbakker/vim-paragraph-motion'
 
@@ -108,20 +108,33 @@ map QN <Action>(GotoPreviousBookmark)
 """ ____________________ [R] prefix controls [R]efactoring
 
 map rf <Action>(ExtractMethod)
+map rF <Action>(IntentionActionAsAction_com.intellij.codeInsight.daemon.impl.quickfix.DefineParamsDefaultValueAction)
 map rv <Action>(IntroduceVariable)
 map rk <Action>(IntroduceConstant)
 map ra <Action>(IntroduceField)
 map ri <Action>(Inline)
+map rI <Action>(IntentionActionAsAction_com.intellij.codeInsight.intention.impl.AddSingleMemberStaticImportAction)
+map rb <Action>(IntentionActionAsAction_com.intellij.refactoring.replaceConstructorWithBuilder.ReplaceConstructorWithBuilderAction)
+
 map r<Del> <Action>(SafeDelete)
 map rs <Action>(ChangeSignature)
 map rn <Action>(RenameElement)
 map rm <Action>(Move)
 
 map rd <Action>(EditorDuplicate)
+
 map rj <Action>(EditorJoinLines)
+map rD <Action>(IntentionActionAsAction_com.intellij.codeInsight.intention.impl.AddJavadocIntention)
+
 map ru <Action>(EditorToggleCase)
 map rr <Action>(ReformatCode)
 map rO <Action>(OptimizeImports)
+
+map rx <Action>(OverrideMethods)
+map r<up> <Action>(MembersPullUp)
+map rS <Action>(ExtractSuperclass)
+map rt <Action>(ExtractInterface)
+
 
 vnoremap r. :s/)\./)\r./g<CR>:action ReformatCode<CR>
 vnoremap r, :s/,/,\r/g<CR>:action ReformatCode<CR>
@@ -219,7 +232,7 @@ vmap gd <Action>(Compare.Selected)
 map zn <Action>(SplitVertically)
 map zN <Action>(SplitHorizontally)
 map zo <Action>(ChangeSplitOrientation)
-
+map ze <Action>(IntentionActionAsAction_com.intellij.codeInsight.intention.impl.QuickEditAction)
 """ Possibly use zu and zp if map zç and zh to base scrolls?
 map zm <Action>(NextSplitter)
 map zM <Action>(PrevSplitter)
@@ -238,6 +251,7 @@ map z<Backspace> <Action>(UnsplitAll)
 
 """ ________________________________ [X] prefix controls code and meta stuff
 vmap xx <Plug>(Exchange)
+nnoremap xc xph
 
 map xi <Action>(MethodUp)
 map xk <Action>(MethodDown)
@@ -340,6 +354,7 @@ vmap sç <Action>(EditorAddCaretPerSelectedLine)
 """templates
 """postfixes
 """ multicursor
+"""vmap rJ :s/\n\n/\n<CR> some saved regexes
 
 """map gK <Action>(Majera.CodeReview.Bitbucket.NextCommentInOrdinaryEditor)
 """map gI <Action>(Majera.CodeReview.Bitbucket.PrevCommentInOrdinaryEditor)
@@ -365,4 +380,5 @@ map <leader>or <Action>(QuickList.Refactor)
 map <leader>m <Action>(SelectIn)
 
 """ Quick change scapehatch
-map <leader>17 <Esc>
+
+map <leader>18 <Esc>
