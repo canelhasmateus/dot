@@ -252,6 +252,7 @@ map z<Backspace> <Action>(UnsplitAll)
 """ ________________________________ [X] prefix controls code and meta stuff
 vmap xx <Plug>(Exchange)
 nnoremap xc xph
+nnoremap xw dawep 
 
 map xi <Action>(MethodUp)
 map xk <Action>(MethodDown)
@@ -293,8 +294,8 @@ map nr <Action>(GotoRelated)
 map <leader>vii :e ~/.vimrc<CR>
 map <leader>vim :e ~/.ideavimrc<CR>
 map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
-map <leader>x viv:let @b = @+<CR>y:!(pbpaste \| ~/.canelhasmateus/lib/eval.py \| pbcopy)<CR>gvP:let @+ = @b<CR>
-vmap <leader>x :let @b = @+<CR>y:!(pbpaste \| ~/.canelhasmateus/lib/eval.py \| pbcopy)<CR>gvP:let @+ = @b<CR>
+map <leader>x viv:let @b=@+<CR>y:!(pbpaste \| ~/.canelhasmateus/lib/eval.py \| pbcopy)<CR>gvP:let @+ = @b<CR>
+vmap <leader>x :let @b=@+<CR>y:!(pbpaste \| ~/.canelhasmateus/lib/eval.py \| pbcopy)<CR>gvP:let @+=@b<CR>
 
 """ Experimental -----------------------------------------
 

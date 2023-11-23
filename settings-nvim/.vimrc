@@ -582,4 +582,4 @@ endif
 "todo https://learnbyexample.github.io/tips/vim-tip-23/
 "todo https://vimhelp.org/motion.txt.html#jump-motions
 
-
+nnoremap <leader>r :w<CR>:!remark % --output --quiet<CR>

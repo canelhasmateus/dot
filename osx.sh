@@ -29,13 +29,17 @@ function linkGroup() {
             symbol="$HOME/$to"
 
             {
-                mkdir -p "$(dirname "$symbol")"
+                parentDir=$(dirname "$symbol")
+                mkdir -p "$parentDir"
                 rm -rf "$symbol"
-            } &>/dev/null
+            }
 
-            sudo ln -s "$original" "$symbol" &&
-                echo "$original <<- $symbol" ||
+            sudo ln -s "$original" "$symbol"
+            if [ $? -eq 0 ]; then
+                echo "$original <<- $symbol"
+            else
                 echo "Failed $from $to"
+            fi
 
         done
     )
@@ -49,18 +53,23 @@ defaults write -g AppleSpacesSwitchOnActivate -bool false
 
 baseGroup=(
     '../limni/vault/articles.tsv .canelhasmateus/articles.tsv'
-    '../nisi/blurbs.md .canelhasmateus/blurbs.md'
+
     '../nisi/zshrc .zshrc'
+    '../nisi/zshenv .zshenv'
+
+    '../nisi/blurbs.md .canelhasmateus/blurbs.md'
     '../nisi/journal .canelhasmateus/journal'
     '../nisi/work .canelhasmateus/work'
 
     './shared-lib .canelhasmateus/lib'
+    './shared-bin/journal.py ../../usr/local/bin/journal'
+    './shared-bin/bookmarks.py ../../usr/local/bin/bookmarks'
+
     './shared-config .canelhasmateus/config'
     './shared-config/osx-colima.yaml .colima/default/colima.yaml'
     './shared-config/osx-alacritty.yml .config/alacritty/alacritty.yml'
     './shared-config/osx-gradle.kts .gradle/init.d/configure-resolution-strategy.gradle'
-    './shared-bin/journal.py ../../usr/local/bin/journal'
-    './shared-bin/bookmarks.py ../../usr/local/bin/bookmarks'
+
 )
 linkGroup "${baseGroup[@]}"
 # vim
@@ -113,10 +122,12 @@ done
 
 # IntelliJ
 {
+    find ~/Library/Application\ Support/JetBrains/*AppCode* -depth 0
     find ~/Library/Application\ Support/JetBrains/*Idea* -depth 0
+    find ~/Library/Application\ Support/JetBrains/*DataSpell* -depth 0
     find ~/Library/Application\ Support/JetBrains/Toolbox/apps/**/Contents -not -path "*jbr*" -depth 0
 } | while read -r version; do
-
+    version=${version#"$HOME/"}
     group=(
         "./settings-intellij/keymaps/macnelhas.xml $version/settingsRepository/repository/keymaps/macnelha.xml"
         "./settings-intellij/keymaps/macnelhas.xml $version/keymaps/macnelhas.xml"

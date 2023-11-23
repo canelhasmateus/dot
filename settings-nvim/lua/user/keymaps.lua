@@ -47,3 +47,5 @@ nnoremap("rr" , ":lua vim.lsp.buf.format({ timeout_ms = 2000 })<CR>")
 inoremap("<C-BS>", "<Esc>dbi")
 inoremap("<C-Del>", "<Esc>dwi")
 
+
+
