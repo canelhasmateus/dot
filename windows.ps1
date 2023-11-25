@@ -1,8 +1,8 @@
-$Threading = Join-Path $PSScriptRoot "/lib/threading.ps1"
+$Threading = Join-Path $PSScriptRoot "/shared-lib/windows-threading.ps1"
 . $Threading
 
 function Add-FrillsJob {
-    $DiagFile = Join-Path $PSScriptRoot "/blob/frills.diag"
+    $DiagFile = Join-Path $PSScriptRoot "/windows/blob/frills.diag"
 
     $JobOptions = New-ScheduledJobOption -RunElevated
     $StartupTrigger = New-JobTrigger -AtStartup
@@ -58,9 +58,9 @@ function Add-Looks {
     }  
     
     $Parameters = @{ 
-        FontsModule      = Join-Path $PSScriptRoot "/lib/fonts.ps1"
-        KeyBoardModule   = Join-Path $PSScriptRoot "/lib/keyboard.ps1"
-        AppearanceModule = Join-Path $PSScriptRoot "/lib/appearance.ps1"
+        FontsModule      = Join-Path $PSScriptRoot "/shared-lib/windows-fonts.ps1"
+        KeyBoardModule   = Join-Path $PSScriptRoot "/shared-lib/windows-keyboard.ps1"
+        AppearanceModule = Join-Path $PSScriptRoot "/shared-lib/windows-appearance.ps1"
         ColemakArchive   = Join-Path $PSScriptRoot "/blob/Colemak.zip"
     }
 
@@ -119,14 +119,14 @@ function Add-WSL1 {
 }
 function Add-Links {
 
-    $LinksModule = Join-Path $PSScriptRoot "/lib/linking.ps1"
+    $LinksModule = Join-Path $PSScriptRoot "/shared-lib/windows-linking.ps1"
     .$LinksModule
 
 
     
-    $Root = Split-Path $PSScriptRoot -Parent
+    $Root = $PSScriptRoot
     
-    $MappingFile = "/windows/blob/mapping.json"
+    $MappingFile = Join-Path $PSScriptRoot "/shared-config/windows-mapping.json"
     Set-Mappings $Root $MappingFile
         
 
@@ -134,7 +134,7 @@ function Add-Links {
 
 function Optimize-Bloat {
 
-    $ServicesModule = Join-Path $PSScriptRoot "/lib/services.ps1"
+    $ServicesModule = Join-Path $PSScriptRoot "/shared-lib/windows-services.ps1"
     . $ServicesModule
     
     Optimize-Services
@@ -192,19 +192,19 @@ function todo {
 #
 #
 
-$LooksJob = Add-Looks
-$Installations = Add-Choco
-$WSL = Add-WSL1
+# $LooksJob = Add-Looks
+# $Installations = Add-Choco
+# $WSL = Add-WSL1
 
-Add-Looks Add-FrillsJob Optimize-Bloat
+# Add-Looks Add-FrillsJob Optimize-Bloat
 
-Wait-Background @( 
-    $Installations  
-    $LooksJob
-    $WSL
-)
+# Wait-Background @( 
+#     $Installations  
+#     $LooksJob
+#     $WSL
+# )
 Add-Links
 
 
 
-Restart-Computer;
+# Restart-Computer;

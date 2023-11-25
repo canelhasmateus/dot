@@ -70,7 +70,7 @@
       <i c="120" l="1677433233157" />
     </e>
     <e n="ActivateProjectToolWindow">
-      <i c="20498" l="1679170556696" />
+      <i c="20500" l="1700922558502" />
     </e>
     <e n="ActivateRunToolWindow">
       <i c="241" l="1677623822348" />
@@ -82,7 +82,7 @@
       <i c="3" l="1665004288210" />
     </e>
     <e n="ActivateTerminalToolWindow">
-      <i c="2710" l="1679170626602" />
+      <i c="2712" l="1700922413992" />
     </e>
     <e n="ActivateVersionControlToolWindow">
       <i c="41" l="1677623823299" />
@@ -532,7 +532,7 @@
       <i c="50350" l="1679170404534" />
     </e>
     <e n="EditorEscape">
-      <i c="9609" l="1679109104903" />
+      <i c="9625" l="1700922556903" />
     </e>
     <e n="EditorForwardParagraph">
       <i c="1501" d="1" l="1677455435770" k="1669490962801" />
@@ -673,7 +673,7 @@
       <i c="4" d="4" l="1655246954864" k="1655246954864" />
     </e>
     <e n="EditorUnSelectWord">
-      <i c="569" l="1679107053218" />
+      <i c="570" l="1700922281199" />
     </e>
     <e n="EditorUnindentSelection">
       <i c="673" l="1676769036747" />
@@ -1312,7 +1312,7 @@
       <i c="3" l="1669495463066" />
     </e>
     <e n="RestartIde">
-      <i c="178" l="1677441305215" />
+      <i c="179" l="1700922530854" />
     </e>
     <e n="RestoreDefaultLayout">
       <i c="1" l="1665154697756" />
@@ -1325,6 +1325,9 @@
     </e>
     <e n="RevealIn">
       <i c="96" l="1679111062782" />
+    </e>
+    <e n="RiderOpenSolution">
+      <i c="1" l="1700922188517" />
     </e>
     <e n="Run">
       <i c="2920" l="1676768415799" />
@@ -1429,7 +1432,7 @@
       <i c="12" d="12" l="1669493609152" k="1669493609152" />
     </e>
     <e n="ShowSettings">
-      <i c="457" l="1677440483645" />
+      <i c="459" l="1700922226999" />
     </e>
     <e n="ShowTips">
       <i c="1" l="1665410475947" />
@@ -1585,7 +1588,7 @@
       <i c="595" l="1667156792373" />
     </e>
     <e n="Tree-selectChild">
-      <i c="14625" l="1679169940169" />
+      <i c="14627" l="1700922255600" />
     </e>
     <e n="Tree-selectFirst">
       <i c="6" l="1658609108956" />
@@ -1594,16 +1597,16 @@
       <i c="7" l="1663346820816" />
     </e>
     <e n="Tree-selectNext">
-      <i c="85973" l="1679170388727" />
+      <i c="86014" l="1700922560793" />
     </e>
     <e n="Tree-selectNextExtendSelection">
       <i c="2326" l="1679112161578" />
     </e>
     <e n="Tree-selectParent">
-      <i c="20802" l="1679169909398" />
+      <i c="20804" l="1700922258374" />
     </e>
     <e n="Tree-selectPrevious">
-      <i c="47162" l="1679170412156" />
+      <i c="47169" l="1700922556170" />
     </e>
     <e n="Tree-selectPreviousExtendSelection">
       <i c="608" l="1679168693896" />
@@ -2055,6 +2058,9 @@
     <e n="com.intellij.notification.NotificationAction$Simple">
       <i c="44" l="1679169297262" />
     </e>
+    <e n="com.intellij.openapi.actionSystem.AnActionWrapper">
+      <i c="65" l="1700922552345" />
+    </e>
     <e n="com.intellij.openapi.actionSystem.DefaultActionGroup">
       <i c="19" l="1669560847727" />
     </e>
@@ -2148,6 +2154,9 @@
     <e n="com.intellij.openapi.ui.DialogWrapper$4">
       <i c="3956" l="1679170412821" />
     </e>
+    <e n="com.intellij.openapi.ui.DialogWrapper$5">
+      <i c="1" l="1700922531565" />
+    </e>
     <e n="com.intellij.openapi.ui.MasterDetailsComponent$MyDeleteAction">
       <i c="1" l="1650368055198" />
     </e>
@@ -2186,6 +2195,9 @@
     </e>
     <e n="com.intellij.openapi.wm.impl.ToolWindowHeader$ShowOptionsAction">
       <i c="1" l="1650646658644" />
+    </e>
+    <e n="com.intellij.openapi.wm.impl.customFrameDecorations.header.toolbar.MainMenuButton$ShowMenuAction">
+      <i c="2" l="1700922225473" />
     </e>
     <e n="com.intellij.plugins.bodhi.pmd.actions.PreDefinedMenuGroup$2">
       <i c="1" l="1661967357596" />
@@ -2354,6 +2366,9 @@
     </e>
     <e n="com.jetbrains.python.console.PyConsoleUtil$2">
       <i c="5" l="1657585096815" />
+    </e>
+    <e n="com.jetbrains.rider.projectView.views.SolutionViewPaneBase$initTreeHandlers$enterHandler$1">
+      <i c="2" l="1700922556472" />
     </e>
     <e n="com.maddyhome.idea.vim.extension.nerdtree.NerdTree$NerdDispatcher">
       <i c="22" l="1659822630509" />

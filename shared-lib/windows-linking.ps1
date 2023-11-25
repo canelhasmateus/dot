@@ -174,7 +174,7 @@ function Run-StringCommand( $Command ) {
 function Set-Mappings($Root , $MappingFile) {
     
     
-    $contentFile = Join-Path $Root $MappingFile
+    $contentFile = $MappingFile
     
     $mapping = Get-Content $contentFile | ConvertFrom-Json 
     

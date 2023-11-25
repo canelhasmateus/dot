@@ -10,13 +10,13 @@ if ($CurrentDir.Path -eq "C:\Windows\System32") {
     Set-Location $Desktop
 }
 
-$Aliases = Join-Path $PSScriptRoot "/lib/aliases.ps1"
+$Aliases = Join-Path $PSScriptRoot "/lib/powershell-aliases.ps1"
 . $Aliases
 
-$Completion = Join-Path $PSScriptRoot "/lib/completion.ps1"
+$Completion = Join-Path $PSScriptRoot "/lib/powershell-completion.ps1"
 . $Completion
 
-$Terminal = Join-Path $PSScriptRoot "/lib/terminal.ps1"
+$Terminal = Join-Path $PSScriptRoot "/lib/powershell-terminal.ps1"
 . $Terminal
 
 # Todo: Read this.
