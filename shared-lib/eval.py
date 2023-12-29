@@ -42,6 +42,10 @@ def id():
     import uuid
     return str(uuid.uuid4())
 
+def now():
+    import datetime
+    return datetime.datetime.now()
+
 def echo( x , end = "" , **kwargs):
     x and builtins.print( x , end = end)
 

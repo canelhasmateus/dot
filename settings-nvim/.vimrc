@@ -244,6 +244,10 @@ vnoremap eml <Esc>`>]wa
 vnoremap emj <Esc>`<[bi
 
 " Experimental
+function MoveTo()
+    normal! /,<CR>i
+endfunction
+
 nnoremap e, /,<CR>i
 nnoremap e. /.<CR>i
 nnoremap e; /;<CR>i
@@ -583,3 +587,4 @@ endif
 "todo https://vimhelp.org/motion.txt.html#jump-motions
 
 nnoremap <leader>r :w<CR>:!remark % --output --quiet<CR>
+

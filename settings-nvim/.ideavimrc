@@ -115,8 +115,10 @@ map ra <Action>(IntroduceField)
 map ri <Action>(Inline)
 map rI <Action>(IntentionActionAsAction_com.intellij.codeInsight.intention.impl.AddSingleMemberStaticImportAction)
 map rb <Action>(IntentionActionAsAction_com.intellij.refactoring.replaceConstructorWithBuilder.ReplaceConstructorWithBuilderAction)
+map rp <Action>(IntroduceParameter)
 
 map r<Del> <Action>(SafeDelete)
+map r<Backspace> <Action>(SafeDelete)
 map rs <Action>(ChangeSignature)
 map rn <Action>(RenameElement)
 map rm <Action>(Move)
@@ -134,6 +136,7 @@ map rx <Action>(OverrideMethods)
 map r<up> <Action>(MembersPullUp)
 map rS <Action>(ExtractSuperclass)
 map rt <Action>(ExtractInterface)
+map rT <Action>(ChangeTypeSignature)
 
 
 vnoremap r. :s/)\./)\r./g<CR>:action ReformatCode<CR>
@@ -379,7 +382,8 @@ map <leader>of <Action>(QuickList.Find)
 map <leader>ox <Action>(QuickList.Analyze)
 map <leader>or <Action>(QuickList.Refactor)
 map <leader>m <Action>(SelectIn)
+map <leader>. @@
 
 """ Quick change scapehatch
 
-map <leader>18 <Esc>
+map <leader>23 <Esc>
