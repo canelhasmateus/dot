@@ -46,7 +46,7 @@
     },
     "files.autoSave": "afterDelay",
     "files.eol": "\n",
-    "files.watcherExclude": { },
+    "files.watcherExclude": {},
     "foam.files.attachmentExtensions": "pdf mp3 webm wav m4a mp4 avi mov rtf txt doc docx pages xls xlsx numbers ppt pptm pptx sh py js sql java kt",
     "foam.graph.titleMaxLength": 0,
     "gitlens.keymap": "none",
@@ -148,11 +148,11 @@
     "vim.normalModeKeyBindings": [],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-            "after": [],
             "before": [
                 "o",
                 "r"
             ],
+            "after": [],
             "commands": [
                 {
                     "args": {},
@@ -253,15 +253,15 @@
             ]
         },
         {
+            "before": [
+                "f",
+                "l"
+            ],
             "after": [
                 "<leader>",
                 "<leader>",
                 "w"
             ],
-            "before": [
-                "f",
-                "l"
-            ]
         },
         {
             "after": [

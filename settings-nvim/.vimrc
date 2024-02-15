@@ -293,7 +293,7 @@ vnoremap U U
 nnoremap o <Nop>
 vnoremap o <Nop>
 vnoremap oi o
-
+nnoremap O gv
 """ ____________________ [P] prefix controls [P]asting
 
 vnoremap p "ad<Esc>p
@@ -347,7 +347,6 @@ vnoremap <Del> "ad
 vnoremap <C-Del> "ad
 vnoremap <Backspace> "ad
 vnoremap <C-Backspace> "ad
-
 """ ____________________ [F] Prefix Controls [F]ind
 
 nnoremap f <Nop>
@@ -546,16 +545,15 @@ nnoremap m; v/;<CR>
 vnoremap m; /;<CR>
 
 """ Java - move definition
-nnoremap md /= \+/e1<CR>v/;/b-1<CR>
-vnoremap md o<Esc>/= \+/e1<CR>v/;/b-1<CR>
-nnoremap mD ?= \+?e1<CR>v/;/v-1<CR>
-vnoremap mD o<Esc>?= \+?e1<CR>v/;/v-1<CR>
+nnoremap md /;<CR>?=\s*\zs\_.\{-}\ze;<CR>gn
+vnoremap md <Esc>/;/e-1<CR>?=\s*\zs\_.\{-}\ze;<CR>gn
+nnoremap mD ?;<CR>?=\s*\zs\_.\{-}\ze;<CR>gn
+vnoremap mD <Esc>?;<CR>?=\s*\zs\_.\{-}\ze;<CR>gn
 
-""" Java - move method call - cant use mc because of multicursor remaps.
-nnoremap mm /\S(/e-1<CR>v?\v[ ()=.]?e+1<CR>o
-vnoremap mm <Esc>/\S(/e-1<CR>v?\v[ ()=.]?e+1<CR>o
-nnoremap mM ?(?e-1<CR>vBo
-vnoremap mM <Esc>?(?e-1<CR>vBo
+nnoremap mm /\w\ze(<CR>viw
+vnoremap mm <Esc>/\w\+\ze(<CR>gn
+nnoremap mM ?\w\+\ze(<CR>gn
+vnoremap mM o<Esc>?\w\+\ze(<CR>gn
 
 """___________________________________________________________________________________________________________________________________________________
 

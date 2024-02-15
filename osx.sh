@@ -69,6 +69,7 @@ baseGroup=(
     './shared-config/osx-colima.yaml .colima/default/colima.yaml'
     './shared-config/osx-alacritty.yml .config/alacritty/alacritty.yml'
     './shared-config/osx-gradle.kts .gradle/init.d/configure-resolution-strategy.gradle'
+    './settings-tmux/tmux.conf /.tmux.conf'
 
 )
 linkGroup "${baseGroup[@]}"

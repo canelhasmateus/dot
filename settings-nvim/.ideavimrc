@@ -94,12 +94,10 @@ map QL <Action>(JumpToNextChange)
 map qq <Action>(QuickEvaluateExpression)
 map qe <Action>(EvaluateExpression)
 
-
 map qm <Action>(ToggleBookmark)
 map qn <Action>(GotoNextBookmark)
 map qN <Action>(GotoPreviousBookmark)
 map QN <Action>(GotoPreviousBookmark)
-
 
 """ ____________________ [W] prefix is for [W]ord movement
 
@@ -142,7 +140,6 @@ map rT <Action>(ChangeTypeSignature)
 vnoremap r. :s/)\./)\r./g<CR>:action ReformatCode<CR>
 vnoremap r, :s/,/,\r/g<CR>:action ReformatCode<CR>
 vnoremap r<space> :s/ / \r/g<CR>
-
 
 """ ____________________ [T] prefix is unmodified
 
@@ -254,8 +251,9 @@ map z<Backspace> <Action>(UnsplitAll)
 
 """ ________________________________ [X] prefix controls code and meta stuff
 vmap xx <Plug>(Exchange)
+nmap xx viw<Plug>(Exchange)
 nnoremap xc xph
-nnoremap xw dawep 
+nnoremap xw dawep
 
 map xi <Action>(MethodUp)
 map xk <Action>(MethodDown)
@@ -266,6 +264,8 @@ map x <Action>(CollapseAllRegions)
 map x9 <Action>(ExpandAllRegions)
 map x1 <Action>(ExpandAllToLevel1)
 map x2 <Action>(ExpandAllToLevel2)
+map x3 <Action>(ExpandAllToLevel3)
+map x4 <Action>(ExpandAllToLevel4)
 
 """ ________________________________ [C] prefix controls [C]hanging
 
@@ -347,7 +347,6 @@ vnoremap ms <Nop>
 vmap ? <Plug>(multicursor-ms/)
 vmap sç <Action>(EditorAddCaretPerSelectedLine)
 
-
 """ --------------------------------------------------
 """ [TODO]
 """Macros
@@ -386,4 +385,4 @@ map <leader>. @@
 
 """ Quick change scapehatch
 
-map <leader>23 <Esc>
+map <leader>24 <Esc>
