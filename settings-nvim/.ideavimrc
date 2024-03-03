@@ -210,6 +210,7 @@ map fJ <Plug>(easymotion-ge)
 map gi <Action>(VcsShowPrevChangeMarker)
 map gk <Action>(VcsShowNextChangeMarker)
 map gy <Action>(Bitbucket.CopyFileUrlInBitbucket)
+vmap gp <Action>(CompareClipboardWithSelection)
 
 map gm <Action>(Diff.FocusOppositePane)
 map gu <Action>(Vcs.RollbackChangedLines)
@@ -233,6 +234,7 @@ map zn <Action>(SplitVertically)
 map zN <Action>(SplitHorizontally)
 map zo <Action>(ChangeSplitOrientation)
 map ze <Action>(IntentionActionAsAction_com.intellij.codeInsight.intention.impl.QuickEditAction)
+map zE <Action>(EditSourceInNewWindow)
 """ Possibly use zu and zp if map zç and zh to base scrolls?
 map zm <Action>(NextSplitter)
 map zM <Action>(PrevSplitter)
@@ -297,8 +299,8 @@ map nr <Action>(GotoRelated)
 map <leader>vii :e ~/.vimrc<CR>
 map <leader>vim :e ~/.ideavimrc<CR>
 map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
-map <leader>x viv:let @b=@+<CR>y:!(pbpaste \| ~/.canelhasmateus/lib/eval.py \| pbcopy)<CR>gvP:let @+ = @b<CR>
-vmap <leader>x :let @b=@+<CR>y:!(pbpaste \| ~/.canelhasmateus/lib/eval.py \| pbcopy)<CR>gvP:let @+=@b<CR>
+map <leader>x viv:let @b=@+<CR>gvy:!(pbpaste \| ~/.canelhasmateus/lib/eval.py \| pbcopy)<CR>gvP:let @+=@b<CR>
+vmap <leader>x :let @b=@+<CR>gvy:!(pbpaste \| ~/.canelhasmateus/lib/eval.py \| pbcopy)<CR>gvP:let @+=@b<CR>
 
 """ Experimental -----------------------------------------
 
@@ -386,3 +388,4 @@ map <leader>. @@
 """ Quick change scapehatch
 
 map <leader>24 <Esc>
+vnoremap md <Esc>/=\s*\zs\_.\{-}\ze;<CR>gn

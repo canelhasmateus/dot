@@ -27,7 +27,7 @@ set scrolljump=0
 
 set clipboard+=unnamed
 "set digraph
-"set iskeyword
+set iskeyword+=-
 
 if !has('nvim') && !has('ide')
 
@@ -244,7 +244,7 @@ vnoremap eml <Esc>`>]wa
 vnoremap emj <Esc>`<[bi
 
 " Experimental
-function MoveTo()
+function! MoveTo()
     normal! /,<CR>i
 endfunction
 
@@ -546,7 +546,7 @@ vnoremap m; /;<CR>
 
 """ Java - move definition
 nnoremap md /;<CR>?=\s*\zs\_.\{-}\ze;<CR>gn
-vnoremap md <Esc>/;/e-1<CR>?=\s*\zs\_.\{-}\ze;<CR>gn
+vnoremap md <Esc>/=\s*\zs\_.\{-}\ze;<CR>gn
 nnoremap mD ?;<CR>?=\s*\zs\_.\{-}\ze;<CR>gn
 vnoremap mD <Esc>?;<CR>?=\s*\zs\_.\{-}\ze;<CR>gn
 
@@ -585,4 +585,4 @@ endif
 "todo https://vimhelp.org/motion.txt.html#jump-motions
 
 nnoremap <leader>r :w<CR>:!remark % --output --quiet<CR>
-
+echo "Reloaded"

@@ -9,7 +9,7 @@
     "editor.cursorWidth": 3,
     "editor.find.autoFindInSelection": "multiline",
     "editor.find.seedSearchStringFromSelection": "selection",
-    "editor.fontFamily": "'JetBrainsMono NF', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
     "editor.fontLigatures": true,
     "editor.fontSize": 16,
     "editor.fontWeight": "normal",

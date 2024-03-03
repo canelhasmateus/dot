@@ -31,8 +31,8 @@ anoremap("<C-z>", "u")
 inoremap("<C-z>", "<ESC>:undo<CR>i")
 
 nnoremap("<S-<ESC>>", "<Esc>")
-nnoremap("<A-w>p", ":NvimTreeToggle<CR>")
-nnoremap("<A-w><A-p>", ":NvimTreeFindFileToggle<CR>")
+nnoremap("<leader>wp", ":NvimTreeToggle<CR>")
+nnoremap("<leader>wP", ":NvimTreeFindFileToggle<CR>")
 vnoremap("el", "<Esc>`>a")
 vnoremap("ej", "<Esc>`<i")
 nnoremap("eo", "%a")
@@ -46,6 +46,4 @@ nnoremap("np", ":Telescope project<CR>")
 nnoremap("rr" , ":lua vim.lsp.buf.format({ timeout_ms = 2000 })<CR>")
 inoremap("<C-BS>", "<Esc>dbi")
 inoremap("<C-Del>", "<Esc>dwi")
-
-
 

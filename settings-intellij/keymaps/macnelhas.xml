@@ -143,9 +143,6 @@
   <action id="ChangeSignature">
     <keyboard-shortcut first-keystroke="alt r" second-keystroke="s" />
   </action>
-  <action id="ChangeSplitOrientation">
-    <keyboard-shortcut first-keystroke="alt z" second-keystroke="o" />
-  </action>
   <action id="ChangeTypeSignature">
     <keyboard-shortcut first-keystroke="alt r" second-keystroke="t" />
   </action>
@@ -514,9 +511,6 @@
   <action id="EditorSplitLine" />
   <action id="EditorSwapSelectionBoundaries">
     <keyboard-shortcut first-keystroke="alt e" second-keystroke="shift i" />
-  </action>
-  <action id="EditorTabsGroup">
-    <keyboard-shortcut first-keystroke="alt z" second-keystroke="tab" />
   </action>
   <action id="EditorTextEnd">
     <keyboard-shortcut first-keystroke="alt n" second-keystroke="meta k" />
@@ -897,9 +891,6 @@
   </action>
   <action id="NextEditorTab" />
   <action id="NextOccurence" />
-  <action id="NextSplitter">
-    <keyboard-shortcut first-keystroke="alt z" second-keystroke="m" />
-  </action>
   <action id="NextTab" />
   <action id="NotebookRunAllAction">
     <keyboard-shortcut first-keystroke="meta alt enter" />
@@ -932,13 +923,7 @@
   </action>
   <action id="PerforceDirect.Edit" />
   <action id="Play2.TypeInfo" />
-  <action id="PlaySavedMacrosAction">
-    <keyboard-shortcut first-keystroke="alt a" second-keystroke="quote" />
-  </action>
   <action id="PopupHector" />
-  <action id="PrevSplitter">
-    <keyboard-shortcut first-keystroke="alt z" second-keystroke="shift m" />
-  </action>
   <action id="PreviousDiff">
     <keyboard-shortcut first-keystroke="shift f7" />
     <keyboard-shortcut first-keystroke="meta alt i" />
@@ -1220,9 +1205,6 @@
   <action id="SmartTypeCompletion">
     <keyboard-shortcut first-keystroke="alt d" second-keystroke="alt d" />
   </action>
-  <action id="SplitVertically">
-    <keyboard-shortcut first-keystroke="alt z" second-keystroke="n" />
-  </action>
   <action id="StartStopMacroRecording">
     <keyboard-shortcut first-keystroke="f9" />
   </action>
@@ -1319,12 +1301,6 @@
   <action id="Uml.ExpandNodes" />
   <action id="Uml.ShowDiff" />
   <action id="UnselectPreviousOccurrence" />
-  <action id="Unsplit">
-    <keyboard-shortcut first-keystroke="alt z" second-keystroke="d" />
-  </action>
-  <action id="UnsplitAll">
-    <keyboard-shortcut first-keystroke="alt z" second-keystroke="back_space" />
-  </action>
   <action id="Unwrap">
     <keyboard-shortcut first-keystroke="alt r" second-keystroke="close_bracket" />
   </action>
