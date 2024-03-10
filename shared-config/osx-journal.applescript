@@ -2,7 +2,7 @@ tell application "System Events" to set frontBundleId to bundle identifier of fi
 
 tell application "iTerm"
 	launch
-	set newWindow to (create window with default profile command "~/.canelhasmateus/config/osx-journal.sh")
+	set newWindow to (create window with default profile command "~/.canelhasmateus/config/tmux-personal.sh")
 	
 	repeat while newWindow exists
 		delay 0.01

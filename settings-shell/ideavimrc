@@ -1,0 +1,393 @@
+:source ~/.vimrc
+
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'chrisbra/matchit'
+Plug 'dbakker/vim-paragraph-motion'
+
+Plug 'tpope/vim-surround'
+Plug 'tommcdo/vim-exchange'
+Plug 'machakann/vim-highlightedyank'
+let g:highlightedyank_highlight_duration = "1000"
+let g:highlightedyank_highlight_color = "rgba(100, 160, 100, 100)"
+
+Plug 'easymotion/vim-easymotion'
+let g:EasyMotion_do_mapping = 0
+
+Plug 'terryma/vim-multiple-cursors'
+
+"""Plug 'preservim/nerdtree'
+"""Plug 'terryma/vim-multiple-cursor'
+"""Plug 'tpope/vim-commentary'
+"""Plug 'vim-scripts/ReplaceWithRegisters
+"""Plug 'vim-scripts/argtextobj.vim'
+"""let g:argtextobj_pairs="[:],(:),<:>"
+"""set sneak
+"""set quickscope
+"""let g:match_words = '<:>,<tag>:</tag>'
+
+set ideamarks
+set ideajoin
+set idearefactormode=select
+set incsearch!
+
+sethandler <ESC> a:ide
+sethandler <C-x> a:ide
+sethandler <A-F> a:ide
+sethandler <A-S> a:ide
+sethandler <A-e> a:ide
+sethandler <A-E> a:ide
+sethandler <M-e> a:ide
+sethandler <M-E> a:ide
+sethandler <A-f> a:ide
+sethandler <C-I> a:ide
+sethandler <C-B> a:ide
+sethandler <C-L> a:ide
+sethandler <A-N> a:ide
+sethandler <C-P> a:ide
+sethandler <C-R> a:ide
+sethandler <C-U> a:ide
+sethandler <A-X> a:ide
+sethandler <C-\> a:ide
+sethandler <M-F> a:ide
+sethandler <M-n> a:ide
+sethandler <C-w> a:ide
+sethandler <C-D> a:ide
+sethandler <C-c> a:ide
+sethandler <C-s> a:ide
+sethandler <C-]> a:ide
+sethandler <C-[> a:ide
+sethandler <C-v> a:ide
+sethandler <C-A> a:ide
+
+sethandler <M-A> a:ide
+sethandler <A-Right> a:vim
+sethandler <S-A-Right> a:vim
+sethandler <A-Left> a:vim
+sethandler <S-A-Left> a:vim
+
+""" Overrides ------------------------------------------------
+
+map I <Action>(EditorSelectWord)
+map K <Action>(EditorUnSelectWord)
+map gq <Action>(FillParagraph)
+
+"" ____________________ [Q] prefix controls [Q]uick commands
+
+map qq <Action>(ShowIntentionActions)
+map qw <Action>(ShowErrorDescription)
+map qd <Action>(QuickJavaDoc)
+
+map qo <Plug>(MatchitMotion)
+map qO <Plug>(ReverseMatchitMotion)
+
+map qu <Plug>(ParagraphPrevMotion)
+map qp <Plug>(ParagraphNextMotion)
+
+map qh <Action>(GotoPreviousError)
+map qç <Action>(GotoNextError)
+
+map qj <Action>(Back)
+map ql <Action>(Forward)
+
+map qJ <Action>(JumpToLastChange)
+map QJ <Action>(JumpToLastChange)
+
+map qL <Action>(JumpToNextChange)
+map QL <Action>(JumpToNextChange)
+
+map qq <Action>(QuickEvaluateExpression)
+map qe <Action>(EvaluateExpression)
+
+map qm <Action>(ToggleBookmark)
+map qn <Action>(GotoNextBookmark)
+map qN <Action>(GotoPreviousBookmark)
+map QN <Action>(GotoPreviousBookmark)
+
+""" ____________________ [W] prefix is for [W]ord movement
+
+""" ____________________ [E] prefix controls [E]dit cursor
+
+""" ____________________ [R] prefix controls [R]efactoring
+
+map rf <Action>(ExtractMethod)
+map rF <Action>(IntentionActionAsAction_com.intellij.codeInsight.daemon.impl.quickfix.DefineParamsDefaultValueAction)
+map rv <Action>(IntroduceVariable)
+map rk <Action>(IntroduceConstant)
+map ra <Action>(IntroduceField)
+map ri <Action>(Inline)
+map rI <Action>(IntentionActionAsAction_com.intellij.codeInsight.intention.impl.AddSingleMemberStaticImportAction)
+map rb <Action>(IntentionActionAsAction_com.intellij.refactoring.replaceConstructorWithBuilder.ReplaceConstructorWithBuilderAction)
+map rp <Action>(IntroduceParameter)
+
+map r<Del> <Action>(SafeDelete)
+map r<Backspace> <Action>(SafeDelete)
+map rs <Action>(ChangeSignature)
+map rn <Action>(RenameElement)
+map rm <Action>(Move)
+
+map rd <Action>(EditorDuplicate)
+
+map rj <Action>(EditorJoinLines)
+map rD <Action>(IntentionActionAsAction_com.intellij.codeInsight.intention.impl.AddJavadocIntention)
+
+map ru <Action>(EditorToggleCase)
+map rr <Action>(ReformatCode)
+map rO <Action>(OptimizeImports)
+
+map rx <Action>(OverrideMethods)
+map r<up> <Action>(MembersPullUp)
+map rS <Action>(ExtractSuperclass)
+map rt <Action>(ExtractInterface)
+map rT <Action>(ChangeTypeSignature)
+
+
+vnoremap r. :s/)\./)\r./g<CR>:action ReformatCode<CR>
+vnoremap r, :s/,/,\r/g<CR>:action ReformatCode<CR>
+vnoremap r<space> :s/ / \r/g<CR>
+
+""" ____________________ [T] prefix is unmodified
+
+""" ____________________ [Y] prefix is for yanking
+
+""" ____________________ [U] prefix is unmodified
+
+""" ____________________ [I] prefix is directional
+
+""" ____________________ [O] prefix Controls [O]penings and [O]verlays
+map ow <Action>(CloseContent)
+map ox <Action>(FileStructurePopup)
+map oF <Action>(StructuralSearchPlugin.StructuralSearchAction)
+map on <Action>(ShowNavBar)
+map op <Action>(PasteMultiple)
+vmap od <Action>(ShowBlankDiffWindow)
+
+map oq <Action>(ShowBookmarks)
+map ol <Action>(RecentLocations)
+
+map or <Action>(RecentFiles)
+map oe <Action>(RecentChangedFiles)
+
+map oS <Action>(ChooseDebugConfiguration)
+map os <Action>(ChooseRunConfiguration)
+
+map ot <Action>(ImportTests)
+map oT <Action>(ShowRecentTests)
+
+map ou <Action>(LocalHistory.ShowHistory)
+vmap ou <Action>(LocalHistory.ShowSelectionHistory)
+map oU <Action>(UML.ShowChanges)
+
+""" ____________________ [P] prefix controls [P]asting
+
+""" __________________________________________________________________________________________________________________________________________________
+
+""" ____________________ [A] prefix is open
+
+""" ____________________ [S] Prefix Controls [S]elections and [S]urround
+
+map ss <Action>(SurroundWith)
+map su <Action>(Unwrap)
+
+""" ____________________ [D] Prefix Controls [D]eletions
+
+""" ____________________ [F] Prefix Controls [F]ind
+
+map <A-f><A-f> <Action>(Find)
+map <A-f><f> <Action>(Find)
+map fp <Plug>(easymotion-jumptoanywhere)
+map fn <Action>(AceWordStartAction)
+map fu <Action>(ShowUsages)
+
+""" Possibly use a single keystroke
+map fl <Plug>(easymotion-w)
+map fj <Plug>(easymotion-b)
+map fç <Plug>(easymotion-eol-j)
+map fh <Plug>(easymotion-sol-k)
+
+""" Probably remove and make more space, since f* is __premium__ realstate
+map fL <Plug>(easymotion-e)
+map fJ <Plug>(easymotion-ge)
+
+""" ____________________ [G] Prefix is [G]it
+map gi <Action>(VcsShowPrevChangeMarker)
+map gk <Action>(VcsShowNextChangeMarker)
+map gy <Action>(Bitbucket.CopyFileUrlInBitbucket)
+vmap gp <Action>(CompareClipboardWithSelection)
+
+map gm <Action>(Diff.FocusOppositePane)
+map gu <Action>(Vcs.RollbackChangedLines)
+nmap go <Action>(Vcs.ShowDiffChangedLines)
+
+map g< <Action>(Diff.ApplyRightSide)
+map g> <Action>(Diff.ApplyLeftSide)
+nmap gs <Action>(Vcs.MoveChangedLinesToChangelist)
+vmap gd <Action>(Compare.Selected)
+
+""" ____________________ [H] Prefix is directional ( Home )
+""" ____________________ [J] Prefix is directional ( Left )
+""" ____________________ [K] Prefix is directional ( Down )
+""" ____________________ [L] Prefix is directional ( Right )
+""" ____________________ [Ç] Prefix is directional ( End )
+
+"""___________________________________________________________________________________________________________________________________________________
+
+""" ________________________________ [Z] prefix controls [Z]ooming, [Z]ips and Scroll
+map zn <Action>(SplitVertically)
+map zN <Action>(SplitHorizontally)
+map zo <Action>(ChangeSplitOrientation)
+map ze <Action>(IntentionActionAsAction_com.intellij.codeInsight.intention.impl.QuickEditAction)
+map zE <Action>(EditSourceInNewWindow)
+""" Possibly use zu and zp if map zç and zh to base scrolls?
+map zm <Action>(NextSplitter)
+map zM <Action>(PrevSplitter)
+
+""" zl and zj are already used and zj are already for scrolling left and right
+map ZJ <Action>(StretchSplitToLeft)
+map ZL <Action>(StretchSplitToRight)
+map ZK <Action>(StretchSplitToBottom)
+map ZI <Action>(StretchSplitToTop)
+
+map zd <Action>(Unsplit)
+map z<Del> <Action>(Unsplit)
+
+map zD <Action>(UnsplitAll)
+map z<Backspace> <Action>(UnsplitAll)
+
+""" ________________________________ [X] prefix controls code and meta stuff
+vmap xx <Plug>(Exchange)
+nmap xx viw<Plug>(Exchange)
+nnoremap xc xph
+nnoremap xw dawep
+
+map xi <Action>(MethodUp)
+map xk <Action>(MethodDown)
+
+vmap xj <Action>(CollapseSelection)
+
+map x <Action>(CollapseAllRegions)
+map x9 <Action>(ExpandAllRegions)
+map x1 <Action>(ExpandAllToLevel1)
+map x2 <Action>(ExpandAllToLevel2)
+map x3 <Action>(ExpandAllToLevel3)
+map x4 <Action>(ExpandAllToLevel4)
+
+""" ________________________________ [C] prefix controls [C]hanging
+
+""" ________________________________ [V] prefix controls [V]isual selections
+
+""" ________________________________ [B] prefix is unmodified
+
+""" ________________________________ [N] prefix controls [N]avigation
+
+" remember: nnoremap nn n
+map nc <Action>(GotoClass)
+map nf <Action>(GotoFile)
+map ns <Action>(GotoSymbol)
+map nl <Action>(GotoLine)
+
+map nt <Action>(GotoTest)
+map nd <Action>(GotoDeclaration)
+map nD <Action>(GotoTypeDeclaration)
+map ni <Action>(GotoImplementation)
+map nS <Action>(GotoSuperMethod)
+map nr <Action>(GotoRelated)
+
+""" ________________________________ [M] prefix controls [M]ovements
+
+"""___________________________________________________________________________________________________________________________________________________
+
+""" Meta -------------------------------------------------
+
+map <leader>vii :e ~/.vimrc<CR>
+map <leader>vim :e ~/.ideavimrc<CR>
+map <leader>wr <Action>(IdeaVim.ReloadVimRc.reload)
+map <leader>x viv:let @b=@+<CR>gvy:!(pbpaste \| ~/.canelhasmateus/lib/eval.py \| pbcopy)<CR>gvP:let @+=@b<CR>
+vmap <leader>x :let @b=@+<CR>gvy:!(pbpaste \| ~/.canelhasmateus/lib/eval.py \| pbcopy)<CR>gvP:let @+=@b<CR>
+
+""" Experimental -----------------------------------------
+
+" Literal insertion
+nnoremap <leader><Tab> i<C-v><Tab><Esc>
+
+""" [G]
+""" map oG <Action>(Bitbucket.OpenFileInBitbucket)
+map <leader>oh <Action>(QuickList.Hierarchies)
+map <leader>oo <Action>(QuickList.Head)
+map <leader>oq <Action>(QuickList.Bookmarks)
+map <leader>oy <Action>(QuickList.Copy)
+
+""" [V]
+vmap v<Del> <Plug>SkipOccurrence
+vmap v<Backspace> <Plug>RemoveOccurrence
+vmap vi <Plug>RemoveOccurrence
+vmap vk <Plug>NextOccurrence
+vmap vK <Plug>AllOccurrences
+
+""" [T]
+map ti <Action>(NotebookSelectCellAboveAction)
+map tk <Action>(NotebookSelectCellBelowAction)
+
+map tI <Action>(NotebookInsertCellAboveAction)
+map tK <Action>(NotebookInsertCellBelowAction)
+
+map td <Action>(NotebookDeleteCellAction)
+map tt <Action>(JupyterConvertCellActions)
+map tx <Action>(NotebookSplitCellAction)
+map tX <Action>(NotebookMergeCellAboveAction)
+
+" [A] layer
+noremap an <C-a>
+noremap aN <C-x>
+noremap am g<C-a>
+noremap aM g<C-x>
+
+""" [S]
+set multicursor
+nnoremap mc <Nop>
+vnoremap mc <Nop>
+nnoremap ms <Nop>
+vnoremap ms <Nop>
+
+vmap ? <Plug>(multicursor-ms/)
+vmap sç <Action>(EditorAddCaretPerSelectedLine)
+
+""" --------------------------------------------------
+""" [TODO]
+"""Macros
+"""completions
+"""codewithme
+"""tasks
+"""quick lists
+"""templates
+"""postfixes
+""" multicursor
+"""vmap rJ :s/\n\n/\n<CR> some saved regexes
+
+"""map gK <Action>(Majera.CodeReview.Bitbucket.NextCommentInOrdinaryEditor)
+"""map gI <Action>(Majera.CodeReview.Bitbucket.PrevCommentInOrdinaryEditor)
+""" EditorMatchBrace
+"""map zO zhzçzDznqjqjzh
+
+""" [USE MORE]
+"""map on <Action>(ShowNavBar)
+"""map oT <Action>(ShowRecentTests)
+"""map oI <Action>(RunInspection) """ oi is invert, but maybe change it to ov?
+"""map ou <Action>(LocalHistory.ShowHistory)
+"""map oU <Action>(UML.ShowChanges)
+"""map fL <Plug>(easymotion-e)
+"""map fJ <Plug>(easymotion-ge)
+
+map <leader>oi <Action>(QuickList.Inspections)
+map <leader>og <Action>(QuickList.Git)
+map <leader>oj <Action>(QuickList.Java)
+map <leader>ob <Action>(QuickList.Build)
+map <leader>of <Action>(QuickList.Find)
+map <leader>ox <Action>(QuickList.Analyze)
+map <leader>or <Action>(QuickList.Refactor)
+map <leader>m <Action>(SelectIn)
+map <leader>. @@
+
+""" Quick change scapehatch
+
+map <leader>24 <Esc>
+vnoremap md <Esc>/=\s*\zs\_.\{-}\ze;<CR>gn
