@@ -1,3 +1,6 @@
 #! /bin/zsh
 source ~/.canelhasmateus/lib/source-zsh.sh
-tmux new-session -A -s docs
+cd nisi
+filename="$(date +"%Y-%m-%d").md"
+touch "$filename"
+tmux new-session -A -s docs "nvim -O $filename ./docs/todo.md"

@@ -391,7 +391,16 @@ vnoremap r, :s/,/,\r/g<CR>gq
 "     noremap fy "/y
 "     noremap <A-f>f /
 
-""" ____________________ [G] Prefix is undefined
+""" ____________________ [G] Prefix is for [G]it and diffs
+
+nnoremap gk ]c 
+nnoremap gi [c 
+
+nnoremap g> <Cmd>diffget<CR>
+vnoremap g> <Cmd>diffget<CR>
+nnoremap g< <Cmd>diffput<CR>
+vnoremap g< <Cmd>diffput<CR>
+
 """ ____________________ [H] Prefix is directional ( Home )
 """ ____________________ [J] Prefix is directional ( Left )
 """ ____________________ [K] Prefix is directional ( Down )
