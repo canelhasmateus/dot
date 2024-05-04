@@ -112,6 +112,7 @@ return {
 			vim.keymap.set("n", "<leader>wg", function()
 				if next(require("diffview.lib").views) == nil then
 					vim.cmd("DiffviewOpen")
+					actions.toggle_files()
 				else
 					vim.cmd("DiffviewClose")
 				end

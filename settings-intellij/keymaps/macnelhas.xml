@@ -24,6 +24,9 @@
   <action id="$Undo">
     <keyboard-shortcut first-keystroke="meta z" />
   </action>
+  <action id="AIAssistant.Editor.CompleteCodeWithAI">
+    <keyboard-shortcut first-keystroke="alt d" second-keystroke="a" />
+  </action>
   <action id="AceAction">
     <keyboard-shortcut first-keystroke="alt f" second-keystroke="tab" />
   </action>
@@ -133,6 +136,10 @@
   <action id="Back">
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="left" />
     <keyboard-shortcut first-keystroke="alt q" second-keystroke="j" />
+  </action>
+  <action id="Bitbucket.CopyFileUrlInBitbucket">
+    <keyboard-shortcut first-keystroke="shift ctrl x" second-keystroke="c" />
+    <keyboard-shortcut first-keystroke="alt g" second-keystroke="y" />
   </action>
   <action id="BookmarksView.Rename">
     <keyboard-shortcut first-keystroke="alt r" second-keystroke="n" />

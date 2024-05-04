@@ -386,8 +386,8 @@ map <leader>ox <Action>(QuickList.Analyze)
 map <leader>or <Action>(QuickList.Refactor)
 map <leader>m <Action>(SelectIn)
 map <leader>. @@
+noremap <leader>m m
 
 """ Quick change scapehatch
-
-map <leader>24 <Esc>
-vnoremap md <Esc>/=\s*\zs\_.\{-}\ze;<CR>gn
+map <leader>25 <Esc>
+nnoremap viv g^vg$

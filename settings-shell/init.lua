@@ -44,6 +44,9 @@ vim.opt.clipboard = "unnamedplus"
 -- Enable break indent
 vim.opt.breakindent = true
 
+-- Enable gui colors
+vim.opt.termguicolors = true
+
 -- Save undo history
 vim.opt.undofile = true
 
@@ -107,7 +110,14 @@ vim.g.rustaceanvim = {
 	tools = { enable_clippy = true },
 	server = {
 		settings = {
-			["rust-analyzer"] = { cargo = { extraArgs = { "--profile=test" } } },
+			["rust-analyzer"] = {
+				checkOnSave = {
+					allFeatures = true,
+					command = "clippy",
+					extraArgs = { "--no-deps", "--profile=test" },
+				},
+				cargo = { extraArgs = { "--profile=test" } },
+			},
 		},
 	},
 }
@@ -122,6 +132,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
 	"tpope/vim-sleuth",
+	"dbakker/vim-paragraph-motion",
+
 	{ "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = { signs = false } },
 	{
 		-- TODO: Understand how this work, and properly document every keybind I have.
@@ -139,14 +151,22 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"folke/tokyonight.nvim",
-		lazy = false,
+		"catppuccin/nvim",
+		name = "catppuccin",
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("tokyonight-storm")
-			vim.cmd.hi("Comment gui=none")
+			vim.cmd.colorscheme("catppuccin-macchiato")
 		end,
 	},
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.cmd.colorscheme("tokyonight-storm")
+	-- 		vim.cmd.hi("Comment gui=none")
+	-- 	end,
+	-- },
 	{
 		"numToStr/Comment.nvim",
 		config = function()
@@ -205,21 +225,25 @@ require("lazy").setup({
 			-- See `:help telescope.builtin`
 			local builtin = require("telescope.builtin")
 
-			vim.keymap.set("n", "or", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-			vim.keymap.set("n", "of", builtin.buffers, { desc = "[ ] Find existing buffers" })
-			vim.keymap.set("n", "ol", builtin.jumplist, { desc = "[ ] Find existing buffers" })
-			vim.keymap.set("n", "oa", builtin.commands, { desc = "[ ] Find existing buffers" })
-			vim.keymap.set("n", "o:", builtin.command_history, { desc = "[ ] Find existing buffers" })
+			vim.keymap.set("n", "or", builtin.oldfiles, { desc = "[O]earch [R]ecent" })
+			vim.keymap.set("n", "of", builtin.buffers, { desc = "[O]pen [F]iles" })
+			vim.keymap.set("n", "ol", builtin.jumplist, { desc = "[O]pen [L]ocations" })
+			vim.keymap.set("n", "oa", builtin.commands, { desc = "[O]pen [A]ctions" })
+
+			vim.keymap.set("n", "o:", builtin.command_history, { desc = "[O]pen [:]command history" })
+			vim.keymap.set("n", "o'", builtin.registers, { desc = "[O]pen [']registers" })
+			vim.keymap.set("c", "<C-r>", builtin.command_history, { desc = "Command history" })
+
 			-- vim.keymap.set("n", "oD", builtin.tagstack, { desc = "[ ] Find existing buffers" })
 			vim.keymap.set("n", "oQ", builtin.quickfix, { desc = "[ ] Find existing buffers" })
+			vim.keymap.set("n", "oç", builtin.diagnostics, { desc = "[O]pen Errors[ç]" })
 
 			vim.keymap.set("n", "nf", builtin.find_files, { desc = "[S]earch [F]iles" })
-			vim.keymap.set("n", "nq", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 
 			vim.keymap.set("n", "n.", builtin.resume, { desc = "[S]earch [R]esume" })
 			vim.keymap.set("n", "n?", builtin.help_tags, { desc = "[S]earch [H]elp" })
 
-			vim.keymap.set("n", "<leader>nt", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
+			vim.keymap.set("n", "oo", builtin.builtin, { desc = "[O]pen [O]verlay Telescope" })
 
 			vim.keymap.set("n", "đk", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 			vim.keymap.set("n", "đF", builtin.live_grep, { desc = "[S]earch by [G]rep" })
@@ -227,10 +251,11 @@ require("lazy").setup({
 
 			vim.keymap.set("n", "nT", function()
 				-- You can pass additional configuration to telescope to change theme, layout, etc.
-				builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+				require("telescope.themes").get_dropdown({
 					winblend = 10,
 					previewer = false,
-				}))
+				})
+				builtin.current_buffer_fuzzy_find()
 			end, { desc = "[/] Fuzzily search in current buffer" })
 
 			-- Also possible to pass additional configuration options.
@@ -273,7 +298,7 @@ require("lazy").setup({
 				callback = function(event)
 					local telescope = require("telescope.builtin")
 					local map = function(keys, func, desc)
-						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+						vim.keymap.set({ "n", "x" }, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 
 					map("nd", telescope.lsp_definitions, "[G]oto [D]efinition")
@@ -283,6 +308,7 @@ require("lazy").setup({
 					map("ox", telescope.lsp_document_symbols, "[D]ocument [S]ymbols")
 					map("ns", telescope.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
+					map("rn", vim.lsp.buf.rename, "[R]e[n]ame")
 					map("rn", vim.lsp.buf.rename, "[R]e[n]ame")
 					map("qq", vim.lsp.buf.code_action, "[C]ode [A]ction")
 					map("qd", vim.lsp.buf.hover, "Hover Documentation")
@@ -302,7 +328,7 @@ require("lazy").setup({
 							})
 						end
 
-						vim.lsp.inlay_hint.enable(event.buf)
+						-- vim.lsp.inlay_hint.enable(event.buf)
 					end
 				end,
 			})
@@ -698,7 +724,56 @@ require("lazy").setup({
 	--    For additional information see: :help lazy.nvim-lazy.nvim-structuring-your-plugins
 	-- { import = 'custom.plugins' },
 
+	{
+		"numToStr/FTerm.nvim",
+		config = function()
+			local ft = require("FTerm")
+			ft.setup({
+				autoclose = false,
+			})
+
+			vim.keymap.set({ "n" }, "<leader>wt", ft.toggle)
+			vim.keymap.set({ "t" }, "<C-q>", ft.toggle)
+			vim.keymap.set({ "n" }, "<leader>wT", ft.scratch)
+		end,
+	},
+	{
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+		config = function()
+			local harpoon = require("harpoon")
+			harpoon:setup({})
+			-- stylua: ignore start
+			vim.keymap.set("n", "qm", function() harpoon:list():append() end)
+			vim.keymap.set("n", "µ", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
+			vim.keymap.set("n", "ʝ", function() harpoon:list():select(1) end)
+			vim.keymap.set("n", "ĸ", function() harpoon:list():select(2) end)
+			vim.keymap.set("n", "ł", function() harpoon:list():select(3) end)
+			vim.keymap.set("n", "ł", function() harpoon:list():select(4) end)
+
+			-- Toggle previous & next buffers stored within Harpoon list
+			vim.keymap.set("n", "ħ", function() harpoon:list():prev() end)
+			vim.keymap.set("n", "·", function() harpoon:list():next() end)
+			-- stylua: ignore end
+		end,
+	},
 	require("vcs"),
+	{
+		"chrisgrieser/nvim-spider",
+		config = function()
+			local spider = require("spider")
+			spider.setup()
+			vim.keymap.set({ "n", "o", "x" }, "me", function()
+				spider.motion("w")
+			end)
+			vim.keymap.set({ "n", "o", "x" }, "mE", function()
+				spider.motion("b")
+			end)
+		end,
+	},
+	-- { "kevinhwang91/nvim-bqf" },
 }, {})
 
 -- vim: set sts=4 ts=4 sw=4:

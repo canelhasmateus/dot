@@ -35,10 +35,10 @@ bindkey '^[[17~' kill-word
 #bindkey '^[^D' menu-expand-or-complete
 
 # Shell History
-alias f='fzf'
 alias ls='eza'
 alias cat='bat'
 alias grep='rg'
+# alias find='fd --type f'
 eval "$(zoxide init --cmd cd zsh)"
 
 # fzf search
@@ -49,12 +49,27 @@ if [ -e "$fzf/opt/fzf/shell/completion.zsh" ]; then
 
 	source "$fzf/opt/fzf/shell/completion.zsh"
 	source "$fzf/opt/fzf/shell/key-bindings.zsh"
+	FD_OPTIONS="--hidden --follow --exclude .git --exclude node_modules"
+	export FZF_DEFAULT_OPTS="--no-mouse --height 50% -1 --reverse --multi --inline-info \
+		--preview='(bat --style=numbers --color=always {}) | head -300' \
+		--preview-window='right:hidden:wrap'\
+		"
+	export FZF_DEFAULT_COMMAND="fd --type f --type l $FD_OPTIONS"
+	export FZF_CTRL_T_COMMAND="fd $FD_OPTIONS"
 
-	which rg &>/dev/null && {
-		export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-		export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-	}
+	# export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+	# --color=fg:#c0caf5,bg:#24283b,hl:#ff9e64 \
+	# --color=fg+:#c0caf5,bg+:#292e42,hl+:#ff9e64 \
+	# --color=info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff \
+	# --color=marker:#9ece6a,spinner:#9ece6a,header:#9ece6a"
+
 fi
+
+function cargo_generate() {
+	choices="$(cargo test -- --list --format=terse | awk {'print substr($1, 1, length($1)-1)'} | fzf | tr '\n' ' ')"
+	print -z "cargo test -- $choices --exact"
+}
+alias ct=cargo_generate
 
 # Todos
 # brew install zsh-syntax-highlighting

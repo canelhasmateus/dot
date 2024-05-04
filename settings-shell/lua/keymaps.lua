@@ -8,11 +8,6 @@ vim.keymap.set("n", "<leader>wr", function()
 	vim.cmd("source ~/.config/nvim/lua/keymaps.lua")
 end)
 
-vim.keymap.set("n", "zl", "<C-W><Right>")
-vim.keymap.set("n", "zj", "<C-W><Left>")
-vim.keymap.set("n", "zL", "zo")
-vim.keymap.set("n", "zJ", "zc")
-
 vim.keymap.set({ "n", "x" }, "nF", "gf")
 vim.keymap.set({ "n", "x" }, "rj", "J")
 

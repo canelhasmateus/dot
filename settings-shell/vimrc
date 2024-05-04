@@ -169,12 +169,12 @@ nnoremap qq <Esc>
 vnoremap qq <Esc>
 
 nnoremap qo %
-nnoremap qu {
-nnoremap qp }
+nmap qu {
+nmap qp }
 
 vnoremap qo %
-vnoremap qu {
-vnoremap qp }
+vmap qu {
+vmap qp }
 
 nnoremap qi <C-U>
 nnoremap qk <C-D>
@@ -256,9 +256,11 @@ function! MoveTo()
 endfunction
 
 nnoremap e, /,<CR>i
-nnoremap e. /.<CR>i
+nnoremap e. /\.<CR>i
 nnoremap e; /;<CR>i
 nnoremap e) /)<CR>i
+nnoremap e} /}<CR>i
+nnoremap e{ /{<CR>i
 nnoremap e( /(<CR>i
 nnoremap e? /?<CR>i
 nnoremap e= /=<CR>i
@@ -276,6 +278,7 @@ nnoremap rr gq
 vnoremap rr gq
 
 vnoremap r> :sort i<CR>
+vnoremap r≥ :!perl -e 'print sort { length($a) <=> length($b) } <>'<CR>
 vnoremap r< :sort! i<CR>
 
 nnoremap rd "ayy"ap
@@ -416,8 +419,8 @@ nnoremap zi zb
 vnoremap zi zb
 nnoremap zk zt
 vnoremap zk zt
-nnoremap zl zL
-nnoremap zj zH
+nnoremap zh zH
+nnoremap zç zL
 
 nnoremap zn <C-W>v
 nnoremap zN <C-W>s
@@ -428,7 +431,12 @@ nnoremap zo <C-W>p
 nnoremap zO <C-W>r
 nnoremap zI <C-W><C-o>
 nnoremap z, <C-W><C-Q>
+nnoremap zl <C-W><Right>
+nnoremap zj <C-W><Left>
 
+" folds
+nnoremap zL zo
+nnoremap zJ zc
 """ ________________________________ [X] prefix controls code stuff
 
 nnoremap x <Nop>
@@ -593,6 +601,7 @@ nnoremap M m
 """ Meta -------------------------------------------------
 
 nnoremap <leader>wr :w<CR>:source ~\.vimrc<CR>
+nnoremap <leader>s :w<CR>
 nnoremap <leader>vii :e ~/.vimrc<CR>
 nnoremap <leader>vij :e ~/.ideavimrc<CR>
 nnoremap <leader>vim :e ~/.config/nvim/init.lua<CR>
