@@ -279,7 +279,9 @@ vnoremap rr gq
 
 vnoremap r> :sort i<CR>
 vnoremap r≥ :!perl -e 'print sort { length($a) <=> length($b) } <>'<CR>
-vnoremap r< :sort! i<CR>
+vnoremap r< :!perl -e 'print reverse <>'<CR>
+vnoremap r= :!column -t<CR>
+vmap r§ r=Or≥
 
 nnoremap rd "ayy"ap
 vnoremap r. :s/)\./)\r./g<CR>
@@ -381,7 +383,7 @@ nnoremap <A-f><A-f> /
 nnoremap fs :s/
 vnoremap fs :s/
 nnoremap f. &
-vnoremap f. :&<CR>
+vnoremap f. :&&<CR>
 
 vnoremap r. :s/)\./)\r./g<CR>gq
 vnoremap r, :s/,/,\r/g<CR>gq

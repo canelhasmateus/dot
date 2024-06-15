@@ -390,4 +390,5 @@ noremap <leader>m m
 
 """ Quick change scapehatch
 map <leader>25 <Esc>
-nnoremap viv g^vg$
+
+vmap r§ r=Or≥

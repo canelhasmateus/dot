@@ -65,8 +65,9 @@ baseGroup=(
 
 	'./shared-config .canelhasmateus/config'
 	'./shared-config/osx-colima.yaml .colima/default/colima.yaml'
-	'./shared-config/osx-alacritty.yml .config/alacritty/alacritty.yml'
-	'./shared-config/osx-gradle.kts .gradle/init.d/configure-resolution-strategy.gradle'
+	'./shared-config/osx-alacrity.yml .config/alacritty/alacritty.yml'
+	'./shared-config/osx-gradle-offline.groovy .gradle/init.d/configure-resolution-strategy.gradle'
+	'./shared-config/osx-gradle-local-plugin.groovy .gradle/init.d/add-maven-local-plugin-repo.gradle'
 
 )
 linkGroup "${baseGroup[@]}"

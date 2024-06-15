@@ -107,16 +107,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.g.rustaceanvim = {
-	tools = { enable_clippy = true },
+	---@type RustaceanLspClientConfig
 	server = {
-		settings = {
+		default_settings = {
 			["rust-analyzer"] = {
-				checkOnSave = {
-					allFeatures = true,
-					command = "clippy",
-					extraArgs = { "--no-deps", "--profile=test" },
+				check = {
+					ignore = { "dead_code" },
 				},
-				cargo = { extraArgs = { "--profile=test" } },
 			},
 		},
 	},
@@ -365,6 +362,9 @@ require("lazy").setup({
 					settings = {
 						Lua = {
 							runtime = { version = "LuaJIT" },
+							diagnostics = {
+								globals = { "vim" },
+							},
 							workspace = {
 								checkThirdParty = false,
 								-- Tells lua_ls where to find all the Lua files that you have loaded
