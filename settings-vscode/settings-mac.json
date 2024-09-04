@@ -487,4 +487,5 @@
     "D2.autoUpdate": false,
     "excalidraw.theme": "auto",
     "zenMode.showTabs": "single",
+    "editor.columnSelection": true,
 }

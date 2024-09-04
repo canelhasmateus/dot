@@ -152,7 +152,7 @@ unzip "$dest" -d "$parentDir" && mv "$parentDir"/*.ttf ~/Library/Fonts
 ) >>/Users/mateus.canelhas/.zprofile
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-brew install jq rg fzf atuin eza sqlite nvim bat btop zoxide
+brew install jq rg fzf eza sqlite nvim bat btop zoxide
 brew install node python jetbrains-toolbox visual-studio-code git alt-tab iterm2
 
 echo "Finished!"
